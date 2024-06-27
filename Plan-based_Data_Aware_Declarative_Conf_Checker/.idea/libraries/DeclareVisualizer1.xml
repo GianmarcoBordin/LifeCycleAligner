@@ -1,0 +1,22 @@
+<component name="libraryTable">
+  <library name="DeclareVisualizer1">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/lib/DeclareVisualizer.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/guava-16.0.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/java-cup-11b.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/javailp-1.2a.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/lpsolve55j.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/LTL2Automaton.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/OpenXES-XStream.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/OpenXES.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$PROJECT_DIR$/lib/DeclareVisualizer.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/LTL2Automaton.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$PROJECT_DIR$/lib/DeclareVisualizer.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/LTL2Automaton.jar!/" />
+    </SOURCES>
+  </library>
+</component>

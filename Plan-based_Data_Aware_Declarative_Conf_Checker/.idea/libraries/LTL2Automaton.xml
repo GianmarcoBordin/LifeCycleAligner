@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="LTL2Automaton">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/lib/LTL2Automaton.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$PROJECT_DIR$/lib/LTL2Automaton.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$PROJECT_DIR$/lib/LTL2Automaton.jar!/" />
+    </SOURCES>
+  </library>
+</component>

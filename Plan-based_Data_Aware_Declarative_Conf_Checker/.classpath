@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.7"/>
+	<classpathentry kind="lib" path="/home/and182/workspace/Plan-based_Decl_Conf_Checker(2015-11-23)/lib/DeclareVisualizer.jar"/>
+	<classpathentry kind="lib" path="/home/and182/workspace/Plan-based_Decl_Conf_Checker(2015-11-23)/lib/guava-16.0.1.jar"/>
+	<classpathentry kind="lib" path="/home/and182/workspace/Plan-based_Decl_Conf_Checker(2015-11-23)/lib/OpenXES.jar"/>
+	<classpathentry kind="lib" path="/home/and182/workspace/Plan-based_Decl_Conf_Checker(2015-11-23)/lib/OpenXES-XStream.jar"/>
+	<classpathentry kind="lib" path="/home/and182/workspace/Plan-based_Declarative_Conf_Checker_4_Model_Learning/lib/java-cup-11b.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
