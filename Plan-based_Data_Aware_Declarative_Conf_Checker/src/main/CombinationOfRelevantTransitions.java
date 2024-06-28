@@ -120,7 +120,7 @@ public class CombinationOfRelevantTransitions {
 			
 			RelevantTransition rt = Utilities.getRelevantTransition(rtID);
 						
-			if(Constants.getAutomataSinkNonAcceptingStates_vector().contains(rt.getTarget_state()))
+			if(Container.getAutomataSinkNonAcceptingStates_vector().contains(rt.getTarget_state()))
 				contains_sink_states = true;
 			
 			precBuffer.append(rt.getPDDL_preconditions() + " ");

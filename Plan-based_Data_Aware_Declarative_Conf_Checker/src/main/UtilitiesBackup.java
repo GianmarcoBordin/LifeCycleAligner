@@ -152,16 +152,16 @@ public class UtilitiesBackup {
 	        	original_transitions_associated_to_the_label_vector.addElement(arr[hu].toString());
 	        }
 	        	        
-	        String cotID = "ct" + Constants.getCombinationOfRelevantTransitions_vector().size();
+	        String cotID = "ct" + Container.getCombinationOfRelevantTransitions_vector().size();
 	        
 	        CombinationOfRelevantTransitions cot = new CombinationOfRelevantTransitions(cotID, label, original_k_value, combination_of_relevant_transitions_vector, original_transitions_associated_to_the_label_vector);
 	                
 	        // System.out.println(cot.getId() + " -- " + cot.getLabel() + " --> " + cot.getCombination_of_transitions_vector() + " -- " + cot.getOriginal_transitions_associated_to_the_label_vector() + " -- " + cot.getPDDL_preconditions() + " -- " + cot.getPDDL_effects());
 	        	        
-	        Constants.getCombinationOfRelevantTransitions_vector().addElement(cot);
+	        Container.getCombinationOfRelevantTransitions_vector().addElement(cot);
 	        
-	        if(Constants.getMenuPerspective().getSinkStatesMenuItem().isSelected() && cot.containsSinkstates()) {
-	        	Constants.getCombinationOfRelevantTransitions_vector().removeElement(cot);
+	        if(Container.getMenuPerspective().getSinkStatesMenuItem().isSelected() && cot.containsSinkstates()) {
+	        	Container.getCombinationOfRelevantTransitions_vector().removeElement(cot);
 	        	// System.out.println("This combination of transition contains a sink state ");
 	        } 
 	        return;
@@ -207,13 +207,13 @@ public class UtilitiesBackup {
 	        // System.out.print(label + " -- ");
 	        // System.out.println(str);
 	        	        	        
-	        String cosID = "cs" + Constants.getCombinationOfAcceptingStates_vector().size();
+	        String cosID = "cs" + Container.getCombinationOfAcceptingStates_vector().size();
 	        
 	        CombinationOfAcceptingStates coas = new CombinationOfAcceptingStates(cosID, combination_of_accepting_states_vector);
 	                
 	        //System.out.println(coas.getId() + " --> " + coas.getCombinationOfAcceptingStates_vector());
 	        	        
-	        Constants.getCombinationOfAcceptingStates_vector().addElement(coas);
+	        Container.getCombinationOfAcceptingStates_vector().addElement(coas);
 	        return;
 	    }       
 	    for (int i = startPosition; i <= arr.length-len; i++){
@@ -236,22 +236,22 @@ public class UtilitiesBackup {
 		PDDL_domain_buffer.append("(currstate ?s - state)\n");			
 		PDDL_domain_buffer.append(")\n\n");			
 		
-		if(Constants.getPlannerPerspective().getCostCheckBox().isSelected()) {
+		if(Container.getPlannerPerspective().getCostCheckBox().isSelected()) {
 			PDDL_domain_buffer.append("(:functions\n");	
 			PDDL_domain_buffer.append("(total-cost)\n");			
 			PDDL_domain_buffer.append(")\n\n");		
 		}
 		
-		for(int i=0;i<Constants.getCombinationOfRelevantTransitions_vector().size();i++) {
+		for(int i = 0; i< Container.getCombinationOfRelevantTransitions_vector().size(); i++) {
 			
-			CombinationOfRelevantTransitions cot = Constants.getCombinationOfRelevantTransitions_vector().elementAt(i);
+			CombinationOfRelevantTransitions cot = Container.getCombinationOfRelevantTransitions_vector().elementAt(i);
 			String label_of_the_cot =  cot.getLabel();
 			
 			//
 			// If a combination of transitions is related to a label (i.e., to a symbol of the alphabet) not contained in the 
 			// alphabet of the trace or in the alphabet of the automata, no action will be generated for this transition.
 			//
-			if(trace.getTraceAlphabet_vector().contains(label_of_the_cot) || Constants.getAlphabetOfTheConstraints_vector().contains(label_of_the_cot)) {
+			if(trace.getTraceAlphabet_vector().contains(label_of_the_cot) || Container.getAlphabetOfTheConstraints_vector().contains(label_of_the_cot)) {
 				
 				//
 				// Generate an ADD action for any combination of transitions
@@ -271,11 +271,11 @@ public class UtilitiesBackup {
 				PDDL_domain_buffer.append(":effect (and ");
 				PDDL_domain_buffer.append(cot.getPDDL_effects());
 				
-				if(Constants.getPlannerPerspective().getCostCheckBox().isSelected()) {
+				if(Container.getPlannerPerspective().getCostCheckBox().isSelected()) {
 					PDDL_domain_buffer.append(" (increase (total-cost) ");	
 				
-						for(int yu=0;yu<Constants.getActivitiesCost_vector().size();yu++) {
-							Vector<String> specificTraceCostVector = Constants.getActivitiesCost_vector().elementAt(yu);					
+						for(int yu = 0; yu< Container.getActivitiesCost_vector().size(); yu++) {
+							Vector<String> specificTraceCostVector = Container.getActivitiesCost_vector().elementAt(yu);
 							if(specificTraceCostVector.elementAt(0).equalsIgnoreCase(label_of_the_cot)) {
 								PDDL_domain_buffer.append(specificTraceCostVector.elementAt(1) + "))\n");
 								break;
@@ -321,7 +321,7 @@ public class UtilitiesBackup {
 			StringBuffer preconditionsSB = new StringBuffer();
 						
 			String act = trace.getOriginalTraceContent_vector().elementAt(gk);
-			Collection<String> values =  Constants.getRelevantTransitions_map().get(act);
+			Collection<String> values =  Container.getRelevantTransitions_map().get(act);
 			//System.out.print(act + " --> ");
 			//System.out.println(values);
 
@@ -355,11 +355,11 @@ public class UtilitiesBackup {
 			PDDL_domain_buffer.append("(currstate t" + gk + ")\n");
 			PDDL_domain_buffer.append(":effect (and ");
 			PDDL_domain_buffer.append("(not (currstate t" + gk + ")) " + "(currstate t" + j + ") " );
-			if(Constants.getPlannerPerspective().getCostCheckBox().isSelected()) {
+			if(Container.getPlannerPerspective().getCostCheckBox().isSelected()) {
 				PDDL_domain_buffer.append(" (increase (total-cost) ");	
 			
-					for(int yu=0;yu<Constants.getActivitiesCost_vector().size();yu++) {
-						Vector<String> specificTraceCostVector = Constants.getActivitiesCost_vector().elementAt(yu);					
+					for(int yu = 0; yu< Container.getActivitiesCost_vector().size(); yu++) {
+						Vector<String> specificTraceCostVector = Container.getActivitiesCost_vector().elementAt(yu);
 						if(specificTraceCostVector.elementAt(0).equalsIgnoreCase(trace.getOriginalTraceContent_vector().elementAt(gk))) {
 							PDDL_domain_buffer.append(specificTraceCostVector.elementAt(2) + "))\n");
 							break;
@@ -376,7 +376,7 @@ public class UtilitiesBackup {
 		// we need to generate PDDL actions to reach the ABSTRACT accepting state of any automaton, that are used as target states 
 		// for any regular accepting state.
 		//
-		if(!Constants.getMenuPerspective().getDisjunctiveGoalMenuItem().isSelected()) {
+		if(!Container.getMenuPerspective().getDisjunctiveGoalMenuItem().isSelected()) {
 					
 			StringBuffer PDDL_temp_effects_sb = new StringBuffer(":effect (and ");
 			
@@ -385,8 +385,8 @@ public class UtilitiesBackup {
 			//
 			Vector<String> automata_id_of_abstract_states_vector = new Vector<String>(); 
 			
-			for(int op=0;op<Constants.getAutomataAbstractAcceptingStates_vector().size();op++) {
-				String abstract_state_id = Constants.getAutomataAbstractAcceptingStates_vector().elementAt(op);
+			for(int op = 0; op< Container.getAutomataAbstractAcceptingStates_vector().size(); op++) {
+				String abstract_state_id = Container.getAutomataAbstractAcceptingStates_vector().elementAt(op);
 				
 				PDDL_temp_effects_sb.append("(currstate " + abstract_state_id + ") ");
 				
@@ -403,12 +403,12 @@ public class UtilitiesBackup {
 			// For any combination of accepting states, we generate a PDDL action to reach all the abstract states of the automata. 
 			// 
 			//
-			if(Constants.getCombinationOfAcceptingStates_vector().size() > 1) {
-				for(int jk=0;jk<Constants.getCombinationOfAcceptingStates_vector().size();jk++) {
+			if(Container.getCombinationOfAcceptingStates_vector().size() > 1) {
+				for(int jk = 0; jk< Container.getCombinationOfAcceptingStates_vector().size(); jk++) {
 					
 					StringBuffer PDDL_temp_effects_2_sb = new StringBuffer();
 					
-					CombinationOfAcceptingStates coas = Constants.getCombinationOfAcceptingStates_vector().elementAt(jk);
+					CombinationOfAcceptingStates coas = Container.getCombinationOfAcceptingStates_vector().elementAt(jk);
 					
 					PDDL_domain_buffer.append("(:action goto" + "-abstract_states-" + coas.getId() +  "\n");
 					PDDL_domain_buffer.append(":precondition (and (currstate t" + trace.getOriginalTraceContent_vector().size()+ ") ");
@@ -450,7 +450,7 @@ public class UtilitiesBackup {
 			PDDL_objects_buffer.append("t" + l + " - state\n");
 		}
 
-		PDDL_objects_buffer.append(Constants.getPDDLAutomataAllStates_sb());
+		PDDL_objects_buffer.append(Container.getPDDLAutomataAllStates_sb());
 		PDDL_objects_buffer.append(")\n");	
 		
 		//
@@ -459,9 +459,9 @@ public class UtilitiesBackup {
 		PDDL_init_buffer = new StringBuffer("(:init\n");
 		PDDL_init_buffer.append("(currstate t0)\n");
 		
-		PDDL_init_buffer.append(Constants.getPDDLAutomataInitialStates_sb());
+		PDDL_init_buffer.append(Container.getPDDLAutomataInitialStates_sb());
 					
-		if(Constants.getPlannerPerspective().getCostCheckBox().isSelected()) {
+		if(Container.getPlannerPerspective().getCostCheckBox().isSelected()) {
 			PDDL_cost_buffer.append("(= (total-cost) 0)\n");
 			PDDL_init_buffer.append(PDDL_cost_buffer);
 		}
@@ -476,11 +476,11 @@ public class UtilitiesBackup {
 				
 		PDDL_goal_buffer.append("(currstate t" + trace.getOriginalTraceContent_vector().size() + ")\n");
 		
-		PDDL_goal_buffer.append(Constants.getPDDLAutomataAcceptingStates_sb());
+		PDDL_goal_buffer.append(Container.getPDDLAutomataAcceptingStates_sb());
 
 		PDDL_goal_buffer.append("))\n");
 		
-		if(Constants.getPlannerPerspective().getCostCheckBox().isSelected()) 
+		if(Container.getPlannerPerspective().getCostCheckBox().isSelected())
 			PDDL_goal_buffer.append("(:metric minimize (total-cost))\n");	
 		
 		PDDL_problem_buffer.append(PDDL_objects_buffer);
@@ -495,8 +495,8 @@ public class UtilitiesBackup {
 		
 		RelevantTransition rt = null;
 				
-		for(int l=0;l<Constants.getRelevantTransitions_vector().size();l++) {
-			rt = Constants.getRelevantTransitions_vector().elementAt(l);
+		for(int l = 0; l< Container.getRelevantTransitions_vector().size(); l++) {
+			rt = Container.getRelevantTransitions_vector().elementAt(l);
 			
 			if(rt.getId().equalsIgnoreCase(tr_id))
 				return rt;

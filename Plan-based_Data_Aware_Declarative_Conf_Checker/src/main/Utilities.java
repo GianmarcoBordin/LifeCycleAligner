@@ -252,16 +252,16 @@ public class Utilities {
 	        	original_transitions_associated_to_the_label_vector.addElement(arr[hu].toString());
 	        }
 	        	        
-	        String cotID = "ct" + Constants.getCombinationOfRelevantTransitions_vector().size();
+	        String cotID = "ct" + Container.getCombinationOfRelevantTransitions_vector().size();
 	        
 	        CombinationOfRelevantTransitions cot = new CombinationOfRelevantTransitions(cotID, label, original_k_value, combination_of_relevant_transitions_vector, original_transitions_associated_to_the_label_vector);
 	                
 	        // System.out.println(cot.getId() + " -- " + cot.getLabel() + " --> " + cot.getCombination_of_transitions_vector() + " -- " + cot.getOriginal_transitions_associated_to_the_label_vector() + " -- " + cot.getPDDL_preconditions() + " -- " + cot.getPDDL_effects());
 	        	        
-	        Constants.getCombinationOfRelevantTransitions_vector().addElement(cot);
+	        Container.getCombinationOfRelevantTransitions_vector().addElement(cot);
 	        
-	        if(Constants.getMenuPerspective().getSinkStatesMenuItem().isSelected() && cot.containsSinkstates()) {
-	        	Constants.getCombinationOfRelevantTransitions_vector().removeElement(cot);
+	        if(Container.getMenuPerspective().getSinkStatesMenuItem().isSelected() && cot.containsSinkstates()) {
+	        	Container.getCombinationOfRelevantTransitions_vector().removeElement(cot);
 	        	// System.out.println("This combination of transition contains a sink state ");
 	        } 
 	        return;
@@ -307,13 +307,13 @@ public class Utilities {
 	        // System.out.print(label + " -- ");
 	        // System.out.println(str);
 	        	        	        
-	        String cosID = "cs" + Constants.getCombinationOfAcceptingStates_vector().size();
+	        String cosID = "cs" + Container.getCombinationOfAcceptingStates_vector().size();
 	        
 	        CombinationOfAcceptingStates coas = new CombinationOfAcceptingStates(cosID, combination_of_accepting_states_vector);
 	                
 	        //System.out.println(coas.getId() + " --> " + coas.getCombinationOfAcceptingStates_vector());
 	        	        
-	        Constants.getCombinationOfAcceptingStates_vector().addElement(coas);
+	        Container.getCombinationOfAcceptingStates_vector().addElement(coas);
 	        return;
 	    }       
 	    for (int i = startPosition; i <= arr.length-len; i++){
@@ -338,7 +338,7 @@ public class Utilities {
 		
 		/////////////////// DataAware ////////////////////////
 		//////////////////////////////////////////////////////
-		Set<String> set_of_keys = Constants.getDataAware_map().keySet();
+		Set<String> set_of_keys = Container.getDataAware_map().keySet();
 		Iterator<String> it = set_of_keys.iterator();
 		while(it.hasNext())  {
 			String key = (String) it.next();
@@ -349,22 +349,22 @@ public class Utilities {
 		
 		PDDL_domain_buffer.append(")\n\n");			
 		
-		if(Constants.getPlannerPerspective().getCostCheckBox().isSelected()) {
+		if(Container.getPlannerPerspective().getCostCheckBox().isSelected()) {
 			PDDL_domain_buffer.append("(:functions\n");	
 			PDDL_domain_buffer.append("(total-cost)\n");			
 			PDDL_domain_buffer.append(")\n\n");		
 		}
 		
-		for(int i=0;i<Constants.getCombinationOfRelevantTransitions_vector().size();i++) {
+		for(int i = 0; i< Container.getCombinationOfRelevantTransitions_vector().size(); i++) {
 			
-			CombinationOfRelevantTransitions cot = Constants.getCombinationOfRelevantTransitions_vector().elementAt(i);
+			CombinationOfRelevantTransitions cot = Container.getCombinationOfRelevantTransitions_vector().elementAt(i);
 			String label_of_the_cot =  cot.getLabel();
 				
 			//
 			// If a combination of transitions is related to a label (i.e., to a symbol of the alphabet) not contained in the 
 			// alphabet of the trace or in the alphabet of the automata, no action will be generated for this transition.
 			//
-			if(trace.getTraceAlphabet_vector().contains(label_of_the_cot) || Constants.getAlphabetOfTheConstraints_vector().contains(label_of_the_cot)) {
+			if(trace.getTraceAlphabet_vector().contains(label_of_the_cot) || Container.getAlphabetOfTheConstraints_vector().contains(label_of_the_cot)) {
 				
 				//
 				// Generate an ADD action for any combination of transitions
@@ -381,11 +381,11 @@ public class Utilities {
 					/////////////////// DataAware ////////////////////////
 					//////////////////////////////////////////////////////
 					
-					if(cot.getNumberOfConditionsInThePDDLPreconditions()<=1 && !Constants.getDataAware_map().isEmpty())
+					if(cot.getNumberOfConditionsInThePDDLPreconditions()<=1 && !Container.getDataAware_map().isEmpty())
 						PDDL_domain_buffer.append("(and ");
 					
-					if(!Constants.getDataAware_map().isEmpty()) {
-						Set<String> data_list_keys_3 = Constants.getDataAware_map().keySet();
+					if(!Container.getDataAware_map().isEmpty()) {
+						Set<String> data_list_keys_3 = Container.getDataAware_map().keySet();
 						Iterator<String> data_list_it_3 = data_list_keys_3.iterator();
 						while(data_list_it_3.hasNext())  {
 						String data_key_3 = (String) data_list_it_3.next();
@@ -407,7 +407,7 @@ public class Utilities {
 				/////////////////// DataAware ////////////////////////
 				//////////////////////////////////////////////////////
 				
-				else if(cot.getNumberOfConditionsInThePDDLPreconditions()<=1 && !Constants.getDataAware_map().isEmpty())
+				else if(cot.getNumberOfConditionsInThePDDLPreconditions()<=1 && !Container.getDataAware_map().isEmpty())
 					PDDL_domain_buffer.append(")\n ");
 			
 				//////////////////////////////////////////////////////
@@ -420,11 +420,11 @@ public class Utilities {
 				PDDL_domain_buffer.append(":effect (and ");
 				PDDL_domain_buffer.append(cot.getPDDL_effects());
 				
-				if(Constants.getPlannerPerspective().getCostCheckBox().isSelected()) {
+				if(Container.getPlannerPerspective().getCostCheckBox().isSelected()) {
 					PDDL_domain_buffer.append(" (increase (total-cost) ");	
 										
-						for(int yu=0;yu<Constants.getActivitiesCost_vector().size();yu++) {
-							Vector<String> specificTraceCostVector = Constants.getActivitiesCost_vector().elementAt(yu);	
+						for(int yu = 0; yu< Container.getActivitiesCost_vector().size(); yu++) {
+							Vector<String> specificTraceCostVector = Container.getActivitiesCost_vector().elementAt(yu);
 							if(specificTraceCostVector.elementAt(0).equalsIgnoreCase(label_of_the_cot)) {
 								PDDL_domain_buffer.append(specificTraceCostVector.elementAt(1) + "))\n");
 								break;
@@ -439,11 +439,11 @@ public class Utilities {
 				/////////////////// DataAware ////////////////////////
 				//////////////////////////////////////////////////////
 						
-						Set<String> data_list_keys = Constants.getDataAware_map().keySet();
+						Set<String> data_list_keys = Container.getDataAware_map().keySet();
 						Iterator<String> data_list_it = data_list_keys.iterator();
 						while(data_list_it.hasNext())  {
 							String data_key = (String) data_list_it.next();
-							Collection<String> data_values = Constants.getDataAware_map().get(data_key);
+							Collection<String> data_values = Container.getDataAware_map().get(data_key);
 							Object[] data_values_array = data_values.toArray();
 							
 							for(int lun=0;lun<data_values_array.length;lun++) {
@@ -467,7 +467,7 @@ public class Utilities {
 									PDDL_domain_buffer.append(cot.getPDDL_effects());
 									PDDL_domain_buffer.append("(not (trans_" + data_key + "))");
 									
-									if(Constants.getPlannerPerspective().getCostCheckBox().isSelected()) {
+									if(Container.getPlannerPerspective().getCostCheckBox().isSelected()) {
 										PDDL_domain_buffer.append(" (increase (total-cost) 1)");	
 									
 									}
@@ -520,7 +520,7 @@ public class Utilities {
 			StringBuffer preconditionsSB = new StringBuffer();
 						
 			String act = trace.getOriginalTraceContent_vector().elementAt(gk);
-			Collection<String> values =  Constants.getRelevantTransitions_map().get(act);
+			Collection<String> values =  Container.getRelevantTransitions_map().get(act);
 			//System.out.print(act + " --> ");
 			//System.out.println(values);
 
@@ -541,11 +541,11 @@ public class Utilities {
 				/////////////////// DataAware ////////////////////////
 				//////////////////////////////////////////////////////
 				
-				if(values_array.length==0 && !Constants.getDataAware_map().isEmpty())
+				if(values_array.length==0 && !Container.getDataAware_map().isEmpty())
 					PDDL_domain_buffer.append("(and ");
 				
-				if(!Constants.getDataAware_map().isEmpty()) {
-					Set<String> data_list_keys_2 = Constants.getDataAware_map().keySet();
+				if(!Container.getDataAware_map().isEmpty()) {
+					Set<String> data_list_keys_2 = Container.getDataAware_map().keySet();
 					Iterator<String> data_list_it_2 = data_list_keys_2.iterator();
 					while(data_list_it_2.hasNext())  {
 					String data_key_2 = (String) data_list_it_2.next();
@@ -565,7 +565,7 @@ public class Utilities {
 					/////////////////// DataAware ////////////////////////
 					//////////////////////////////////////////////////////
 				
-					else if(values_array.length==0 && !Constants.getDataAware_map().isEmpty()) {
+					else if(values_array.length==0 && !Container.getDataAware_map().isEmpty()) {
 							PDDL_domain_buffer.append(preconditionsSB + ")\n");
 						}
 					
@@ -590,9 +590,9 @@ public class Utilities {
 				/////////////////// DataAware ////////////////////////
 				//////////////////////////////////////////////////////
 			
-			if(!Constants.getDataAware_map().isEmpty()) {
+			if(!Container.getDataAware_map().isEmpty()) {
 					PDDL_domain_buffer.append("(and ");
-					Set<String> data_list_keys_1 = Constants.getDataAware_map().keySet();
+					Set<String> data_list_keys_1 = Container.getDataAware_map().keySet();
 					Iterator<String> data_list_it_1 = data_list_keys_1.iterator();
 					while(data_list_it_1.hasNext())  {
 						String data_key_1 = (String) data_list_it_1.next();
@@ -610,7 +610,7 @@ public class Utilities {
 				/////////////////// DataAware ////////////////////////
 				//////////////////////////////////////////////////////
 			
-				if(!Constants.getDataAware_map().isEmpty()) {
+				if(!Container.getDataAware_map().isEmpty()) {
 						PDDL_domain_buffer.append(")\n");
 					}
 				
@@ -621,11 +621,11 @@ public class Utilities {
 			
 			PDDL_domain_buffer.append(":effect (and ");
 			PDDL_domain_buffer.append("(not (currstate t" + gk + ")) " + "(currstate t" + j + ") " );
-			if(Constants.getPlannerPerspective().getCostCheckBox().isSelected()) {
+			if(Container.getPlannerPerspective().getCostCheckBox().isSelected()) {
 				PDDL_domain_buffer.append(" (increase (total-cost) ");	
 			
-					for(int yu=0;yu<Constants.getActivitiesCost_vector().size();yu++) {
-						Vector<String> specificTraceCostVector = Constants.getActivitiesCost_vector().elementAt(yu);					
+					for(int yu = 0; yu< Container.getActivitiesCost_vector().size(); yu++) {
+						Vector<String> specificTraceCostVector = Container.getActivitiesCost_vector().elementAt(yu);
 						if(specificTraceCostVector.elementAt(0).equalsIgnoreCase(trace.getOriginalTraceContent_vector().elementAt(gk))) {
 							PDDL_domain_buffer.append(specificTraceCostVector.elementAt(2) + "))\n");
 							break;
@@ -640,7 +640,7 @@ public class Utilities {
 					/////////////////// DataAware ////////////////////////
 					//////////////////////////////////////////////////////
 					
-					Set<String> data_list_keys = Constants.getDataAware_map().keySet();
+					Set<String> data_list_keys = Container.getDataAware_map().keySet();
 					Iterator<String> data_list_it = data_list_keys.iterator();
 					while(data_list_it.hasNext())  {
 					String data_key = (String) data_list_it.next();
@@ -652,7 +652,7 @@ public class Utilities {
 						PDDL_domain_buffer.append("(and (currstate t" + gk + ") (not (trans_" + data_key + ")))\n");
 						PDDL_domain_buffer.append(":effect (and ");
 						PDDL_domain_buffer.append("(not (currstate t" + gk + ")) " + "(currstate t" + j + ") " + "(trans_" + data_key + ") " );
-						if(Constants.getPlannerPerspective().getCostCheckBox().isSelected()) {
+						if(Container.getPlannerPerspective().getCostCheckBox().isSelected()) {
 							PDDL_domain_buffer.append(" (increase (total-cost) 1))");	
 					
 					}						
@@ -671,7 +671,7 @@ public class Utilities {
 		// we need to generate PDDL actions to reach the ABSTRACT accepting state of any automaton, that are used as target states 
 		// for any regular accepting state.
 		//
-		if(!Constants.getMenuPerspective().getDisjunctiveGoalMenuItem().isSelected()) {
+		if(!Container.getMenuPerspective().getDisjunctiveGoalMenuItem().isSelected()) {
 					
 			StringBuffer PDDL_temp_effects_sb = new StringBuffer(":effect (and ");
 			
@@ -680,8 +680,8 @@ public class Utilities {
 			//
 			Vector<String> automata_id_of_abstract_states_vector = new Vector<String>(); 
 			
-			for(int op=0;op<Constants.getAutomataAbstractAcceptingStates_vector().size();op++) {
-				String abstract_state_id = Constants.getAutomataAbstractAcceptingStates_vector().elementAt(op);
+			for(int op = 0; op< Container.getAutomataAbstractAcceptingStates_vector().size(); op++) {
+				String abstract_state_id = Container.getAutomataAbstractAcceptingStates_vector().elementAt(op);
 				
 				PDDL_temp_effects_sb.append("(currstate " + abstract_state_id + ") ");
 				
@@ -697,11 +697,11 @@ public class Utilities {
 			// For any combination of accepting states, we generate a PDDL action to reach all the abstract states of the automata. 
 			// 
 			//
-			for(int jk=0;jk<Constants.getCombinationOfAcceptingStates_vector().size();jk++) {
+			for(int jk = 0; jk< Container.getCombinationOfAcceptingStates_vector().size(); jk++) {
 				
 				StringBuffer PDDL_temp_effects_2_sb = new StringBuffer();
 				
-				CombinationOfAcceptingStates coas = Constants.getCombinationOfAcceptingStates_vector().elementAt(jk);
+				CombinationOfAcceptingStates coas = Container.getCombinationOfAcceptingStates_vector().elementAt(jk);
 				
 				PDDL_domain_buffer.append("(:action goto" + "-abstract_states-" + coas.getId() +  "\n");
 				PDDL_domain_buffer.append(":precondition (and (currstate t" + trace.getOriginalTraceContent_vector().size()+ ") ");
@@ -743,7 +743,7 @@ public class Utilities {
 			PDDL_objects_buffer.append("t" + l + " - state\n");
 		}
 
-		PDDL_objects_buffer.append(Constants.getPDDLAutomataAllStates_sb());
+		PDDL_objects_buffer.append(Container.getPDDLAutomataAllStates_sb());
 		PDDL_objects_buffer.append(")\n");	
 		
 		//
@@ -752,9 +752,9 @@ public class Utilities {
 		PDDL_init_buffer = new StringBuffer("(:init\n");
 		PDDL_init_buffer.append("(currstate t0)\n");
 		
-		PDDL_init_buffer.append(Constants.getPDDLAutomataInitialStates_sb());
+		PDDL_init_buffer.append(Container.getPDDLAutomataInitialStates_sb());
 				
-		if(Constants.getPlannerPerspective().getCostCheckBox().isSelected()) {
+		if(Container.getPlannerPerspective().getCostCheckBox().isSelected()) {
 			PDDL_cost_buffer.append("(= (total-cost) 0)\n");
 			PDDL_init_buffer.append(PDDL_cost_buffer);
 		}
@@ -769,11 +769,11 @@ public class Utilities {
 				
 		PDDL_goal_buffer.append("(currstate t" + trace.getOriginalTraceContent_vector().size() + ")\n");
 		
-		PDDL_goal_buffer.append(Constants.getPDDLAutomataAcceptingStates_sb());
+		PDDL_goal_buffer.append(Container.getPDDLAutomataAcceptingStates_sb());
 		
 		/////////////////// DataAware ////////////////////////
 		//////////////////////////////////////////////////////
-		Set<String> set_of_keys = Constants.getDataAware_map().keySet();
+		Set<String> set_of_keys = Container.getDataAware_map().keySet();
 		Iterator<String> it = set_of_keys.iterator();
 		while(it.hasNext())  {
 			String key = (String) it.next();
@@ -784,7 +784,7 @@ public class Utilities {
 
 		PDDL_goal_buffer.append("))\n");
 		
-		if(Constants.getPlannerPerspective().getCostCheckBox().isSelected()) 
+		if(Container.getPlannerPerspective().getCostCheckBox().isSelected())
 			PDDL_goal_buffer.append("(:metric minimize (total-cost))\n");	
 		
 		PDDL_problem_buffer.append(PDDL_objects_buffer);
@@ -799,8 +799,8 @@ public class Utilities {
 		
 		RelevantTransition rt = null;
 				
-		for(int l=0;l<Constants.getRelevantTransitions_vector().size();l++) {
-			rt = Constants.getRelevantTransitions_vector().elementAt(l);
+		for(int l = 0; l< Container.getRelevantTransitions_vector().size(); l++) {
+			rt = Container.getRelevantTransitions_vector().elementAt(l);
 			
 			if(rt.getId().equalsIgnoreCase(tr_id))
 				return rt;
@@ -877,8 +877,8 @@ public class Utilities {
 	//
 	public static Trace getTracebyId(String str){
 		Trace trace = null;
-		for(int k=0;k<Constants.getAllTraces_vector().size();k++) {
-	   		 trace = Constants.getAllTraces_vector().elementAt(k);
+		for(int k = 0; k< Container.getAllTraces_vector().size(); k++) {
+	   		 trace = Container.getAllTraces_vector().elementAt(k);
 	   		 if(trace.getTraceID().equalsIgnoreCase(str)) {
 	   			 return trace;
 	   		 }	   	

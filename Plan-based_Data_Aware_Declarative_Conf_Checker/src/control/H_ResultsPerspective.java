@@ -1,16 +1,17 @@
 package control;
 
+import main.ResultsPerspective;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
-import view.ResultsPerspective;
 
 public class H_ResultsPerspective {
 	
 	public ResultsPerspective _view = null;
 	
-	public H_ResultsPerspective (ResultsPerspective i_view){
+	public H_ResultsPerspective(ResultsPerspective i_view){
 		_view = i_view;
 		installListeners();
 	}

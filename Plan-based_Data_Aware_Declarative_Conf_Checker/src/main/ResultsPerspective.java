@@ -1,30 +1,15 @@
-package view;
+package main;
 
+import control.H_ResultsPerspective;
+import main.Constants;
+
+import javax.swing.*;
 import java.awt.Container;
-import java.awt.Dimension;
-import java.awt.FlowLayout;
-import java.awt.Toolkit;
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.PrintWriter;
+import java.awt.*;
+import java.io.*;
 import java.sql.Timestamp;
 import java.util.Enumeration;
 import java.util.Vector;
-import javax.swing.JButton;
-import javax.swing.JDialog;
-import javax.swing.JLabel;
-import javax.swing.JScrollPane;
-import javax.swing.JTextArea;
-import javax.swing.ScrollPaneConstants;
-
-import control.H_ResultsPerspective;
-
-import main.Constants;
-import main.Trace;
 
 public class ResultsPerspective extends JDialog
 {
