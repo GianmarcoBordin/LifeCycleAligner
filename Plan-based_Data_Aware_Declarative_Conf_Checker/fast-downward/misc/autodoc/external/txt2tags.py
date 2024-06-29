@@ -38,7 +38,7 @@
 # which spans on several lines, are feeded into a special holder on the
 # BlockMaster instance. Just when the block is closed, the target tags
 # are inserted for the full block as a whole, in one pass. This way, we
-# have a better control on blocks. Much better than the previous line by
+# have a better run on blocks. Much better than the previous line by
 # line approach.
 #
 # In other words, whenever inside a block, the parser *holds* the tag

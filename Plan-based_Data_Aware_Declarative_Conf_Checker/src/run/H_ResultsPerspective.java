@@ -1,6 +1,4 @@
-package control;
-
-import main.ResultsPerspective;
+package run;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;

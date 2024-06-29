@@ -44,7 +44,7 @@
   ;; pipeline segment
   (may-interface ?product-a ?product-b - product)
 
-  ;; to control splitting process (push/pop vs. update)
+  ;; to run splitting process (push/pop vs. update)
   (normal ?pipe - pipe)
   (push-updating ?pipe - pipe)
   (pop-updating ?pipe - pipe)
@@ -54,7 +54,7 @@
 ;; Moves a batch-atom from a tankage to a pipeline segment
 ;; The PUSH-START action moves the pipeline segment contents towards
 ;; the ``to-area'' defined in the ``connect'' predicate
-;; first part -- initialise the push and turn control
+;; first part -- initialise the push and turn run
 ;; over to contents update operators
 
 (:action PUSH-START
@@ -160,7 +160,7 @@
 ;; Moves a batch-atom from a tankage to a pipeline segment
 ;; The POP-START action moves the pipeline segment contents towards
 ;; the ``from-area'' defined in the ``connect'' predicate
-;; first part -- initialise the pop and turn control
+;; first part -- initialise the pop and turn run
 ;; over to contents update operators
 
 (:action POP-START
@@ -266,7 +266,7 @@
 ;; Moves a batch-atom from a tankage to a pipeline segment
 ;; The PUSH-UNITARYPIPE action moves the pipeline segment contents towards
 ;; the ``to-area'' defined in the ``connect'' predicate
-;; first part -- initialise the push and turn control
+;; first part -- initialise the push and turn run
 ;; over to contents update operators
 
 (:action PUSH-UNITARYPIPE
@@ -321,7 +321,7 @@
 ;; Moves a batch-atom from a tankage to a pipeline segment
 ;; The POP-UNITARYPIPE action moves the pipeline segment contents towards
 ;; the ``from-area'' defined in the ``connect'' predicate
-;; first part -- initialise the pop and turn control
+;; first part -- initialise the pop and turn run
 ;; over to contents update operators
 
 (:action POP-UNITARYPIPE

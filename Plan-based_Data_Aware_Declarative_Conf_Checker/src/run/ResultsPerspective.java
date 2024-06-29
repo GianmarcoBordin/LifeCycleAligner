@@ -1,7 +1,6 @@
-package main;
+package run;
 
-import control.H_ResultsPerspective;
-import main.Constants;
+import main.Trace;
 
 import javax.swing.*;
 import java.awt.Container;
@@ -110,13 +109,13 @@ public class ResultsPerspective extends JDialog
 		            	//results_csv_file = "results/csv_" + tmsp_log + ".csv"; 
 		            	//scriviFile(results_csv_file, new StringBuffer(""));
             	
-            	if(Constants.getPlannerPerspective().getNumber_of_Traces_checkBox().isSelected()) {
-            		number_of_traces_to_check_from = Constants.getPlannerPerspective().getNumber_of_traces_ComboBox_FROM().getSelectedIndex();
-            		number_of_traces_to_check_to = Constants.getPlannerPerspective().getNumber_of_traces_ComboBox_TO().getSelectedIndex();
+            	if(main.Container.getNumber_of_Traces_checkBox().isSelected()) {
+            		number_of_traces_to_check_from = main.Container.getNumber_of_traces_ComboBox_FROM().getSelectedIndex();
+            		number_of_traces_to_check_to = main.Container.getNumber_of_traces_ComboBox_TO().getSelectedIndex();
             	}			
             	else {
             		number_of_traces_to_check_from = 1;
-            		number_of_traces_to_check_to = Constants.getAllTraces_vector().size();
+            		number_of_traces_to_check_to = main.Container.getAllTraces_vector().size();
             	}
             	           	
             	for(int k=number_of_traces_to_check_from-1;k<number_of_traces_to_check_to;k++) {
@@ -129,9 +128,9 @@ public class ResultsPerspective extends JDialog
             			//StringBuffer used to record the statistics of the planning execution
             			//csvBuffer = new StringBuffer();
             			
-            			Trace trace = Constants.getAllTraces_vector().elementAt(k);
+            			Trace trace = main.Container.getAllTraces_vector().elementAt(k);
                  		
-     	            	Constants.setPDDLActivitiesVector(new Vector<String>());     
+     	            	main.Container.setPDDLActivitiesVector(new Vector<String>());
 
      	            	/*
      	            	StringBuffer sb_domain = createDomain(trace);
@@ -231,7 +230,7 @@ public class ResultsPerspective extends JDialog
 
 	        	     //totalPreprocessingTime += preprocessing_time;
 	        	      	               	     
-        	     if(Constants.getPlannerPerspective().getFDOptimalCheckBox().isSelected())  {
+        	     if(main.Container.getFDOptimalCheckBox().isSelected())  {
             	     
      	        	 //Remove the 'sas_plan' file with the plan
      	        	 //File SASplan_file = new File("fast-downward/src/sas_plan");
@@ -299,7 +298,7 @@ public class ResultsPerspective extends JDialog
     	         rp.getResultsArea().append("TOTAL PREPROCESSING TIME (in seconds) : " + seconds + " sec\n");
     	         rp.getResultsArea().append("AVERAGE PREPROCESSING TIME (in ms.) : " + ((double)(seconds / total_number_of_traces_analyzed)) + " sec");
     	         
-    	         if(Constants.getPlannerPerspective().getFDOptimalCheckBox().isSelected()) {
+    	         if(main.Container.getFDOptimalCheckBox().isSelected()) {
     	        	 rp.getResultsArea().append("\n-------------------------------\n");
     	        	 rp.getResultsArea().append("TOTAL SEARCHING TIME (in ms.) - Blind A* : " + totalSearchingOptTime + "\n");
     	        	 rp.getResultsArea().append("AVERAGE SEARCHING TIME (in ms.) - Blind A* : " + ((long)(totalSearchingOptTime / total_number_of_traces_analyzed)) + " ms\n");    	 
@@ -336,7 +335,7 @@ public class ResultsPerspective extends JDialog
     	         resultBuffer.append("TOTAL PREPROCESSING TIME (in seconds) : " + seconds + " sec\n");
     	         resultBuffer.append("AVERAGE PREPROCESSING TIME (in ms.) : " + ((double)(seconds / total_number_of_traces_analyzed)) + " sec");
     	         
-    	         if(Constants.getPlannerPerspective().getFDOptimalCheckBox().isSelected()) {
+    	         if(main.Container.getFDOptimalCheckBox().isSelected()) {
     	        	 resultBuffer.append("\n-------------------------------\n");
     	        	 resultBuffer.append("TOTAL SEARCHING TIME (in ms.) - Blind A* : " + totalSearchingOptTime + "\n");
     	        	 resultBuffer.append("AVERAGE SEARCHING TIME (in ms.) - Blind A* : " + ((long)(totalSearchingOptTime / total_number_of_traces_analyzed)) + " ms\n");    	 
@@ -403,7 +402,7 @@ public class ResultsPerspective extends JDialog
 
 		StringBuffer logBuffer = new StringBuffer();
 	    logBuffer.append(">>>> ORIGINAL TRACE: " + trace.getOriginalTraceContent_vector()+"\n");
-	    logBuffer.append(">>>> DECLARE RULES: " + Constants.getAllConstraints_vector()+"\n");
+	    logBuffer.append(">>>> DECLARE RULES: " + main.Container.getAllConstraints_vector()+"\n");
 	    logBuffer.append(">>>> STARTING TRACE in PDDL: " + trace.getTraceContentWithActivitiesInstances_vector() + "\n");
 	
 		Vector<String> intermediate_trace_vector = new Vector<String>(trace.getTraceContentWithActivitiesInstances_vector()); 
@@ -668,9 +667,9 @@ public class ResultsPerspective extends JDialog
 		Vector<String> response_between_rules_vector = new Vector<String>();
 		Vector<String> precedence_between_rules_vector = new Vector<String>();
 		
-		for(int j=0;j<Constants.getAllConstraints_vector().size();j++) {
+		for(int j=0;j<main.Container.getAllConstraints_vector().size();j++) {
 			
-			String DECLARE_rule = (String) Constants.getAllConstraints_vector().elementAt(j);
+			String DECLARE_rule = (String) main.Container.getAllConstraints_vector().elementAt(j);
 			
 			String single_rule_array[] = DECLARE_rule.split("\\(");
 			
@@ -682,8 +681,8 @@ public class ResultsPerspective extends JDialog
 			if(declare_rule_name.equalsIgnoreCase("existence")) {				
 				String[] task = single_rule_array[1].split("\\)");
 				PDDL_domain_buffer.append("(existence-" + task[0] + ")\n");
-				
-				Constants.getPDDLActivitiesVector().addElement("existence-" + task[0]);
+
+				main.Container.getPDDLActivitiesVector().addElement("existence-" + task[0]);
 				
 				PDDL_rules_buffer.append(";;\n");
 				PDDL_rules_buffer.append(";;EXISTENCE-" + task[0] + " - (EVENTUALLY " + task[0] + ") - An instance of the task " + task[0] + " must occur at least once in the trace\n");				
@@ -698,8 +697,8 @@ public class ResultsPerspective extends JDialog
 			else if(declare_rule_name.equalsIgnoreCase("absence")) {
 				String[] task = single_rule_array[1].split("\\)");
 				PDDL_domain_buffer.append("(absence-" + task[0] + ")\n");
-				
-				Constants.getPDDLActivitiesVector().addElement("absence-" + task[0]);
+
+				main.Container.getPDDLActivitiesVector().addElement("absence-" + task[0]);
 				
 				PDDL_rules_buffer.append(";;\n");
 				PDDL_rules_buffer.append(";;ABSENCE-" + task[0] + " - (NOT (EVENTUALLY " + task[0] + ")) - " + task[0] + " never occur in the trace\n");				
@@ -714,8 +713,8 @@ public class ResultsPerspective extends JDialog
 			if(declare_rule_name.equalsIgnoreCase("init")) {				
 				String[] task = single_rule_array[1].split("\\)");
 				PDDL_domain_buffer.append("(init-" + task[0] + ")\n");
-				
-				Constants.getPDDLActivitiesVector().addElement("init-" + task[0]);
+
+				main.Container.getPDDLActivitiesVector().addElement("init-" + task[0]);
 				
 				PDDL_rules_buffer.append(";;\n");
 				PDDL_rules_buffer.append(";;INIT-" + task[0] + " - (INIT " + task[0] + ") - An instance of the task " + task[0] + " must occur in the first position of the trace\n");				
@@ -730,8 +729,8 @@ public class ResultsPerspective extends JDialog
 			if(declare_rule_name.equalsIgnoreCase("last")) {				
 				String[] task = single_rule_array[1].split("\\)");
 				PDDL_domain_buffer.append("(last-" + task[0] + ")\n");
-				
-				Constants.getPDDLActivitiesVector().addElement("last-" + task[0]);
+
+				main.Container.getPDDLActivitiesVector().addElement("last-" + task[0]);
 				
 				PDDL_rules_buffer.append(";;\n");
 				PDDL_rules_buffer.append(";;LAST-" + task[0] + " - (LAST " + task[0] + ") - An instance of the task " + task[0] + " must occur in the last position of the trace\n");				
@@ -747,8 +746,8 @@ public class ResultsPerspective extends JDialog
 				String[] tasks = single_rule_array[1].split("\\)");
 				String[] task = tasks[0].split(",");
 				PDDL_domain_buffer.append("(choice-" + task[0] + "-" + task[1] + ")\n");
-				
-				Constants.getPDDLActivitiesVector().addElement("choice-" + task[0] + "-" + task[1]);
+
+				main.Container.getPDDLActivitiesVector().addElement("choice-" + task[0] + "-" + task[1]);
 				
 				PDDL_rules_buffer.append(";;\n");
 				PDDL_rules_buffer.append(";;CHOICE-" + task[0] + "-" + task[1] + " - (EVENTUALLY " + task[0] + " OR EVENTUALLY " + task[1] + ") - " + task[0] + " or " + task[1] + " occur eventually in the trace. The formula is TRUE also if they both occur in the trace\n");				
@@ -764,9 +763,9 @@ public class ResultsPerspective extends JDialog
 			else if(declare_rule_name.equalsIgnoreCase("exclusive choice")) {
 				String[] tasks = single_rule_array[1].split("\\)");
 				String[] task = tasks[0].split(",");
-				PDDL_domain_buffer.append("(ex_choice-" + task[0] + "-" + task[1] + ")\n");				
-				
-				Constants.getPDDLActivitiesVector().addElement("ex_choice-" + task[0] + "-" + task[1]);
+				PDDL_domain_buffer.append("(ex_choice-" + task[0] + "-" + task[1] + ")\n");
+
+				main.Container.getPDDLActivitiesVector().addElement("ex_choice-" + task[0] + "-" + task[1]);
 				
 				PDDL_rules_buffer.append(";;\n");
 				PDDL_rules_buffer.append(";;EXCLUSIVE_CHOICE-" + task[0] + "-" + task[1] + " - (EVENTUALLY " + task[0] + " OR EVENTUALLY " + task[1] + ") AND (NOT (EVENTUALLY " + task[0] + " AND EVENTUALLY " + task[1] + ")) - Only instances of " + task[0] + " or only instances of " + task[1] + " can occur eventually in the trace (but not together). The formula is FALSE also if no instance of A and if no instance of B occur in the trace.\n");				
@@ -783,9 +782,9 @@ public class ResultsPerspective extends JDialog
 			else if(declare_rule_name.equalsIgnoreCase("responded existence")) {
 				String[] tasks = single_rule_array[1].split("\\)");
 				String[] task = tasks[0].split(",");
-				PDDL_domain_buffer.append("(resp_existence-" + task[0] + "-" + task[1] + ")\n");				
-				
-				Constants.getPDDLActivitiesVector().addElement("resp_existence-" + task[0] + "-" + task[1]);
+				PDDL_domain_buffer.append("(resp_existence-" + task[0] + "-" + task[1] + ")\n");
+
+				main.Container.getPDDLActivitiesVector().addElement("resp_existence-" + task[0] + "-" + task[1]);
 				
 				PDDL_rules_buffer.append(";;\n");
 				PDDL_rules_buffer.append(";;RESPONDED_EXISTENCE-" + task[0] + "-" + task[1] + " - (EVENTUALLY " + task[0] + " --> EVENTUALLY " + task[1] + ") - If an instance of " + task[0] + " occurs in the trace, then an instance of " + task[1] + " must occur in the trace as well (before or after " + task[0] + ", the order here is not important). The formula is TRUE also if " + task[0] + " never appears in the trace.\n");				
@@ -805,9 +804,9 @@ public class ResultsPerspective extends JDialog
 				String[] tasks = single_rule_array[1].split("\\)");
 				String[] task = tasks[0].split(",");
 				
-				PDDL_domain_buffer.append("(not_resp_existence-" + task[0] + "-" + task[1] + ")\n");	
-				
-				Constants.getPDDLActivitiesVector().addElement("not_resp_existence-" + task[0] + "-" + task[1]);
+				PDDL_domain_buffer.append("(not_resp_existence-" + task[0] + "-" + task[1] + ")\n");
+
+				main.Container.getPDDLActivitiesVector().addElement("not_resp_existence-" + task[0] + "-" + task[1]);
 				
 				PDDL_rules_buffer.append(";;\n");
 				PDDL_rules_buffer.append(";;NOT RESPONDED EXISTENCE-" + task[0] + "-" + task[1] + " - (EVENTUALLY " + task[0] + " --> EVENTUALLY " + task[1] + ") - If an instance of " + task[0] + " occurs in the trace, then no instance of " + task[1] + " can occur in the trace.\n");				
@@ -824,9 +823,9 @@ public class ResultsPerspective extends JDialog
 			else if(declare_rule_name.equalsIgnoreCase("co-existence")) {
 				String[] tasks = single_rule_array[1].split("\\)");
 				String[] task = tasks[0].split(",");
-				PDDL_domain_buffer.append("(co_existence-" + task[0] + "-" + task[1] + ")\n");				
-				
-				Constants.getPDDLActivitiesVector().addElement("co_existence-" + task[0] + "-" + task[1]);
+				PDDL_domain_buffer.append("(co_existence-" + task[0] + "-" + task[1] + ")\n");
+
+				main.Container.getPDDLActivitiesVector().addElement("co_existence-" + task[0] + "-" + task[1]);
 				
 				PDDL_rules_buffer.append(";;\n");
 				PDDL_rules_buffer.append(";;CO_EXISTENCE-" + task[0] + "-" + task[1] + " - (EVENTUALLY " + task[0] + " --> EVENTUALLY " + task[1] + ") AND (EVENTUALLY " + task[1] + " --> EVENTUALLY " + task[0] + ") - If an instance of " + task[0] + " (or " + task[1] + ") occurs in the trace, then an instance of " + task[1] + " (or " + task[0] + ") must occur in the trace as well (before or after " + task[0] + " (or " + task[1] + "), the order here is not important). The formula is TRUE also if " + task[0] + " and " + task[1] + " never occur in the trace.\n");				
@@ -846,9 +845,9 @@ public class ResultsPerspective extends JDialog
 				String[] tasks = single_rule_array[1].split("\\)");
 				String[] task = tasks[0].split(",");
 				
-				PDDL_domain_buffer.append("(not_co_existence-" + task[0] + "-" + task[1] + ")\n");	
-				
-				Constants.getPDDLActivitiesVector().addElement("not_co_existence-" + task[0] + "-" + task[1]);
+				PDDL_domain_buffer.append("(not_co_existence-" + task[0] + "-" + task[1] + ")\n");
+
+				main.Container.getPDDLActivitiesVector().addElement("not_co_existence-" + task[0] + "-" + task[1]);
 				
 				PDDL_rules_buffer.append(";;\n");
 				PDDL_rules_buffer.append(";;NOT CO-EXISTENCE-" + task[0] + "-" + task[1] + " - (EVENTUALLY " + task[0] + " --> EVENTUALLY " + task[1] + ") - If an instance of " + task[0] + " occurs in the trace, then no instance of " + task[1] + " can occur in the trace. Basically, it is equivalent to the NOT RESPONDED EXISTENCE rule.\n");				
@@ -910,9 +909,9 @@ public class ResultsPerspective extends JDialog
 					
 				}
 				
-				PDDL_domain_buffer.append("(response-" + task[0] + "-" + task[1] + ")\n");			
-				
-				Constants.getPDDLActivitiesVector().addElement("response-" + task[0] + "-" + task[1]);
+				PDDL_domain_buffer.append("(response-" + task[0] + "-" + task[1] + ")\n");
+
+				main.Container.getPDDLActivitiesVector().addElement("response-" + task[0] + "-" + task[1]);
 				
 				PDDL_rules_buffer.append(";;\n");
 				PDDL_rules_buffer.append(";;RESPONSE-" + task[0] + "-" + task[1] + " - (GLOBALLY(" + task[0] + " --> EVENTUALLY " + task[1] + ")) - If an instance of " + task[0] + " occurs in the trace, then an instance of " + task[1] + " must occur in the trace after " + task[0] + ".\n");				
@@ -968,9 +967,9 @@ public class ResultsPerspective extends JDialog
 				
 				}
 				
-				PDDL_domain_buffer.append("(precedence-" + task[0] + "-" + task[1] + ")\n");			
-				
-				Constants.getPDDLActivitiesVector().addElement("precedence-" + task[0] + "-" + task[1]);
+				PDDL_domain_buffer.append("(precedence-" + task[0] + "-" + task[1] + ")\n");
+
+				main.Container.getPDDLActivitiesVector().addElement("precedence-" + task[0] + "-" + task[1]);
 				
 				PDDL_rules_buffer.append(";;\n");
 				PDDL_rules_buffer.append(";;PRECEDENCE-" + task[0] + "-" + task[1] + " - (NOT " + task[1] + " WEAK UNTIL " + task[0] + ") - If an instance of " + task[1] + " occurs in the trace, then an instance of " + task[0] + " must occur before that instance of " + task[0] + " in the trace.\n");				
@@ -1015,9 +1014,9 @@ public class ResultsPerspective extends JDialog
 					PDDL_rules_buffer.append("(exists (?t3 - task) (and (pre ?t3 ?t2) (precedence ?t1 ?t3)))))\n\n");
 				}
 				
-				PDDL_domain_buffer.append("(succession-" + task[0] + "-" + task[1] + ")\n");			
-				
-				Constants.getPDDLActivitiesVector().addElement("succession-" + task[0] + "-" + task[1]);
+				PDDL_domain_buffer.append("(succession-" + task[0] + "-" + task[1] + ")\n");
+
+				main.Container.getPDDLActivitiesVector().addElement("succession-" + task[0] + "-" + task[1]);
 				
 				PDDL_rules_buffer.append(";;\n");
 				PDDL_rules_buffer.append(";;SUCCESSION-" + task[0] + "-" + task[1] + " - (GLOBALLY(" + task[0] + " --> EVENTUALLY " + task[1] + ")) AND (NOT " + task[1] + " WEAK UNTIL " + task[0] + ") - If an instance of " + task[0] + " occurs in the trace, then an instance of " + task[1] + " must occur in the trace after " + task[0] + ", and if an instance of " + task[1] + " occurs in the trace, then an instance of " + task[0] + " must occur before that instance of " + task[0] + " in the trace.\n");				
@@ -1040,9 +1039,9 @@ public class ResultsPerspective extends JDialog
 				String[] tasks = single_rule_array[1].split("\\)");
 				String[] task = tasks[0].split(",");
 				
-				PDDL_domain_buffer.append("(chain_response-" + task[0] + "-" + task[1] + ")\n");	
-				
-				Constants.getPDDLActivitiesVector().addElement("chain_response-" + task[0] + "-" + task[1]);
+				PDDL_domain_buffer.append("(chain_response-" + task[0] + "-" + task[1] + ")\n");
+
+				main.Container.getPDDLActivitiesVector().addElement("chain_response-" + task[0] + "-" + task[1]);
 				
 				PDDL_rules_buffer.append(";;\n");
 				PDDL_rules_buffer.append(";;CHAIN RESPONSE-" + task[0] + "-" + task[1] + " - (GLOBALLY(" + task[0] + " --> NEXT " + task[1] + ")) - If an instance of " + task[0] + " occurs in the trace, then an instance of " + task[1] + " must occur in the next step of the trace after " + task[0] + ".\n");				
@@ -1060,9 +1059,9 @@ public class ResultsPerspective extends JDialog
 				String[] tasks = single_rule_array[1].split("\\)");
 				String[] task = tasks[0].split(",");
 				
-				PDDL_domain_buffer.append("(chain_precedence-" + task[0] + "-" + task[1] + ")\n");	
-				
-				Constants.getPDDLActivitiesVector().addElement("chain_precedence-" + task[0] + "-" + task[1]);
+				PDDL_domain_buffer.append("(chain_precedence-" + task[0] + "-" + task[1] + ")\n");
+
+				main.Container.getPDDLActivitiesVector().addElement("chain_precedence-" + task[0] + "-" + task[1]);
 				
 				PDDL_rules_buffer.append(";;\n");
 				PDDL_rules_buffer.append(";;CHAIN PRECEDENCE-" + task[0] + "-" + task[1] + " - (GLOBALLY(NEXT" + task[1] + " --> " + task[0] + ")) - If an instance of " + task[1] + " occurs in the trace, then an instance of " + task[0] + " must occur in the previous step of the trace.\n");				
@@ -1080,9 +1079,9 @@ public class ResultsPerspective extends JDialog
 				String[] tasks = single_rule_array[1].split("\\)");
 				String[] task = tasks[0].split(",");
 				
-				PDDL_domain_buffer.append("(chain_succession-" + task[0] + "-" + task[1] + ")\n");	
-				
-				Constants.getPDDLActivitiesVector().addElement("chain_succession-" + task[0] + "-" + task[1]);
+				PDDL_domain_buffer.append("(chain_succession-" + task[0] + "-" + task[1] + ")\n");
+
+				main.Container.getPDDLActivitiesVector().addElement("chain_succession-" + task[0] + "-" + task[1]);
 				
 				PDDL_rules_buffer.append(";;\n");
 				PDDL_rules_buffer.append(";;CHAIN SUCCESSION-" + task[0] + "-" + task[1] + " - (GLOBALLY(" + task[0] + " --> NEXT " + task[1] + ")) AND (GLOBALLY(NEXT " + task[1] + " IMPLIES " + task[0] + ")) - If an instance of " + task[0] + " occurs in the trace, then an instance of " + task[1] + " must occur in the next step of the trace after " + task[0] + ". Furthermore, if an instance of B occurs in the trace, then an instance of A must occur in the previous step of the trace.\n");				
@@ -1133,9 +1132,9 @@ public class ResultsPerspective extends JDialog
 
 				}
 				
-				PDDL_domain_buffer.append("(not_response-" + task[0] + "-" + task[1] + ")\n");			
-				
-				Constants.getPDDLActivitiesVector().addElement("not_response-" + task[0] + "-" + task[1]);
+				PDDL_domain_buffer.append("(not_response-" + task[0] + "-" + task[1] + ")\n");
+
+				main.Container.getPDDLActivitiesVector().addElement("not_response-" + task[0] + "-" + task[1]);
 				
 				PDDL_rules_buffer.append(";;\n");
 				PDDL_rules_buffer.append(";;NOT RESPONSE-" + task[0] + "-" + task[1] + " - (GLOBALLY(" + task[0] + " --> NOT(EVENTUALLY " + task[1] + "))) - If an instance of " + task[0] + " occurs in the trace, then no instance of " + task[1] + " can occur in the trace after " + task[0] + ".\n");				
@@ -1168,9 +1167,9 @@ public class ResultsPerspective extends JDialog
 					PDDL_rules_buffer.append("(exists (?t3 - task) (and (pre ?t3 ?t2) (precedence ?t1 ?t3)))))\n\n");
 				}
 				
-				PDDL_domain_buffer.append("(not_precedence-" + task[0] + "-" + task[1] + ")\n");			
-				
-				Constants.getPDDLActivitiesVector().addElement("not_precedence-" + task[0] + "-" + task[1]);
+				PDDL_domain_buffer.append("(not_precedence-" + task[0] + "-" + task[1] + ")\n");
+
+				main.Container.getPDDLActivitiesVector().addElement("not_precedence-" + task[0] + "-" + task[1]);
 				
 				PDDL_rules_buffer.append(";;\n");
 				PDDL_rules_buffer.append(";;NOT PRECEDENCE-" + task[0] + "-" + task[1] + " - (GLOBALLY(" + task[0] + " --> NOT(EVENTUALLY " + task[1] + "))) - If an instance of " + task[0] + " occurs in the trace, then no instance of " + task[1] + " can occur in the trace after " + task[0] + ".\n");				
@@ -1212,9 +1211,9 @@ public class ResultsPerspective extends JDialog
 
 				}
 				
-				PDDL_domain_buffer.append("(not_succession-" + task[0] + "-" + task[1] + ")\n");			
-				
-				Constants.getPDDLActivitiesVector().addElement("not_succession-" + task[0] + "-" + task[1]);
+				PDDL_domain_buffer.append("(not_succession-" + task[0] + "-" + task[1] + ")\n");
+
+				main.Container.getPDDLActivitiesVector().addElement("not_succession-" + task[0] + "-" + task[1]);
 				
 				PDDL_rules_buffer.append(";;\n");
 				PDDL_rules_buffer.append(";;NOT SUCCESSION-" + task[0] + "-" + task[1] + " - (GLOBALLY(" + task[0] + " --> NOT(EVENTUALLY " + task[1] + "))) - If an instance of " + task[0] + " occurs in the trace, then no instance of " + task[1] + " can occur in the trace after " + task[0] + ".\n");				
@@ -1234,9 +1233,9 @@ public class ResultsPerspective extends JDialog
 				String[] tasks = single_rule_array[1].split("\\)");
 				String[] task = tasks[0].split(",");
 				
-				PDDL_domain_buffer.append("(not_chain_response-" + task[0] + "-" + task[1] + ")\n");	
-				
-				Constants.getPDDLActivitiesVector().addElement("not_chain_response-" + task[0] + "-" + task[1]);
+				PDDL_domain_buffer.append("(not_chain_response-" + task[0] + "-" + task[1] + ")\n");
+
+				main.Container.getPDDLActivitiesVector().addElement("not_chain_response-" + task[0] + "-" + task[1]);
 				
 				PDDL_rules_buffer.append(";;\n");
 				PDDL_rules_buffer.append(";;NOT CHAIN RESPONSE-" + task[0] + "-" + task[1] + " - (GLOBALLY(" + task[0] + " --> NOT (NEXT " + task[1] + "))) - If an instance of " + task[0] + " occurs in the trace, then no instance of " + task[1] + " can occur in the next step of the trace after " + task[0] + ".\n");				
@@ -1254,9 +1253,9 @@ public class ResultsPerspective extends JDialog
 				String[] tasks = single_rule_array[1].split("\\)");
 				String[] task = tasks[0].split(",");
 				
-				PDDL_domain_buffer.append("(not_chain_precedence-" + task[0] + "-" + task[1] + ")\n");	
-				
-				Constants.getPDDLActivitiesVector().addElement("not_chain_precedence-" + task[0] + "-" + task[1]);
+				PDDL_domain_buffer.append("(not_chain_precedence-" + task[0] + "-" + task[1] + ")\n");
+
+				main.Container.getPDDLActivitiesVector().addElement("not_chain_precedence-" + task[0] + "-" + task[1]);
 				
 				PDDL_rules_buffer.append(";;\n");
 				PDDL_rules_buffer.append(";;NOT CHAIN PRECEDENCE-" + task[0] + "-" + task[1] + " - (GLOBALLY(NEXT " + task[1] + " --> NOT(" + task[0] + "))) - If an instance of " + task[1] + " occurs in the trace, then no instance of " + task[0] + " can occur in the previous step of the trace.\n");				
@@ -1274,9 +1273,9 @@ public class ResultsPerspective extends JDialog
 				String[] tasks = single_rule_array[1].split("\\)");
 				String[] task = tasks[0].split(",");
 				
-				PDDL_domain_buffer.append("(not_chain_succession-" + task[0] + "-" + task[1] + ")\n");	
-				
-				Constants.getPDDLActivitiesVector().addElement("not_chain_succession-" + task[0] + "-" + task[1]);
+				PDDL_domain_buffer.append("(not_chain_succession-" + task[0] + "-" + task[1] + ")\n");
+
+				main.Container.getPDDLActivitiesVector().addElement("not_chain_succession-" + task[0] + "-" + task[1]);
 				
 				PDDL_rules_buffer.append(";;\n");
 				PDDL_rules_buffer.append(";;NOT CHAIN SUCCESSION-" + task[0] + "-" + task[1] + " - (GLOBALLY(" + task[0] + " --> NOT (NEXT " + task[1] + "))) AND (GLOBALLY(NEXT " + task[1] + " --> NOT(" + task[0] + "))) - If an instance of " + task[0] + " occurs in the trace, then no instance of " + task[1] + " can occur in the next step of the trace after " + task[0] + ". Moreover, If an instance of " + task[1] + " occurs in the trace, then no instance of " + task[0] + " can occur in the previous step of the trace.\n");				
@@ -1311,9 +1310,9 @@ public class ResultsPerspective extends JDialog
 					response_between_rules_vector.addElement("response_with_no_" + task[0] + "_in_between");
 				}
 						
-				PDDL_domain_buffer.append("(alt_response-" + task[0] + "-" + task[1] + ")\n");			
-				
-				Constants.getPDDLActivitiesVector().addElement("alt_response-" + task[0] + "-" + task[1]);
+				PDDL_domain_buffer.append("(alt_response-" + task[0] + "-" + task[1] + ")\n");
+
+				main.Container.getPDDLActivitiesVector().addElement("alt_response-" + task[0] + "-" + task[1]);
 				
 				PDDL_rules_buffer.append(";;\n");
 				PDDL_rules_buffer.append(";;ALTERNATE RESPONSE-" + task[0] + "-" + task[1] + " - (GLOBALLY(" + task[0] + " --> NEXT (NOT " + task[0] + " UNTIL " + task[1] + "))) - If an instance of " + task[0] + " occurs in the trace, then an instance of " + task[1] + " must occur in the trace after " + task[0] + ", but no other instances of " + task[0] + " can occur between " + task[0] + " and " + task[1] + ".\n");				
@@ -1350,9 +1349,9 @@ public class ResultsPerspective extends JDialog
 					precedence_between_rules_vector.addElement("precedence_with_no_" + task[1] + "_in_between");
 				}
 						
-				PDDL_domain_buffer.append("(alt_precedence-" + task[0] + "-" + task[1] + ")\n");			
-				
-				Constants.getPDDLActivitiesVector().addElement("alt_precedence-" + task[0] + "-" + task[1]);
+				PDDL_domain_buffer.append("(alt_precedence-" + task[0] + "-" + task[1] + ")\n");
+
+				main.Container.getPDDLActivitiesVector().addElement("alt_precedence-" + task[0] + "-" + task[1]);
 				
 				PDDL_rules_buffer.append(";;\n");
 				PDDL_rules_buffer.append(";;ALTERNATE PRECEDENCE-" + task[0] + "-" + task[1] + " - (NOT " + task[1] + " WEAK UNTIL " + task[0] + ") AND (GLOBALLY(" + task[1] + " --> NEXT (NOT " + task[1] + " WEAK UNTIL " + task[0] + "))) - If an instance of " + task[1] + " occurs in the trace, then an instance of " + task[0] + " must occur in the trace before " + task[1] + ", but no other instances of " + task[1] + " can occur in between.\n");				
@@ -1405,9 +1404,9 @@ public class ResultsPerspective extends JDialog
 					precedence_between_rules_vector.addElement("precedence_with_no_" + task[1] + "_in_between");
 				}
 						
-				PDDL_domain_buffer.append("(alt_succession-" + task[0] + "-" + task[1] + ")\n");			
-				
-				Constants.getPDDLActivitiesVector().addElement("alt_succession-" + task[0] + "-" + task[1]);
+				PDDL_domain_buffer.append("(alt_succession-" + task[0] + "-" + task[1] + ")\n");
+
+				main.Container.getPDDLActivitiesVector().addElement("alt_succession-" + task[0] + "-" + task[1]);
 				
 				PDDL_rules_buffer.append(";;\n");
 				PDDL_rules_buffer.append(";;ALTERNATE SUCCESSION-" + task[0] + "-" + task[1] + " - (GLOBALLY(" + task[0] + " --> NEXT (NOT " + task[0] + " UNTIL " + task[1] + "))) - If an instance of " + task[0] + " occurs in the trace, then an instance of " + task[1] + " must occur in the trace after " + task[0] + ", but no other instances of " + task[0] + " can occur between " + task[0] + " and " + task[1] + ".\n");				
@@ -1431,7 +1430,7 @@ public class ResultsPerspective extends JDialog
 		
 		//PDDL FUNCTIONS TO REPRESENT THE COST OF ADDING/REMOVING TASKS IN/FROM THE TRACE
 		
-		if(Constants.getPlannerPerspective().getCostCheckBox().isSelected()) {
+		if(main.Container.getCostCheckBox().isSelected()) {
 			
 			PDDL_domain_buffer.append(";;\n");
 			PDDL_domain_buffer.append(";;FUNCTIONS\n");		
@@ -1460,7 +1459,7 @@ public class ResultsPerspective extends JDialog
 		PDDL_domain_buffer.append(":parameters (?x1 - task)\n");		
 		PDDL_domain_buffer.append(":precondition (not (exists (?x - task) (traced ?x)))\n");		 
 		PDDL_domain_buffer.append(":effect (and (traced ?x1) (first_task_of_the_trace ?x1) (last_task_of_the_trace ?x1)");			
-		if(Constants.getPlannerPerspective().getCostCheckBox().isSelected()) {
+		if(main.Container.getCostCheckBox().isSelected()) {
 		PDDL_domain_buffer.append(" (increase (total-cost) (adding-cost ?x1))");	
 		}
 		PDDL_domain_buffer.append(")\n");	
@@ -1474,7 +1473,7 @@ public class ResultsPerspective extends JDialog
 		PDDL_domain_buffer.append(":parameters (?x1 - task ?x2 - task)\n");		
 		PDDL_domain_buffer.append(":precondition (and (not (traced ?x2)) (first_task_of_the_trace ?x1))\n");		 
 		PDDL_domain_buffer.append(":effect (and (not (first_task_of_the_trace ?x1)) (first_task_of_the_trace ?x2) (traced ?x2) (pre ?x2 ?x1)");		
-		if(Constants.getPlannerPerspective().getCostCheckBox().isSelected()) {
+		if(main.Container.getCostCheckBox().isSelected()) {
 		PDDL_domain_buffer.append(" (increase (total-cost) (adding-cost ?x2))");	
 		}
 		PDDL_domain_buffer.append(")\n");
@@ -1488,7 +1487,7 @@ public class ResultsPerspective extends JDialog
 		PDDL_domain_buffer.append(":parameters (?x1 - task ?x2 - task)\n");		
 		PDDL_domain_buffer.append(":precondition (and (not (traced ?x2)) (last_task_of_the_trace ?x1))\n");		 
 		PDDL_domain_buffer.append(":effect (and (not (last_task_of_the_trace ?x1)) (last_task_of_the_trace ?x2) (traced ?x2) (pre ?x1 ?x2)");
-		if(Constants.getPlannerPerspective().getCostCheckBox().isSelected()) {
+		if(main.Container.getCostCheckBox().isSelected()) {
 		PDDL_domain_buffer.append(" (increase (total-cost) (adding-cost ?x2))");	
 		}
 		PDDL_domain_buffer.append(")\n");
@@ -1503,7 +1502,7 @@ public class ResultsPerspective extends JDialog
 		PDDL_domain_buffer.append(":parameters (?x1 - task ?x2 - task ?x3 - task)\n");		
 		PDDL_domain_buffer.append(":precondition (and (pre ?x1 ?x3) (not (traced ?x2)))\n");			 
 		PDDL_domain_buffer.append(":effect (and (traced ?x2) (pre ?x1 ?x2) (pre ?x2 ?x3) (not (pre ?x1 ?x3))");
-		if(Constants.getPlannerPerspective().getCostCheckBox().isSelected()) {
+		if(main.Container.getCostCheckBox().isSelected()) {
 		PDDL_domain_buffer.append(" (increase (total-cost) (adding-cost ?x2))");	
 		}
 		PDDL_domain_buffer.append(")\n");
@@ -1517,7 +1516,7 @@ public class ResultsPerspective extends JDialog
 		PDDL_domain_buffer.append(":parameters (?x1 - task)\n");		
 		PDDL_domain_buffer.append(":precondition (and (first_task_of_the_trace ?x1) (last_task_of_the_trace ?x1))\n");			 
 		PDDL_domain_buffer.append(":effect (and (not (traced ?x1)) (not (last_task_of_the_trace ?x1)) (not (first_task_of_the_trace ?x1))");			
-		if(Constants.getPlannerPerspective().getCostCheckBox().isSelected()) {
+		if(main.Container.getCostCheckBox().isSelected()) {
 		PDDL_domain_buffer.append(" (increase (total-cost) (removing-cost ?x1))");	
 		}
 		PDDL_domain_buffer.append(")\n");
@@ -1531,7 +1530,7 @@ public class ResultsPerspective extends JDialog
 		PDDL_domain_buffer.append(":parameters (?x1 - task ?x2 - task)\n");		
 		PDDL_domain_buffer.append(":precondition (and (pre ?x1 ?x2) (first_task_of_the_trace ?x1))\n");		 
 		PDDL_domain_buffer.append(":effect (and (not (traced ?x1)) (not (first_task_of_the_trace ?x1)) (first_task_of_the_trace ?x2) (not (pre ?x1 ?x2))");		
-		if(Constants.getPlannerPerspective().getCostCheckBox().isSelected()) {
+		if(main.Container.getCostCheckBox().isSelected()) {
 		PDDL_domain_buffer.append(" (increase (total-cost) (removing-cost ?x1))");	
 		}
 		PDDL_domain_buffer.append(")\n");
@@ -1545,7 +1544,7 @@ public class ResultsPerspective extends JDialog
 		PDDL_domain_buffer.append(":parameters (?x1 - task ?x2 - task)\n");		
 		PDDL_domain_buffer.append(":precondition (and (pre ?x1 ?x2) (last_task_of_the_trace ?x2))\n");		 
 		PDDL_domain_buffer.append(":effect (and (not (traced ?x2)) (not (last_task_of_the_trace ?x2)) (last_task_of_the_trace ?x1) (not (pre ?x1 ?x2))");			
-		if(Constants.getPlannerPerspective().getCostCheckBox().isSelected()) {
+		if(main.Container.getCostCheckBox().isSelected()) {
 		PDDL_domain_buffer.append(" (increase (total-cost) (removing-cost ?x2))");	
 		}
 		PDDL_domain_buffer.append(")\n");
@@ -1559,7 +1558,7 @@ public class ResultsPerspective extends JDialog
 		PDDL_domain_buffer.append(":parameters (?x1 - task ?x2 - task ?x3 - task)\n");		
 		PDDL_domain_buffer.append(":precondition (and (pre ?x1 ?x2) (pre ?x2 ?x3))\n");			
 		PDDL_domain_buffer.append(":effect (and (not (traced ?x2)) (not (pre ?x1 ?x2)) (not (pre ?x2 ?x3)) (pre ?x1 ?x3)");		
-		if(Constants.getPlannerPerspective().getCostCheckBox().isSelected()) {
+		if(main.Container.getCostCheckBox().isSelected()) {
 		PDDL_domain_buffer.append(" (increase (total-cost) (removing-cost ?x2))");	
 		}
 		PDDL_domain_buffer.append(")\n");
@@ -1610,10 +1609,10 @@ public class ResultsPerspective extends JDialog
 				String key = (String) enum_trace_hashtable.nextElement();
 				String value = (String) trace.getAssociationsToActivityInstances_Hashtable().get(key);
 
-				if(Constants.getPlannerPerspective().getCostCheckBox().isSelected()) {
+				if(main.Container.getCostCheckBox().isSelected()) {
 								
-					for(int yu=0;yu<Constants.getActivitiesCost_vector().size();yu++) {
-						Vector<String> specificTraceCostVector = Constants.getActivitiesCost_vector().elementAt(yu);					
+					for(int yu=0;yu<main.Container.getActivitiesCost_vector().size();yu++) {
+						Vector<String> specificTraceCostVector = main.Container.getActivitiesCost_vector().elementAt(yu);
 						if(specificTraceCostVector.elementAt(0).equalsIgnoreCase(value)) {
 							PDDL_cost_buffer.append("(= (adding-cost " + key + ") " +  specificTraceCostVector.elementAt(1) + ")\n");
 							PDDL_cost_buffer.append("(= (removing-cost " + key + ") " +  specificTraceCostVector.elementAt(2) + ")\n");
@@ -1652,7 +1651,7 @@ public class ResultsPerspective extends JDialog
 			PDDL_problem_buffer.append("(traced " + trace.getTraceContentWithActivitiesInstances_vector().elementAt(inx) + ")\n");
 		}
 		//////////////////////////////////
-		if(Constants.getPlannerPerspective().getCostCheckBox().isSelected()) {
+		if(main.Container.getCostCheckBox().isSelected()) {
 			PDDL_cost_buffer.append("(= (total-cost) 0)");
 			PDDL_problem_buffer.append(PDDL_cost_buffer);	
 		}
@@ -1662,19 +1661,19 @@ public class ResultsPerspective extends JDialog
 		PDDL_problem_buffer.append("(:goal\n");		
 		
 		
-		if(Constants.getPDDLActivitiesVector().size()>1)  {
+		if(main.Container.getPDDLActivitiesVector().size()>1)  {
 			PDDL_problem_buffer.append("(and \n");			
-				for(int index=0;index<Constants.getPDDLActivitiesVector().size();index++) {
-					PDDL_problem_buffer.append("(" + Constants.getPDDLActivitiesVector().elementAt(index) + ")\n");
+				for(int index=0;index<main.Container.getPDDLActivitiesVector().size();index++) {
+					PDDL_problem_buffer.append("(" + main.Container.getPDDLActivitiesVector().elementAt(index) + ")\n");
 			    }
 			PDDL_problem_buffer.append(")\n");		
 		}
 		else {
-			PDDL_problem_buffer.append("(" + Constants.getPDDLActivitiesVector().elementAt(0) + ")\n");
+			PDDL_problem_buffer.append("(" + main.Container.getPDDLActivitiesVector().elementAt(0) + ")\n");
 		}
 		PDDL_problem_buffer.append(")\n");		
 		/////////////////////
-		if(Constants.getPlannerPerspective().getCostCheckBox().isSelected()) 
+		if(main.Container.getCostCheckBox().isSelected())
 			PDDL_problem_buffer.append("(:metric minimize (total-cost))\n");	
 		///////////////////	
 		PDDL_problem_buffer.append(")");	
@@ -1714,9 +1713,9 @@ public class ResultsPerspective extends JDialog
 	
 	private int getCostOfAdding(String nomeTask) {
 		
-		for(int kix=0;kix<Constants.getActivitiesCost_vector().size();kix++) {
+		for(int kix=0;kix<main.Container.getActivitiesCost_vector().size();kix++) {
 		
-		Vector<String> task_cost_vector = Constants.getActivitiesCost_vector().elementAt(kix);
+		Vector<String> task_cost_vector = main.Container.getActivitiesCost_vector().elementAt(kix);
 		
 		if(task_cost_vector.elementAt(0).equalsIgnoreCase(nomeTask)) {
 			return new Integer(task_cost_vector.elementAt(1));	
@@ -1727,9 +1726,9 @@ public class ResultsPerspective extends JDialog
 	
 	private int getCostOfDeleting(String nomeTask) {
 	
-		for(int kix=0;kix<Constants.getActivitiesCost_vector().size();kix++) {
+		for(int kix=0;kix<main.Container.getActivitiesCost_vector().size();kix++) {
 		
-		Vector<String> task_cost_vector = Constants.getActivitiesCost_vector().elementAt(kix);
+		Vector<String> task_cost_vector = main.Container.getActivitiesCost_vector().elementAt(kix);
 		
 		if(task_cost_vector.elementAt(0).equalsIgnoreCase(nomeTask)) {
 			return new Integer(task_cost_vector.elementAt(2));	

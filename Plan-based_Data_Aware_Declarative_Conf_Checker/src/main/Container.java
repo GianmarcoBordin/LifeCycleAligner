@@ -1,18 +1,15 @@
 package main;
 
 import java.awt.*;
-import java.io.*;
-import java.sql.Timestamp;
-import java.util.Enumeration;
 import java.util.Hashtable;
 import java.util.Vector;
 import javax.swing.*;
 
-import control.*;
 import org.processmining.ltl2automaton.plugins.automaton.Automaton;
 
 import com.google.common.collect.HashMultimap;
 import com.google.common.collect.Multimap;
+import run.ResultsPerspective;
 
 
 public class Container {
@@ -38,12 +35,9 @@ public class Container {
 	private  static JCheckBoxMenuItem disjunctiveGoalMenuItem;
 	private static JCheckBoxMenuItem productAutomatonMenuItem;
 
-	private static  H_MenuPerspective h_menuPerspective;
-
 	// MENU PERSPECTIVE END
 
 	// TRACES PERSPECTIVE START
-	private static H_TracesPerspective h_tracesPerspective;
 	private static DefaultListModel<String> alphabetListModel;
 	private static JList<String> alphabetList;
 	private static DefaultListModel<String> traceListModel;
@@ -52,7 +46,6 @@ public class Container {
 	// TRACES PERSPECTIVE END
 
 	// CONSTRAINTS PERSPECTIVE START
-	private static H_ConstraintsPerspective h_constraintsPerspective;
 
 	private static DefaultListModel<String> constraintsListModel;
 	private static JList<String> constraintsList;
@@ -62,7 +55,6 @@ public class Container {
 
 	// PLANNER PERSPECTIVE START
 
-	private static H_PlannerPerspective h_plannerPerspective;
 	private static JTextArea activitiesArea;
 
 	private static JTextArea constraintsArea;
@@ -151,7 +143,6 @@ public class Container {
 
 	public static void InitMenuPerspective(){
 		initMenuPerspectiveComponent();
-		initMenuPerspectiveHandler();
 	}
 
 	private static void initMenuPerspectiveComponent() {
@@ -238,9 +229,6 @@ public class Container {
 
 	}
 
-	private static void initMenuPerspectiveHandler() {
-       h_menuPerspective= new H_MenuPerspective();
-	}
 
 	/// GETTER AND SETTER ///
 
@@ -359,12 +347,8 @@ public class Container {
 
 	//////////////////////////////// TRACES PERSPECTIVE MERGE START ///////////////////////////////////////////////
 
-	public static void InitTracesPerspective(){
-		initTracesPerspectiveComponent();
-		initTracesPerspectiveHandler();
-	}
 
-	 private static void initTracesPerspectiveComponent() {
+	 static void initTracesPerspectiveComponent() {
 		alphabetListModel = new DefaultListModel<String>();
 		alphabetList = new JList<String>(alphabetListModel);
 		alphabetList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
@@ -377,11 +361,7 @@ public class Container {
 		alphabetList.setEnabled(true);
 	}
 
-	private static void initTracesPerspectiveHandler() {
 
-		h_tracesPerspective = new H_TracesPerspective();
-
-	}
 
 	/// GETTER AND SETTER ///
 
@@ -408,12 +388,8 @@ public class Container {
 
 	//////////////////////////////// CONSTRAINTS PERSPECTIVE MERGE START ///////////////////////////////////////////////
 
-	public static void InitConstraintsPerspective(){
-		initConstraintsPerspectiveComponent();
-		initConstraintsPerspectiveHandler();
-	}
 
-	private static void initConstraintsPerspectiveComponent() {
+	 static void initConstraintsPerspectiveComponent() {
 		constraintsListModel = new DefaultListModel<String>();
 		constraintsList = new JList<String>(constraintsListModel);
 		constraintsList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
@@ -421,9 +397,6 @@ public class Container {
 		constraintsList.setEnabled(true);
 	}
 
-	private static void initConstraintsPerspectiveHandler() {
-		h_constraintsPerspective = new H_ConstraintsPerspective();
-	}
 
 	/// GETTER AND SETTER ///
 
@@ -450,12 +423,9 @@ public class Container {
 
 	//////////////////////////////// PLANNER PERSPECTIVE MERGE START ///////////////////////////////////////////////
 
-	public static void InitPlannerPerspective(){
-		initPlannerPerspectiveComponent();
-		initPlannerPerspectiveHandler();
-	}
 
-	private static void initPlannerPerspectiveComponent() {
+
+	static void initPlannerPerspectiveComponent() {
 
 		activitiesArea = new JTextArea();
 		activitiesArea.setEditable(false);
@@ -556,10 +526,6 @@ public class Container {
 	}
 
 
-	private static void initPlannerPerspectiveHandler() {
-		h_plannerPerspective = new H_PlannerPerspective();
-	}
-
 	/// GETTER AND SETTER ///
 
 
@@ -571,15 +537,15 @@ public class Container {
 		Container.trace_duplicated_checkBox = trace_duplicated_checkBox;
 	}
 
-	public JTextArea getActivitiesArea() {
+	public static JTextArea getActivitiesArea() {
 		return activitiesArea;
 	}
 
-	public JTextArea getConstraintsArea() {
+	public static JTextArea getConstraintsArea() {
 		return constraintsArea;
 	}
 
-	public JTextArea getTraceArea() {
+	public static JTextArea getTraceArea() {
 		return traceArea;
 	}
 

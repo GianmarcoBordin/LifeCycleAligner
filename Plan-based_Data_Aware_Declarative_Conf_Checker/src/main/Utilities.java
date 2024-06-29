@@ -260,7 +260,7 @@ public class Utilities {
 	        	        
 	        Container.getCombinationOfRelevantTransitions_vector().addElement(cot);
 	        
-	        if(Container.getMenuPerspective().getSinkStatesMenuItem().isSelected() && cot.containsSinkstates()) {
+	        if(Container.getSinkStatesMenuItem().isSelected() && cot.containsSinkstates()) {
 	        	Container.getCombinationOfRelevantTransitions_vector().removeElement(cot);
 	        	// System.out.println("This combination of transition contains a sink state ");
 	        } 
@@ -349,7 +349,7 @@ public class Utilities {
 		
 		PDDL_domain_buffer.append(")\n\n");			
 		
-		if(Container.getPlannerPerspective().getCostCheckBox().isSelected()) {
+		if(Container.getCostCheckBox().isSelected()) {
 			PDDL_domain_buffer.append("(:functions\n");	
 			PDDL_domain_buffer.append("(total-cost)\n");			
 			PDDL_domain_buffer.append(")\n\n");		
@@ -420,7 +420,7 @@ public class Utilities {
 				PDDL_domain_buffer.append(":effect (and ");
 				PDDL_domain_buffer.append(cot.getPDDL_effects());
 				
-				if(Container.getPlannerPerspective().getCostCheckBox().isSelected()) {
+				if(Container.getCostCheckBox().isSelected()) {
 					PDDL_domain_buffer.append(" (increase (total-cost) ");	
 										
 						for(int yu = 0; yu< Container.getActivitiesCost_vector().size(); yu++) {
@@ -467,7 +467,7 @@ public class Utilities {
 									PDDL_domain_buffer.append(cot.getPDDL_effects());
 									PDDL_domain_buffer.append("(not (trans_" + data_key + "))");
 									
-									if(Container.getPlannerPerspective().getCostCheckBox().isSelected()) {
+									if(Container.getCostCheckBox().isSelected()) {
 										PDDL_domain_buffer.append(" (increase (total-cost) 1)");	
 									
 									}
@@ -621,7 +621,7 @@ public class Utilities {
 			
 			PDDL_domain_buffer.append(":effect (and ");
 			PDDL_domain_buffer.append("(not (currstate t" + gk + ")) " + "(currstate t" + j + ") " );
-			if(Container.getPlannerPerspective().getCostCheckBox().isSelected()) {
+			if(Container.getCostCheckBox().isSelected()) {
 				PDDL_domain_buffer.append(" (increase (total-cost) ");	
 			
 					for(int yu = 0; yu< Container.getActivitiesCost_vector().size(); yu++) {
@@ -652,7 +652,7 @@ public class Utilities {
 						PDDL_domain_buffer.append("(and (currstate t" + gk + ") (not (trans_" + data_key + ")))\n");
 						PDDL_domain_buffer.append(":effect (and ");
 						PDDL_domain_buffer.append("(not (currstate t" + gk + ")) " + "(currstate t" + j + ") " + "(trans_" + data_key + ") " );
-						if(Container.getPlannerPerspective().getCostCheckBox().isSelected()) {
+						if(Container.getCostCheckBox().isSelected()) {
 							PDDL_domain_buffer.append(" (increase (total-cost) 1))");	
 					
 					}						
@@ -671,7 +671,7 @@ public class Utilities {
 		// we need to generate PDDL actions to reach the ABSTRACT accepting state of any automaton, that are used as target states 
 		// for any regular accepting state.
 		//
-		if(!Container.getMenuPerspective().getDisjunctiveGoalMenuItem().isSelected()) {
+		if(!Container.getDisjunctiveGoalMenuItem().isSelected()) {
 					
 			StringBuffer PDDL_temp_effects_sb = new StringBuffer(":effect (and ");
 			
@@ -754,7 +754,7 @@ public class Utilities {
 		
 		PDDL_init_buffer.append(Container.getPDDLAutomataInitialStates_sb());
 				
-		if(Container.getPlannerPerspective().getCostCheckBox().isSelected()) {
+		if(Container.getCostCheckBox().isSelected()) {
 			PDDL_cost_buffer.append("(= (total-cost) 0)\n");
 			PDDL_init_buffer.append(PDDL_cost_buffer);
 		}
@@ -784,7 +784,7 @@ public class Utilities {
 
 		PDDL_goal_buffer.append("))\n");
 		
-		if(Container.getPlannerPerspective().getCostCheckBox().isSelected())
+		if(Container.getCostCheckBox().isSelected())
 			PDDL_goal_buffer.append("(:metric minimize (total-cost))\n");	
 		
 		PDDL_problem_buffer.append(PDDL_objects_buffer);

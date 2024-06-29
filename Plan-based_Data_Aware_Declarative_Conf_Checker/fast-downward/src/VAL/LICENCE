@@ -123,7 +123,7 @@ entire whole, and thus to each and every part regardless of who wrote it.
 
 Thus, it is not the intent of this section to claim rights or contest
 your rights to work written entirely by you; rather, the intent is to
-exercise the right to control the distribution of derivative or
+exercise the right to run the distribution of derivative or
 collective works based on the Program.
 
 In addition, mere aggregation of another work not based on the Program
@@ -157,7 +157,7 @@ The source code for a work means the preferred form of the work for
 making modifications to it.  For an executable work, complete source
 code means all the source code for all modules it contains, plus any
 associated interface definition files, plus the scripts used to
-control compilation and installation of the executable.  However, as a
+run compilation and installation of the executable.  However, as a
 special exception, the source code distributed need not include
 anything that is normally distributed (in either source or binary
 form) with the major components (compiler, kernel, and so on) of the
