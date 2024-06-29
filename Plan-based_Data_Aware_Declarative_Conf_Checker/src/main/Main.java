@@ -92,6 +92,7 @@ public class Main {
     }
 
     public static void initComponents() {
+        Container.initContainer();
         Container.initTracesPerspectiveComponent();
         Container.initConstraintsPerspectiveComponent();
         Container.initPlannerPerspectiveComponent();
@@ -107,10 +108,10 @@ public class Main {
             case "xes":
                 loadXes(file);
                 break;
-            case "dot":
+            case "xml":
                 loadXml(file);
                 break;
-            case "xml":
+            case "dot":
                 loadDot(file);
                 break;
             default:
@@ -349,11 +350,12 @@ public class Main {
     }
 
     public static void loadDot(File selectedFile) {
-        // RESET the ConstraintsPerspective view
 
         String model_learning_constraint = "DFA{" + selectedFile.getAbsolutePath() + "}";
 
         Container.getConstraintsListModel().addElement(model_learning_constraint);
+
+        System.out.println("HERERER");
 
     }
 

@@ -14,6 +14,10 @@ import run.ResultsPerspective;
 
 public class Container {
 
+	// OPTIONS START
+
+	// OPTIONS END
+
 	//  MENU PERSPECTIVE START
 	private static JMenu fileMenu;
 	private static JMenu editMenu;
@@ -117,17 +121,7 @@ public class Container {
 	private static Vector<String> automata_sink_non_accepting_states_vector = new Vector<String>();
 	private static Vector<String> automata_abstract_accepting_states_vector = new Vector<String>();
 	private static Vector<String> PDDL_activities_vector = new Vector<String>();
-	
 
-	public static String LTL_NOT = "\u00AC";
-	public static String LTL_OR = "\u2228";
-	public static String LTL_AND = "\u2227";
-	public static String LTL_IMPLIES = "\u2192";
-	public static String LTL_eventually = "\u25C7";
-	public static String LTL_globally = "\u25A1";
-	public static String LTL_next = "\u25CB";	
-	public static String LTL_weak_until = "W".toUpperCase();
-	public static String LTL_until = "U".toUpperCase();
 	public static String PDDL_encoding = "AAAI17"; //It can be equal to "AAAI17" or to "ICAPS16".
 	private static boolean discard_duplicated_traces = false;
 
@@ -141,11 +135,8 @@ public class Container {
 
 	//////////////////////////////// MENU PERSPECTIVE MERGE START ///////////////////////////////////////////////
 
-	public static void InitMenuPerspective(){
-		initMenuPerspectiveComponent();
-	}
 
-	private static void initMenuPerspectiveComponent() {
+	static void initContainer() {
 
 
 			fileMenu = new JMenu("File");
