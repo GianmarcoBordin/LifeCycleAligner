@@ -54,20 +54,19 @@ public class Main {
 
         goToPlanner();
 
-        generatePddlFiles();
-
-        runPlanner();
-
         System.out.println("----- GROUNDING PHASE COMPLETED -----");
 
         System.out.println("----- PDDL FILES GENERATION PHASE STARTED -----");
 
+        generatePddlFiles();
+
         System.out.println("----- PDDL FILES GENERATION PHASE COMPLETED -----");
+
+        runPlanner();
 
         System.out.println("----- RESULT PHASE STARTED -----");
 
         System.out.println("----- RESULT PHASE COMPLETED -----");
-
 
     }
 
