@@ -223,13 +223,15 @@ public class Main {
                 Container.getAllTraces_vector().addElement(t);
             }
 
-            //Update the GUI component with the loaded LOG
             File lifecycleActivityDot= null;
             Container.setActivitiesRepository_vector(loaded_alphabet_vector);
             for (int kix = 0; kix < loaded_alphabet_vector.size(); kix++) {
                 lifecycleActivityDot = createLifecycleDot(loaded_alphabet_vector.elementAt(kix));
-                assert lifecycleActivityDot != null;
+                assert lifecycleActivityDot != null && lifecycleActivityDot.exists() && lifecycleActivityDot.isFile();
                 loadDot(lifecycleActivityDot);
+                if (lifecycleActivityDot != null && lifecycleActivityDot.exists()) {
+                    lifecycleActivityDot.delete();
+                }
                 Container.getAlphabetListModel().addElement(loaded_alphabet_vector.elementAt(kix));
                 Container.getAlphabetListModel().addElement(loaded_alphabet_vector.elementAt(kix));
             }
@@ -362,9 +364,38 @@ public class Main {
     }
 
     public static File createLifecycleDot(String activity) {
+        StringBuilder dot = new StringBuilder();
+        dot.append("digraph " + activity +"_lifecycle {\n");
+        dot.append("  fakeInit [style=invisible]\n");
+        dot.append("  init [root=true]\n");
+        dot.append("  assigned\n");
+        dot.append("  started\n");
+        dot.append("  completed [shape=doublecircle]\n");
+        dot.append("  sink\n");
+        dot.append("  fakeInit -> init [style=bold]\n");
+        dot.append("  init -> assigned [label=" + activity +"_assigned]\n");
+        dot.append("  assigned -> started [label=" + activity +"_started]\n");
+        dot.append("  started -> completed [label=" + activity +"_completed]\n");
+        dot.append("  completed -> init [label=" + activity +"_assigned]\n");
+        dot.append("  started -> sink [label=" + activity +"_assigned]\n");
+        dot.append("  started -> sink [label=" + activity +"_started]\n");
+        dot.append("  completed -> sink [label=" + activity +"_started]\n");
+        dot.append("  completed -> sink [label=" + activity +"_completed]\n");
+        dot.append("  assigned -> sink [label=" + activity +"_assigned]\n");
+        dot.append("  assigned -> sink [label=" + activity +"_completed]\n");
+        dot.append("  init -> sink [label=" + activity +"_started]\n");
+        dot.append("  init -> sink [label=" + activity +"_completed]\n");
+        dot.append("}");
 
+        // Write DOT content to a file
+        File dotFile = new File(activity + "_lifecycle.dot");
+        try (FileWriter writer = new FileWriter(dotFile)) {
+            writer.write(dot.toString());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
-        return null;
+        return dotFile;
     }
 
     public static void goToPlanner() {
