@@ -388,7 +388,7 @@ public class Main {
         dot.append("}");
 
         // Write DOT content to a file
-        File dotFile = new File(activity + "_lifecycle.dot");
+        File dotFile = new File("/Users/applem2/Downloads/Work/tesi/Project/Aligner/Plan-based_Data_Aware_Declarative_Conf_Checker/resources/declarative-models/Data-Aware/5-CONSTRAINTS/"+activity + "_lifecycle.dot");
         try (FileWriter writer = new FileWriter(dotFile)) {
             writer.write(dot.toString());
         } catch (IOException e) {
