@@ -6,7 +6,7 @@ USE_LP=0
 ## On OS X, this is unsupported and will be silently disabled.
 LINK_RELEASE_STATICALLY=1
 
-## Set STATE_VAR_BYTES to 1, 2 or 4 to control how large a state
+## Set STATE_VAR_BYTES to 1, 2 or 4 to run how large a state
 ## variable is. There should be no need to tweak this manually.
 STATE_VAR_BYTES=1
 

@@ -224,8 +224,12 @@ public class Main {
             }
 
             //Update the GUI component with the loaded LOG
+            File lifecycleActivityDot= null;
             Container.setActivitiesRepository_vector(loaded_alphabet_vector);
             for (int kix = 0; kix < loaded_alphabet_vector.size(); kix++) {
+                lifecycleActivityDot = createLifecycleDot(loaded_alphabet_vector.elementAt(kix));
+                assert lifecycleActivityDot != null;
+                loadDot(lifecycleActivityDot);
                 Container.getAlphabetListModel().addElement(loaded_alphabet_vector.elementAt(kix));
                 Container.getAlphabetListModel().addElement(loaded_alphabet_vector.elementAt(kix));
             }
@@ -236,6 +240,7 @@ public class Main {
         if (Container.getAllTraces_vector().size() == 0) {
             JOptionPane.showMessageDialog(null, "There is no trace defined for the log!\nAt least a trace (even if empty) is required to run the software!", "ATTENTION!", JOptionPane.INFORMATION_MESSAGE, new ImageIcon("images/info_icon.png"));
         } else {
+
 
             Container.setAlphabetOfTheTraces_vector(new Vector<String>());
 
@@ -354,8 +359,12 @@ public class Main {
 
         Container.getConstraintsListModel().addElement(model_learning_constraint);
 
-        System.out.println("HERERER");
+    }
 
+    public static File createLifecycleDot(String activity) {
+
+
+        return null;
     }
 
     public static void goToPlanner() {
