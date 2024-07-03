@@ -9,31 +9,20 @@ import org.processmining.ltl2automaton.plugins.automaton.Automaton;
 
 import com.google.common.collect.HashMultimap;
 import com.google.common.collect.Multimap;
-import run.ResultsPerspective;
 
 
 public class Container {
 
-	// OPTIONS START
-
-	// OPTIONS END
-
 	//  MENU PERSPECTIVE START
 	private static JMenu fileMenu;
-	private static JMenu editMenu;
-
 	private static JMenuItem newMenuItem;
 	private static JMenuItem openXESMenuItem;
 	private static JMenuItem importDeclareMenuItem;
 	private static JMenuItem importLTLFormulaMenuItem;
 	private static JMenu importMenu;
-
 	private static JMenuItem importModelLearningAutomatonMenuItem;
 	private static JMenuItem importDataAwareListMenuItem;
-
-
 	private static JMenuItem exitMenuItem;
-
 	private static JMenu AAAI17EncodingMenu;
 	private static JCheckBoxMenuItem sinkStatesMenuItem;
 	private  static JCheckBoxMenuItem disjunctiveGoalMenuItem;
@@ -60,28 +49,18 @@ public class Container {
 	// PLANNER PERSPECTIVE START
 
 	private static JTextArea activitiesArea;
-
 	private static JTextArea constraintsArea;
-
 	private static JTextArea traceArea = new JTextArea();
-
-
 	private static JCheckBox FDoptimalCheckBox;
 	private static JCheckBox SymBAoptimalCheckBox;
-
 	private static JComboBox<String> number_of_traces_ComboBox_FROM;
 	private static JComboBox<String> number_of_traces_ComboBox_TO;
 	private static JCheckBox number_of_traces_checkBox;
-
 	private static JComboBox<String> lenght_of_traces_ComboBox_FROM;
 	private static JComboBox<String> lenght_of_traces_ComboBox_TO;
 	private static JCheckBox lenght_of_traces_checkBox;
-
 	private static JCheckBox trace_duplicated_checkBox;
-
-
 	private static JCheckBox costCheckBox;
-
 	private static JComboBox<String> activitiesComboBox;
 	private static JTextField addingCostField;
 	private static JTextField removalCostField;
@@ -92,24 +71,17 @@ public class Container {
 
 	private static Vector<String> activities_repository_vector = new Vector<String>();
 	private static Vector<String> alphabet_of_the_traces_vector = new Vector<String>();
-	private static Vector<String> alphabet_of_the_constraints_vector = new Vector<String>();	
-
+	private static Vector<String> alphabet_of_the_constraints_vector = new Vector<String>();
 	private static Vector<Trace> all_traces_vector = new Vector<Trace>();
 	private static Vector<String> all_constraints_vector = new Vector<String>();
-
-	private static Vector<Vector<String>> activities_cost_vector = new Vector<Vector<String>>();	
-
+	private static Vector<Vector<String>> activities_cost_vector = new Vector<Vector<String>>();
 	private static int minimum_length_of_a_trace = 0;
 	private static int maximum_length_of_a_trace = 0;
 	private static Hashtable<String, String> content_of_any_different_trace_Hashtable;
-
 	private static Vector<Automaton> automata_vector = new Vector<Automaton>();
 	private static Vector<RelevantTransition> relevant_transitions_vector = new Vector<RelevantTransition>();
-
 	private static Vector<CombinationOfRelevantTransitions> combination_of_transitions_vector = new Vector<CombinationOfRelevantTransitions>();
-
 	private static Multimap<String, String> relevant_transitions_map = HashMultimap.create();
-
 	private static Multimap<String, String> data_aware_map = HashMultimap.create();
 	private static Vector<String> automata_all_states_vector = new Vector<String>();
 	private static Vector<String> automata_accepting_states_vector = new Vector<String>();
@@ -121,16 +93,10 @@ public class Container {
 	private static Vector<String> automata_sink_non_accepting_states_vector = new Vector<String>();
 	private static Vector<String> automata_abstract_accepting_states_vector = new Vector<String>();
 	private static Vector<String> PDDL_activities_vector = new Vector<String>();
-
 	public static String PDDL_encoding = "AAAI17"; //It can be equal to "AAAI17" or to "ICAPS16".
 	private static boolean discard_duplicated_traces = false;
 
 	// CONTAINER END
-	
-	///////////////////////////////////////
-	// -- LIST OF GETTERS AND SETTERS -- //
-	///////////////////////////////////////
-
 
 
 	//////////////////////////////// MENU PERSPECTIVE MERGE START ///////////////////////////////////////////////
@@ -140,7 +106,6 @@ public class Container {
 
 
 			fileMenu = new JMenu("File");
-			editMenu = new JMenu("Edit");
 			AAAI17EncodingMenu = new JMenu("AAAI-17 Encoding");
 
 			newMenuItem = new JMenuItem("New ");
@@ -150,17 +115,11 @@ public class Container {
 			//saveMenuItem = new JMenuItem("Save ");
 			importMenu = new JMenu("Import ");
 
-			/////////////////// ModelLearning ////////////////////
-			//////////////////////////////////////////////////////
-			importModelLearningAutomatonMenuItem  = new JMenuItem("Import Automaton");
-			//////////////////////////////////////////////////////
-			//////////////////////////////////////////////////////
 
-			/////////////////// DataAware ////////////////////////
-			//////////////////////////////////////////////////////
+			importModelLearningAutomatonMenuItem  = new JMenuItem("Import Automaton");
+
 			importDataAwareListMenuItem = new JMenuItem("Import Data Atoms List");
-			//////////////////////////////////////////////////////
-			//////////////////////////////////////////////////////
+
 
 			newMenuItem.setEnabled(true);
 			openXESMenuItem.setEnabled(true);
@@ -168,17 +127,9 @@ public class Container {
 			//saveMenuItem.setEnabled(false);
 			importMenu.setEnabled(false);
 
-			/////////////////// ModelLearning ////////////////////
-			//////////////////////////////////////////////////////
 			importModelLearningAutomatonMenuItem.setEnabled(false);
-			//////////////////////////////////////////////////////
-			//////////////////////////////////////////////////////
 
-			/////////////////// DataAware ////////////////////////
-			//////////////////////////////////////////////////////
 			importDataAwareListMenuItem.setEnabled(false);
-			//////////////////////////////////////////////////////
-			//////////////////////////////////////////////////////
 
 			exitMenuItem = new JMenuItem("Exit ");
 
@@ -187,25 +138,18 @@ public class Container {
 			fileMenu.add(importMenu);
 			importMenu.add(importDeclareMenuItem);
 
-			/////////////////// ModelLearning ////////////////////
-			//////////////////////////////////////////////////////
+
 			importMenu.add(importModelLearningAutomatonMenuItem);
-			//////////////////////////////////////////////////////
-			//////////////////////////////////////////////////////
+
 
 			importMenu.add(importLTLFormulaMenuItem);
 
-			/////////////////// DataAware ////////////////////////
-			//////////////////////////////////////////////////////
 			importMenu.add(importDataAwareListMenuItem);
-			//////////////////////////////////////////////////////
-			//////////////////////////////////////////////////////
 
-			//fileMenu.add(saveMenuItem);
+
 			fileMenu.addSeparator();
 			fileMenu.add(exitMenuItem);
 
-			///////////////////////////////////////////////////////
 
 			sinkStatesMenuItem = new JCheckBoxMenuItem("Remove transitions to a target sink state");
 			disjunctiveGoalMenuItem = new JCheckBoxMenuItem("Allow disjunctive goals in the planning problem");
@@ -222,113 +166,15 @@ public class Container {
 
 
 	/// GETTER AND SETTER ///
-
-
-	public static JMenuItem getNewMenuItem() {
-		return newMenuItem;
-	}
-
-	public static void setNewMenuItem(JMenuItem newMenuItem) {
-		Container.newMenuItem = newMenuItem;
-	}
-
-	public static JMenuItem getOpenMenuItem() {
-		return openXESMenuItem;
-	}
-
-	public static void setOpenMenuItem(JMenuItem openMenuItem) {
-		Container.openXESMenuItem = openMenuItem;
-	}
-
-	public static JMenuItem getImportDeclareMenuItem() {
-		return importDeclareMenuItem;
-	}
-
-	public static void setImportDeclareMenuItem(JMenuItem importDeclareMenuItem) {
-		Container.importDeclareMenuItem = importDeclareMenuItem;
-	}
-
-	/////////////////// ModelLearning ////////////////////
-	//////////////////////////////////////////////////////
-	public static JMenuItem getImportModelLearningAutomatonMenuItem() {
-		return importModelLearningAutomatonMenuItem;
-	}
-
-	public static void setImportModelLearningAutomatonMenuItem(JMenuItem importModelLearningAutomatonMenuItem) {
-		Container.importModelLearningAutomatonMenuItem = importModelLearningAutomatonMenuItem;
-	}
-	//////////////////////////////////////////////////////
-	//////////////////////////////////////////////////////
-
-	public static JMenuItem getImportLTLFormulaMenuItem() {
-		return importLTLFormulaMenuItem;
-	}
-
-	public static void setImportLTLFormulaMenuItem(JMenuItem importLTLFormulaMenuItem) {
-		Container.importLTLFormulaMenuItem = importLTLFormulaMenuItem;
-	}
-
-	/////////////////// DataAware ////////////////////////
-	//////////////////////////////////////////////////////
-	public static JMenuItem getimportDataAwareListMenuItem() {
-		return importDataAwareListMenuItem;
-	}
-
-	public static void setImportDataAwareListMenuItem(JMenuItem importDataAwareListMenuItem) {
-		Container.importDataAwareListMenuItem = importDataAwareListMenuItem;
-	}
-
-
-	public static JMenuItem getExitMenuItem() {
-		return exitMenuItem;
-	}
-
-	public static void setExitMenuItem(JMenuItem saveMenuItem) {
-		Container.exitMenuItem = saveMenuItem;
-	}
-
-	public static JMenu getImportMenu() {
-		return importMenu;
-	}
-
-	public static void setExitMenu(JMenu importMenu) {
-		Container.importMenu = importMenu;
-	}
-
-
-	public static JMenuItem getOpenXESMenuItem() {
-		return openXESMenuItem;
-	}
-
 	public static JCheckBoxMenuItem getSinkStatesMenuItem() {
 		return sinkStatesMenuItem;
 	}
-
 	public static JCheckBoxMenuItem getProductAutomatonMenuItem() {
 		return productAutomatonMenuItem;
 	}
-
-	public static void setOpenXESMenuItem(JMenuItem openXESMenuItem) {
-		Container.openXESMenuItem = openXESMenuItem;
-	}
-
-	public static void setSinkStatesMenuItem(JCheckBoxMenuItem sinkStatesMenuItem) {
-		Container.sinkStatesMenuItem = sinkStatesMenuItem;
-	}
-
-	public static void setProductAutomatonMenuItem(JCheckBoxMenuItem productAutomatonMenuItem) {
-		Container.productAutomatonMenuItem = productAutomatonMenuItem;
-	}
-
 	public static JCheckBoxMenuItem getDisjunctiveGoalMenuItem() {
 		return disjunctiveGoalMenuItem;
 	}
-
-	public static void setDisjunctiveGoalMenuItem(JCheckBoxMenuItem disjunctiveGoalMenuItem) {
-		Container.disjunctiveGoalMenuItem = disjunctiveGoalMenuItem;
-	}
-
-
 
 
 
@@ -337,7 +183,6 @@ public class Container {
 
 
 	//////////////////////////////// TRACES PERSPECTIVE MERGE START ///////////////////////////////////////////////
-
 
 	 static void initTracesPerspectiveComponent() {
 		alphabetListModel = new DefaultListModel<String>();
@@ -351,25 +196,10 @@ public class Container {
 		traceList.setEnabled(true);
 		alphabetList.setEnabled(true);
 	}
-
-
-
 	/// GETTER AND SETTER ///
-
-	public JList<String> getTraceList() {
-		return traceList;
-	}
 
 	public static DefaultListModel<String> getAlphabetListModel() {
 		return alphabetListModel;
-	}
-
-	public JList<String> getAlphabetList() {
-		return alphabetList;
-	}
-
-	public DefaultListModel<String> getTraceListModel() {
-		return traceListModel;
 	}
 
 
@@ -394,20 +224,6 @@ public class Container {
 	public static DefaultListModel<String> getConstraintsListModel() {
 		return constraintsListModel;
 	}
-
-	public JList<String> getConstraintsList() {
-		return constraintsList;
-	}
-
-
-	public void setConstraintsListModel(DefaultListModel<String> constraintsListModel) {
-		Container.constraintsListModel = constraintsListModel;
-	}
-
-	public void setConstraintsList(JList<String> constraintsList) {
-		Container.constraintsList = constraintsList;
-	}
-
 
 	//////////////////////////////// CONSTRAINTS PERSPECTIVE MERGE END ///////////////////////////////////////////////
 
@@ -438,10 +254,7 @@ public class Container {
 		if(!Container.getPDDL_encoding().equalsIgnoreCase("AAAI17") || Container.getDisjunctiveGoalMenuItem().isSelected()) {
 			SymBAoptimalCheckBox.setEnabled(false);
 		}
-		//LPGlabel = new JLabel("Local Search (LPG-td)");
-		//LPGlabel.setPreferredSize(new Dimension(350,15));
-		//LPGCheckBox = new JCheckBox();
-		//LPGCheckBox.setPreferredSize(new Dimension(30,15));
+
 
 		trace_duplicated_checkBox = new JCheckBox();
 		trace_duplicated_checkBox.setPreferredSize(new Dimension(30,15));
@@ -524,9 +337,6 @@ public class Container {
 		return trace_duplicated_checkBox;
 	}
 
-	public void setTrace_duplicated_checkBox(JCheckBox trace_duplicated_checkBox) {
-		Container.trace_duplicated_checkBox = trace_duplicated_checkBox;
-	}
 
 	public static JTextArea getActivitiesArea() {
 		return activitiesArea;
@@ -545,16 +355,9 @@ public class Container {
 		return FDoptimalCheckBox;
 	}
 
-	public void setFDOptimalCheckBox(JCheckBox optimalCheckBox) {
-		this.FDoptimalCheckBox = optimalCheckBox;
-	}
 
 	public static JCheckBox getSymBAoptimalCheckBox() {
 		return SymBAoptimalCheckBox;
-	}
-
-	public void setSymBAoptimalCheckBox(JCheckBox symBAoptimalCheckBox) {
-		SymBAoptimalCheckBox = symBAoptimalCheckBox;
 	}
 
 
@@ -578,25 +381,15 @@ public class Container {
 		return activitiesComboBox;
 	}
 
-	public void setActivitiesComboBox(JComboBox<String> activitiesComboBox) {
-		Container.activitiesComboBox = activitiesComboBox;
-	}
 
 	public static JTextField getAddingCostField() {
 		return addingCostField;
-	}
-
-	public void setAddingCostField(JTextField addingCostField) {
-		Container.addingCostField = addingCostField;
 	}
 
 	public static JTextField getRemovalCostField() {
 		return removalCostField;
 	}
 
-	public void setRemovalCostField(JTextField removalCostField) {
-		Container.removalCostField = removalCostField;
-	}
 	public static JComboBox<String> getLenght_of_traces_ComboBox_FROM() {
 		return lenght_of_traces_ComboBox_FROM;
 	}
@@ -609,27 +402,15 @@ public class Container {
 		return lenght_of_traces_checkBox;
 	}
 
-	public void setLenght_of_traces_ComboBox_FROM(
-			JComboBox<String> lenght_of_traces_ComboBox_FROM) {
-		Container.lenght_of_traces_ComboBox_FROM = lenght_of_traces_ComboBox_FROM;
-	}
-
-	public void setLenght_of_traces_ComboBox_TO(
-			JComboBox<String> lenght_of_traces_ComboBox_TO) {
-		Container.lenght_of_traces_ComboBox_TO = lenght_of_traces_ComboBox_TO;
-	}
-
-	public void setLenght_of_traces_checkBox(JCheckBox lenght_of_traces_checkBox) {
-		Container.lenght_of_traces_checkBox = lenght_of_traces_checkBox;
-	}
-
 
 	//////////////////////////////// PLANNER PERSPECTIVE MERGE END ///////////////////////////////////////////////
 
 	//////////////////////////////// RESULT PERSPECTIVE MERGE START ///////////////////////////////////////////////
+/*
 	public static void InitResultPerspective(){
 		ResultsPerspective resultsPerspective = new ResultsPerspective();
 	}
+*/
 
 
 	//////////////////////////////// RESULT PERSPECTIVE MERGE END ///////////////////////////////////////////////
@@ -670,9 +451,6 @@ public class Container {
 	public static void setActivitiesCost_vector(Vector<Vector<String>> cost_vector) {
 		Container.activities_cost_vector = cost_vector;
 	}
-	public static Vector<Automaton> getAutomata_vector() {
-		return automata_vector;
-	}
 	public static void setAutomata_vector(Vector<Automaton> automata_vector) {
 		Container.automata_vector = automata_vector;
 	}
@@ -697,9 +475,7 @@ public class Container {
 	public static Multimap<String, String> getDataAware_map() {
 		return data_aware_map;
 	}
-	public static void setDataAware_map(Multimap<String, String> data_aware_map) {
-		Container.data_aware_map = data_aware_map;
-	}
+
 	public static Vector<CombinationOfAcceptingStates> getCombinationOfAcceptingStates_vector() {
 		return combination_of_accepting_states_vector;
 	}
@@ -763,9 +539,7 @@ public class Container {
 	public static String getPDDL_encoding() {
 		return PDDL_encoding;
 	}
-	public static void setPDDL_encoding(String pDDL_encoding) {
-		PDDL_encoding = pDDL_encoding;
-	}
+
 	public static int getMinimumLengthOfATrace() {
 		return minimum_length_of_a_trace;
 	}
@@ -777,9 +551,6 @@ public class Container {
 	}
 	public static void setMaximumLengthOfATrace(int maximum_length_of_a_trace) {
 		Container.maximum_length_of_a_trace = maximum_length_of_a_trace;
-	}
-	public static boolean isDiscard_duplicated_traces() {
-		return discard_duplicated_traces;
 	}
 	public static void setDiscard_duplicated_traces(boolean discard_duplicated_traces) {
 		Container.discard_duplicated_traces = discard_duplicated_traces;

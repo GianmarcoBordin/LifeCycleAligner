@@ -48,6 +48,7 @@ public class Main {
             }
         }
 
+
         System.out.println("----- FILE IMPORTS PHASE COMPLETED -----");
 
         System.out.println("----- GROUNDING PHASE STARTED -----");
@@ -69,6 +70,8 @@ public class Main {
         System.out.println("----- RESULT PHASE COMPLETED -----");
 
     }
+
+    //// LOADING PHASE STARTED  ////
 
     public static void setExecutables() {
         //Force the executable files of Fast-downward and LPG to be executable
@@ -229,9 +232,6 @@ public class Main {
                 lifecycleActivityDot = createLifecycleDot(loaded_alphabet_vector.elementAt(kix));
                 assert lifecycleActivityDot != null && lifecycleActivityDot.exists() && lifecycleActivityDot.isFile();
                 loadDot(lifecycleActivityDot);
-                if (lifecycleActivityDot != null && lifecycleActivityDot.exists()) {
-                    lifecycleActivityDot.delete();
-                }
                 Container.getAlphabetListModel().addElement(loaded_alphabet_vector.elementAt(kix));
                 Container.getAlphabetListModel().addElement(loaded_alphabet_vector.elementAt(kix));
             }
@@ -363,28 +363,32 @@ public class Main {
 
     }
 
+    //// LOADING PHASE COMPLETED  ////
+
+    //// PLANNER PHASE STARTED  ////
+
     public static File createLifecycleDot(String activity) {
         StringBuilder dot = new StringBuilder();
-        dot.append("digraph " + activity +"_lifecycle {\n");
-        dot.append("  fakeInit [style=invisible]\n");
-        dot.append("  init [root=true]\n");
-        dot.append("  assigned\n");
-        dot.append("  started\n");
-        dot.append("  completed [shape=doublecircle]\n");
-        dot.append("  sink\n");
-        dot.append("  fakeInit -> init [style=bold]\n");
-        dot.append("  init -> assigned [label=" + activity +"_assigned]\n");
-        dot.append("  assigned -> started [label=" + activity +"_started]\n");
-        dot.append("  started -> completed [label=" + activity +"_completed]\n");
-        dot.append("  completed -> init [label=" + activity +"_assigned]\n");
-        dot.append("  started -> sink [label=" + activity +"_assigned]\n");
-        dot.append("  started -> sink [label=" + activity +"_started]\n");
-        dot.append("  completed -> sink [label=" + activity +"_started]\n");
-        dot.append("  completed -> sink [label=" + activity +"_completed]\n");
-        dot.append("  assigned -> sink [label=" + activity +"_assigned]\n");
-        dot.append("  assigned -> sink [label=" + activity +"_completed]\n");
-        dot.append("  init -> sink [label=" + activity +"_started]\n");
-        dot.append("  init -> sink [label=" + activity +"_completed]\n");
+        dot.append("digraph {\n");
+        dot.append("\t\tfake0 [style=invisible]\n");
+        dot.append("\t\t0 [root=true]\n");
+        dot.append("\t\t2\n");
+        dot.append("\t\t3\n");
+        dot.append("\t\t4 [shape=doublecircle]\n");
+        dot.append("\t\t1\n");
+        dot.append("\t\tfake0 -> 0 [style=bold]\n");
+        dot.append("\t\t0 -> 2 [label=" + activity +"_assigned]\n");
+        dot.append("\t\t2 -> 3 [label=" + activity +"_started]\n");
+        dot.append("\t\t3 -> 4 [label=" + activity +"_completed]\n");
+        dot.append("\t\t4 -> 0 [label=" + activity +"_assigned]\n");
+        dot.append("\t\t3 -> 1 [label=" + activity +"_assigned]\n");
+        dot.append("\t\t3 -> 1 [label=" + activity +"_started]\n");
+        dot.append("\t\t4 -> 1 [label=" + activity +"_started]\n");
+        dot.append("\t\t4 -> 1 [label=" + activity +"_completed]\n");
+        dot.append("\t\t2 -> 1 [label=" + activity +"_assigned]\n");
+        dot.append("\t\t2 -> 1 [label=" + activity +"_completed]\n");
+        dot.append("\t\t0 -> 1 [label=" + activity +"_started]\n");
+        dot.append("\t\t0 -> 1 [label=" + activity +"_completed]\n");
         dot.append("}");
 
         // Write DOT content to a file
@@ -399,20 +403,8 @@ public class Main {
     }
 
     public static void goToPlanner() {
-        //
-        // The tool works properly only if the set of Declare/LTL constraints is not empty. Otherwise, it throws an exception.
-        //
+
         if(Container.getConstraintsListModel().getSize()>0) {
-
-            //
-            // An instance of kind PlannerPerspective is created. Basically, it is a JDialog that allows the user to choose between
-            // several options for the creation of customized planning domains/problems.
-            //
-
-
-            //
-            // Reset and reinitialize the global vector with the costs of adding/removing activities in/from the trace.
-            //
             Container.setActivitiesCost_vector(new Vector<Vector<String>>());
 
             // Reset the vector containing the minimum and maximum length of the traces.
@@ -422,25 +414,17 @@ public class Main {
             for(int i = 0; i< Container.getAlphabetListModel().size(); i++) {
                 String string = (String) Container.getAlphabetListModel().getElementAt(i);
 
-                //
-                // Update the GUI to show the complete alphabet of activities of the constraints and of the log.
-                //
                 Container.getActivitiesArea().append(string + "\n");
 
-                //
-                // Update the global vector containing the cost of adding/removing activities in/from the trace (the default cost is equal to 1).
-                //
                 Vector<String> v = new Vector<String>();
                 v.addElement(string);
-                /////////////////// DataAware ////////////////////////
-                //////////////////////////////////////////////////////
+
                 if(!Container.getDataAware_map().isEmpty()) {
                     v.addElement("2");
                     v.addElement("2");
                 }
                 else {
-                    //////////////////////////////////////////////////////
-                    //////////////////////////////////////////////////////
+
                     v.addElement("1");
                     v.addElement("1");
                 }
@@ -448,131 +432,48 @@ public class Main {
             }
 
             Container.getActivitiesArea().setCaretPosition(0);
-            ////////////////////////////////////////////////
 
-            //
-            // Reset the global vector containing the list of Declare/LTL constraints.
-            //
             Container.setAllConstraints_vector(new Vector<String>());
 
-            //
-            // Reset the vector containing the alphabet of activities involved ONLY in the Declare/LTL constraints.
-            //
             Container.setAlphabetOfTheConstraints_vector(new Vector<String>());
 
-
-            /////// #### ICAPS2016 #### ////////////////////////////
-
-            // LPSolver Object required to solve the system of inequalities represented by the DECLARE constraints (to get the number of instances to possibly align a trace)
-            //LPsolver lpsolver = new LPsolver();
-
-            /////// #### END of ICAPS2016 #### ////////////////////////////
-
-
-            /////// **** AAAI2017 **** ////////////////////////////
-
-            //
-            // LTL formula that records the conjunction of the single LTL formulas of any automaton (in order to build a product automaton).
-            //
             String ltl_formula_for_product_automaton = new String();
 
-            //
-            // Create a local vector containing an automaton for any Declare/LTL constraint.
-            //
             Vector<Automaton> automata_vector = new Vector<Automaton>();
 
-            //
-            // Create a local vector containing the relevant transitions (a transition is said to be "relevant" if the source and the target state
-            // are different) of any automaton representing a Declare/LTL constraint.
-            //
             Vector<RelevantTransition> relevant_transitions_vector = new Vector<RelevantTransition>();
 
-            //
-            // Reset the global vectors used to record all the states/the accepting states/the initial states
-            // of the automata associated to the Declare/LTL constraints.
-            //
             Container.setAutomataInitialStates_vector(new Vector<String>());
             Container.setAutomataAcceptingStates_vector(new Vector<String>());
             Container.setAutomataAllStates_vector(new Vector<String>());
 
-            //
-            // Reset the global auxiliar stringbuffers used to record all the states/the accepting states/the initial states
-            // of the automata associated to the Declare/LTL constraints in the PDDL format.
-            //
             Container.setPDDLAutomataInitialStates_sb(new StringBuffer());
             Container.setPDDLAutomataAcceptingStates_sb(new StringBuffer());
             Container.setPDDLAutomataAllStates_sb(new StringBuffer());
 
-            //
-            // Reset the global vector used to record the abstract accepting states of the automata associated to the Declare/LTL constraints.
-            //
+
             Container.setAutomataAbstractAcceptingStates_vector(new Vector<String>());
 
-            //
-            // Reset the global auxiliar StringBuffer used to record all the PDDL actions required to connect the regular accepting states
-            // of one automaton to the abstract states stored in the vector "Constant.automata_abstract_accepting_states".
-            //
-            //Container.setPDDLActionsForAbstractAcceptingStates_sb(new StringBuffer());
-
-            //
-            // Reset the global vector used to record the non-accepting sink states of the automata associated to the Declare/LTL constraints.
-            //
             Container.setAutomataSinkNonAcceptingStates_vector(new Vector<String>());
 
-            //
-            // Define the prefix and the index of the states of the automata and of their relevant transitions.
-            // For example, if the first automaton (i.e., with "automaton_index" equal to 0) has two states and three relevant transitions,
-            // we would have: s_0_0, s_0_1 (states) and tr_0_1, tr_0_2, tr_0_3 (relevant transitions).
-            // A second automaton will "automaton_index" equal to 1, a third automaton will have "automaton_index" equal to 2, and so on.
-            //
             String st_prefix = "s";
             String tr_prefix = "tr";
             int automaton_index = 0;
             int single_tr_index = 0;
 
-            //
-            // Reset the local Multimap "transitions_map", which will contain the list of relevant transitions taken from
-            // any automaton with the associations to their specific label (e.g., a=[tr_0_0,tr_1_0], b=[tr_1_2], etc.).
-            //
             Multimap<String, String> transitions_map = HashMultimap.create();
 
-            /////// **** END OF AAAI2017 **** ////////////////////////////
-
-            //
-            // For any Declare/LTL constraint, generate the supporting structures required to synthexize correct planning domains and problems.
-            //
             for(int k = 0; k< Container.getConstraintsListModel().size(); k++) {
 
-
-                /////// **** AAAI2017 **** ////////////////////////////
-
-                //
-                // Reset the local LTL formula that records the Declare/LTL constraint under consideration.
-                //
                 String ltl_formula = new String();
 
-                //
-                // Reset the local vector used to record the accepting states of an automaton.
-                //
                 Vector<String> automaton_accepting_states_vector = new Vector<String>();
 
-                //
-                // Reset for any Declare/LTL constraint - i.e., for any corresponding automaton - the index of its relevant transitions.
-                //
                 single_tr_index = 0;
 
-                /////// **** END OF AAAI2017 **** ////////////////////////////
-
-                //
-                // For any Declare/LTL constraint, update the instance of kind PlannerPerspective in order to show in the associated GUI
-                // (when the FOR cycle completes) the complete list of Declare/LTL constraints defined by the user.
-                //
                 String temporal_constraint = (String) Container.getConstraintsListModel().getElementAt(k);
                 Container.getConstraintsArea().append(temporal_constraint + "\n");
 
-                //
-                // Update the global vector containing the Declare/LTL constraints with the actual constraint under consideration.
-                //
                 Container.getAllConstraints_vector().addElement(temporal_constraint);
 
                 String constraint_name = "";
@@ -639,28 +540,21 @@ public class Main {
                         activities_of_ltl_formula = activities_of_ltl_formula.replaceAll("\\-", "_");
 
                     String[] activities_of_ltl_formula_array = activities_of_ltl_formula.split("\\s+");
-                    //System.out.println(activities_of_ltl_formula);
                     for(int i = 0; i<activities_of_ltl_formula_array.length;i++) {
                         if(!activities_of_ltl_formula_array[i].equalsIgnoreCase("")) {
-                            //System.out.println(activities_of_ltl_formula_array[i]);
                             if(!Container.getAlphabetOfTheConstraints_vector().contains(activities_of_ltl_formula_array[i])) {
                                 Container.getAlphabetOfTheConstraints_vector().addElement(activities_of_ltl_formula_array[i]);
 
-                                //
-                                // Update the global vector containing the cost of adding/removing activities in/from the trace (the default cost is equal to 1).
-                                //
                                 Vector<String> v = new Vector<String>();
                                 v.addElement(activities_of_ltl_formula_array[i]);
 
-                                /////////////////// DataAware ////////////////////////
-                                //////////////////////////////////////////////////////
+
                                 if(!Container.getDataAware_map().isEmpty()) {
                                     v.addElement("2");
                                     v.addElement("2");
                                 }
                                 else {
-                                    //////////////////////////////////////////////////////
-                                    //////////////////////////////////////////////////////
+
                                     v.addElement("1");
                                     v.addElement("1");
                                 }
@@ -672,51 +566,35 @@ public class Main {
                     }
                 }
                 else if(!temporal_constraint.startsWith("DFA{")) {
-                    //
-                    // Extract the activities involved in the constraint under consideration.
-                    //
+
                     String[] constraint_splitted = temporal_constraint.split("\\(");
 
-                    //
-                    // Extract the name of the constraint (existence, response, etc.).
-                    //
+
                     constraint_name = constraint_splitted[0];
 
                     String[] constraint_splitted_2 = constraint_splitted[1].split("\\)");
 
-                    //
-                    // FIRST CASE: the constraint involves two activities (e.g., response(A,B)).
-                    //
+
                     if(constraint_splitted_2[0].contains(",")) {
 
                         String[] constraint_splitted_3 = constraint_splitted_2[0].split(",");
 
-                        //
-                        // Extract the name of the first activity (e.g., if the constraint is response(A,B), the first activity is "A").
-                        //
+
                         String activity1 = constraint_splitted_3[0];
 
-                        //
-                        // Extract the name of the second activity (e.g., if the constraint is response(A,B), the second activity is "B").
-                        //
                         String activity2 = constraint_splitted_3[1];
 
-                        //
-                        // Update the global vector containing the alphabet of activities involved in the Declare/LTL constraints
-                        //
+
                         if(!Container.getAlphabetOfTheConstraints_vector().contains(activity1))
                             Container.getAlphabetOfTheConstraints_vector().addElement(activity1);
 
                         if(!Container.getAlphabetOfTheConstraints_vector().contains(activity2))
                             Container.getAlphabetOfTheConstraints_vector().addElement(activity2);
 
-                        /////// **** AAAI2017 **** ////////////////////////////
 
                         if(Container.getPDDL_encoding().equalsIgnoreCase("AAAI17")) {
 
-                            //
-                            // Infer the LTL constraint associated to any Declare template.
-                            //
+
                             if(constraint_name.equalsIgnoreCase("choice"))
                                 ltl_formula = LTLFormula.getFormulaByTemplate(DeclareTemplate.Choice,activity1,activity2);
                             else if(constraint_name.equalsIgnoreCase("exclusive choice"))
@@ -763,9 +641,7 @@ public class Main {
                         }
                         /////// **** END of AAAI2017 **** ////////////////////////////
                     }
-                    //
-                    // SECOND CASE: the constraint involves one activity (e.g., existence(A))
-                    //
+
                     else {
 
                         String activity = constraint_splitted_2[0];
@@ -792,7 +668,6 @@ public class Main {
                         /////// **** END of AAAI2017 **** ////////////////////////////
                     }
                 }
-                /////// **** AAAI2017 **** ////////////////////////////
                 if(Container.getPDDL_encoding().equalsIgnoreCase("AAAI17")) {
                     //
                     // Update the LTL formula that will be used to generate the product automaton.
@@ -1068,12 +943,10 @@ public class Main {
                     //
                     automaton_index++;
                 }
-                /////// **** END of AAAI2017 **** ////////////////////////////
 
 
             } // END of the FOR-cycle to navigate the the list of Declare/LTL constraints.
 
-            /////// **** AAAI2017 **** ////////////////////////////
 
             if(Container.getPDDL_encoding().equalsIgnoreCase("AAAI17")) {
 
@@ -1082,23 +955,7 @@ public class Main {
                     Iterator<Transition> it2 = product_automaton.transitions().iterator();
 
                     while(it2.hasNext()) {
-                        // Transition t2 = (Transition) it2.next();
 
-							/*
-							 System.out.print(t2.getSource());
-							 System.out.print(" --> ");
-							 System.out.print(t2.getPositiveLabel());
-							 System.out.print(" ### ");
-							 System.out.print(t2.getNegativeLabels());
-							 System.out.print(" --> ");
-							 System.out.print(t2.getTarget());
-							 System.out.print(" ... INITIAL: ");
-							 System.out.print(product_automaton.getInit().getId());
-							 System.out.print(" ... FINALS: ");
-							 if(t2.getSource().isAccepting()) System.out.print(t2.getSource() + " %% ");
-							 if(t2.getTarget().isAccepting()) System.out.print(t2.getTarget());
-							 System.out.println();
-							 */
                     }
 
                 }
@@ -1130,20 +987,6 @@ public class Main {
                     }
                 }
 
-					/*
-					System.out.println(" -- ALL STATES -- " + Container.getAutomataAllStates_vector());
-					System.out.println(" -- ALL STATES IN PDDL -- " + Container.getPDDLAutomataAllStates_sb());
-
-					System.out.println(" -- INITIAL STATES -- " + Container.getAutomataInitialStates_vector());
-					System.out.println(" -- INITIAL STATES IN PDDL -- \n" + Container.getPDDLAutomataInitialStates_sb());
-
-					System.out.println(" -- ACCEPTING STATES -- " + Container.getAutomataAcceptingStates_vector());
-					System.out.println(" -- ACCEPTING STATES IN PDDL -- \n" + Container.getPDDLAutomataAcceptingStates_sb());
-
-					System.out.println(" -- ABSTRACT ACCEPTING STATES -- " + Container.getAutomataAbstractAcceptingStates_vector());
-					System.out.println(" -- SINK NON ACCEPTING STATES -- " + Container.getAutomataSinkNonAcceptingStates_vector());
-					*/
-                ///////////////////////////////////////////////////////////////
 
                 if(!Container.getDisjunctiveGoalMenuItem().isSelected()) {
 
@@ -1219,20 +1062,13 @@ public class Main {
                     }
                 }
 
-                //System.out.println(Container.getCombination_of_transitions_vector());
 
             }
-            /////// **** END of AAAI2017 **** ////////////////////////////
 
 
 
             Container.getConstraintsArea().setCaretPosition(0);
 
-            //System.out.println("***************** Relevant TASKS for the DECLARE Constraints : " + relevant_activities_for_the_constraints_vector);
-
-            //
-            // Reset the global Hashtable used to record the content of all the different traces of the log (in the String format).
-            //
             Container.setContentOfAnyDifferentTrace_Hashtable(new Hashtable<String,String>());
 
 
@@ -1248,18 +1084,12 @@ public class Main {
                 }
                 Container.getTraceArea().append("}\n");
 
-                //
-                // Update the global Hashtable used to record the content of all the different traces of the log (in the String format).
-                //
+
                 if(!Container.getContentOfAnyDifferentTrace_Hashtable().containsKey(trace.getOriginalTraceContent_string()))  {
-                    //System.out.println(trace.getTraceName());
                     Container.getContentOfAnyDifferentTrace_Hashtable().put(trace.getOriginalTraceContent_string().toString(),trace.getTraceName());
                 }
 
-                //
-                // For any analyzed trace, update the variables recording the minimum and maximum length of a log trace.
-                //
-                /////////////////////////////////////////
+
                 if(j==0)  {
                     Container.setMinimumLengthOfATrace(trace.getOriginalTraceContent_vector().size());
                 }
@@ -1269,30 +1099,26 @@ public class Main {
                 if(Container.getMaximumLengthOfATrace() < trace.getOriginalTraceContent_vector().size()) {
                     Container.setMaximumLengthOfATrace(trace.getOriginalTraceContent_vector().size());
                 }
-                /////////////////////////////////////////
 
                 trace.setTraceMissingActivities_vector(new Vector<String>());
                 trace.setTraceAlphabetWithMissingActivitiesOfTheConstraints_vector(trace.getTraceAlphabet_vector());
 
-                //Update the missing activities for the specific trace
                 for(int kj = 0; kj< Container.getActivitiesRepository_vector().size(); kj++)  {
                     String activity = Container.getActivitiesRepository_vector().elementAt(kj);
                     trace.getTraceMissingActivities_vector().addElement(activity);
                 }
 
-                // A -- Remove from the vector of the missing activities of the trace all the activities that already appear in the trace
                 for(int f=0;f<trace.getOriginalTraceContent_vector().size();f++) {
                     String string = trace.getOriginalTraceContent_vector().elementAt(f);
                     trace.getTraceMissingActivities_vector().removeElement(string);
 
-                    /////
+
                     if(!trace.getTraceAlphabetWithMissingActivitiesOfTheConstraints_vector().contains(string)) {
                         trace.getTraceAlphabetWithMissingActivitiesOfTheConstraints_vector().addElement(string);
                     }
-                    //////
+
                 }
 
-                // B -- Remove from the vector of the missing activities of the trace all the activities that do not appear in any of the DECLARE constraints
                 Vector<String> final_missing_activities_vector = new Vector<String>(trace.getTraceMissingActivities_vector());
 
                 for(int hj=0;hj<trace.getTraceMissingActivities_vector().size();hj++) {
@@ -1302,23 +1128,10 @@ public class Main {
                     }
                 }
 
-                // C -- Create possible instances for the missing activities
                 trace.setTraceMissingActivities_vector(final_missing_activities_vector);
 
-					/*
-					System.out.println("************************");
-					System.out.println("TRACE name : " + trace.getTraceName());
-					System.out.println("TRACE content : " + trace.get_Original_Trace_content_vector());
-					System.out.println("TRACE content for PDDL : " + trace.get_PDDL_Trace_content_vector());
-					System.out.println("TRACE hashtable with number of instances in the trace: " + trace.get_Number_of_Task_Instances_Hashtable());
-					System.out.println("TRACE missing activities : " + trace.get_missing_activities_vector());
-					System.out.println("TRACE alphabet : " + trace.getTrace_alphabet());
-					System.out.println("TRACE hashtable : " + trace.get_Trace_Hashtable());
-					*/
-                ////////////////////////////////
             }
 
-            //System.out.println("alphabet of the CONSTRAINTS: " + Container.getAlphabet_of_the_constraints());
 
             Container.getTraceArea().setCaretPosition(0);
 
@@ -1339,8 +1152,7 @@ public class Main {
         }
     }
 
-    public static void generatePddlFiles()
-    {
+    public static void generatePddlFiles() {
 
         if(Container.getCostCheckBox().isSelected()) {
             Container.getAddingCostField().setEnabled(true);
@@ -1359,9 +1171,6 @@ public class Main {
         }
         else {
 
-            //
-            // Decide to discard (or not) duplicate traces, in order to avoid unnecessary alignments
-            //
             if(Container.getTrace_duplicated_checkBox().isSelected()) {
                 Container.setDiscard_duplicated_traces(true);
             }
@@ -1369,9 +1178,6 @@ public class Main {
                 Container.setDiscard_duplicated_traces(false);
             }
 
-            //
-            // Remove the existing old files from the folder containing the generated planning domains and problems
-            //
             if(Container.getFDOptimalCheckBox().isSelected()) {
                 Utilities.emptyFolder("fast-downward/src/Conformance_Checking");
             }
@@ -1380,15 +1186,9 @@ public class Main {
                 Utilities.emptyFolder("seq-opt-symba-2/Conformance_Checking");
                 Utilities.emptyFolder("seq-opt-symba-2/results");
             }
-            //////////////////////////////////////////////////////////////////////////
 
-
-            //
-            // Case in which we assign a cost to add/remove activities to/from the trace
-            //
             if(Container.getCostCheckBox().isSelected()) {
 
-                //UPDATE the ADDING/REMOVAL cost associated to the last activity updated
                 String selected_activity_name_for_cost = (String) Container.getActivitiesComboBox().getSelectedItem();
 
                 if (!(selected_activity_name_for_cost.equalsIgnoreCase("-- Name of the Activity --")) )
@@ -1402,13 +1202,8 @@ public class Main {
                         }
                     }
                 }
-                //System.out.println(Container.get_activities_cost_vector());
             }
-            //////////////////////////////////////////////////////////////////////////
 
-            //
-            // Interval of traces to be checked
-            //
 
             int number_of_traces_to_check_from = 0;
             int number_of_traces_to_check_to = 0;
@@ -1422,7 +1217,6 @@ public class Main {
                 number_of_traces_to_check_to = Container.getAllTraces_vector().size();
             }
 
-            //////////////////////////////////////////////////////////////////////////
 
             int length_of_traces_to_check_from = 0;
             int length_of_traces_to_check_to = 0;
@@ -1436,22 +1230,10 @@ public class Main {
                 length_of_traces_to_check_to = Container.getMaximumLengthOfATrace();
             }
 
-            //////////////////////////////////////////////////////////////////////////
-            //System.out.println(length_of_traces_to_check_from);
-            //System.out.println(length_of_traces_to_check_to);
-            //System.out.println(number_of_traces_to_check_from);
-            //System.out.println(number_of_traces_to_check_to);
-            //////////////////////////////////////////////////////////////////////////
-
             for(int k=number_of_traces_to_check_from-1;k<number_of_traces_to_check_to;k++) {
 
                 Trace trace = Container.getAllTraces_vector().elementAt(k);
 
-
-
-				/*
-				System.out.println(trace.getOriginalTraceContent_vector().size());
-				*/
                 if(Container.getTrace_duplicated_checkBox().isSelected()) { // Remove duplicated traces
 
                     if(Container.getContentOfAnyDifferentTrace_Hashtable().containsValue(trace.getTraceName()))  {
@@ -1479,8 +1261,6 @@ public class Main {
 
                     if(trace.getOriginalTraceContent_vector().size() >= length_of_traces_to_check_from && trace.getOriginalTraceContent_vector().size() <= length_of_traces_to_check_to)  {
 
-                        //System.out.println("TRACE Name: ");
-                        //System.out.println(trace.getTraceName() + " ");
 
                         StringBuffer sb_domain = Utilities.createPropositionalDomain(trace);
                         StringBuffer sb_problem = Utilities.createPropositionalProblem(trace);
@@ -1502,8 +1282,12 @@ public class Main {
         }
     }
 
-    public static void runPlanner()
-    {
+    //// PLANNER PHASE ENDED  ////
+
+
+    //// RUNNING PHASE STARTED  ////
+
+    public static void runPlanner() {
         //Container.InitResultPerspective();
 
         int number_of_traces_to_check_from = 0;
@@ -1540,7 +1324,6 @@ public class Main {
                 Trace trace = Utilities.getTracebyId("Trace#"+split_file_name_1[0]);
 
                 Vector<String> plan_vector = new Vector<String>();
-                //int trace_number = k + 1;
 
                 BufferedReader reader = null;
                 try {
@@ -1578,18 +1361,13 @@ public class Main {
                     String[] complete_action = split1[0].split(" ");
                     String action = complete_action[0];
 
-                    //////////////////////////////////////////////////////
-                    /////////////////// DataAware ////////////////////////
-                    //////////////////////////////////////////////////////
                     if(action.substring(0,8).equalsIgnoreCase("del-repl")) {
                         number_of_alignments += 0.5;
                     }
                     else if(action.substring(0,8).equalsIgnoreCase("add-repl")) {
                         number_of_alignments += 0.5;
                     }
-                    //////////////////////////////////////////////////////
-                    /////////////////// DataAware ////////////////////////
-                    //////////////////////////////////////////////////////
+
 
                     else if(action.substring(0,3).equalsIgnoreCase("del")) {
                         number_of_alignments++;
@@ -1644,5 +1422,7 @@ public class Main {
 
 
     }
+
+    //// RUNNING PHASE ENDED  ////
 
 }

@@ -39,6 +39,8 @@ public class Utilities {
 			        String source = splited[0].trim();
 			        String target = splited[2].trim();
 
+					System.out.println(filename);
+
 			        String label = splited[3].substring(7, splited[3].length() - 1);
 
 			        Transition t = new Transition(states.get(Integer.parseInt(source)), states.get(Integer.parseInt(target)), label);
