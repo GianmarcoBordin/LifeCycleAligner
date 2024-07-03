@@ -1,0 +1,21 @@
+digraph {
+  fake0 [style=invisible]
+  0 [root=true]
+  2
+  3
+  4 [shape=doublecircle]
+  1
+  fake0 -> 0 [style=bold]
+  0 -> 2 [label=p4_assigned]
+  2 -> 3 [label=p4_started]
+  3 -> 4 [label=p4_completed]
+  4 -> 0 [label=p4_assigned]
+  3 -> 1 [label=p4_assigned]
+  3 -> 1 [label=p4_started]
+  4 -> 1 [label=p4_started]
+  4 -> 1 [label=p4_completed]
+  2 -> 1 [label=p4_assigned]
+  2 -> 1 [label=p4_completed]
+  0 -> 1 [label=p4_started]
+  0 -> 1 [label=p4_completed]
+}
