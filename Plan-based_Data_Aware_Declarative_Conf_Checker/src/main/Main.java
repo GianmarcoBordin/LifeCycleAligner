@@ -16,6 +16,8 @@ import java.util.*;
 
 public class Main {
 
+    private final static String[] lifecycles = {"assigned","started","completed"} ;
+
     public static void main(String[] args) {
 
         System.out.println("----- FILE IMPORTS PHASE STARTED -----");
@@ -367,28 +369,73 @@ public class Main {
 
     //// PLANNER PHASE STARTED  ////
 
+    public static void test(String[] args){
+        createLifecycleDot("ExampleActivity");
+    }
+
     public static File createLifecycleDot(String activity) {
+        // fake-init -> fake0 init -> 0 sink -> 1 assigned -> 2 started -> 3 completed -> 4
+
         StringBuilder dot = new StringBuilder();
+        Map<String, String> flowEvents = new HashMap<>();
+        Map<String, Integer> index = new HashMap<>();
+
+        // states support structure
+        for (int i =0; i< lifecycles.length;i++){
+            index.put(lifecycles[i], i + 2);
+        }
+        flowEvents.put("init",lifecycles[0]);
+
+        // transitions support structure
+        for (int i =0; i< lifecycles.length;i++){
+            flowEvents.put(lifecycles[i], lifecycles[((i+1) % lifecycles.length)]);
+        }
+
         dot.append("digraph {\n");
+        // static states
         dot.append("\t\tfake0 [style=invisible]\n");
         dot.append("\t\t0 [root=true]\n");
-        dot.append("\t\t2\n");
-        dot.append("\t\t3\n");
-        dot.append("\t\t4 [shape=doublecircle]\n");
         dot.append("\t\t1\n");
+        // variable states
+        for (int i =0; i< lifecycles.length;i++){
+            if (i == lifecycles.length - 1){
+                dot.append("\t\t" + index.get(lifecycles[i]) + " [shape=doublecircle]\n");
+
+            }else {
+                dot.append("\t\t" + index.get(lifecycles[i]) + "\n");
+            }
+        }
+        // static transitions
         dot.append("\t\tfake0 -> 0 [style=bold]\n");
-        dot.append("\t\t0 -> 2 [label=" + activity +"_assigned]\n");
-        dot.append("\t\t2 -> 3 [label=" + activity +"_started]\n");
-        dot.append("\t\t3 -> 4 [label=" + activity +"_completed]\n");
-        dot.append("\t\t4 -> 0 [label=" + activity +"_assigned]\n");
-        dot.append("\t\t3 -> 1 [label=" + activity +"_assigned]\n");
-        dot.append("\t\t3 -> 1 [label=" + activity +"_started]\n");
-        dot.append("\t\t4 -> 1 [label=" + activity +"_started]\n");
-        dot.append("\t\t4 -> 1 [label=" + activity +"_completed]\n");
-        dot.append("\t\t2 -> 1 [label=" + activity +"_assigned]\n");
-        dot.append("\t\t2 -> 1 [label=" + activity +"_completed]\n");
-        dot.append("\t\t0 -> 1 [label=" + activity +"_started]\n");
-        dot.append("\t\t0 -> 1 [label=" + activity +"_completed]\n");
+
+        // variable non sink transitions
+
+        for (int i =0; i< lifecycles.length;i++){
+            flowEvents.put(lifecycles[i], lifecycles[((i+1) % lifecycles.length)]);
+        }
+
+        // variable sink transitions
+        for (int i =0; i< lifecycles.length;i++){
+                for (String event : lifecycles) {
+                    if (event != flowEvents.get(lifecycles[i])) {
+                        dot.append("\t\t" + index.get(lifecycles[i]) + " -> 1 [label=" + activity + "_" + event + "]\n");
+                    }
+                    else{
+                        dot.append("\t\t" + index.get(lifecycles[i]) + " -> " + index.get(event) + " [label=" + activity + "_" + event + "]\n");
+                    }
+                }
+        }
+        // init state transitions to sink
+        int i =0;
+        for (String event : lifecycles) {
+            if (event != flowEvents.get("init")) {
+                dot.append("\t\t" + i + " -> 1 [label=" + activity + "_" + event + "]\n");
+            }
+            else {
+                dot.append("\t\t" + i + " -> " + index.get(lifecycles[0]) + " [label=" + activity + "_" + event + "]\n");
+            }
+        }
+
         dot.append("}");
 
         // Write DOT content to a file
