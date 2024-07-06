@@ -3,6 +3,7 @@ package main;
 import com.google.common.collect.HashMultimap;
 import com.google.common.collect.Multimap;
 import org.deckfour.xes.extension.std.XConceptExtension;
+import org.deckfour.xes.extension.std.XLifecycleExtension;
 import org.deckfour.xes.model.XEvent;
 import org.deckfour.xes.model.XLog;
 import org.deckfour.xes.model.XTrace;
@@ -142,6 +143,7 @@ public class Main {
 
                 for (XEvent event : trace) {
                     String activityName = XConceptExtension.instance().extractName(event).toLowerCase();
+                    String lifecycleTransition = XLifecycleExtension.instance().extractTransition(event).toLowerCase();
 
                     if (activityName.contains(" "))
                         activityName = activityName.replaceAll(" ", "");
@@ -173,10 +175,12 @@ public class Main {
                     if (activityName.contains("-"))
                         activityName = activityName.replaceAll("\\-", "_");
 
-                    loaded_trace_activities_vector.addElement(activityName);
+                    String finalName = activityName + "_" + lifecycleTransition;
 
-                    if (!loaded_alphabet_vector.contains(activityName))
-                        loaded_alphabet_vector.addElement(activityName);
+                    loaded_trace_activities_vector.addElement(finalName);
+
+                    if (!loaded_alphabet_vector.contains(finalName))
+                        loaded_alphabet_vector.addElement(finalName);
 
                 }
 
@@ -355,6 +359,13 @@ public class Main {
 
     public static File createLifecycleDot(String activity) {
         // fake-init -> fake0 init -> 0 sink -> 1 assigned -> 2 started -> 3 completed -> 4
+
+        // preprocessing because we want the lifecycle for th activity not for the lifecycle activity
+        for (int i=0;i< lifecycles.length;i++){
+            if (activity.contains("_"+lifecycles[i]))
+                activity = activity.replaceAll("_"+lifecycles[i], "");
+        }
+
 
         StringBuilder dot = new StringBuilder();
         Map<String, String> flowEvents = new HashMap<>();

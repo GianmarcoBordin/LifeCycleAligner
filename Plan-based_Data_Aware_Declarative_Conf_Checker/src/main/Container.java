@@ -15,7 +15,7 @@ public class Container {
 
 	// CONTAINER OPTIONS AND PRELIMINARY STRUCTURES START
 
-	public final static String[] lifecycles = {"assigned","started","completed"} ;
+	public final static String[] lifecycles = {"assign","start","complete"} ;
 	public static String PDDL_encoding = "AAAI17"; //It can be equal to "AAAI17" or to "ICAPS16".
 	private static boolean discard_duplicated_traces = false;
     private static boolean sinkStatesMenuItem = true;
