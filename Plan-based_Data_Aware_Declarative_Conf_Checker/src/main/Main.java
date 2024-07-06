@@ -353,10 +353,6 @@ public class Main {
 
     }
 
-    //// LOADING PHASE COMPLETED  ////
-
-    //// PLANNER PHASE STARTED  ////
-
     public static File createLifecycleDot(String activity) {
         // fake-init -> fake0 init -> 0 sink -> 1 assigned -> 2 started -> 3 completed -> 4
 
@@ -1229,11 +1225,6 @@ public class Main {
         }
     }
 
-    //// PLANNER PHASE ENDED  ////
-
-
-    //// RUNNING PHASE STARTED  ////
-
     public static void runPlanner() {
         //Container.InitResultPerspective();
 
@@ -1369,7 +1360,5 @@ public class Main {
 
 
     }
-
-    //// RUNNING PHASE ENDED  ////
 
 }
