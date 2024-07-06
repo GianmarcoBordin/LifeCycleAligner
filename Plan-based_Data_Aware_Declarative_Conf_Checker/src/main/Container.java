@@ -13,70 +13,49 @@ import com.google.common.collect.Multimap;
 
 public class Container {
 
-	//  MENU PERSPECTIVE START
-	private static JMenu fileMenu;
-	private static JMenuItem newMenuItem;
-	private static JMenuItem openXESMenuItem;
-	private static JMenuItem importDeclareMenuItem;
-	private static JMenuItem importLTLFormulaMenuItem;
-	private static JMenu importMenu;
-	private static JMenuItem importModelLearningAutomatonMenuItem;
-	private static JMenuItem importDataAwareListMenuItem;
-	private static JMenuItem exitMenuItem;
-	private static JMenu AAAI17EncodingMenu;
-	private static JCheckBoxMenuItem sinkStatesMenuItem;
-	private  static JCheckBoxMenuItem disjunctiveGoalMenuItem;
-	private static JCheckBoxMenuItem productAutomatonMenuItem;
+	// CONTAINER OPTIONS AND PRELIMINARY STRUCTURES START
 
-	// MENU PERSPECTIVE END
+	public final static String[] lifecycles = {"assigned","started","completed"} ;
+	public static String PDDL_encoding = "AAAI17"; //It can be equal to "AAAI17" or to "ICAPS16".
+	private static boolean discard_duplicated_traces = false;
+    private static boolean sinkStatesMenuItem = true;
+	private  static boolean disjunctiveGoalMenuItem= true;
+	private static boolean productAutomatonMenuItem;
+	private static boolean lenght_of_traces_checkBox;
+	private static boolean 	trace_duplicated_checkBox=true;
 
-	// TRACES PERSPECTIVE START
-	private static DefaultListModel<String> alphabetListModel;
-	private static JList<String> alphabetList;
-	private static DefaultListModel<String> traceListModel;
-	private static JList<String> traceList;
+	private static boolean costCheckBox=true;
+	private static boolean FDoptimalCheckBox = false;
+	private static boolean SymBAoptimalCheckBox=true;
 
-	// TRACES PERSPECTIVE END
+	private static int minimum_length_of_a_trace = 0;
+	private static int maximum_length_of_a_trace = 0;
+	private static int number_of_traces_ComboBox_FROM = 1;
+	private static int number_of_traces_ComboBox_TO=1; // TODO used in result perspective
+	private static int lenght_of_traces_ComboBox_FROM= 0;
+	private static int lenght_of_traces_ComboBox_TO=0;
+	private static boolean number_of_traces_checkBox;
 
-	// CONSTRAINTS PERSPECTIVE START
+	private static StringBuilder activitiesArea = new StringBuilder();
+	private static StringBuilder 	constraintsArea = new StringBuilder();
 
-	private static DefaultListModel<String> constraintsListModel;
-	private static JList<String> constraintsList;
+	private static StringBuilder traceArea = new StringBuilder();
+	private static Vector<String> constraintsListModel = new Vector<String>();
+	private static Vector<String> constraintsList = new Vector<String>(constraintsListModel);
+	private static Vector<String> alphabetListModel = new Vector<String>();
+	private static Vector<String> alphabetList = new Vector<String>(alphabetListModel);
+	private static Vector<String> traceListModel = new Vector<String>();
+	private static Vector<String> traceList = new Vector<String>(traceListModel);
 
+	// CONTAINER OPTIONS AND PRELIMINARY STRUCTURES END
 
-	// CONSTRAINTS PERSPECTIVE END
-
-	// PLANNER PERSPECTIVE START
-
-	private static JTextArea activitiesArea;
-	private static JTextArea constraintsArea;
-	private static JTextArea traceArea = new JTextArea();
-	private static JCheckBox FDoptimalCheckBox;
-	private static JCheckBox SymBAoptimalCheckBox;
-	private static JComboBox<String> number_of_traces_ComboBox_FROM;
-	private static JComboBox<String> number_of_traces_ComboBox_TO;
-	private static JCheckBox number_of_traces_checkBox;
-	private static JComboBox<String> lenght_of_traces_ComboBox_FROM;
-	private static JComboBox<String> lenght_of_traces_ComboBox_TO;
-	private static JCheckBox lenght_of_traces_checkBox;
-	private static JCheckBox trace_duplicated_checkBox;
-	private static JCheckBox costCheckBox;
-	private static JComboBox<String> activitiesComboBox;
-	private static JTextField addingCostField;
-	private static JTextField removalCostField;
-
-	// PLANNER PERSPECTIVE END
-
-	// CONTAINER START
-
+	// CONTAINER STRUCTURES START
 	private static Vector<String> activities_repository_vector = new Vector<String>();
 	private static Vector<String> alphabet_of_the_traces_vector = new Vector<String>();
 	private static Vector<String> alphabet_of_the_constraints_vector = new Vector<String>();
 	private static Vector<Trace> all_traces_vector = new Vector<Trace>();
 	private static Vector<String> all_constraints_vector = new Vector<String>();
 	private static Vector<Vector<String>> activities_cost_vector = new Vector<Vector<String>>();
-	private static int minimum_length_of_a_trace = 0;
-	private static int maximum_length_of_a_trace = 0;
 	private static Hashtable<String, String> content_of_any_different_trace_Hashtable;
 	private static Vector<Automaton> automata_vector = new Vector<Automaton>();
 	private static Vector<RelevantTransition> relevant_transitions_vector = new Vector<RelevantTransition>();
@@ -93,327 +72,83 @@ public class Container {
 	private static Vector<String> automata_sink_non_accepting_states_vector = new Vector<String>();
 	private static Vector<String> automata_abstract_accepting_states_vector = new Vector<String>();
 	private static Vector<String> PDDL_activities_vector = new Vector<String>();
-	public static String PDDL_encoding = "AAAI17"; //It can be equal to "AAAI17" or to "ICAPS16".
-	private static boolean discard_duplicated_traces = false;
-
-	// CONTAINER END
 
 
-	//////////////////////////////// MENU PERSPECTIVE MERGE START ///////////////////////////////////////////////
+	// CONTAINER STRUCTURES END
 
-
-	static void initContainer() {
-
-
-			fileMenu = new JMenu("File");
-			AAAI17EncodingMenu = new JMenu("AAAI-17 Encoding");
-
-			newMenuItem = new JMenuItem("New ");
-			openXESMenuItem = new JMenuItem("Open XES file ");
-			importDeclareMenuItem  = new JMenuItem("Import Declare model ");
-			importLTLFormulaMenuItem  = new JMenuItem("Import LTL formula ");
-			//saveMenuItem = new JMenuItem("Save ");
-			importMenu = new JMenu("Import ");
-
-
-			importModelLearningAutomatonMenuItem  = new JMenuItem("Import Automaton");
-
-			importDataAwareListMenuItem = new JMenuItem("Import Data Atoms List");
-
-
-			newMenuItem.setEnabled(true);
-			openXESMenuItem.setEnabled(true);
-			importDeclareMenuItem.setEnabled(false);
-			//saveMenuItem.setEnabled(false);
-			importMenu.setEnabled(false);
-
-			importModelLearningAutomatonMenuItem.setEnabled(false);
-
-			importDataAwareListMenuItem.setEnabled(false);
-
-			exitMenuItem = new JMenuItem("Exit ");
-
-			fileMenu.add(newMenuItem);
-			fileMenu.add(openXESMenuItem);
-			fileMenu.add(importMenu);
-			importMenu.add(importDeclareMenuItem);
-
-
-			importMenu.add(importModelLearningAutomatonMenuItem);
-
-
-			importMenu.add(importLTLFormulaMenuItem);
-
-			importMenu.add(importDataAwareListMenuItem);
-
-
-			fileMenu.addSeparator();
-			fileMenu.add(exitMenuItem);
-
-
-			sinkStatesMenuItem = new JCheckBoxMenuItem("Remove transitions to a target sink state");
-			disjunctiveGoalMenuItem = new JCheckBoxMenuItem("Allow disjunctive goals in the planning problem");
-			productAutomatonMenuItem = new JCheckBoxMenuItem("Use a product automaton to represent Declare/LTL constraints");
-
-			disjunctiveGoalMenuItem.setSelected(false);
-			sinkStatesMenuItem.setSelected(true);
-
-			AAAI17EncodingMenu.add(sinkStatesMenuItem);
-			AAAI17EncodingMenu.add(disjunctiveGoalMenuItem);
-
-
-	}
-
-
-	/// GETTER AND SETTER ///
-	public static JCheckBoxMenuItem getSinkStatesMenuItem() {
+	// CONTAINER GETTER AND SETTER START
+	public static boolean getSinkStatesMenuItem() {
 		return sinkStatesMenuItem;
 	}
-	public static JCheckBoxMenuItem getProductAutomatonMenuItem() {
+	public static boolean getProductAutomatonMenuItem() {
 		return productAutomatonMenuItem;
 	}
-	public static JCheckBoxMenuItem getDisjunctiveGoalMenuItem() {
+	public static boolean getDisjunctiveGoalMenuItem() {
 		return disjunctiveGoalMenuItem;
 	}
-
-
-
-	//////////////////////////////// MENU PERSPECTIVE MERGE END ///////////////////////////////////////////////
-
-
-
-	//////////////////////////////// TRACES PERSPECTIVE MERGE START ///////////////////////////////////////////////
-
-	 static void initTracesPerspectiveComponent() {
-		alphabetListModel = new DefaultListModel<String>();
-		alphabetList = new JList<String>(alphabetListModel);
-		alphabetList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-		alphabetList.setSelectedIndex(-1);
-		traceListModel = new DefaultListModel<String>();
-		traceList = new JList<String>(traceListModel);
-		traceList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-		traceList.setSelectedIndex(-1);
-		traceList.setEnabled(true);
-		alphabetList.setEnabled(true);
-	}
-	/// GETTER AND SETTER ///
-
-	public static DefaultListModel<String> getAlphabetListModel() {
+	public static Vector<String> getAlphabetListModel() {
 		return alphabetListModel;
 	}
 
-
-	//////////////////////////////// TRACES PERSPECTIVE MERGE END ///////////////////////////////////////////////
-
-
-
-	//////////////////////////////// CONSTRAINTS PERSPECTIVE MERGE START ///////////////////////////////////////////////
-
-
-	 static void initConstraintsPerspectiveComponent() {
-		constraintsListModel = new DefaultListModel<String>();
-		constraintsList = new JList<String>(constraintsListModel);
-		constraintsList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-		constraintsList.setSelectedIndex(-1);
-		constraintsList.setEnabled(true);
-	}
-
-
-	/// GETTER AND SETTER ///
-
-	public static DefaultListModel<String> getConstraintsListModel() {
+	public static Vector<String> getConstraintsListModel() {
 		return constraintsListModel;
 	}
 
-	//////////////////////////////// CONSTRAINTS PERSPECTIVE MERGE END ///////////////////////////////////////////////
-
-
-	//////////////////////////////// PLANNER PERSPECTIVE MERGE START ///////////////////////////////////////////////
-
-
-
-	static void initPlannerPerspectiveComponent() {
-
-		activitiesArea = new JTextArea();
-		activitiesArea.setEditable(false);
-
-		traceArea = new JTextArea();
-		traceArea.setEditable(false);
-
-		constraintsArea = new JTextArea();
-		constraintsArea.setEditable(false);
-
-
-		FDoptimalCheckBox = new JCheckBox();
-		FDoptimalCheckBox.setPreferredSize(new Dimension(30,15));
-
-		SymBAoptimalCheckBox = new JCheckBox();
-		SymBAoptimalCheckBox.setSelected(true);
-		SymBAoptimalCheckBox.setPreferredSize(new Dimension(30,15));
-
-		if(!Container.getPDDL_encoding().equalsIgnoreCase("AAAI17") || Container.getDisjunctiveGoalMenuItem().isSelected()) {
-			SymBAoptimalCheckBox.setEnabled(false);
-		}
-
-
-		trace_duplicated_checkBox = new JCheckBox();
-		trace_duplicated_checkBox.setPreferredSize(new Dimension(30,15));
-		trace_duplicated_checkBox.setSelected(true);
-
-		number_of_traces_checkBox = new JCheckBox();
-		number_of_traces_checkBox.setPreferredSize(new Dimension(30,15));
-
-		number_of_traces_ComboBox_FROM = new JComboBox<String>();
-		number_of_traces_ComboBox_FROM.setPreferredSize(new Dimension(180,25));
-		number_of_traces_ComboBox_TO = new JComboBox<String>();
-		number_of_traces_ComboBox_TO.setPreferredSize(new Dimension(180,25));
-		number_of_traces_ComboBox_FROM.insertItemAt("-- FROM trace # --", 0);
-		number_of_traces_ComboBox_TO.insertItemAt("-- TO trace # --", 0);
-		for(int kd=0;kd<Container.getAllTraces_vector().size();kd++) {
-			int numtr = kd + 1;
-			number_of_traces_ComboBox_FROM.insertItemAt("" + numtr, numtr);
-			number_of_traces_ComboBox_TO.insertItemAt("" + numtr, numtr);
-		}
-		number_of_traces_ComboBox_FROM.setSelectedIndex(0);
-		number_of_traces_ComboBox_TO.setSelectedIndex(0);
-
-		number_of_traces_ComboBox_FROM.setEnabled(false);
-		number_of_traces_ComboBox_TO.setEnabled(false);
-		//
-
-		///////////////////////////////////////////////////
-
-		lenght_of_traces_checkBox = new JCheckBox();
-		lenght_of_traces_checkBox.setPreferredSize(new Dimension(30,15));
-
-		lenght_of_traces_ComboBox_FROM = new JComboBox<String>();
-		lenght_of_traces_ComboBox_FROM.setPreferredSize(new Dimension(180,25));
-		lenght_of_traces_ComboBox_TO = new JComboBox<String>();
-		lenght_of_traces_ComboBox_TO.setPreferredSize(new Dimension(180,25));
-		lenght_of_traces_ComboBox_FROM.insertItemAt("-- min length --", 0);
-		lenght_of_traces_ComboBox_TO.insertItemAt("++ max length ++", 0);
-
-		lenght_of_traces_ComboBox_FROM.setSelectedIndex(0);
-		lenght_of_traces_ComboBox_TO.setSelectedIndex(0);
-
-		lenght_of_traces_ComboBox_FROM.setEnabled(false);
-		lenght_of_traces_ComboBox_TO.setEnabled(false);
-
-		//////////////////////////////////////////////////
-
-		costCheckBox = new JCheckBox();
-		costCheckBox.setSelected(true);
-		costCheckBox.setPreferredSize(new Dimension(30,15));
-		activitiesComboBox = new JComboBox<String>();
-		activitiesComboBox.insertItemAt("-- Name of the Activity --", 0);
-
-		for(int kind=0;kind<Container.getActivitiesRepository_vector().size();kind++) {
-			String activity = Container.getActivitiesRepository_vector().elementAt(kind);
-			activitiesComboBox.insertItemAt(activity, kind+1);
-		}
-
-		activitiesComboBox.setPreferredSize(new Dimension(180,25));
-		activitiesComboBox.setSelectedIndex(0);
-		activitiesComboBox.setEnabled(true);
-		addingCostField = new JTextField("Adding Cost");
-		addingCostField.setPreferredSize(new Dimension(90,25));
-		addingCostField.setEnabled(true);
-		removalCostField = new JTextField("Removal Cost");
-		removalCostField.setPreferredSize(new Dimension(90,25));
-		removalCostField.setEnabled(true);
-
-
-
-
-
-
-	}
-
-
-	/// GETTER AND SETTER ///
-
-
-	public static JCheckBox getTrace_duplicated_checkBox() {
+	public static boolean getTrace_duplicated_checkBox() {
 		return trace_duplicated_checkBox;
 	}
 
-
-	public static JTextArea getActivitiesArea() {
+	public static StringBuilder getActivitiesArea() {
 		return activitiesArea;
 	}
 
-	public static JTextArea getConstraintsArea() {
+	public static StringBuilder getConstraintsArea() {
 		return constraintsArea;
 	}
 
-	public static JTextArea getTraceArea() {
+	public static StringBuilder getTraceArea() {
 		return traceArea;
 	}
 
 
-	public static JCheckBox getFDOptimalCheckBox() {
+	public static boolean getFDOptimalCheckBox() {
 		return FDoptimalCheckBox;
 	}
 
 
-	public static JCheckBox getSymBAoptimalCheckBox() {
+	public static boolean getSymBAoptimalCheckBox() {
 		return SymBAoptimalCheckBox;
 	}
 
 
-	public static JCheckBox getCostCheckBox() {
+	public static boolean getCostCheckBox() {
 		return costCheckBox;
 	}
 
-	public static JComboBox<String> getNumber_of_traces_ComboBox_FROM() {
+	public static Integer getNumber_of_traces_ComboBox_FROM() {
 		return number_of_traces_ComboBox_FROM;
 	}
 
-	public static JComboBox<String> getNumber_of_traces_ComboBox_TO() {
+	public static int getNumber_of_traces_ComboBox_TO() {
 		return number_of_traces_ComboBox_TO;
 	}
 
-	public static JCheckBox getNumber_of_Traces_checkBox() {
+	public static boolean getNumber_of_Traces_checkBox() {
 		return number_of_traces_checkBox;
 	}
 
-	public static JComboBox<String> getActivitiesComboBox() {
-		return activitiesComboBox;
-	}
 
-
-	public static JTextField getAddingCostField() {
-		return addingCostField;
-	}
-
-	public static JTextField getRemovalCostField() {
-		return removalCostField;
-	}
-
-	public static JComboBox<String> getLenght_of_traces_ComboBox_FROM() {
+	public static int getLenght_of_traces_ComboBox_FROM() {
 		return lenght_of_traces_ComboBox_FROM;
 	}
 
-	public static JComboBox<String> getLenght_of_traces_ComboBox_TO() {
+	public static int getLenght_of_traces_ComboBox_TO() {
 		return lenght_of_traces_ComboBox_TO;
 	}
 
-	public static JCheckBox getLenght_of_traces_checkBox() {
+	public static boolean getLenght_of_traces_checkBox() {
 		return lenght_of_traces_checkBox;
 	}
-
-
-	//////////////////////////////// PLANNER PERSPECTIVE MERGE END ///////////////////////////////////////////////
-
-	//////////////////////////////// RESULT PERSPECTIVE MERGE START ///////////////////////////////////////////////
-/*
-	public static void InitResultPerspective(){
-		ResultsPerspective resultsPerspective = new ResultsPerspective();
-	}
-*/
-
-
-	//////////////////////////////// RESULT PERSPECTIVE MERGE END ///////////////////////////////////////////////
 
 	public static Vector<String> getActivitiesRepository_vector() {
 		return activities_repository_vector;
@@ -561,5 +296,8 @@ public class Container {
 	public static void setContentOfAnyDifferentTrace_Hashtable(Hashtable<String, String> content_of_any_trace_Hashtable) {
 		Container.content_of_any_different_trace_Hashtable = content_of_any_trace_Hashtable;
 	}
+
+	// CONTAINER GETTER AND SETTER END
+
 
 }

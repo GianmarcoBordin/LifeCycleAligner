@@ -13,22 +13,17 @@ import org.processmining.plugins.declare.visualizing.*;
 import javax.swing.*;
 import java.io.*;
 import java.util.*;
+import static main.Container.lifecycles;
 
 public class Main {
 
-    private final static String[] lifecycles = {"assigned","started","completed"} ;
 
     public static void main(String[] args) {
 
         System.out.println("----- FILE IMPORTS PHASE STARTED -----");
 
-
         // init executables
         setExecutables();
-
-        // init components
-        initComponents();
-
 
         // Get arguments
         if (args.length == 0) {
@@ -65,7 +60,7 @@ public class Main {
 
         System.out.println("----- PDDL FILES GENERATION PHASE COMPLETED -----");
 
-        runPlanner();
+        //runPlanner();
 
         System.out.println("----- RESULT PHASE STARTED -----");
 
@@ -93,13 +88,6 @@ public class Main {
         new File("run_SYMBA").setExecutable(true);
         new File("run_SYMBA_all").setExecutable(true);
         new File("checkNumberOfTraces").setExecutable(true);
-    }
-
-    public static void initComponents() {
-        Container.initContainer();
-        Container.initTracesPerspectiveComponent();
-        Container.initConstraintsPerspectiveComponent();
-        Container.initPlannerPerspectiveComponent();
     }
 
     private static String getFileExtension(String fileName) {
@@ -369,10 +357,6 @@ public class Main {
 
     //// PLANNER PHASE STARTED  ////
 
-    public static void test(String[] args){
-        createLifecycleDot("ExampleActivity");
-    }
-
     public static File createLifecycleDot(String activity) {
         // fake-init -> fake0 init -> 0 sink -> 1 assigned -> 2 started -> 3 completed -> 4
 
@@ -451,7 +435,7 @@ public class Main {
 
     public static void goToPlanner() {
 
-        if(Container.getConstraintsListModel().getSize()>0) {
+        if(Container.getConstraintsListModel().size()>0) {
             Container.setActivitiesCost_vector(new Vector<Vector<String>>());
 
             // Reset the vector containing the minimum and maximum length of the traces.
@@ -459,7 +443,7 @@ public class Main {
             Container.setMaximumLengthOfATrace(0);
 
             for(int i = 0; i< Container.getAlphabetListModel().size(); i++) {
-                String string = (String) Container.getAlphabetListModel().getElementAt(i);
+                String string = (String) Container.getAlphabetListModel().get(i);
 
                 Container.getActivitiesArea().append(string + "\n");
 
@@ -478,7 +462,6 @@ public class Main {
                 Container.getActivitiesCost_vector().addElement(v);
             }
 
-            Container.getActivitiesArea().setCaretPosition(0);
 
             Container.setAllConstraints_vector(new Vector<String>());
 
@@ -518,7 +501,7 @@ public class Main {
 
                 single_tr_index = 0;
 
-                String temporal_constraint = (String) Container.getConstraintsListModel().getElementAt(k);
+                String temporal_constraint = (String) Container.getConstraintsListModel().get(k);
                 Container.getConstraintsArea().append(temporal_constraint + "\n");
 
                 Container.getAllConstraints_vector().addElement(temporal_constraint);
@@ -719,7 +702,7 @@ public class Main {
                     //
                     // Update the LTL formula that will be used to generate the product automaton.
                     //
-                    if(Container.getProductAutomatonMenuItem().isSelected())  {
+                    if(Container.getProductAutomatonMenuItem())  {
                         if(k+1 < Container.getConstraintsListModel().size())
                             ltl_formula_for_product_automaton += ltl_formula + " /\\ ";
                         else
@@ -796,10 +779,7 @@ public class Main {
 
                     org.processmining.ltl2automaton.plugins.automaton.State initial_state_of_the_automaton = automaton.getInit();
 
-                    //
-                    // 1A. Add to the global vector of sink states each non accepting state of the automaton (we are still not sure that it is a sink).
-                    //
-                    if(Container.getSinkStatesMenuItem().isSelected())  {
+                    if(Container.getSinkStatesMenuItem())  {
                         Iterator<org.processmining.ltl2automaton.plugins.automaton.State> it_states =  automaton.iterator();
 
                         while(it_states.hasNext()) {
@@ -808,20 +788,12 @@ public class Main {
                                 Container.getAutomataSinkNonAcceptingStates_vector().addElement(st_prefix + "_" + automaton_index + "_" + s.getId());
                         }
                     }
-                    ///////////////////////////////////////////////////////////////
 
-                    //
-                    // Identify the initial state of the specific automaton under consideration and records it in the global vector/stringbuffer of the initial states.
-                    //
                     if(!Container.getAutomataInitialStates_vector().contains(st_prefix + "_" + automaton_index + "_" + initial_state_of_the_automaton.getId())) {
                         Container.getAutomataInitialStates_vector().addElement(st_prefix + "_" + automaton_index + "_" + initial_state_of_the_automaton.getId());
                         Container.getPDDLAutomataInitialStates_sb().append("(currstate " + st_prefix + "_" + automaton_index + "_" + initial_state_of_the_automaton.getId() + ")\n");
                     }
 
-                    //
-                    // For any transition of the automaton under consideration, we check if such transition is relevant
-                    // (i.e., if it connects a target state different from the source state).
-                    //
                     Iterator<Transition> it = automaton.transitions().iterator();
 
                     while(it.hasNext()) {
@@ -836,7 +808,7 @@ public class Main {
                             // 2A. If the target state and the source state are different, we are sure that the source state is not a sink.
                             // Therefore, we can remove it from the global vector of sink states.
                             //
-                            if(Container.getSinkStatesMenuItem().isSelected())  {
+                            if(Container.getSinkStatesMenuItem())  {
                                 if(Container.getAutomataSinkNonAcceptingStates_vector().contains(st_prefix + "_" + automaton_index + "_" + tr_source_state_id))
                                     Container.getAutomataSinkNonAcceptingStates_vector().removeElement(st_prefix + "_" + automaton_index + "_" + tr_source_state_id);
                             }
@@ -871,9 +843,7 @@ public class Main {
 
                                 single_tr_index++;
                             }
-                            else { // If the label is negative (e.g., !A) there are several possible concrete positive labels (...B,C,D,E,...etc.),
-                                // i.e., several possible valid relevant transitions to be recorded. Starting from a negative label, the positive
-                                // ones are inferred from the repository of activities involved in the log and in the Declare constraints.
+                            else {
 
                                 Collection<String> coll = transition.getNegativeLabels();
 
@@ -895,9 +865,6 @@ public class Main {
                                 }
                             }
 
-                            //
-                            // Keep track of all the states of the automaton under consideration and records it in the corresponding global stringbuffer/vector.
-                            //
                             if(!Container.getAutomataAllStates_vector().contains(tr_source_state))  {
                                 Container.getAutomataAllStates_vector().addElement(tr_source_state);
                                 Container.getPDDLAutomataAllStates_sb().append(tr_source_state + " - state\n");
@@ -907,9 +874,6 @@ public class Main {
                                 Container.getPDDLAutomataAllStates_sb().append(tr_target_state + " - state\n");
                             }
 
-                            //
-                            // Keep track of all the accepting states of the automaton under consideration and records it in a local vector.
-                            //
                             if(transition.getSource().isAccepting() && !automaton_accepting_states_vector.contains(tr_source_state))  {
                                 automaton_accepting_states_vector.addElement(tr_source_state);
                             }
@@ -919,30 +883,14 @@ public class Main {
 
                         }
 
-                        // System.out.println(t.getSource().getId());
-                        // System.out.println(t.getTarget().getId());
-                        // System.out.println(t.getPositiveLabel());
-                        // System.out.println(t.getNegativeLabels());
 
                     }
 
-                    // Record the accepting states of the automaton under consideration in the corresponding global vector and in the
-                    // global StringBuffer used to take trace of the goal condition.
-                    //
-                    // FIRST CASE: The automaton has several accepting states.
-                    //
-                    // If an automaton has more than one accepting state, such accepting states must be nested in an OR.
-                    // However, if disjunctive conditions are not allowed, an abstract state for the automaton must be generated,
-                    // together with as many planning actions as are the regular accepting states. Such actions represent the transitions
-                    // between the regular accepting states and the abstract accepting state generated.
-                    //
+
                     if(automaton_accepting_states_vector.size() > 1) {
 
-                        //
-                        // If the planner used to synhesize the alignment IS ABLE to manage disjunctive goal conditions,
-                        // we can use the OR disjunction in the goal.
-                        //
-                        if(Container.getDisjunctiveGoalMenuItem().isSelected()) {
+
+                        if(Container.getDisjunctiveGoalMenuItem()) {
                             Container.getPDDLAutomataAcceptingStates_sb().append("(or \n");
 
                             for(int yu=0;yu<automaton_accepting_states_vector.size();yu++) {
@@ -951,10 +899,7 @@ public class Main {
                             }
                             Container.getPDDLAutomataAcceptingStates_sb().append(")\n");
                         }
-                        //
-                        // If the planner used to synhesize the alignment IS NOT ABLE to manage disjunctive goal conditions,
-                        // we need to generate a single ABSTRACT accepting state for the automaton, used as target for any regular accepting state.
-                        //
+
                         else {
                             String aut_abstract_state = st_prefix + "_" + automaton_index + "_" + "abstract";
 
@@ -992,12 +937,12 @@ public class Main {
                 }
 
 
-            } // END of the FOR-cycle to navigate the the list of Declare/LTL constraints.
+            }
 
 
             if(Container.getPDDL_encoding().equalsIgnoreCase("AAAI17")) {
 
-                if(Container.getProductAutomatonMenuItem().isSelected())  {
+                if(Container.getProductAutomatonMenuItem())  {
                     Automaton product_automaton = LTLFormula.generateAutomatonByLTLFormula(ltl_formula_for_product_automaton);
                     Iterator<Transition> it2 = product_automaton.transitions().iterator();
 
@@ -1025,7 +970,7 @@ public class Main {
                 //
                 // Remove the sink non-accepting states, if the option has been selected by the user
                 //
-                if(Container.getSinkStatesMenuItem().isSelected())  {
+                if(Container.getSinkStatesMenuItem())  {
                     for(int as = 0; as< Container.getAutomataSinkNonAcceptingStates_vector().size(); as++) {
                         Container.getAutomataAllStates_vector().removeElement(Container.getAutomataSinkNonAcceptingStates_vector().elementAt(as));
                         String all_states_string = Container.getPDDLAutomataAllStates_sb().toString().replaceAll(Container.getAutomataSinkNonAcceptingStates_vector().elementAt(as) + " - state\n", "");
@@ -1035,18 +980,16 @@ public class Main {
                 }
 
 
-                if(!Container.getDisjunctiveGoalMenuItem().isSelected()) {
+                if(!Container.getDisjunctiveGoalMenuItem()) {
 
                     Container.setCombinationOfAcceptingStates_vector(new Vector<CombinationOfAcceptingStates>());
 
                     Vector<String> automata_id_of_accepting_states_vector = new Vector<String>();
                     for(int q = 0; q< Container.getAutomataAcceptingStates_vector().size(); q++) {
                         String state_id = Container.getAutomataAcceptingStates_vector().elementAt(q);
-                        //System.out.println(state_id);
                         int first_underscore = state_id.indexOf("_");
                         int last_underscore = state_id.lastIndexOf("_");
                         String automaton_id = state_id.substring(first_underscore+1, last_underscore);
-                        //System.out.println(automata_id);
                         if(!automata_id_of_accepting_states_vector.contains(automaton_id))
                             automata_id_of_accepting_states_vector.addElement(automaton_id);
                     }
@@ -1070,30 +1013,14 @@ public class Main {
                     String key = (String) it.next();
                     Collection<String> values = Container.getRelevantTransitions_map().get(key);
 
-						/*
-						System.out.print(key + " --> ");
-						System.out.println(values);
-						*/
-
                     Object[] values_array = values.toArray();
 
-                    //
-                    // Given a specific label (e.g., A), which groups several transitions of different automata
-                    // (e.g., tr_0_0, tr_1_1, tr_1_2), it is important to discard those combinations that contain
-                    // transitions of the same automaton (for example, any combination that includes at the same time
-                    // tr_1_1 and tr_1_2 must be discarded).
-                    //
-                    // FIRST OF ALL, we identify the underlying automata of the relevant transitions associated to the
-                    // specific label. In the above example, two different automata having ID "0" and "1" are considered.
-                    //
                     Vector<String> automata_id_of_relevant_transitions_vector = new Vector<String>();
                     for(int l=0;l<values_array.length;l++) {
                         String transition_id = values_array[l].toString();
-                        //System.out.println(transition_id);
                         int first_underscore = transition_id.indexOf("_");
                         int last_underscore = transition_id.lastIndexOf("_");
                         String automaton_id = transition_id.substring(first_underscore+1, last_underscore);
-                        //System.out.println(automata_id);
                         if(!automata_id_of_relevant_transitions_vector.contains(automaton_id))
                             automata_id_of_relevant_transitions_vector.addElement(automaton_id);
                     }
@@ -1114,7 +1041,6 @@ public class Main {
 
 
 
-            Container.getConstraintsArea().setCaretPosition(0);
 
             Container.setContentOfAnyDifferentTrace_Hashtable(new Hashtable<String,String>());
 
@@ -1180,19 +1106,6 @@ public class Main {
             }
 
 
-            Container.getTraceArea().setCaretPosition(0);
-
-            //
-            // Update the PlannerPerspective panel to visualize the correct minimum and maximum length of a log trace.
-            //
-            int kix = 1;
-            for(int lngtr = Container.getMinimumLengthOfATrace(); lngtr<= Container.getMaximumLengthOfATrace(); lngtr++) {
-                Container.getLenght_of_traces_ComboBox_FROM().insertItemAt("" + lngtr, kix);
-                Container.getLenght_of_traces_ComboBox_TO().insertItemAt("" + lngtr, kix);
-                kix++;
-            }
-            Container.getLenght_of_traces_ComboBox_FROM().setSelectedIndex(0);
-            Container.getLenght_of_traces_ComboBox_TO().setSelectedIndex(0);
         }
         else {
             JOptionPane.showMessageDialog(null, "The list of Declare constraints can not be empty!", "ATTENTION!", JOptionPane.INFORMATION_MESSAGE, new ImageIcon("images/info_icon.png"));
@@ -1201,63 +1114,49 @@ public class Main {
 
     public static void generatePddlFiles() {
 
-        if(Container.getCostCheckBox().isSelected()) {
-            Container.getAddingCostField().setEnabled(true);
-            Container.getRemovalCostField().setEnabled(true);
+        if(Container.getCostCheckBox()) {
+           // TODO
         }
         else {
-            Container.getAddingCostField().setEnabled(false);
-            Container.getRemovalCostField().setEnabled(false);
+            // TODO
+
         }
 
 
-        if(!Container.getFDOptimalCheckBox().isSelected() && !Container.getSymBAoptimalCheckBox().isSelected())
-            JOptionPane.showMessageDialog(null, "It is required to choose at least a valid \nsearch heuristic to run the planner!", "ATTENTION!", JOptionPane.INFORMATION_MESSAGE, new ImageIcon("images/info_icon.png"));
-        else if(Container.getNumber_of_Traces_checkBox().isSelected() && (Container.getNumber_of_traces_ComboBox_FROM().getSelectedIndex()==0 || Container.getNumber_of_traces_ComboBox_TO().getSelectedIndex()==0 || Container.getNumber_of_traces_ComboBox_FROM().getSelectedIndex() > Container.getNumber_of_traces_ComboBox_TO().getSelectedIndex())) {
-            JOptionPane.showMessageDialog(null, "Please select a valid interval of traces to analyze!", "ATTENTION!", JOptionPane.INFORMATION_MESSAGE, new ImageIcon("images/info_icon.png"));
+        if(!Container.getFDOptimalCheckBox() && !Container.getSymBAoptimalCheckBox())
+            System.out.println("It is required to choose at least a valid \nsearch heuristic to run the planner!, ATTENTION!");
+        else if(Container.getNumber_of_Traces_checkBox() && (Container.getNumber_of_traces_ComboBox_FROM()==0 || Container.getNumber_of_traces_ComboBox_TO()==0 || Container.getNumber_of_traces_ComboBox_FROM() > Container.getNumber_of_traces_ComboBox_TO())) {
+            System.out.println("Please select a valid interval of traces to analyze!, ATTENTION!");
         }
         else {
 
-            if(Container.getTrace_duplicated_checkBox().isSelected()) {
+            if(Container.getTrace_duplicated_checkBox()) {
                 Container.setDiscard_duplicated_traces(true);
             }
             else {
                 Container.setDiscard_duplicated_traces(false);
             }
 
-            if(Container.getFDOptimalCheckBox().isSelected()) {
+            if(Container.getFDOptimalCheckBox()) {
                 Utilities.emptyFolder("fast-downward/src/Conformance_Checking");
             }
 
-            if(Container.getSymBAoptimalCheckBox().isSelected()) {
+            if(Container.getSymBAoptimalCheckBox()) {
                 Utilities.emptyFolder("seq-opt-symba-2/Conformance_Checking");
                 Utilities.emptyFolder("seq-opt-symba-2/results");
             }
 
-            if(Container.getCostCheckBox().isSelected()) {
-
-                String selected_activity_name_for_cost = (String) Container.getActivitiesComboBox().getSelectedItem();
-
-                if (!(selected_activity_name_for_cost.equalsIgnoreCase("-- Name of the Activity --")) )
-                {
-                    for(int ind = 0; ind< Container.getActivitiesCost_vector().size(); ind++) {
-                        Vector<String> v = Container.getActivitiesCost_vector().elementAt(ind);
-                        if(v.elementAt(0).equalsIgnoreCase(selected_activity_name_for_cost)) {
-                            v.set(1,Container.getAddingCostField().getText());
-                            v.set(2,Container.getRemovalCostField().getText());
-                            break;
-                        }
-                    }
-                }
+            if(Container.getCostCheckBox()) {
+                // TODO
             }
 
 
             int number_of_traces_to_check_from = 0;
             int number_of_traces_to_check_to = 0;
 
-            if(Container.getNumber_of_Traces_checkBox().isSelected()) {
-                number_of_traces_to_check_from = Container.getNumber_of_traces_ComboBox_FROM().getSelectedIndex();
-                number_of_traces_to_check_to = Container.getNumber_of_traces_ComboBox_TO().getSelectedIndex();
+            if(Container.getNumber_of_Traces_checkBox()) {
+                number_of_traces_to_check_from = Container.getNumber_of_traces_ComboBox_FROM();
+                number_of_traces_to_check_to = Container.getNumber_of_traces_ComboBox_TO();
             }
             else {
                 number_of_traces_to_check_from = 1;
@@ -1268,9 +1167,9 @@ public class Main {
             int length_of_traces_to_check_from = 0;
             int length_of_traces_to_check_to = 0;
 
-            if(Container.getLenght_of_traces_checkBox().isSelected()) {
-                length_of_traces_to_check_from = new Integer(Container.getLenght_of_traces_ComboBox_FROM().getSelectedItem().toString());
-                length_of_traces_to_check_to = new Integer(Container.getLenght_of_traces_ComboBox_TO().getSelectedItem().toString());
+            if(Container.getLenght_of_traces_checkBox()) {
+                length_of_traces_to_check_from = Container.getLenght_of_traces_ComboBox_FROM();
+                length_of_traces_to_check_to = Container.getLenght_of_traces_ComboBox_TO();
             }
             else {
                 length_of_traces_to_check_from = Container.getMinimumLengthOfATrace();
@@ -1281,7 +1180,7 @@ public class Main {
 
                 Trace trace = Container.getAllTraces_vector().elementAt(k);
 
-                if(Container.getTrace_duplicated_checkBox().isSelected()) { // Remove duplicated traces
+                if(Container.getTrace_duplicated_checkBox()) { // Remove duplicated traces
 
                     if(Container.getContentOfAnyDifferentTrace_Hashtable().containsValue(trace.getTraceName()))  {
 
@@ -1292,19 +1191,19 @@ public class Main {
 
                             int trace_real_number = k + 1;
 
-                            if(Container.getFDOptimalCheckBox().isSelected()) {
+                            if(Container.getFDOptimalCheckBox()) {
                                 Utilities.createFile("fast-downward/src/Conformance_Checking/domain" + trace_real_number + ".pddl", sb_domain);
                                 Utilities.createFile("fast-downward/src/Conformance_Checking/problem" + trace_real_number + ".pddl", sb_problem);
                             }
 
-                            if(Container.getSymBAoptimalCheckBox().isSelected()) {
+                            if(Container.getSymBAoptimalCheckBox()) {
                                 Utilities.createFile("seq-opt-symba-2/Conformance_Checking/domain" + trace_real_number + ".pddl", sb_domain);
                                 Utilities.createFile("seq-opt-symba-2/Conformance_Checking/problem" + trace_real_number + ".pddl", sb_problem);
                             }
                         }
                     }
                 }
-                else { // Mantain duplicated traces
+                else {
 
                     if(trace.getOriginalTraceContent_vector().size() >= length_of_traces_to_check_from && trace.getOriginalTraceContent_vector().size() <= length_of_traces_to_check_to)  {
 
@@ -1314,12 +1213,12 @@ public class Main {
 
                         int trace_real_number = k + 1;
 
-                        if(Container.getFDOptimalCheckBox().isSelected()) {
+                        if(Container.getFDOptimalCheckBox()) {
                             Utilities.createFile("fast-downward/src/Conformance_Checking/domain" + trace_real_number + ".pddl", sb_domain);
                             Utilities.createFile("fast-downward/src/Conformance_Checking/problem" + trace_real_number + ".pddl", sb_problem);
                         }
 
-                        if(Container.getSymBAoptimalCheckBox().isSelected()) {
+                        if(Container.getSymBAoptimalCheckBox()) {
                             Utilities.createFile("seq-opt-symba-2/Conformance_Checking/domain" + trace_real_number + ".pddl", sb_domain);
                             Utilities.createFile("seq-opt-symba-2/Conformance_Checking/problem" + trace_real_number + ".pddl", sb_problem);
                         }
@@ -1340,9 +1239,9 @@ public class Main {
         int number_of_traces_to_check_from = 0;
         int number_of_traces_to_check_to = 0;
 
-        if(Container.getNumber_of_Traces_checkBox().isSelected()) {
-            number_of_traces_to_check_from = Container.getNumber_of_traces_ComboBox_FROM().getSelectedIndex();
-            number_of_traces_to_check_to = Container.getNumber_of_traces_ComboBox_TO().getSelectedIndex();
+        if(Container.getNumber_of_Traces_checkBox()) {
+            number_of_traces_to_check_from = Container.getNumber_of_traces_ComboBox_FROM();
+            number_of_traces_to_check_to = Container.getNumber_of_traces_ComboBox_TO();
         }
         else {
             number_of_traces_to_check_from = 1;

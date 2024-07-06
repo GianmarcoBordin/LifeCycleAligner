@@ -117,7 +117,7 @@
 
 (:action add-activitym_assigned-ct16
 :precondition (currstate s_20_4) 
-:effect (and (not (currstate s_20_4)) (currstate s_20_0)  (increase (total-cost) 1))
+:effect (and (not (currstate s_20_4)) (currstate s_20_2)  (increase (total-cost) 1))
 )
 
 (:action add-activitym_assigned-ct17
@@ -182,12 +182,12 @@
 
 (:action add-p5_assigned-ct24
 :precondition (currstate s_9_4) 
-:effect (and (not (currstate s_9_4)) (currstate s_9_0)  (increase (total-cost) 1))
+:effect (and (not (currstate s_9_4)) (currstate s_9_2)  (increase (total-cost) 1))
 )
 
 (:action add-p12_assigned-ct25
 :precondition (currstate s_12_4) 
-:effect (and (not (currstate s_12_4)) (currstate s_12_0)  (increase (total-cost) 1))
+:effect (and (not (currstate s_12_4)) (currstate s_12_2)  (increase (total-cost) 1))
 )
 
 (:action add-p12_assigned-ct26
@@ -202,7 +202,7 @@
 
 (:action add-p2_assigned-ct28
 :precondition (currstate s_4_4) 
-:effect (and (not (currstate s_4_4)) (currstate s_4_0)  (increase (total-cost) 1))
+:effect (and (not (currstate s_4_4)) (currstate s_4_2)  (increase (total-cost) 1))
 )
 
 (:action add-p15_started-ct29
@@ -217,7 +217,7 @@
 
 (:action add-activityp_assigned-ct31
 :precondition (currstate s_15_4) 
-:effect (and (not (currstate s_15_4)) (currstate s_15_0)  (increase (total-cost) 1))
+:effect (and (not (currstate s_15_4)) (currstate s_15_2)  (increase (total-cost) 1))
 )
 
 (:action add-activityp_assigned-ct32
@@ -232,7 +232,7 @@
 
 (:action add-p15_assigned-ct34
 :precondition (currstate s_18_4) 
-:effect (and (not (currstate s_18_4)) (currstate s_18_0)  (increase (total-cost) 1))
+:effect (and (not (currstate s_18_4)) (currstate s_18_2)  (increase (total-cost) 1))
 )
 
 (:action add-p18-ct35
@@ -302,7 +302,7 @@
 
 (:action add-p8_assigned-ct43
 :precondition (currstate s_5_4) 
-:effect (and (not (currstate s_5_4)) (currstate s_5_0)  (increase (total-cost) 1))
+:effect (and (not (currstate s_5_4)) (currstate s_5_2)  (increase (total-cost) 1))
 )
 
 (:action add-activityl_completed-ct44
@@ -317,7 +317,7 @@
 
 (:action add-p18_assigned-ct46
 :precondition (currstate s_1_4) 
-:effect (and (not (currstate s_1_4)) (currstate s_1_0)  (increase (total-cost) 1))
+:effect (and (not (currstate s_1_4)) (currstate s_1_2)  (increase (total-cost) 1))
 )
 
 (:action add-p8_started-ct47
@@ -332,7 +332,7 @@
 
 (:action add-p13_assigned-ct49
 :precondition (currstate s_8_4) 
-:effect (and (not (currstate s_8_4)) (currstate s_8_0)  (increase (total-cost) 1))
+:effect (and (not (currstate s_8_4)) (currstate s_8_2)  (increase (total-cost) 1))
 )
 
 (:action add-activityo_assigned-ct50
@@ -342,7 +342,7 @@
 
 (:action add-activityo_assigned-ct51
 :precondition (currstate s_14_4) 
-:effect (and (not (currstate s_14_4)) (currstate s_14_0)  (increase (total-cost) 1))
+:effect (and (not (currstate s_14_4)) (currstate s_14_2)  (increase (total-cost) 1))
 )
 
 (:action add-activityn_started-ct52
@@ -472,7 +472,7 @@
 
 (:action add-p4_assigned-ct72
 :precondition (currstate s_6_4) 
-:effect (and (not (currstate s_6_4)) (currstate s_6_0)  (increase (total-cost) 1))
+:effect (and (not (currstate s_6_4)) (currstate s_6_2)  (increase (total-cost) 1))
 )
 
 (:action add-p3_started-ct73
@@ -497,7 +497,7 @@
 
 (:action add-p20_assigned-ct77
 :precondition (currstate s_16_4) 
-:effect (and (not (currstate s_16_4)) (currstate s_16_0)  (increase (total-cost) 1))
+:effect (and (not (currstate s_16_4)) (currstate s_16_2)  (increase (total-cost) 1))
 )
 
 (:action add-p5_started-ct78
@@ -547,12 +547,12 @@
 
 (:action add-p3_assigned-ct84
 :precondition (currstate s_10_4) 
-:effect (and (not (currstate s_10_4)) (currstate s_10_0)  (increase (total-cost) 1))
+:effect (and (not (currstate s_10_4)) (currstate s_10_2)  (increase (total-cost) 1))
 )
 
 (:action add-p6_assigned-ct85
 :precondition (currstate s_22_4) 
-:effect (and (not (currstate s_22_4)) (currstate s_22_0)  (increase (total-cost) 1))
+:effect (and (not (currstate s_22_4)) (currstate s_22_2)  (increase (total-cost) 1))
 )
 
 (:action add-p6_assigned-ct86
@@ -662,7 +662,7 @@
 
 (:action add-activityn_assigned-ct100
 :precondition (currstate s_13_4) 
-:effect (and (not (currstate s_13_4)) (currstate s_13_0)  (increase (total-cost) 1))
+:effect (and (not (currstate s_13_4)) (currstate s_13_2)  (increase (total-cost) 1))
 )
 
 (:action add-activityn_assigned-ct101
@@ -702,7 +702,7 @@
 
 (:action add-activityk_assigned-ct108
 :precondition (currstate s_19_4) 
-:effect (and (not (currstate s_19_4)) (currstate s_19_0)  (increase (total-cost) 1))
+:effect (and (not (currstate s_19_4)) (currstate s_19_2)  (increase (total-cost) 1))
 )
 
 (:action add-activityk_assigned-ct109
@@ -742,7 +742,7 @@
 
 (:action add-p10_assigned-ct116
 :precondition (currstate s_7_4) 
-:effect (and (not (currstate s_7_4)) (currstate s_7_0)  (increase (total-cost) 1))
+:effect (and (not (currstate s_7_4)) (currstate s_7_2)  (increase (total-cost) 1))
 )
 
 (:action add-activityl_assigned-ct117
@@ -752,7 +752,7 @@
 
 (:action add-activityl_assigned-ct118
 :precondition (currstate s_21_4) 
-:effect (and (not (currstate s_21_4)) (currstate s_21_0)  (increase (total-cost) 1))
+:effect (and (not (currstate s_21_4)) (currstate s_21_2)  (increase (total-cost) 1))
 )
 
 (:action add-activityl_started-ct119
@@ -762,7 +762,7 @@
 
 (:action add-activityr_assigned-ct120
 :precondition (currstate s_17_4) 
-:effect (and (not (currstate s_17_4)) (currstate s_17_0)  (increase (total-cost) 1))
+:effect (and (not (currstate s_17_4)) (currstate s_17_2)  (increase (total-cost) 1))
 )
 
 (:action add-activityr_assigned-ct121
@@ -792,7 +792,7 @@
 
 (:action add-p22_assigned-ct126
 :precondition (currstate s_2_4) 
-:effect (and (not (currstate s_2_4)) (currstate s_2_0)  (increase (total-cost) 1))
+:effect (and (not (currstate s_2_4)) (currstate s_2_2)  (increase (total-cost) 1))
 )
 
 (:action add-p13_started-ct127
@@ -892,7 +892,7 @@
 
 (:action add-p1_assigned-ct134
 :precondition (currstate s_11_4) 
-:effect (and (not (currstate s_11_4)) (currstate s_11_0)  (increase (total-cost) 1))
+:effect (and (not (currstate s_11_4)) (currstate s_11_2)  (increase (total-cost) 1))
 )
 
 (:action add-p1_assigned-ct135
@@ -902,7 +902,7 @@
 
 (:action add-p11_assigned-ct136
 :precondition (currstate s_3_4) 
-:effect (and (not (currstate s_3_4)) (currstate s_3_0)  (increase (total-cost) 1))
+:effect (and (not (currstate s_3_4)) (currstate s_3_2)  (increase (total-cost) 1))
 )
 
 (:action add-p11_assigned-ct137
@@ -1098,11 +1098,6 @@
 (:action del-activityo-t19-t20
 :precondition (currstate t19)
 :effect (and (not (currstate t19)) (currstate t20)  (increase (total-cost) 1))
-)
-
-(:action goto-abstract_states-cs0
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_4) (currstate s_2_4) (currstate s_3_4) (currstate s_4_4) (currstate s_5_4) (currstate s_6_4) (currstate s_7_4) (currstate s_8_4) (currstate s_9_4) (currstate s_10_4) (currstate s_11_4) (currstate s_12_4) (currstate s_13_4) (currstate s_14_4) (currstate s_15_4) (currstate s_16_4) (currstate s_17_4) (currstate s_18_4) (currstate s_19_4) (currstate s_20_4) (currstate s_21_4) (currstate s_22_4) )
-:effect (and )
 )
 
 )

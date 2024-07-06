@@ -88,11 +88,6 @@ public class Utilities {
 
         State s = n.getInit();
 
-        //System.out.println("ID stato iniziale " + s.getId());
-        //System.out.println("# stati automa " + n.getStateCount());
-
-        //System.out.println("# transizioni stato iniziale " + s.getOutputSize());
-        //System.out.println("# transizioni automa " + n.getTransitionCount());
         Iterator<State> it = n.iterator();
         while (it.hasNext()) {
             State ss = it.next();
@@ -187,18 +182,12 @@ public class Utilities {
 
         State s = n.getInit();
 
-        //System.out.println("ID stato iniziale " + s.getId());
-        //System.out.println("# stati automa " + n.getStateCount());
-
-        //System.out.println("# transizioni stato iniziale " + s.getOutputSize());
-        //System.out.println("# transizioni automa " + n.getTransitionCount());
         Iterator<State> it = n.iterator();
         while (it.hasNext()) {
             State ss = it.next();
             Iterator<Transition> transitions = ss.getOutput().iterator();
             while (transitions.hasNext()) {
                 Transition t = transitions.next();
-                //System.out.println("Source " + t.getSource() + " Target " + t.getTarget() + " Label " + t.getLabel().getaLiteral());
             }
         }
         
@@ -246,9 +235,6 @@ public class Utilities {
 				}
 	        }
 	        
-	        // System.out.print(label + " -- ");
-	        // System.out.println(str);
-	        
 	        Vector<String> original_transitions_associated_to_the_label_vector = new Vector<String>();
 	        for(int hu=0;hu<arr.length;hu++) {
 	        	original_transitions_associated_to_the_label_vector.addElement(arr[hu].toString());
@@ -258,14 +244,12 @@ public class Utilities {
 	        
 	        CombinationOfRelevantTransitions cot = new CombinationOfRelevantTransitions(cotID, label, original_k_value, combination_of_relevant_transitions_vector, original_transitions_associated_to_the_label_vector);
 	                
-	        // System.out.println(cot.getId() + " -- " + cot.getLabel() + " --> " + cot.getCombination_of_transitions_vector() + " -- " + cot.getOriginal_transitions_associated_to_the_label_vector() + " -- " + cot.getPDDL_preconditions() + " -- " + cot.getPDDL_effects());
-	        	        
+
 	        Container.getCombinationOfRelevantTransitions_vector().addElement(cot);
 	        
-	        if(Container.getSinkStatesMenuItem().isSelected() && cot.containsSinkstates()) {
+	        if(Container.getSinkStatesMenuItem() && cot.containsSinkstates()) {
 	        	Container.getCombinationOfRelevantTransitions_vector().removeElement(cot);
-	        	// System.out.println("This combination of transition contains a sink state ");
-	        } 
+	        }
 	        return;
 	    }       
 	    for (int i = startPosition; i <= arr.length-len; i++){
@@ -305,16 +289,13 @@ public class Utilities {
 					automata_ID_of_accepting_states_involved_in_a_combination_vector.addElement(automaton_id);
 				}
 	        }
-	        
-	        // System.out.print(label + " -- ");
-	        // System.out.println(str);
+
 	        	        	        
 	        String cosID = "cs" + Container.getCombinationOfAcceptingStates_vector().size();
 	        
 	        CombinationOfAcceptingStates coas = new CombinationOfAcceptingStates(cosID, combination_of_accepting_states_vector);
 	                
-	        //System.out.println(coas.getId() + " --> " + coas.getCombinationOfAcceptingStates_vector());
-	        	        
+
 	        Container.getCombinationOfAcceptingStates_vector().addElement(coas);
 	        return;
 	    }       
@@ -351,7 +332,7 @@ public class Utilities {
 		
 		PDDL_domain_buffer.append(")\n\n");			
 		
-		if(Container.getCostCheckBox().isSelected()) {
+		if(Container.getCostCheckBox()) {
 			PDDL_domain_buffer.append("(:functions\n");	
 			PDDL_domain_buffer.append("(total-cost)\n");			
 			PDDL_domain_buffer.append(")\n\n");		
@@ -422,7 +403,7 @@ public class Utilities {
 				PDDL_domain_buffer.append(":effect (and ");
 				PDDL_domain_buffer.append(cot.getPDDL_effects());
 				
-				if(Container.getCostCheckBox().isSelected()) {
+				if(Container.getCostCheckBox()) {
 					PDDL_domain_buffer.append(" (increase (total-cost) ");	
 										
 						for(int yu = 0; yu< Container.getActivitiesCost_vector().size(); yu++) {
@@ -469,7 +450,7 @@ public class Utilities {
 									PDDL_domain_buffer.append(cot.getPDDL_effects());
 									PDDL_domain_buffer.append("(not (trans_" + data_key + "))");
 									
-									if(Container.getCostCheckBox().isSelected()) {
+									if(Container.getCostCheckBox()) {
 										PDDL_domain_buffer.append(" (increase (total-cost) 1)");	
 									
 									}
@@ -523,8 +504,7 @@ public class Utilities {
 						
 			String act = trace.getOriginalTraceContent_vector().elementAt(gk);
 			Collection<String> values =  Container.getRelevantTransitions_map().get(act);
-			//System.out.print(act + " --> ");
-			//System.out.println(values);
+
 
 			Object[] values_array = values.toArray();
 			
@@ -623,7 +603,7 @@ public class Utilities {
 			
 			PDDL_domain_buffer.append(":effect (and ");
 			PDDL_domain_buffer.append("(not (currstate t" + gk + ")) " + "(currstate t" + j + ") " );
-			if(Container.getCostCheckBox().isSelected()) {
+			if(Container.getCostCheckBox()) {
 				PDDL_domain_buffer.append(" (increase (total-cost) ");	
 			
 					for(int yu = 0; yu< Container.getActivitiesCost_vector().size(); yu++) {
@@ -654,7 +634,7 @@ public class Utilities {
 						PDDL_domain_buffer.append("(and (currstate t" + gk + ") (not (trans_" + data_key + ")))\n");
 						PDDL_domain_buffer.append(":effect (and ");
 						PDDL_domain_buffer.append("(not (currstate t" + gk + ")) " + "(currstate t" + j + ") " + "(trans_" + data_key + ") " );
-						if(Container.getCostCheckBox().isSelected()) {
+						if(Container.getCostCheckBox()) {
 							PDDL_domain_buffer.append(" (increase (total-cost) 1))");	
 					
 					}						
@@ -673,7 +653,7 @@ public class Utilities {
 		// we need to generate PDDL actions to reach the ABSTRACT accepting state of any automaton, that are used as target states 
 		// for any regular accepting state.
 		//
-		if(!Container.getDisjunctiveGoalMenuItem().isSelected()) {
+		if(!Container.getDisjunctiveGoalMenuItem()) {
 					
 			StringBuffer PDDL_temp_effects_sb = new StringBuffer(":effect (and ");
 			
@@ -756,7 +736,7 @@ public class Utilities {
 		
 		PDDL_init_buffer.append(Container.getPDDLAutomataInitialStates_sb());
 				
-		if(Container.getCostCheckBox().isSelected()) {
+		if(Container.getCostCheckBox()) {
 			PDDL_cost_buffer.append("(= (total-cost) 0)\n");
 			PDDL_init_buffer.append(PDDL_cost_buffer);
 		}
@@ -786,7 +766,7 @@ public class Utilities {
 
 		PDDL_goal_buffer.append("))\n");
 		
-		if(Container.getCostCheckBox().isSelected())
+		if(Container.getCostCheckBox())
 			PDDL_goal_buffer.append("(:metric minimize (total-cost))\n");	
 		
 		PDDL_problem_buffer.append(PDDL_objects_buffer);

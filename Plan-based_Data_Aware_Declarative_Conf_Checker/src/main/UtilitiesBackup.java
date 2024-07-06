@@ -144,8 +144,7 @@ public class UtilitiesBackup {
 				}
 	        }
 	        
-	        // System.out.print(label + " -- ");
-	        // System.out.println(str);
+
 	        
 	        Vector<String> original_transitions_associated_to_the_label_vector = new Vector<String>();
 	        for(int hu=0;hu<arr.length;hu++) {
@@ -156,11 +155,10 @@ public class UtilitiesBackup {
 	        
 	        CombinationOfRelevantTransitions cot = new CombinationOfRelevantTransitions(cotID, label, original_k_value, combination_of_relevant_transitions_vector, original_transitions_associated_to_the_label_vector);
 	                
-	        // System.out.println(cot.getId() + " -- " + cot.getLabel() + " --> " + cot.getCombination_of_transitions_vector() + " -- " + cot.getOriginal_transitions_associated_to_the_label_vector() + " -- " + cot.getPDDL_preconditions() + " -- " + cot.getPDDL_effects());
-	        	        
+
 	        Container.getCombinationOfRelevantTransitions_vector().addElement(cot);
 	        
-	        if(Container.getSinkStatesMenuItem().isSelected() && cot.containsSinkstates()) {
+	        if(Container.getSinkStatesMenuItem() && cot.containsSinkstates()) {
 	        	Container.getCombinationOfRelevantTransitions_vector().removeElement(cot);
 	        	// System.out.println("This combination of transition contains a sink state ");
 	        } 
@@ -204,15 +202,13 @@ public class UtilitiesBackup {
 				}
 	        }
 	        
-	        // System.out.print(label + " -- ");
-	        // System.out.println(str);
+
 	        	        	        
 	        String cosID = "cs" + Container.getCombinationOfAcceptingStates_vector().size();
 	        
 	        CombinationOfAcceptingStates coas = new CombinationOfAcceptingStates(cosID, combination_of_accepting_states_vector);
 	                
-	        //System.out.println(coas.getId() + " --> " + coas.getCombinationOfAcceptingStates_vector());
-	        	        
+
 	        Container.getCombinationOfAcceptingStates_vector().addElement(coas);
 	        return;
 	    }       
@@ -236,7 +232,7 @@ public class UtilitiesBackup {
 		PDDL_domain_buffer.append("(currstate ?s - state)\n");			
 		PDDL_domain_buffer.append(")\n\n");			
 		
-		if(Container.getCostCheckBox().isSelected()) {
+		if(Container.getCostCheckBox()) {
 			PDDL_domain_buffer.append("(:functions\n");	
 			PDDL_domain_buffer.append("(total-cost)\n");			
 			PDDL_domain_buffer.append(")\n\n");		
@@ -271,7 +267,7 @@ public class UtilitiesBackup {
 				PDDL_domain_buffer.append(":effect (and ");
 				PDDL_domain_buffer.append(cot.getPDDL_effects());
 				
-				if(Container.getCostCheckBox().isSelected()) {
+				if(Container.getCostCheckBox()) {
 					PDDL_domain_buffer.append(" (increase (total-cost) ");	
 				
 						for(int yu = 0; yu< Container.getActivitiesCost_vector().size(); yu++) {
@@ -322,8 +318,7 @@ public class UtilitiesBackup {
 						
 			String act = trace.getOriginalTraceContent_vector().elementAt(gk);
 			Collection<String> values =  Container.getRelevantTransitions_map().get(act);
-			//System.out.print(act + " --> ");
-			//System.out.println(values);
+
 
 			Object[] values_array = values.toArray();
 			
@@ -355,7 +350,7 @@ public class UtilitiesBackup {
 			PDDL_domain_buffer.append("(currstate t" + gk + ")\n");
 			PDDL_domain_buffer.append(":effect (and ");
 			PDDL_domain_buffer.append("(not (currstate t" + gk + ")) " + "(currstate t" + j + ") " );
-			if(Container.getCostCheckBox().isSelected()) {
+			if(Container.getCostCheckBox()) {
 				PDDL_domain_buffer.append(" (increase (total-cost) ");	
 			
 					for(int yu = 0; yu< Container.getActivitiesCost_vector().size(); yu++) {
@@ -376,7 +371,7 @@ public class UtilitiesBackup {
 		// we need to generate PDDL actions to reach the ABSTRACT accepting state of any automaton, that are used as target states 
 		// for any regular accepting state.
 		//
-		if(!Container.getDisjunctiveGoalMenuItem().isSelected()) {
+		if(!Container.getDisjunctiveGoalMenuItem()) {
 					
 			StringBuffer PDDL_temp_effects_sb = new StringBuffer(":effect (and ");
 			
@@ -461,7 +456,7 @@ public class UtilitiesBackup {
 		
 		PDDL_init_buffer.append(Container.getPDDLAutomataInitialStates_sb());
 					
-		if(Container.getCostCheckBox().isSelected()) {
+		if(Container.getCostCheckBox()) {
 			PDDL_cost_buffer.append("(= (total-cost) 0)\n");
 			PDDL_init_buffer.append(PDDL_cost_buffer);
 		}
@@ -480,7 +475,7 @@ public class UtilitiesBackup {
 
 		PDDL_goal_buffer.append("))\n");
 		
-		if(Container.getCostCheckBox().isSelected())
+		if(Container.getCostCheckBox())
 			PDDL_goal_buffer.append("(:metric minimize (total-cost))\n");	
 		
 		PDDL_problem_buffer.append(PDDL_objects_buffer);
@@ -532,8 +527,7 @@ public class UtilitiesBackup {
 			fw.write(buffer.toString());
 			fw.close();
 			
-		   //fw.flush();
-		   //fw.close();
+
 		   }
 		   catch(IOException e) {
 		   e.printStackTrace();
@@ -541,9 +535,6 @@ public class UtilitiesBackup {
 	}
 
 
-	//
-	// Method that returns TRUE if the string passed as input is in the UPPER CASE format.
-	//
 	public static boolean isUpperCase(String str){
 		
 		for(int i=0; i<str.length(); i++){
