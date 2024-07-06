@@ -122,7 +122,6 @@ public class LTLFormula {
 		   try {
 			formulaeParsed.add(new DefaultParser(formula).parse());
 		} catch (SyntaxParserException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		   TreeFactory<ConjunctionTreeNode, ConjunctionTreeLeaf> treeFactory = DefaultTreeFactory.getInstance();

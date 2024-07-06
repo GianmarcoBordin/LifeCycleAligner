@@ -435,7 +435,7 @@ public class Main {
 
     public static void goToPlanner() {
 
-        if(Container.getConstraintsListModel().size()>0) {
+        if(!Container.getConstraintsListModel().isEmpty()) {
             Container.setActivitiesCost_vector(new Vector<Vector<String>>());
 
             // Reset the vector containing the minimum and maximum length of the traces.
@@ -1138,12 +1138,12 @@ public class Main {
             }
 
             if(Container.getFDOptimalCheckBox()) {
-                Utilities.emptyFolder("fast-downward/src/Conformance_Checking");
+                Utilities.emptyFolder("/Users/applem2/Downloads/Work/tesi/Project/Aligner/Plan-based_Data_Aware_Declarative_Conf_Checker/fast-downward/src/Conformance_Checking");
             }
 
             if(Container.getSymBAoptimalCheckBox()) {
-                Utilities.emptyFolder("seq-opt-symba-2/Conformance_Checking");
-                Utilities.emptyFolder("seq-opt-symba-2/results");
+                Utilities.emptyFolder("/Users/applem2/Downloads/Work/tesi/Project/Aligner/Plan-based_Data_Aware_Declarative_Conf_Checker/seq-opt-symba-2/Conformance_Checking");
+                Utilities.emptyFolder("/Users/applem2/Downloads/Work/tesi/Project/Aligner/Plan-based_Data_Aware_Declarative_Conf_Checker/seq-opt-symba-2/results");
             }
 
             if(Container.getCostCheckBox()) {
@@ -1192,13 +1192,13 @@ public class Main {
                             int trace_real_number = k + 1;
 
                             if(Container.getFDOptimalCheckBox()) {
-                                Utilities.createFile("fast-downward/src/Conformance_Checking/domain" + trace_real_number + ".pddl", sb_domain);
-                                Utilities.createFile("fast-downward/src/Conformance_Checking/problem" + trace_real_number + ".pddl", sb_problem);
+                                Utilities.createFile("/Users/applem2/Downloads/Work/tesi/Project/Aligner/Plan-based_Data_Aware_Declarative_Conf_Checker/fast-downward/src/Conformance_Checking/domain" + trace_real_number + ".pddl", sb_domain);
+                                Utilities.createFile("/Users/applem2/Downloads/Work/tesi/Project/Aligner/Plan-based_Data_Aware_Declarative_Conf_Checker/fast-downward/src/Conformance_Checking/problem" + trace_real_number + ".pddl", sb_problem);
                             }
 
                             if(Container.getSymBAoptimalCheckBox()) {
-                                Utilities.createFile("seq-opt-symba-2/Conformance_Checking/domain" + trace_real_number + ".pddl", sb_domain);
-                                Utilities.createFile("seq-opt-symba-2/Conformance_Checking/problem" + trace_real_number + ".pddl", sb_problem);
+                                Utilities.createFile("/Users/applem2/Downloads/Work/tesi/Project/Aligner/Plan-based_Data_Aware_Declarative_Conf_Checker/seq-opt-symba-2/Conformance_Checking/domain" + trace_real_number + ".pddl", sb_domain);
+                                Utilities.createFile("/Users/applem2/Downloads/Work/tesi/Project/Aligner/Plan-based_Data_Aware_Declarative_Conf_Checker/seq-opt-symba-2/Conformance_Checking/problem" + trace_real_number + ".pddl", sb_problem);
                             }
                         }
                     }
@@ -1214,13 +1214,14 @@ public class Main {
                         int trace_real_number = k + 1;
 
                         if(Container.getFDOptimalCheckBox()) {
-                            Utilities.createFile("fast-downward/src/Conformance_Checking/domain" + trace_real_number + ".pddl", sb_domain);
-                            Utilities.createFile("fast-downward/src/Conformance_Checking/problem" + trace_real_number + ".pddl", sb_problem);
+                            Utilities.createFile("/Users/applem2/Downloads/Work/tesi/Project/Aligner/Plan-based_Data_Aware_Declarative_Conf_Checker/fast-downward/src/Conformance_Checking/domain" + trace_real_number + ".pddl", sb_domain);
+                            Utilities.createFile("/Users/applem2/Downloads/Work/tesi/Project/Aligner/Plan-based_Data_Aware_Declarative_Conf_Checker/fast-downward/src/Conformance_Checking/problem" + trace_real_number + ".pddl", sb_problem);
                         }
 
                         if(Container.getSymBAoptimalCheckBox()) {
-                            Utilities.createFile("seq-opt-symba-2/Conformance_Checking/domain" + trace_real_number + ".pddl", sb_domain);
-                            Utilities.createFile("seq-opt-symba-2/Conformance_Checking/problem" + trace_real_number + ".pddl", sb_problem);
+
+                            Utilities.createFile("/Users/applem2/Downloads/Work/tesi/Project/Aligner/Plan-based_Data_Aware_Declarative_Conf_Checker/seq-opt-symba-2/Conformance_Checking/domain" + trace_real_number + ".pddl", sb_domain);
+                            Utilities.createFile("/Users/applem2/Downloads/Work/tesi/Project/Aligner/Plan-based_Data_Aware_Declarative_Conf_Checker/seq-opt-symba-2/Conformance_Checking/problem" + trace_real_number + ".pddl", sb_problem);
                         }
                     }
                 }

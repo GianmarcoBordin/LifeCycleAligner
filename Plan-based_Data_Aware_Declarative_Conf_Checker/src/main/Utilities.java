@@ -82,7 +82,6 @@ public class Utilities {
 			    }
 			}
 		} catch (NumberFormatException | IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 
@@ -176,7 +175,6 @@ public class Utilities {
                 }
             }
 		} catch (NumberFormatException | IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 
