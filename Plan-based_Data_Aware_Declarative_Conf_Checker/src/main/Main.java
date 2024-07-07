@@ -23,7 +23,13 @@ import static main.Container.*;
 public class Main {
 
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
+
+        System.out.println("----- CLEAN PHASE STARTED -----");
+
+        cleanAll();
+
+        System.out.println("----- CLEAN PHASE COMPLETED -----");
 
         System.out.println("----- FILE IMPORTS PHASE STARTED -----");
 
@@ -53,9 +59,20 @@ public class Main {
 
         System.out.println("----- FILE IMPORTS PHASE COMPLETED -----");
 
-        //createSingleAutomata();
+        System.out.println("----- PRODUCT AUTOMATA PHASE STARTED -----");
+
+       // String productAutomata =CombineDOTFiles.combine();
+
+        Container.getConstraintsListModel().clear();
+
+     //   Container.getConstraintsListModel().addElement(productAutomata);
+
+
+        System.out.println("----- PRODUCT AUTOMATA PHASE COMPLETED -----");
+
 
         System.out.println("----- GROUNDING PHASE STARTED -----");
+
 
         goToPlanner();
 
@@ -63,7 +80,7 @@ public class Main {
 
         System.out.println("----- PDDL FILES GENERATION PHASE STARTED -----");
 
-        generatePddlFiles();
+        //generatePddlFiles();
 
         System.out.println("----- PDDL FILES GENERATION PHASE COMPLETED -----");
 
@@ -72,6 +89,7 @@ public class Main {
         System.out.println("----- RESULT PHASE STARTED -----");
 
         System.out.println("----- RESULT PHASE COMPLETED -----");
+
 
     }
 
@@ -97,24 +115,12 @@ public class Main {
         new File("checkNumberOfTraces").setExecutable(true);
     }
 
+    public static void cleanAll(){
+        Utilities.emptyFolder("/Users/applem2/Downloads/Work/tesi/Project/Aligner/Plan-based_Data_Aware_Declarative_Conf_Checker/resources/lifecycle-models");
+        Utilities.emptyFolder("/Users/applem2/Downloads/Work/tesi/Project/Aligner/Plan-based_Data_Aware_Declarative_Conf_Checker/seq-opt-symba-2/Conformance_Checking");
+        Utilities.emptyFolder("/Users/applem2/Downloads/Work/tesi/Project/Aligner/Plan-based_Data_Aware_Declarative_Conf_Checker/seq-opt-symba-2/results");
 
-    public static void createSingleAutomata(){
-
-        try {
-            Vector<Automaton> automata= new Vector<Automaton>();
-            for (String dot : dots){
-                automata.addElement(Utilities.getAutomatonForModelLearning(dot));
-            }
-            String pathname="/Users/applem2/Downloads/Work/tesi/Project/Aligner/Plan-based_Data_Aware_Declarative_Conf_Checker/resources/declarative-models/Data-Aware/5-CONSTRAINTS/lifecycle";
-
-            File productDotFile = createProductAutomaton(automata, pathname);
-            System.out.println("Product automaton written to: " + productDotFile.getAbsolutePath());
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
     }
-
-
 
     private static String getFileExtension(String fileName) {
         int dotIndex = fileName.lastIndexOf('.');
@@ -244,11 +250,13 @@ public class Main {
                 t.setOriginalTraceContentString(trace_content.substring(0, trace_content.length() - 1));
 
                 Container.getAllTraces_vector().addElement(t);
+
             }
 
             File lifecycleActivityDot= null;
             Container.setActivitiesRepository_vector(loaded_alphabet_vector);
             for (int kix = 0; kix < loaded_alphabet_vector.size(); kix++) {
+                //lifecycleActivityDot = createLifecycleDotActivityNotPresent(loaded_alphabet_vector.elementAt(kix));
                 lifecycleActivityDot = createLifecycleDot(loaded_alphabet_vector.elementAt(kix));
                 assert lifecycleActivityDot != null && lifecycleActivityDot.exists() && lifecycleActivityDot.isFile();
                 loadDot(lifecycleActivityDot);
@@ -377,19 +385,11 @@ public class Main {
     }
 
     public static void loadDot(File selectedFile) {
-
         String model_learning_constraint = "DFA{" + selectedFile.getAbsolutePath() + "}";
 
         Container.getConstraintsListModel().addElement(model_learning_constraint);
 
-    }
-    public static String removeAfterUnderscore(String input) {
-        int lastUnderscoreIndex = input.lastIndexOf('_');
-        if (lastUnderscoreIndex != -1) {
-            return input.substring(0, lastUnderscoreIndex);
-        } else {
-            return input;
-        }
+
     }
 
     public static File createLifecycleDot(String activity) {
@@ -444,14 +444,14 @@ public class Main {
 
         // variable sink transitions
         for (int i =0; i< lifecycles.length;i++){
-                for (String event : lifecycles) {
-                    if (event != flowEvents.get(lifecycles[i])) {
-                        dot.append("\t" + index.get(lifecycles[i]) + " -> 1 [label=" + activity +  event + "]\n");
-                    }
-                    else{
-                        dot.append("\t" + index.get(lifecycles[i]) + " -> " + index.get(event) + " [label=" + activity +  event + "]\n");
-                    }
+            for (String event : lifecycles) {
+                if (event != flowEvents.get(lifecycles[i])) {
+                    dot.append("\t" + index.get(lifecycles[i]) + " -> 1 [label=" + activity +  event + "]\n");
                 }
+                else{
+                    dot.append("\t" + index.get(lifecycles[i]) + " -> " + index.get(event) + " [label=" + activity +  event + "]\n");
+                }
+            }
         }
         // init state transitions to sink
         int i =0;
@@ -480,71 +480,7 @@ public class Main {
         return dotFile;
     }
 
-    public static File createProductAutomaton(List<Automaton> automatons, String outputName) throws IOException {
-        Set<String> allEvents = new HashSet<>();
-        Map<String, String> transitions = new HashMap<>();
-
-        // Iterate through each automaton
-        for (Automaton automaton : automatons) {
-            // Iterate through all states
-            for (State state : automaton) {
-                String source = String.valueOf(state.getId()); // Get state identifier (custom method)
-                // Iterate through output transitions of the current state
-                Iterator<Transition> transitionIterator = state.getOutput().iterator();
-                while (transitionIterator.hasNext()) {
-                    Transition transition = transitionIterator.next();
-                    String target = String.valueOf(transition.getTarget().getId());  // Get target state identifier (custom method)
-                    String label = String.valueOf(transition.getLabel()); // Assuming getLabel() returns the label
-
-                    // Add label to set of all events (if not already present)
-                    allEvents.add(label);
-
-                    // Add transition to map
-                    transitions.put(source + "->" + target, label);
-                }
-            }
-        }
-
-        // Initialize the product automaton DOT string
-        StringBuilder dot = new StringBuilder();
-        dot.append("digraph ProductAutomaton {\n");
-        dot.append("\tfake0 [style=invisible];\n");
-        dot.append("\t0 [root=true];\n");
-
-        // Define states
-        Set<String> combinedStates = new HashSet<>();
-        for (Automaton automaton : automatons) {
-            for (State state : automaton) {
-                combinedStates.add(String.valueOf(state.getId()));
-            }
-        }
-        for (String state : combinedStates) {
-            dot.append("\t" + state + ";\n");
-        }
-
-        // Define transitions
-        for (Map.Entry<String, String> entry : transitions.entrySet()) {
-            String[] parts = entry.getKey().split("->");
-            String source = parts[0].trim();
-            String target = parts[1].trim();
-            String label = entry.getValue();
-            dot.append("\t" + source + " -> " + target + " [label=\"" + label + "\"];\n");
-        }
-
-        dot.append("}");
-
-        // Write DOT content to a file
-        File dotFile = new File(outputName + ".dot");
-        try (FileWriter writer = new FileWriter(dotFile)) {
-            writer.write(dot.toString());
-        }
-
-        return dotFile;
-    }
-
-
     public static void goToPlanner() {
-
         if(!Container.getConstraintsListModel().isEmpty()) {
             Container.setActivitiesCost_vector(new Vector<Vector<String>>());
 
@@ -605,446 +541,444 @@ public class Main {
 
             for(int k = 0; k< Container.getConstraintsListModel().size(); k++) {
 
-                String ltl_formula = new String();
 
-                Vector<String> automaton_accepting_states_vector = new Vector<String>();
 
-                single_tr_index = 0;
+                    String ltl_formula = new String();
 
-                String temporal_constraint = (String) Container.getConstraintsListModel().get(k);
-                Container.getConstraintsArea().append(temporal_constraint + "\n");
+                    Vector<String> automaton_accepting_states_vector = new Vector<String>();
 
-                Container.getAllConstraints_vector().addElement(temporal_constraint);
+                    single_tr_index = 0;
 
-                String constraint_name = "";
+                    String temporal_constraint = (String) Container.getConstraintsListModel().get(k);
+                    Container.getConstraintsArea().append(temporal_constraint + "\n");
 
-                if(temporal_constraint.startsWith("LTL{")) {
+                    Container.getAllConstraints_vector().addElement(temporal_constraint);
 
-                    temporal_constraint = temporal_constraint.replace("LTL{", "");
-                    temporal_constraint = temporal_constraint.replace("}", "");
-                    ltl_formula = temporal_constraint;
+                    String constraint_name = "";
 
-                    String activities_of_ltl_formula = new String(temporal_constraint);
+                    if (temporal_constraint.startsWith("LTL{")) {
 
-                    if(activities_of_ltl_formula.contains("V"))
-                        activities_of_ltl_formula = activities_of_ltl_formula.replaceAll("V", "");
+                        temporal_constraint = temporal_constraint.replace("LTL{", "");
+                        temporal_constraint = temporal_constraint.replace("}", "");
+                        ltl_formula = temporal_constraint;
 
-                    if(activities_of_ltl_formula.contains("U"))
-                        activities_of_ltl_formula = activities_of_ltl_formula.replaceAll("U", "");
+                        String activities_of_ltl_formula = new String(temporal_constraint);
 
-                    if(activities_of_ltl_formula.contains("W"))
-                        activities_of_ltl_formula = activities_of_ltl_formula.replaceAll("W", "");
+                        if (activities_of_ltl_formula.contains("V"))
+                            activities_of_ltl_formula = activities_of_ltl_formula.replaceAll("V", "");
 
-                    if(activities_of_ltl_formula.contains("X"))
-                        activities_of_ltl_formula = activities_of_ltl_formula.replaceAll("X", "");
+                        if (activities_of_ltl_formula.contains("U"))
+                            activities_of_ltl_formula = activities_of_ltl_formula.replaceAll("U", "");
 
-                    activities_of_ltl_formula = activities_of_ltl_formula.toLowerCase();
+                        if (activities_of_ltl_formula.contains("W"))
+                            activities_of_ltl_formula = activities_of_ltl_formula.replaceAll("W", "");
 
-                    if(activities_of_ltl_formula.contains("/"))
-                        activities_of_ltl_formula = activities_of_ltl_formula.replaceAll("\\/", "");
+                        if (activities_of_ltl_formula.contains("X"))
+                            activities_of_ltl_formula = activities_of_ltl_formula.replaceAll("X", "");
 
-                    if(activities_of_ltl_formula.contains("\\"))
-                        activities_of_ltl_formula = activities_of_ltl_formula.replaceAll("\\\\", "");
+                        activities_of_ltl_formula = activities_of_ltl_formula.toLowerCase();
 
-                    if(activities_of_ltl_formula.contains("!"))
-                        activities_of_ltl_formula = activities_of_ltl_formula.replaceAll("!", "");
+                        if (activities_of_ltl_formula.contains("/"))
+                            activities_of_ltl_formula = activities_of_ltl_formula.replaceAll("\\/", "");
 
-                    if(activities_of_ltl_formula.contains("("))
-                        activities_of_ltl_formula = activities_of_ltl_formula.replaceAll("\\(", "");
+                        if (activities_of_ltl_formula.contains("\\"))
+                            activities_of_ltl_formula = activities_of_ltl_formula.replaceAll("\\\\", "");
 
-                    if(activities_of_ltl_formula.contains(")"))
-                        activities_of_ltl_formula = activities_of_ltl_formula.replaceAll("\\)", "");
+                        if (activities_of_ltl_formula.contains("!"))
+                            activities_of_ltl_formula = activities_of_ltl_formula.replaceAll("!", "");
 
-                    if(activities_of_ltl_formula.contains("<"))
-                        activities_of_ltl_formula = activities_of_ltl_formula.replaceAll("\\<", "");
+                        if (activities_of_ltl_formula.contains("("))
+                            activities_of_ltl_formula = activities_of_ltl_formula.replaceAll("\\(", "");
 
-                    if(activities_of_ltl_formula.contains(">"))
-                        activities_of_ltl_formula = activities_of_ltl_formula.replaceAll("\\>", "");
+                        if (activities_of_ltl_formula.contains(")"))
+                            activities_of_ltl_formula = activities_of_ltl_formula.replaceAll("\\)", "");
 
-                    if(activities_of_ltl_formula.contains("."))
-                        activities_of_ltl_formula = activities_of_ltl_formula.replaceAll("\\.", "");
+                        if (activities_of_ltl_formula.contains("<"))
+                            activities_of_ltl_formula = activities_of_ltl_formula.replaceAll("\\<", "");
 
-                    if(activities_of_ltl_formula.contains("true"))
-                        activities_of_ltl_formula = activities_of_ltl_formula.replaceAll("true", "");
+                        if (activities_of_ltl_formula.contains(">"))
+                            activities_of_ltl_formula = activities_of_ltl_formula.replaceAll("\\>", "");
 
-                    if(activities_of_ltl_formula.contains("false"))
-                        activities_of_ltl_formula = activities_of_ltl_formula.replaceAll("false", "");
+                        if (activities_of_ltl_formula.contains("."))
+                            activities_of_ltl_formula = activities_of_ltl_formula.replaceAll("\\.", "");
 
-                    if(activities_of_ltl_formula.contains(","))
-                        activities_of_ltl_formula = activities_of_ltl_formula.replaceAll("\\,", "_");
+                        if (activities_of_ltl_formula.contains("true"))
+                            activities_of_ltl_formula = activities_of_ltl_formula.replaceAll("true", "");
 
-                    if(activities_of_ltl_formula.contains("+"))
-                        activities_of_ltl_formula = activities_of_ltl_formula.replaceAll("\\+", "_");
+                        if (activities_of_ltl_formula.contains("false"))
+                            activities_of_ltl_formula = activities_of_ltl_formula.replaceAll("false", "");
 
-                    if(activities_of_ltl_formula.contains("-"))
-                        activities_of_ltl_formula = activities_of_ltl_formula.replaceAll("\\-", "_");
+                        if (activities_of_ltl_formula.contains(","))
+                            activities_of_ltl_formula = activities_of_ltl_formula.replaceAll("\\,", "_");
 
-                    String[] activities_of_ltl_formula_array = activities_of_ltl_formula.split("\\s+");
-                    for(int i = 0; i<activities_of_ltl_formula_array.length;i++) {
-                        if(!activities_of_ltl_formula_array[i].equalsIgnoreCase("")) {
-                            if(!Container.getAlphabetOfTheConstraints_vector().contains(activities_of_ltl_formula_array[i])) {
-                                Container.getAlphabetOfTheConstraints_vector().addElement(activities_of_ltl_formula_array[i]);
+                        if (activities_of_ltl_formula.contains("+"))
+                            activities_of_ltl_formula = activities_of_ltl_formula.replaceAll("\\+", "_");
 
-                                Vector<String> v = new Vector<String>();
-                                v.addElement(activities_of_ltl_formula_array[i]);
+                        if (activities_of_ltl_formula.contains("-"))
+                            activities_of_ltl_formula = activities_of_ltl_formula.replaceAll("\\-", "_");
 
+                        String[] activities_of_ltl_formula_array = activities_of_ltl_formula.split("\\s+");
+                        for (int i = 0; i < activities_of_ltl_formula_array.length; i++) {
+                            if (!activities_of_ltl_formula_array[i].equalsIgnoreCase("")) {
+                                if (!Container.getAlphabetOfTheConstraints_vector().contains(activities_of_ltl_formula_array[i])) {
+                                    Container.getAlphabetOfTheConstraints_vector().addElement(activities_of_ltl_formula_array[i]);
 
-                                if(!Container.getDataAware_map().isEmpty()) {
-                                    v.addElement("2");
-                                    v.addElement("2");
-                                }
-                                else {
-
-                                    v.addElement("1");
-                                    v.addElement("1");
-                                }
-                                Container.getActivitiesCost_vector().addElement(v);
-                            }
-
-
-                        }
-                    }
-                }
-                else if(!temporal_constraint.startsWith("DFA{")) {
-
-                    String[] constraint_splitted = temporal_constraint.split("\\(");
-
-
-                    constraint_name = constraint_splitted[0];
-
-                    String[] constraint_splitted_2 = constraint_splitted[1].split("\\)");
-
-
-                    if(constraint_splitted_2[0].contains(",")) {
-
-                        String[] constraint_splitted_3 = constraint_splitted_2[0].split(",");
-
-
-                        String activity1 = constraint_splitted_3[0];
-
-                        String activity2 = constraint_splitted_3[1];
-
-
-                        if(!Container.getAlphabetOfTheConstraints_vector().contains(activity1))
-                            Container.getAlphabetOfTheConstraints_vector().addElement(activity1);
-
-                        if(!Container.getAlphabetOfTheConstraints_vector().contains(activity2))
-                            Container.getAlphabetOfTheConstraints_vector().addElement(activity2);
-
-
-                        if(Container.getPDDL_encoding().equalsIgnoreCase("AAAI17")) {
-
-
-                            if(constraint_name.equalsIgnoreCase("choice"))
-                                ltl_formula = LTLFormula.getFormulaByTemplate(DeclareTemplate.Choice,activity1,activity2);
-                            else if(constraint_name.equalsIgnoreCase("exclusive choice"))
-                                ltl_formula = LTLFormula.getFormulaByTemplate(DeclareTemplate.Exclusive_Choice,activity1,activity2);
-                            else if(constraint_name.equalsIgnoreCase("responded existence"))
-                                ltl_formula = LTLFormula.getFormulaByTemplate(DeclareTemplate.Responded_Existence,activity1,activity2);
-                            else if(constraint_name.equalsIgnoreCase("not responded existence"))
-                                ltl_formula = LTLFormula.getFormulaByTemplate(DeclareTemplate.Not_Responded_Existence,activity1,activity2);
-                            else if(constraint_name.equalsIgnoreCase("co-existence"))
-                                ltl_formula = LTLFormula.getFormulaByTemplate(DeclareTemplate.CoExistence,activity1,activity2);
-                            else if(constraint_name.equalsIgnoreCase("not co-existence"))
-                                ltl_formula = LTLFormula.getFormulaByTemplate(DeclareTemplate.Not_CoExistence,activity1,activity2);
-                            else if(constraint_name.equalsIgnoreCase("response"))
-                                ltl_formula = LTLFormula.getFormulaByTemplate(DeclareTemplate.Response,activity1,activity2);
-                            else if(constraint_name.equalsIgnoreCase("precedence"))
-                                ltl_formula = LTLFormula.getFormulaByTemplate(DeclareTemplate.Precedence,activity1,activity2);
-                            else if(constraint_name.equalsIgnoreCase("succession"))
-                                ltl_formula = LTLFormula.getFormulaByTemplate(DeclareTemplate.Succession,activity1,activity2);
-                            else if(constraint_name.equalsIgnoreCase("chain response"))
-                                ltl_formula = LTLFormula.getFormulaByTemplate(DeclareTemplate.Chain_Response,activity1,activity2);
-                            else if(constraint_name.equalsIgnoreCase("chain precedence"))
-                                ltl_formula = LTLFormula.getFormulaByTemplate(DeclareTemplate.Chain_Precedence,activity1,activity2);
-                            else if(constraint_name.equalsIgnoreCase("chain succession"))
-                                ltl_formula = LTLFormula.getFormulaByTemplate(DeclareTemplate.Chain_Succession,activity1,activity2);
-                            else if(constraint_name.equalsIgnoreCase("alternate response"))
-                                ltl_formula = LTLFormula.getFormulaByTemplate(DeclareTemplate.Alternate_Response,activity1,activity2);
-                            else if(constraint_name.equalsIgnoreCase("alternate precedence"))
-                                ltl_formula = LTLFormula.getFormulaByTemplate(DeclareTemplate.Alternate_Precedence,activity1,activity2);
-                            else if(constraint_name.equalsIgnoreCase("alternate succession"))
-                                ltl_formula = LTLFormula.getFormulaByTemplate(DeclareTemplate.Alternate_Succession,activity1,activity2);
-                            else if(constraint_name.equalsIgnoreCase("not response"))
-                                ltl_formula = LTLFormula.getFormulaByTemplate(DeclareTemplate.Not_Response,activity1,activity2);
-                            else if(constraint_name.equalsIgnoreCase("not precedence"))
-                                ltl_formula = LTLFormula.getFormulaByTemplate(DeclareTemplate.Not_Precedence,activity1,activity2);
-                            else if(constraint_name.equalsIgnoreCase("not succession"))
-                                ltl_formula = LTLFormula.getFormulaByTemplate(DeclareTemplate.Not_Succession,activity1,activity2);
-                            else if(constraint_name.equalsIgnoreCase("not chain response"))
-                                ltl_formula = LTLFormula.getFormulaByTemplate(DeclareTemplate.Not_Chain_Response,activity1,activity2);
-                            else if(constraint_name.equalsIgnoreCase("not chain precedence"))
-                                ltl_formula = LTLFormula.getFormulaByTemplate(DeclareTemplate.Not_Chain_Precedence,activity1,activity2);
-                            else if(constraint_name.equalsIgnoreCase("not chain succession"))
-                                ltl_formula = LTLFormula.getFormulaByTemplate(DeclareTemplate.Not_Chain_Succession,activity1,activity2);
-
-                        }
-                        /////// **** END of AAAI2017 **** ////////////////////////////
-                    }
-
-                    else {
-
-                        String activity = constraint_splitted_2[0];
-
-                        if(!Container.getAlphabetOfTheConstraints_vector().contains(activity))
-                            Container.getAlphabetOfTheConstraints_vector().addElement(activity);
-
-                        /////// **** AAAI2017 **** ////////////////////////////
-
-                        if(Container.getPDDL_encoding().equalsIgnoreCase("AAAI17")) {
-
-                            //
-                            // Infer the LTL constraint associated to any Declare template.
-                            //
-                            if(constraint_name.equalsIgnoreCase("existence"))
-                                ltl_formula = LTLFormula.getFormulaByTemplate(DeclareTemplate.Existence,activity,null);
-                            else if(constraint_name.equalsIgnoreCase("absence"))
-                                ltl_formula = LTLFormula.getFormulaByTemplate(DeclareTemplate.Absence,activity,null);
-                            else if(constraint_name.equalsIgnoreCase("init"))
-                                ltl_formula = LTLFormula.getFormulaByTemplate(DeclareTemplate.Init,activity,null);
-                            else if(constraint_name.equalsIgnoreCase("absence2"))
-                                ltl_formula = LTLFormula.getFormulaByTemplate(DeclareTemplate.Absence2,activity,null);
-                        }
-                        /////// **** END of AAAI2017 **** ////////////////////////////
-                    }
-                }
-                if(Container.getPDDL_encoding().equalsIgnoreCase("AAAI17")) {
-                    //
-                    // Update the LTL formula that will be used to generate the product automaton.
-                    //
-                    if(Container.getProductAutomatonMenuItem())  {
-                        if(k+1 < Container.getConstraintsListModel().size())
-                            ltl_formula_for_product_automaton += ltl_formula + " /\\ ";
-                        else
-                            ltl_formula_for_product_automaton += ltl_formula;
-                    }
-
-                    //
-                    // Infer the automaton associated to the LTL formula under consideration.
-                    //
-
-                    /////////////////////////////////////////////////////////////////////////////
-                    /////////////////////////////////////////////////////////////////////////////
-                    /////////////////////////////////////////////////////////////////////////////
-                    Automaton automaton = null;
-                    if(temporal_constraint.startsWith("DFA{")) {
-
-                        String DFA_file_path = temporal_constraint.replace("DFA{", "");
-                        DFA_file_path = DFA_file_path.replace("}", "");
-                        //ltl_formula = temporal_constraint;
-
-
-                        try {
-                            automaton = Utilities.getAutomatonForModelLearning(DFA_file_path);
-                            //automaton = Utilities.getAutomatonForModelLearningDot(DFA_file_path);
-                        } catch (FileNotFoundException e) {
-                            e.printStackTrace();
-                        }
-
-                        org.processmining.ltl2automaton.plugins.automaton.State s = automaton.getInit();
-                        Iterator<org.processmining.ltl2automaton.plugins.automaton.State> it = automaton.iterator();
-                        while (it.hasNext()) {
-                            org.processmining.ltl2automaton.plugins.automaton.State ss = it.next();
-                            Iterator<Transition> transitions = ss.getOutput().iterator();
-                            while (transitions.hasNext()) {
-                                Transition t = transitions.next();
-                                if(!Container.getAlphabetOfTheConstraints_vector().contains(t.getPositiveLabel())) {
-                                    Container.getAlphabetOfTheConstraints_vector().addElement(t.getPositiveLabel());
-                                    //
-                                    // Update the GUI to show the complete alphabet of activities of the constraints and of the log.
-                                    //
-                                    Container.getActivitiesArea().append(t.getPositiveLabel() + "\n");
-
-                                    //
-                                    // Update the global vector containing the cost of adding/removing activities in/from the trace (the default cost is equal to 1).
-                                    //
                                     Vector<String> v = new Vector<String>();
-                                    v.addElement(t.getPositiveLabel());
+                                    v.addElement(activities_of_ltl_formula_array[i]);
 
-                                    /////////////////// DataAware ////////////////////////
-                                    //////////////////////////////////////////////////////
-                                    if(!Container.getDataAware_map().isEmpty()) {
+
+                                    if (!Container.getDataAware_map().isEmpty()) {
                                         v.addElement("2");
                                         v.addElement("2");
-                                    }
-                                    else {
-                                        //////////////////////////////////////////////////////
-                                        //////////////////////////////////////////////////////
+                                    } else {
+
                                         v.addElement("1");
                                         v.addElement("1");
                                     }
                                     Container.getActivitiesCost_vector().addElement(v);
                                 }
+
+
                             }
                         }
                     }
-                    /////////////////////////////////////////////////////////////////////////////
-                    /////////////////////////////////////////////////////////////////////////////
-                    /////////////////////////////////////////////////////////////////////////////
+                    else if (!temporal_constraint.startsWith("DFA{")) {
 
-                    else {
-                        automaton = LTLFormula.generateAutomatonByLTLFormula(ltl_formula);
-                    }
+                        String[] constraint_splitted = temporal_constraint.split("\\(");
 
 
-                    org.processmining.ltl2automaton.plugins.automaton.State initial_state_of_the_automaton = automaton.getInit();
+                        constraint_name = constraint_splitted[0];
 
-                    if(Container.getSinkStatesMenuItem())  {
-                        Iterator<org.processmining.ltl2automaton.plugins.automaton.State> it_states =  automaton.iterator();
+                        String[] constraint_splitted_2 = constraint_splitted[1].split("\\)");
 
-                        while(it_states.hasNext()) {
-                            org.processmining.ltl2automaton.plugins.automaton.State s = (State) it_states.next();
-                            if(!s.isAccepting())
-                                Container.getAutomataSinkNonAcceptingStates_vector().addElement(st_prefix + "_" + automaton_index + "_" + s.getId());
+
+                        if (constraint_splitted_2[0].contains(",")) {
+
+                            String[] constraint_splitted_3 = constraint_splitted_2[0].split(",");
+
+
+                            String activity1 = constraint_splitted_3[0];
+
+                            String activity2 = constraint_splitted_3[1];
+
+
+                            if (!Container.getAlphabetOfTheConstraints_vector().contains(activity1))
+                                Container.getAlphabetOfTheConstraints_vector().addElement(activity1);
+
+                            if (!Container.getAlphabetOfTheConstraints_vector().contains(activity2))
+                                Container.getAlphabetOfTheConstraints_vector().addElement(activity2);
+
+
+                            if (Container.getPDDL_encoding().equalsIgnoreCase("AAAI17")) {
+
+
+                                if (constraint_name.equalsIgnoreCase("choice"))
+                                    ltl_formula = LTLFormula.getFormulaByTemplate(DeclareTemplate.Choice, activity1, activity2);
+                                else if (constraint_name.equalsIgnoreCase("exclusive choice"))
+                                    ltl_formula = LTLFormula.getFormulaByTemplate(DeclareTemplate.Exclusive_Choice, activity1, activity2);
+                                else if (constraint_name.equalsIgnoreCase("responded existence"))
+                                    ltl_formula = LTLFormula.getFormulaByTemplate(DeclareTemplate.Responded_Existence, activity1, activity2);
+                                else if (constraint_name.equalsIgnoreCase("not responded existence"))
+                                    ltl_formula = LTLFormula.getFormulaByTemplate(DeclareTemplate.Not_Responded_Existence, activity1, activity2);
+                                else if (constraint_name.equalsIgnoreCase("co-existence"))
+                                    ltl_formula = LTLFormula.getFormulaByTemplate(DeclareTemplate.CoExistence, activity1, activity2);
+                                else if (constraint_name.equalsIgnoreCase("not co-existence"))
+                                    ltl_formula = LTLFormula.getFormulaByTemplate(DeclareTemplate.Not_CoExistence, activity1, activity2);
+                                else if (constraint_name.equalsIgnoreCase("response"))
+                                    ltl_formula = LTLFormula.getFormulaByTemplate(DeclareTemplate.Response, activity1, activity2);
+                                else if (constraint_name.equalsIgnoreCase("precedence"))
+                                    ltl_formula = LTLFormula.getFormulaByTemplate(DeclareTemplate.Precedence, activity1, activity2);
+                                else if (constraint_name.equalsIgnoreCase("succession"))
+                                    ltl_formula = LTLFormula.getFormulaByTemplate(DeclareTemplate.Succession, activity1, activity2);
+                                else if (constraint_name.equalsIgnoreCase("chain response"))
+                                    ltl_formula = LTLFormula.getFormulaByTemplate(DeclareTemplate.Chain_Response, activity1, activity2);
+                                else if (constraint_name.equalsIgnoreCase("chain precedence"))
+                                    ltl_formula = LTLFormula.getFormulaByTemplate(DeclareTemplate.Chain_Precedence, activity1, activity2);
+                                else if (constraint_name.equalsIgnoreCase("chain succession"))
+                                    ltl_formula = LTLFormula.getFormulaByTemplate(DeclareTemplate.Chain_Succession, activity1, activity2);
+                                else if (constraint_name.equalsIgnoreCase("alternate response"))
+                                    ltl_formula = LTLFormula.getFormulaByTemplate(DeclareTemplate.Alternate_Response, activity1, activity2);
+                                else if (constraint_name.equalsIgnoreCase("alternate precedence"))
+                                    ltl_formula = LTLFormula.getFormulaByTemplate(DeclareTemplate.Alternate_Precedence, activity1, activity2);
+                                else if (constraint_name.equalsIgnoreCase("alternate succession"))
+                                    ltl_formula = LTLFormula.getFormulaByTemplate(DeclareTemplate.Alternate_Succession, activity1, activity2);
+                                else if (constraint_name.equalsIgnoreCase("not response"))
+                                    ltl_formula = LTLFormula.getFormulaByTemplate(DeclareTemplate.Not_Response, activity1, activity2);
+                                else if (constraint_name.equalsIgnoreCase("not precedence"))
+                                    ltl_formula = LTLFormula.getFormulaByTemplate(DeclareTemplate.Not_Precedence, activity1, activity2);
+                                else if (constraint_name.equalsIgnoreCase("not succession"))
+                                    ltl_formula = LTLFormula.getFormulaByTemplate(DeclareTemplate.Not_Succession, activity1, activity2);
+                                else if (constraint_name.equalsIgnoreCase("not chain response"))
+                                    ltl_formula = LTLFormula.getFormulaByTemplate(DeclareTemplate.Not_Chain_Response, activity1, activity2);
+                                else if (constraint_name.equalsIgnoreCase("not chain precedence"))
+                                    ltl_formula = LTLFormula.getFormulaByTemplate(DeclareTemplate.Not_Chain_Precedence, activity1, activity2);
+                                else if (constraint_name.equalsIgnoreCase("not chain succession"))
+                                    ltl_formula = LTLFormula.getFormulaByTemplate(DeclareTemplate.Not_Chain_Succession, activity1, activity2);
+
+                            }
+                            /////// **** END of AAAI2017 **** ////////////////////////////
+                        } else {
+
+                            String activity = constraint_splitted_2[0];
+
+                            if (!Container.getAlphabetOfTheConstraints_vector().contains(activity))
+                                Container.getAlphabetOfTheConstraints_vector().addElement(activity);
+
+                            /////// **** AAAI2017 **** ////////////////////////////
+
+                            if (Container.getPDDL_encoding().equalsIgnoreCase("AAAI17")) {
+
+                                //
+                                // Infer the LTL constraint associated to any Declare template.
+                                //
+                                if (constraint_name.equalsIgnoreCase("existence"))
+                                    ltl_formula = LTLFormula.getFormulaByTemplate(DeclareTemplate.Existence, activity, null);
+                                else if (constraint_name.equalsIgnoreCase("absence"))
+                                    ltl_formula = LTLFormula.getFormulaByTemplate(DeclareTemplate.Absence, activity, null);
+                                else if (constraint_name.equalsIgnoreCase("init"))
+                                    ltl_formula = LTLFormula.getFormulaByTemplate(DeclareTemplate.Init, activity, null);
+                                else if (constraint_name.equalsIgnoreCase("absence2"))
+                                    ltl_formula = LTLFormula.getFormulaByTemplate(DeclareTemplate.Absence2, activity, null);
+                            }
+                            /////// **** END of AAAI2017 **** ////////////////////////////
                         }
                     }
+                    if (Container.getPDDL_encoding().equalsIgnoreCase("AAAI17")) {
+                        //
+                        // Update the LTL formula that will be used to generate the product automaton.
+                        //
+                        if (Container.getProductAutomatonMenuItem()) {
+                            if (k + 1 < Container.getConstraintsListModel().size())
+                                ltl_formula_for_product_automaton += ltl_formula + " /\\ ";
+                            else
+                                ltl_formula_for_product_automaton += ltl_formula;
+                        }
 
-                    if(!Container.getAutomataInitialStates_vector().contains(st_prefix + "_" + automaton_index + "_" + initial_state_of_the_automaton.getId())) {
-                        Container.getAutomataInitialStates_vector().addElement(st_prefix + "_" + automaton_index + "_" + initial_state_of_the_automaton.getId());
-                        Container.getPDDLAutomataInitialStates_sb().append("(currstate " + st_prefix + "_" + automaton_index + "_" + initial_state_of_the_automaton.getId() + ")\n");
-                    }
+                        //
+                        // Infer the automaton associated to the LTL formula under consideration.
+                        //
 
-                    Iterator<Transition> it = automaton.transitions().iterator();
+                        /////////////////////////////////////////////////////////////////////////////
+                        /////////////////////////////////////////////////////////////////////////////
+                        /////////////////////////////////////////////////////////////////////////////
+                        Automaton automaton = null;
+                        if (temporal_constraint.startsWith("DFA{")) {
+                            // TODO check here which automata is relevant for a trace successively check the relevant transitions to generate the relevant actions
 
-                    while(it.hasNext()) {
 
-                        Transition transition = (Transition) it.next();
-                        int tr_source_state_id = transition.getSource().getId();
-                        int tr_target_state_id = transition.getTarget().getId();
+                            String DFA_file_path = temporal_constraint.replace("DFA{", "");
+                            DFA_file_path = DFA_file_path.replace("}", "");
+                            //ltl_formula = temporal_constraint;
 
-                        if(tr_source_state_id != tr_target_state_id) {
 
-                            //
-                            // 2A. If the target state and the source state are different, we are sure that the source state is not a sink.
-                            // Therefore, we can remove it from the global vector of sink states.
-                            //
-                            if(Container.getSinkStatesMenuItem())  {
-                                if(Container.getAutomataSinkNonAcceptingStates_vector().contains(st_prefix + "_" + automaton_index + "_" + tr_source_state_id))
-                                    Container.getAutomataSinkNonAcceptingStates_vector().removeElement(st_prefix + "_" + automaton_index + "_" + tr_source_state_id);
+                            try {
+                                automaton = Utilities.getAutomatonForModelLearning(DFA_file_path);
+                                //automaton = Utilities.getAutomatonForModelLearningDot(DFA_file_path);
+                            } catch (FileNotFoundException e) {
+                                e.printStackTrace();
                             }
 
-                            //
-                            // If the transition is relevant, we identify its source state, its target state and its label.
-                            //
-                            String tr_source_state = st_prefix + "_" + automaton_index + "_" + tr_source_state_id;
-                            String tr_target_state = st_prefix + "_" + automaton_index + "_" + tr_target_state_id;
-                            String tr_id = null;
-                            String tr_label = null;
-
-                            //
-                            // Simple case: the label is positive (e.g., A).
-                            //
-                            if(!transition.isNegative())  {
-                                tr_id = tr_prefix + "_" + automaton_index + "_" + single_tr_index;
-                                tr_label = transition.getPositiveLabel();
-
-                                //
-                                // Create a new RelevantTransition object and records it in the global vector of relevant transitions.
-                                //
-                                RelevantTransition relevant_transition = new RelevantTransition(tr_id, tr_source_state, tr_target_state, tr_label, transition.getPositiveLabel());
-                                relevant_transitions_vector.addElement(relevant_transition);
-
-                                //
-                                // Associate in the "transition_map" object the label of the transition just created to its ID. Remember that "transitions_map"
-                                // will contain the list of relevant transitions taken from any automaton with the associations to their specific label
-                                // (e.g., a=[tr_0_0,tr_1_0], b=[tr_1_2], etc.).
-                                //
-                                transitions_map.put(tr_label, tr_id);
-
-                                single_tr_index++;
-                            }
-                            else {
-
-                                Collection<String> coll = transition.getNegativeLabels();
-
-                                for(int ix = 0; ix< Container.getActivitiesRepository_vector().size(); ix++) {
-                                    tr_id = tr_prefix + "_" + automaton_index + "_" + single_tr_index;
-                                    String symbol = Container.getActivitiesRepository_vector().elementAt(ix);
-                                    if(!coll.contains(symbol)) {
-                                        tr_label = symbol;
-                                        RelevantTransition relevant_transition = new RelevantTransition(tr_id, tr_source_state, tr_target_state, tr_label, transition.getPositiveLabel());
-                                        relevant_transitions_vector.addElement(relevant_transition);
+                            org.processmining.ltl2automaton.plugins.automaton.State s = automaton.getInit();
+                            Iterator<org.processmining.ltl2automaton.plugins.automaton.State> it = automaton.iterator();
+                            while (it.hasNext()) {
+                                org.processmining.ltl2automaton.plugins.automaton.State ss = it.next();
+                                Iterator<Transition> transitions = ss.getOutput().iterator();
+                                while (transitions.hasNext()) {
+                                    Transition t = transitions.next();
+                                    if (!Container.getAlphabetOfTheConstraints_vector().contains(t.getPositiveLabel())) {
+                                        Container.getAlphabetOfTheConstraints_vector().addElement(t.getPositiveLabel());
+                                        //
+                                        // Update the GUI to show the complete alphabet of activities of the constraints and of the log.
+                                        //
+                                        Container.getActivitiesArea().append(t.getPositiveLabel() + "\n");
 
                                         //
-                                        // Associate in the "transition_map" object the label of the transition just created to its ID
+                                        // Update the global vector containing the cost of adding/removing activities in/from the trace (the default cost is equal to 1).
                                         //
-                                        transitions_map.put(tr_label, tr_id);
+                                        Vector<String> v = new Vector<String>();
+                                        v.addElement(t.getPositiveLabel());
 
-                                        single_tr_index++;
+                                        /////////////////// DataAware ////////////////////////
+                                        //////////////////////////////////////////////////////
+                                        if (!Container.getDataAware_map().isEmpty()) {
+                                            v.addElement("2");
+                                            v.addElement("2");
+                                        } else {
+                                            //////////////////////////////////////////////////////
+                                            //////////////////////////////////////////////////////
+                                            v.addElement("1");
+                                            v.addElement("1");
+                                        }
+                                        Container.getActivitiesCost_vector().addElement(v);
                                     }
                                 }
                             }
-
-                            if(!Container.getAutomataAllStates_vector().contains(tr_source_state))  {
-                                Container.getAutomataAllStates_vector().addElement(tr_source_state);
-                                Container.getPDDLAutomataAllStates_sb().append(tr_source_state + " - state\n");
-                            }
-                            if(!Container.getAutomataAllStates_vector().contains(tr_target_state))  {
-                                Container.getAutomataAllStates_vector().addElement(tr_target_state);
-                                Container.getPDDLAutomataAllStates_sb().append(tr_target_state + " - state\n");
-                            }
-
-                            if(transition.getSource().isAccepting() && !automaton_accepting_states_vector.contains(tr_source_state))  {
-                                automaton_accepting_states_vector.addElement(tr_source_state);
-                            }
-                            if(transition.getTarget().isAccepting() && !automaton_accepting_states_vector.contains(tr_target_state))  {
-                                automaton_accepting_states_vector.addElement(tr_target_state);
-                            }
-
                         }
-
-
-                    }
-
-
-                    if(automaton_accepting_states_vector.size() > 1) {
-
-
-                        if(Container.getDisjunctiveGoalMenuItem()) {
-                            Container.getPDDLAutomataAcceptingStates_sb().append("(or \n");
-
-                            for(int yu=0;yu<automaton_accepting_states_vector.size();yu++) {
-                                Container.getAutomataAcceptingStates_vector().addElement(automaton_accepting_states_vector.elementAt(yu));
-                                Container.getPDDLAutomataAcceptingStates_sb().append("(currstate " + automaton_accepting_states_vector.elementAt(yu) + ")\n");
-                            }
-                            Container.getPDDLAutomataAcceptingStates_sb().append(")\n");
-                        }
+                        /////////////////////////////////////////////////////////////////////////////
+                        /////////////////////////////////////////////////////////////////////////////
+                        /////////////////////////////////////////////////////////////////////////////
 
                         else {
-                            String aut_abstract_state = st_prefix + "_" + automaton_index + "_" + "abstract";
+                            automaton = LTLFormula.generateAutomatonByLTLFormula(ltl_formula);
+                        }
 
-                            Container.getAutomataAbstractAcceptingStates_vector().addElement(aut_abstract_state);
 
-                            Container.getPDDLAutomataAcceptingStates_sb().append("(currstate " + aut_abstract_state + ")\n");
+                        org.processmining.ltl2automaton.plugins.automaton.State initial_state_of_the_automaton = automaton.getInit();
 
-                            Container.getPDDLAutomataAllStates_sb().append(aut_abstract_state + " - state\n");
+                        if (Container.getSinkStatesMenuItem()) {
+                            Iterator<org.processmining.ltl2automaton.plugins.automaton.State> it_states = automaton.iterator();
 
-                            for(int yu=0;yu<automaton_accepting_states_vector.size();yu++) {
-                                if(!Container.getAutomataAcceptingStates_vector().contains(automaton_accepting_states_vector.elementAt(yu)))
-                                    Container.getAutomataAcceptingStates_vector().addElement(automaton_accepting_states_vector.elementAt(yu));
-                                if(!Container.getAutomataAllStates_vector().contains(automaton_accepting_states_vector.elementAt(yu)))
-                                    Container.getAutomataAllStates_vector().addElement(automaton_accepting_states_vector.elementAt(yu));
+                            while (it_states.hasNext()) {
+                                org.processmining.ltl2automaton.plugins.automaton.State s = (State) it_states.next();
+                                if (!s.isAccepting())
+                                    Container.getAutomataSinkNonAcceptingStates_vector().addElement(st_prefix + "_" + automaton_index + "_" + s.getId());
                             }
                         }
-                    }
-                    //
-                    // SECOND CASE: The automaton has just one accepting state.
-                    //
-                    else {
-                        Container.getAutomataAcceptingStates_vector().addElement(automaton_accepting_states_vector.elementAt(0));
-                        Container.getPDDLAutomataAcceptingStates_sb().append("(currstate " + automaton_accepting_states_vector.elementAt(0) + ")\n");
+
+                        if (!Container.getAutomataInitialStates_vector().contains(st_prefix + "_" + automaton_index + "_" + initial_state_of_the_automaton.getId())) {
+                            Container.getAutomataInitialStates_vector().addElement(st_prefix + "_" + automaton_index + "_" + initial_state_of_the_automaton.getId());
+                            Container.getPDDLAutomataInitialStates_sb().append("(currstate " + st_prefix + "_" + automaton_index + "_" + initial_state_of_the_automaton.getId() + ")\n");
+                        }
+
+                        Iterator<Transition> it = automaton.transitions().iterator();
+
+                        while (it.hasNext()) {
+
+                            Transition transition = (Transition) it.next();
+                            int tr_source_state_id = transition.getSource().getId();
+                            int tr_target_state_id = transition.getTarget().getId();
+
+                            if (tr_source_state_id != tr_target_state_id) {
+
+                                //
+                                // 2A. If the target state and the source state are different, we are sure that the source state is not a sink.
+                                // Therefore, we can remove it from the global vector of sink states.
+                                //
+                                if (Container.getSinkStatesMenuItem()) {
+                                    if (Container.getAutomataSinkNonAcceptingStates_vector().contains(st_prefix + "_" + automaton_index + "_" + tr_source_state_id))
+                                        Container.getAutomataSinkNonAcceptingStates_vector().removeElement(st_prefix + "_" + automaton_index + "_" + tr_source_state_id);
+                                }
+
+                                //
+                                // If the transition is relevant, we identify its source state, its target state and its label.
+                                //
+                                String tr_source_state = st_prefix + "_" + automaton_index + "_" + tr_source_state_id;
+                                String tr_target_state = st_prefix + "_" + automaton_index + "_" + tr_target_state_id;
+                                String tr_id = null;
+                                String tr_label = null;
+
+                                //
+                                // Simple case: the label is positive (e.g., A).
+                                //
+                                if (!transition.isNegative()) {
+                                    tr_id = tr_prefix + "_" + automaton_index + "_" + single_tr_index;
+                                    tr_label = transition.getPositiveLabel();
+
+                                    //
+                                    // Create a new RelevantTransition object and records it in the global vector of relevant transitions.
+                                    //
+                                    RelevantTransition relevant_transition = new RelevantTransition(tr_id, tr_source_state, tr_target_state, tr_label, transition.getPositiveLabel());
+                                    relevant_transitions_vector.addElement(relevant_transition);
+
+                                    //
+                                    // Associate in the "transition_map" object the label of the transition just created to its ID. Remember that "transitions_map"
+                                    // will contain the list of relevant transitions taken from any automaton with the associations to their specific label
+                                    // (e.g., a=[tr_0_0,tr_1_0], b=[tr_1_2], etc.).
+                                    //
+                                    transitions_map.put(tr_label, tr_id);
+
+                                    single_tr_index++;
+                                } else {
+
+                                    Collection<String> coll = transition.getNegativeLabels();
+
+                                    for (int ix = 0; ix < Container.getActivitiesRepository_vector().size(); ix++) {
+                                        tr_id = tr_prefix + "_" + automaton_index + "_" + single_tr_index;
+                                        String symbol = Container.getActivitiesRepository_vector().elementAt(ix);
+                                        if (!coll.contains(symbol)) {
+                                            tr_label = symbol;
+                                            RelevantTransition relevant_transition = new RelevantTransition(tr_id, tr_source_state, tr_target_state, tr_label, transition.getPositiveLabel());
+                                            relevant_transitions_vector.addElement(relevant_transition);
+
+                                            //
+                                            // Associate in the "transition_map" object the label of the transition just created to its ID
+                                            //
+                                            transitions_map.put(tr_label, tr_id);
+
+                                            single_tr_index++;
+                                        }
+                                    }
+                                }
+
+                                if (!Container.getAutomataAllStates_vector().contains(tr_source_state)) {
+                                    Container.getAutomataAllStates_vector().addElement(tr_source_state);
+                                    Container.getPDDLAutomataAllStates_sb().append(tr_source_state + " - state\n");
+                                }
+                                if (!Container.getAutomataAllStates_vector().contains(tr_target_state)) {
+                                    Container.getAutomataAllStates_vector().addElement(tr_target_state);
+                                    Container.getPDDLAutomataAllStates_sb().append(tr_target_state + " - state\n");
+                                }
+
+                                if (transition.getSource().isAccepting() && !automaton_accepting_states_vector.contains(tr_source_state)) {
+                                    automaton_accepting_states_vector.addElement(tr_source_state);
+                                }
+                                if (transition.getTarget().isAccepting() && !automaton_accepting_states_vector.contains(tr_target_state)) {
+                                    automaton_accepting_states_vector.addElement(tr_target_state);
+                                }
+
+                            }
+
+
+                        }
+
+
+                        if (automaton_accepting_states_vector.size() > 1) {
+
+
+                            if (Container.getDisjunctiveGoalMenuItem()) {
+                                Container.getPDDLAutomataAcceptingStates_sb().append("(or \n");
+
+                                for (int yu = 0; yu < automaton_accepting_states_vector.size(); yu++) {
+                                    Container.getAutomataAcceptingStates_vector().addElement(automaton_accepting_states_vector.elementAt(yu));
+                                    Container.getPDDLAutomataAcceptingStates_sb().append("(currstate " + automaton_accepting_states_vector.elementAt(yu) + ")\n");
+                                }
+                                Container.getPDDLAutomataAcceptingStates_sb().append(")\n");
+                            } else {
+                                String aut_abstract_state = st_prefix + "_" + automaton_index + "_" + "abstract";
+
+                                Container.getAutomataAbstractAcceptingStates_vector().addElement(aut_abstract_state);
+
+                                Container.getPDDLAutomataAcceptingStates_sb().append("(currstate " + aut_abstract_state + ")\n");
+
+                                Container.getPDDLAutomataAllStates_sb().append(aut_abstract_state + " - state\n");
+
+                                for (int yu = 0; yu < automaton_accepting_states_vector.size(); yu++) {
+                                    if (!Container.getAutomataAcceptingStates_vector().contains(automaton_accepting_states_vector.elementAt(yu)))
+                                        Container.getAutomataAcceptingStates_vector().addElement(automaton_accepting_states_vector.elementAt(yu));
+                                    if (!Container.getAutomataAllStates_vector().contains(automaton_accepting_states_vector.elementAt(yu)))
+                                        Container.getAutomataAllStates_vector().addElement(automaton_accepting_states_vector.elementAt(yu));
+                                }
+                            }
+                        }
+                        //
+                        // SECOND CASE: The automaton has just one accepting state.
+                        //
+                        else {
+                            Container.getAutomataAcceptingStates_vector().addElement(automaton_accepting_states_vector.elementAt(0));
+                            Container.getPDDLAutomataAcceptingStates_sb().append("(currstate " + automaton_accepting_states_vector.elementAt(0) + ")\n");
+                        }
+
+                        //
+                        // Update the local vector containing an automaton for any Declare/LTL constraint.
+                        //
+                        automata_vector.addElement(automaton);
+
+                        //
+                        // The index is increased after having analyzed any automaton, in order to have unique IDs identifying uniquely the automata.
+                        //
+                        automaton_index++;
                     }
 
-                    //
-                    // Update the local vector containing an automaton for any Declare/LTL constraint.
-                    //
-                    automata_vector.addElement(automaton);
-
-                    //
-                    // The index is increased after having analyzed any automaton, in order to have unique IDs identifying uniquely the automata.
-                    //
-                    automaton_index++;
-                }
 
 
             }
@@ -1218,7 +1152,7 @@ public class Main {
 
         }
         else {
-            JOptionPane.showMessageDialog(null, "The list of Declare constraints can not be empty!", "ATTENTION!", JOptionPane.INFORMATION_MESSAGE, new ImageIcon("images/info_icon.png"));
+            System.out.println("The list of Declare constraints can not be empty! ATTENTION!");
         }
     }
 
@@ -1296,6 +1230,7 @@ public class Main {
 
                         if(trace.getOriginalTraceContent_vector().size() >= length_of_traces_to_check_from && trace.getOriginalTraceContent_vector().size() <= length_of_traces_to_check_to)  {
 
+
                             StringBuffer sb_domain = Utilities.createPropositionalDomain(trace);
                             StringBuffer sb_problem = Utilities.createPropositionalProblem(trace);
 
@@ -1338,6 +1273,7 @@ public class Main {
             }
         }
     }
+
 
     public static void runPlanner() {
         //Container.InitResultPerspective();
@@ -1475,4 +1411,13 @@ public class Main {
 
     }
 
+
+    public static String removeAfterUnderscore(String input) {
+        int lastUnderscoreIndex = input.lastIndexOf('_');
+        if (lastUnderscoreIndex != -1) {
+            return input.substring(0, lastUnderscoreIndex);
+        } else {
+            return input;
+        }
+    }
 }

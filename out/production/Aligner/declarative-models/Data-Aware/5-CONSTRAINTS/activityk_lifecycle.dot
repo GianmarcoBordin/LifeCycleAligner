@@ -1,0 +1,21 @@
+digraph {
+	fake0 [style=invisible]
+	0 [root=true]
+	1
+	2
+	3
+	4 [shape=doublecircle]
+	fake0 -> 0 [style=bold]
+	2 -> 1 [label=activitykassign]
+	2 -> 3 [label=activitykstart]
+	2 -> 1 [label=activitykcomplete]
+	3 -> 1 [label=activitykassign]
+	3 -> 1 [label=activitykstart]
+	3 -> 4 [label=activitykcomplete]
+	4 -> 2 [label=activitykassign]
+	4 -> 1 [label=activitykstart]
+	4 -> 1 [label=activitykcomplete]
+	0 -> 2 [label=activitykassign]
+	0 -> 1 [label=activitykstart]
+	0 -> 1 [label=activitykcomplete]
+}

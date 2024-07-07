@@ -61,7 +61,7 @@ public class Utilities {
 			            n.setInitial(s);
 			            states.put(Integer.parseInt(label), s);
 			        } else if (splited.length == 2) {
-			            String label = splited[0];
+						String label = splited[0];
 			            State s = new State(Integer.parseInt(label));
 			            n.addState(s);
 			            String text = splited[1].substring(1, splited[1].length() - 1);
@@ -333,7 +333,7 @@ public class Utilities {
 			PDDL_domain_buffer.append("(total-cost)\n");			
 			PDDL_domain_buffer.append(")\n\n");		
 		}
-		
+
 		for(int i = 0; i< Container.getCombinationOfRelevantTransitions_vector().size(); i++) {
 			
 			CombinationOfRelevantTransitions cot = Container.getCombinationOfRelevantTransitions_vector().elementAt(i);
@@ -791,7 +791,6 @@ public class Utilities {
 	//
 	public static void emptyFolder(String folderName) {
  	 File index = new File(folderName);
-	 System.out.println(index);
 	 if (index.list()!= null) {
 		 String[] entries = index.list();
 		 for (String s : entries) {

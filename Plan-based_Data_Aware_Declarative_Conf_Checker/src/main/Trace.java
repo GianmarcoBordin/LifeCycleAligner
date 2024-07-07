@@ -43,9 +43,10 @@ public class Trace {
 	private Vector<String> trace_alphabet_with_missing_activities_of_the_constraints_vector; // Alphabet of the activities of the trace and of the constrints.
 																							 // For example, if the content of the trace is <a,c,e> and there is a constraint 
 																							 // choice(c,d) (therefore, d is a "missing" activity), then this vector will contain a,c,d,e.
+
 																							 // --- This value is STABLE after the transition between the ConstraintsPerspective panel and the PlannerPerspective panel.
-	
-	public Trace(String trace_id, String trace_name) {		
+
+	public Trace(String trace_id, String trace_name) {
 		id = trace_id;
 		name = trace_name;
 		trace_alphabet_vector = new Vector<String>();
@@ -69,6 +70,8 @@ public class Trace {
 	public String getTraceName() {
 		return name;
 	}
+
+
 	
 	public void setTraceName(String name) {
 		this.name = name;

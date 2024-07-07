@@ -1,10 +1,8 @@
 package main;
 
 import java.awt.*;
-import java.util.Arrays;
-import java.util.Hashtable;
+import java.util.*;
 import java.util.List;
-import java.util.Vector;
 import javax.swing.*;
 
 import org.processmining.ltl2automaton.plugins.automaton.Automaton;
@@ -28,6 +26,7 @@ public class Container {
 	private static boolean lenght_of_traces_checkBox;
 	private static boolean 	trace_duplicated_checkBox=true;
 
+
 	private static boolean costCheckBox=true;
 	private static boolean FDoptimalCheckBox = false;
 	private static boolean SymBAoptimalCheckBox=true;
@@ -41,11 +40,13 @@ public class Container {
 	private static boolean number_of_traces_checkBox;
 
 	private static StringBuilder activitiesArea = new StringBuilder();
-	private static StringBuilder 	constraintsArea = new StringBuilder();
+	private static StringBuilder constraintsArea = new StringBuilder();
 
 	private static StringBuilder traceArea = new StringBuilder();
 	private static Vector<String> constraintsListModel = new Vector<String>();
 	private static Vector<String> constraintsList = new Vector<String>(constraintsListModel);
+	private static Vector<String> constraintsListModelLifecycle = new Vector<>();
+
 	private static Vector<String> alphabetListModel = new Vector<String>();
 	private static Vector<String> alphabetList = new Vector<String>(alphabetListModel);
 	private static Vector<String> traceListModel = new Vector<String>();
@@ -61,6 +62,7 @@ public class Container {
 	private static Vector<String> all_constraints_vector = new Vector<String>();
 	private static Vector<Vector<String>> activities_cost_vector = new Vector<Vector<String>>();
 	private static Hashtable<String, String> content_of_any_different_trace_Hashtable;
+	private static HashMap<String, String> notRelevantAutomataForTrace= new HashMap<String,String>();
 	private static Vector<Automaton> automata_vector = new Vector<Automaton>();
 	private static Vector<RelevantTransition> relevant_transitions_vector = new Vector<RelevantTransition>();
 	private static Vector<CombinationOfRelevantTransitions> combination_of_transitions_vector = new Vector<CombinationOfRelevantTransitions>();
@@ -97,6 +99,7 @@ public class Container {
 	public static Vector<String> getConstraintsListModel() {
 		return constraintsListModel;
 	}
+
 
 	public static boolean getTrace_duplicated_checkBox() {
 		return trace_duplicated_checkBox;
@@ -299,6 +302,12 @@ public class Container {
 	}
 	public static void setContentOfAnyDifferentTrace_Hashtable(Hashtable<String, String> content_of_any_trace_Hashtable) {
 		Container.content_of_any_different_trace_Hashtable = content_of_any_trace_Hashtable;
+	}
+	public static void setNotRelevantAutomataForTrace(String tr,String pathname) {
+		Container.notRelevantAutomataForTrace.put(tr,pathname);
+	}
+	public static boolean getNotRelevantAutomataForTrace(String tr) {
+		return Container.notRelevantAutomataForTrace.get(tr) == null;
 	}
 
 	// CONTAINER GETTER AND SETTER END
