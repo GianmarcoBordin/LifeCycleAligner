@@ -1,21 +1,21 @@
 digraph {
-		fake0 [style=invisible]
-		0 [root=true]
-		1
-		2
-		3
-		4 [shape=doublecircle]
-		fake0 -> 0 [style=bold]
-		2 -> 1 [label=p4_assign]
-		2 -> 3 [label=p4_start]
-		2 -> 1 [label=p4_complete]
-		3 -> 1 [label=p4_assign]
-		3 -> 1 [label=p4_start]
-		3 -> 4 [label=p4_complete]
-		4 -> 2 [label=p4_assign]
-		4 -> 1 [label=p4_start]
-		4 -> 1 [label=p4_complete]
-		0 -> 2 [label=p4_assign]
-		0 -> 1 [label=p4_start]
-		0 -> 1 [label=p4_complete]
+	fake0 [style=invisible]
+	0 [root=true]
+	1
+	2
+	3
+	4 [shape=doublecircle]
+	fake0 -> 0 [style=bold]
+	2 -> 1 [label=p4assign]
+	2 -> 3 [label=p4start]
+	2 -> 1 [label=p4complete]
+	3 -> 1 [label=p4assign]
+	3 -> 1 [label=p4start]
+	3 -> 4 [label=p4complete]
+	4 -> 2 [label=p4assign]
+	4 -> 1 [label=p4start]
+	4 -> 1 [label=p4complete]
+	0 -> 2 [label=p4assign]
+	0 -> 1 [label=p4start]
+	0 -> 1 [label=p4complete]
 }

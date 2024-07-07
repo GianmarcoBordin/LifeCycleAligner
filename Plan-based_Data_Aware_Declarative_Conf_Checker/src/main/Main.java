@@ -13,8 +13,12 @@ import org.processmining.ltl2automaton.plugins.automaton.Transition;
 import org.processmining.plugins.declare.visualizing.*;
 import javax.swing.*;
 import java.io.*;
+import java.nio.charset.Charset;
+import java.nio.file.Files;
 import java.util.*;
-import static main.Container.lifecycles;
+
+import static com.google.common.io.Files.readLines;
+import static main.Container.*;
 
 public class Main {
 
@@ -48,6 +52,8 @@ public class Main {
 
 
         System.out.println("----- FILE IMPORTS PHASE COMPLETED -----");
+
+        //createSingleAutomata();
 
         System.out.println("----- GROUNDING PHASE STARTED -----");
 
@@ -91,6 +97,25 @@ public class Main {
         new File("checkNumberOfTraces").setExecutable(true);
     }
 
+
+    public static void createSingleAutomata(){
+
+        try {
+            Vector<Automaton> automata= new Vector<Automaton>();
+            for (String dot : dots){
+                automata.addElement(Utilities.getAutomatonForModelLearning(dot));
+            }
+            String pathname="/Users/applem2/Downloads/Work/tesi/Project/Aligner/Plan-based_Data_Aware_Declarative_Conf_Checker/resources/declarative-models/Data-Aware/5-CONSTRAINTS/lifecycle";
+
+            File productDotFile = createProductAutomaton(automata, pathname);
+            System.out.println("Product automaton written to: " + productDotFile.getAbsolutePath());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+
+
     private static String getFileExtension(String fileName) {
         int dotIndex = fileName.lastIndexOf('.');
         return (dotIndex == -1) ? "" : fileName.substring(dotIndex + 1);
@@ -113,6 +138,7 @@ public class Main {
     }
 
     public static void loadXes(File selectedFile) {
+
         try {
             Container.setActivitiesRepository_vector(new Vector<>());
             Container.setAllTraces_vector(new Vector<>());
@@ -175,7 +201,7 @@ public class Main {
                     if (activityName.contains("-"))
                         activityName = activityName.replaceAll("\\-", "_");
 
-                    String finalName = activityName + "_" + lifecycleTransition;
+                    String finalName = activityName + lifecycleTransition;
 
                     loaded_trace_activities_vector.addElement(finalName);
 
@@ -233,16 +259,17 @@ public class Main {
             exception.printStackTrace();
         }
 
-        if (Container.getAllTraces_vector().size() == 0) {
-            JOptionPane.showMessageDialog(null, "There is no trace defined for the log!\nAt least a trace (even if empty) is required to run the software!", "ATTENTION!", JOptionPane.INFORMATION_MESSAGE, new ImageIcon("images/info_icon.png"));
+        if (Container.getAllTraces_vector().isEmpty()) {
+            System.out.println("There is no trace defined for the log!\nAt least a trace (even if empty) is required to run the software! ATTENTION!");
         } else {
+
+
 
 
             Container.setAlphabetOfTheTraces_vector(new Vector<String>());
 
             for (int k = 0; k < Container.getAllTraces_vector().size(); k++) {
                 Trace trace = Container.getAllTraces_vector().elementAt(k);
-
                 for (int j = 0; j < trace.getTraceAlphabet_vector().size(); j++) {
                     String symbol_of_the_alphabet = trace.getTraceAlphabet_vector().elementAt(j);
                     if (!Container.getAlphabetOfTheTraces_vector().contains(symbol_of_the_alphabet))
@@ -356,16 +383,26 @@ public class Main {
         Container.getConstraintsListModel().addElement(model_learning_constraint);
 
     }
+    public static String removeAfterUnderscore(String input) {
+        int lastUnderscoreIndex = input.lastIndexOf('_');
+        if (lastUnderscoreIndex != -1) {
+            return input.substring(0, lastUnderscoreIndex);
+        } else {
+            return input;
+        }
+    }
 
     public static File createLifecycleDot(String activity) {
         // fake-init -> fake0 init -> 0 sink -> 1 assigned -> 2 started -> 3 completed -> 4
 
         // preprocessing because we want the lifecycle for th activity not for the lifecycle activity
+        // if there is a lifecycle value that I have not taken into account may arise problems because is not correctly removed
         for (int i=0;i< lifecycles.length;i++){
-            if (activity.contains("_"+lifecycles[i]))
-                activity = activity.replaceAll("_"+lifecycles[i], "");
+            if (activity.contains(lifecycles[i]))
+                activity = activity.replaceAll(lifecycles[i], "");
         }
 
+        //activity=removeAfterUnderscore(activity);
 
         StringBuilder dot = new StringBuilder();
         Map<String, String> flowEvents = new HashMap<>();
@@ -384,20 +421,20 @@ public class Main {
 
         dot.append("digraph {\n");
         // static states
-        dot.append("\t\tfake0 [style=invisible]\n");
-        dot.append("\t\t0 [root=true]\n");
-        dot.append("\t\t1\n");
+        dot.append("\tfake0 [style=invisible]\n");
+        dot.append("\t0 [root=true]\n");
+        dot.append("\t1\n");
         // variable states
         for (int i =0; i< lifecycles.length;i++){
             if (i == lifecycles.length - 1){
-                dot.append("\t\t" + index.get(lifecycles[i]) + " [shape=doublecircle]\n");
+                dot.append("\t" + index.get(lifecycles[i]) + " [shape=doublecircle]\n");
 
             }else {
-                dot.append("\t\t" + index.get(lifecycles[i]) + "\n");
+                dot.append("\t" + index.get(lifecycles[i]) + "\n");
             }
         }
         // static transitions
-        dot.append("\t\tfake0 -> 0 [style=bold]\n");
+        dot.append("\tfake0 -> 0 [style=bold]\n");
 
         // variable non sink transitions
 
@@ -409,10 +446,10 @@ public class Main {
         for (int i =0; i< lifecycles.length;i++){
                 for (String event : lifecycles) {
                     if (event != flowEvents.get(lifecycles[i])) {
-                        dot.append("\t\t" + index.get(lifecycles[i]) + " -> 1 [label=" + activity + "_" + event + "]\n");
+                        dot.append("\t" + index.get(lifecycles[i]) + " -> 1 [label=" + activity +  event + "]\n");
                     }
                     else{
-                        dot.append("\t\t" + index.get(lifecycles[i]) + " -> " + index.get(event) + " [label=" + activity + "_" + event + "]\n");
+                        dot.append("\t" + index.get(lifecycles[i]) + " -> " + index.get(event) + " [label=" + activity +  event + "]\n");
                     }
                 }
         }
@@ -420,25 +457,91 @@ public class Main {
         int i =0;
         for (String event : lifecycles) {
             if (event != flowEvents.get("init")) {
-                dot.append("\t\t" + i + " -> 1 [label=" + activity + "_" + event + "]\n");
+                dot.append("\t" + i + " -> 1 [label=" + activity + event + "]\n");
             }
             else {
-                dot.append("\t\t" + i + " -> " + index.get(lifecycles[0]) + " [label=" + activity + "_" + event + "]\n");
+                dot.append("\t" + i + " -> " + index.get(lifecycles[0]) + " [label=" + activity + event + "]\n");
             }
         }
 
         dot.append("}");
 
         // Write DOT content to a file
-        File dotFile = new File("/Users/applem2/Downloads/Work/tesi/Project/Aligner/Plan-based_Data_Aware_Declarative_Conf_Checker/resources/declarative-models/Data-Aware/5-CONSTRAINTS/"+activity + "_lifecycle.dot");
+        String pathname="/Users/applem2/Downloads/Work/tesi/Project/Aligner/Plan-based_Data_Aware_Declarative_Conf_Checker/resources/declarative-models/Data-Aware/5-CONSTRAINTS/"+activity + "_lifecycle.dot";
+        File dotFile = new File(pathname);
         try (FileWriter writer = new FileWriter(dotFile)) {
             writer.write(dot.toString());
+            dots.addElement(dotFile.toPath().toString());
+
         } catch (IOException e) {
             e.printStackTrace();
         }
 
         return dotFile;
     }
+
+    public static File createProductAutomaton(List<Automaton> automatons, String outputName) throws IOException {
+        Set<String> allEvents = new HashSet<>();
+        Map<String, String> transitions = new HashMap<>();
+
+        // Iterate through each automaton
+        for (Automaton automaton : automatons) {
+            // Iterate through all states
+            for (State state : automaton) {
+                String source = String.valueOf(state.getId()); // Get state identifier (custom method)
+                // Iterate through output transitions of the current state
+                Iterator<Transition> transitionIterator = state.getOutput().iterator();
+                while (transitionIterator.hasNext()) {
+                    Transition transition = transitionIterator.next();
+                    String target = String.valueOf(transition.getTarget().getId());  // Get target state identifier (custom method)
+                    String label = String.valueOf(transition.getLabel()); // Assuming getLabel() returns the label
+
+                    // Add label to set of all events (if not already present)
+                    allEvents.add(label);
+
+                    // Add transition to map
+                    transitions.put(source + "->" + target, label);
+                }
+            }
+        }
+
+        // Initialize the product automaton DOT string
+        StringBuilder dot = new StringBuilder();
+        dot.append("digraph ProductAutomaton {\n");
+        dot.append("\tfake0 [style=invisible];\n");
+        dot.append("\t0 [root=true];\n");
+
+        // Define states
+        Set<String> combinedStates = new HashSet<>();
+        for (Automaton automaton : automatons) {
+            for (State state : automaton) {
+                combinedStates.add(String.valueOf(state.getId()));
+            }
+        }
+        for (String state : combinedStates) {
+            dot.append("\t" + state + ";\n");
+        }
+
+        // Define transitions
+        for (Map.Entry<String, String> entry : transitions.entrySet()) {
+            String[] parts = entry.getKey().split("->");
+            String source = parts[0].trim();
+            String target = parts[1].trim();
+            String label = entry.getValue();
+            dot.append("\t" + source + " -> " + target + " [label=\"" + label + "\"];\n");
+        }
+
+        dot.append("}");
+
+        // Write DOT content to a file
+        File dotFile = new File(outputName + ".dot");
+        try (FileWriter writer = new FileWriter(dotFile)) {
+            writer.write(dot.toString());
+        }
+
+        return dotFile;
+    }
+
 
     public static void goToPlanner() {
 

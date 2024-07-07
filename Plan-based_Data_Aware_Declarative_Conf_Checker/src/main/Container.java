@@ -1,7 +1,9 @@
 package main;
 
 import java.awt.*;
+import java.util.Arrays;
 import java.util.Hashtable;
+import java.util.List;
 import java.util.Vector;
 import javax.swing.*;
 
@@ -16,6 +18,8 @@ public class Container {
 	// CONTAINER OPTIONS AND PRELIMINARY STRUCTURES START
 
 	public final static String[] lifecycles = {"assign","start","complete"} ;
+
+	public static Vector<String> dots = new Vector<String>() ;
 	public static String PDDL_encoding = "AAAI17"; //It can be equal to "AAAI17" or to "ICAPS16".
 	private static boolean discard_duplicated_traces = false;
     private static boolean sinkStatesMenuItem = true;
