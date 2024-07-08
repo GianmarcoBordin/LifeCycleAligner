@@ -6,11 +6,7 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Set;
-import java.util.Vector;
+import java.util.*;
 
 import org.processmining.ltl2automaton.plugins.automaton.Automaton;
 import org.processmining.ltl2automaton.plugins.automaton.State;
@@ -34,6 +30,7 @@ public class Utilities {
 			        continue;
 			        //Transaction
 			    else if (st.contains("[label")) {
+
 			        //Transaction
 			        String[] splited = st.split(" ");
 			        String source = splited[0].trim();

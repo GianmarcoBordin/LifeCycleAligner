@@ -13,8 +13,6 @@ import org.processmining.ltl2automaton.plugins.automaton.Transition;
 import org.processmining.plugins.declare.visualizing.*;
 import javax.swing.*;
 import java.io.*;
-import java.nio.charset.Charset;
-import java.nio.file.Files;
 import java.util.*;
 
 import static com.google.common.io.Files.readLines;
@@ -61,11 +59,9 @@ public class Main {
 
         System.out.println("----- PRODUCT AUTOMATA PHASE STARTED -----");
 
-       // String productAutomata =CombineDOTFiles.combine();
+        //File productAutomata = ProductAutomatonGenerator.combine();
 
-        Container.getConstraintsListModel().clear();
-
-     //   Container.getConstraintsListModel().addElement(productAutomata);
+        //loadDot(productAutomata);
 
 
         System.out.println("----- PRODUCT AUTOMATA PHASE COMPLETED -----");
@@ -80,7 +76,7 @@ public class Main {
 
         System.out.println("----- PDDL FILES GENERATION PHASE STARTED -----");
 
-        //generatePddlFiles();
+        generatePddlFiles();
 
         System.out.println("----- PDDL FILES GENERATION PHASE COMPLETED -----");
 
@@ -136,6 +132,7 @@ public class Main {
                 loadXml(file);
                 break;
             case "dot":
+                //dots.addElement(file.toPath().toString());
                 loadDot(file);
                 break;
             default:
@@ -259,7 +256,7 @@ public class Main {
                 //lifecycleActivityDot = createLifecycleDotActivityNotPresent(loaded_alphabet_vector.elementAt(kix));
                 lifecycleActivityDot = createLifecycleDot(loaded_alphabet_vector.elementAt(kix));
                 assert lifecycleActivityDot != null && lifecycleActivityDot.exists() && lifecycleActivityDot.isFile();
-                loadDot(lifecycleActivityDot);
+                //loadDot(lifecycleActivityDot);
                 Container.getAlphabetListModel().addElement(loaded_alphabet_vector.elementAt(kix));
                 Container.getAlphabetListModel().addElement(loaded_alphabet_vector.elementAt(kix));
             }

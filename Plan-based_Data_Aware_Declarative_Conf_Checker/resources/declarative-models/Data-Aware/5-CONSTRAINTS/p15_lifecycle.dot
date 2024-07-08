@@ -1,21 +1,21 @@
 digraph {
-	fake7 [style=invisible]
-	7 [root=true]
+	fake0 [style=invisible]
+	0 [root=true]
 	1
 	2
 	3
-	0 [shape=doublecircle]
-	fake7 -> 7 [style=bold]
+	4 [shape=doublecircle]
+	fake0 -> 0 [style=bold]
 	2 -> 1 [label=p15assign]
 	2 -> 3 [label=p15start]
 	2 -> 1 [label=p15complete]
 	3 -> 1 [label=p15assign]
 	3 -> 1 [label=p15start]
-	3 -> 0 [label=p15complete]
+	3 -> 4 [label=p15complete]
+	4 -> 2 [label=p15assign]
+	4 -> 1 [label=p15start]
+	4 -> 1 [label=p15complete]
 	0 -> 2 [label=p15assign]
 	0 -> 1 [label=p15start]
 	0 -> 1 [label=p15complete]
-	7 -> 2 [label=p15assign]
-	7 -> 1 [label=p15start]
-	7 -> 1 [label=p15complete]
 }
