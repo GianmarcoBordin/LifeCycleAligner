@@ -1,0 +1,5 @@
+activity p1assign
+activity p1start
+activity p1complete
+Chain Succession[p1assign, p1start] | | |
+Chain Succession[p1start, p1complete] | | |
