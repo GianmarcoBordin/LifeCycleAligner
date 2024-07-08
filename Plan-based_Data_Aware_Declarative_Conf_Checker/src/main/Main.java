@@ -2,6 +2,7 @@ package main;
 
 import com.google.common.collect.HashMultimap;
 import com.google.common.collect.Multimap;
+import main.test.ActivityConDecGenerator;
 import org.deckfour.xes.extension.std.XConceptExtension;
 import org.deckfour.xes.extension.std.XLifecycleExtension;
 import org.deckfour.xes.model.XEvent;
@@ -57,14 +58,12 @@ public class Main {
 
         System.out.println("----- FILE IMPORTS PHASE COMPLETED -----");
 
-        System.out.println("----- PRODUCT AUTOMATA PHASE STARTED -----");
+        System.out.println("----- PREPROCESSING PHASE STARTED -----");
 
-        //File productAutomata = ProductAutomatonGenerator.combine();
+        File lifecycle=ActivityConDecGenerator.combine();
+        loadXml(lifecycle);
 
-        //loadDot(productAutomata);
-
-
-        System.out.println("----- PRODUCT AUTOMATA PHASE COMPLETED -----");
+        System.out.println("----- PREPROCESSING PHASE COMPLETED -----");
 
 
         System.out.println("----- GROUNDING PHASE STARTED -----");
@@ -358,10 +357,10 @@ public class Main {
                     int dialogResult = 0;
 
                     if (activities_not_in_the_repo_vector.size() == 1)
-                        dialogResult = JOptionPane.showConfirmDialog(null, "The constraint '" + constraint + "' refers to the activity '" + activities_not_in_the_repo_vector.elementAt(0) + "',\nwhich is not listed in the activities repository! Such a constraint can not be properly imported, unless the missing activity is not imported in the repository.\n\nDo you want to import the activity '" + activities_not_in_the_repo_vector.elementAt(0) + "' in the activities repository?", "ATTENTION!", JOptionPane.YES_NO_OPTION);
+                        System.out.println("The constraint '" + constraint + "' refers to the activity '" + activities_not_in_the_repo_vector.elementAt(0) + "',\nwhich is not listed in the activities repository! Such a constraint can not be properly imported, unless the missing activity is not imported in the repository.\n\nDo you want to import the activity '" + activities_not_in_the_repo_vector.elementAt(0) + "' in the activities repository? ATTENTION!");
                     else
-                        dialogResult = JOptionPane.showConfirmDialog(null, "The constraint '" + constraint + "' refers to the activities: \n" + activities_not_in_the_repo_vector + ", which are not listed in the activities repository!\nSuch a constraint can not be properly imported, unless the missing activities are not imported in the repository.\n\nDo you want to import the activities " + activities_not_in_the_repo_vector + " in the activities repository?", "ATTENTION!", JOptionPane.YES_NO_OPTION);
-
+                        System.out.println(
+                                "The constraint '" + constraint + "' refers to the activities: \n" + activities_not_in_the_repo_vector + ", which are not listed in the activities repository!\nSuch a constraint can not be properly imported, unless the missing activities are not imported in the repository.\n\nDo you want to import the activities " + activities_not_in_the_repo_vector + " in the activities repository? ATTENTION!");
                     if (dialogResult == JOptionPane.YES_OPTION) {
                         for (int h = 0; h < activities_not_in_the_repo_vector.size(); h++) {
                             String specific_activity = activities_not_in_the_repo_vector.elementAt(h);
@@ -760,7 +759,6 @@ public class Main {
                         /////////////////////////////////////////////////////////////////////////////
                         Automaton automaton = null;
                         if (temporal_constraint.startsWith("DFA{")) {
-                            // TODO check here which automata is relevant for a trace successively check the relevant transitions to generate the relevant actions
 
 
                             String DFA_file_path = temporal_constraint.replace("DFA{", "");
