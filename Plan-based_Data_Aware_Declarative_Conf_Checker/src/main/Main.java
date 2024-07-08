@@ -2,7 +2,6 @@ package main;
 
 import com.google.common.collect.HashMultimap;
 import com.google.common.collect.Multimap;
-import main.test.ActivityConDecGenerator;
 import org.deckfour.xes.extension.std.XConceptExtension;
 import org.deckfour.xes.extension.std.XLifecycleExtension;
 import org.deckfour.xes.model.XEvent;
@@ -69,13 +68,13 @@ public class Main {
         System.out.println("----- GROUNDING PHASE STARTED -----");
 
 
-        goToPlanner();
+        //goToPlanner();
 
         System.out.println("----- GROUNDING PHASE COMPLETED -----");
 
         System.out.println("----- PDDL FILES GENERATION PHASE STARTED -----");
 
-        generatePddlFiles();
+        //generatePddlFiles();
 
         System.out.println("----- PDDL FILES GENERATION PHASE COMPLETED -----");
 
@@ -203,7 +202,7 @@ public class Main {
                     if (activityName.contains("-"))
                         activityName = activityName.replaceAll("\\-", "_");
 
-                    String finalName = activityName + lifecycleTransition;
+                    String finalName = activityName + "_"+lifecycleTransition;
 
                     loaded_trace_activities_vector.addElement(finalName);
 
@@ -251,11 +250,16 @@ public class Main {
 
             File lifecycleActivityDot= null;
             Container.setActivitiesRepository_vector(loaded_alphabet_vector);
+            String act = null;
             for (int kix = 0; kix < loaded_alphabet_vector.size(); kix++) {
                 //lifecycleActivityDot = createLifecycleDotActivityNotPresent(loaded_alphabet_vector.elementAt(kix));
                 lifecycleActivityDot = createLifecycleDot(loaded_alphabet_vector.elementAt(kix));
-                assert lifecycleActivityDot != null && lifecycleActivityDot.exists() && lifecycleActivityDot.isFile();
+                act = removeAfterUnderscore(loaded_alphabet_vector.elementAt(kix));
+                assert act != null && lifecycleActivityDot != null && lifecycleActivityDot.exists() && lifecycleActivityDot.isFile();
                 //loadDot(lifecycleActivityDot);
+                if (!Container.getGeneralActivitiesRepository().contains(act)){
+                    Container.getGeneralActivitiesRepository().addElement(act);
+                }
                 Container.getAlphabetListModel().addElement(loaded_alphabet_vector.elementAt(kix));
                 Container.getAlphabetListModel().addElement(loaded_alphabet_vector.elementAt(kix));
             }

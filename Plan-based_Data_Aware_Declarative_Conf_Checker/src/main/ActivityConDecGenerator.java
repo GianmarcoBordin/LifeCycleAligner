@@ -1,4 +1,4 @@
-package main.test;
+package main;
 
 import main.Container;
 import org.w3c.dom.Document;
@@ -22,7 +22,7 @@ public class ActivityConDecGenerator {
         try {
 
             String outputXmlPath = "output.xml";
-            output=generateConDecXml(Container.getAlphabetListModel(), outputXmlPath);
+            output=generateConDecXml(Container.getGeneralActivitiesRepository(), outputXmlPath);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -63,8 +63,6 @@ public class ActivityConDecGenerator {
 
         transformer.transform(source, result);
 
-        System.out.println("File saved to " + outputXmlPath);
-
         return outputFile;
 
     }
@@ -87,13 +85,12 @@ public class ActivityConDecGenerator {
 
         // Add constraints based on activityName
         if (activityName != null && !activityName.isEmpty()) {
-            String assignActivity = activityName + "assign";
-            String startActivity = activityName + "start";
-            String completeActivity = activityName + "complete";
+            for(int i =0; i< Container.lifecycles.length - 1;i++){
+                String inputActivity1 = activityName + Container.lifecycles[i];
+                String inputActivity2 = activityName + Container.lifecycles[i+1];
+                addChainSuccessionConstraint(doc, activityDefinitionsElement, inputActivity1, inputActivity2);
 
-            // Chain succession constraints
-            addChainSuccessionConstraint(doc, activityDefinitionsElement, assignActivity, startActivity);
-            addChainSuccessionConstraint(doc, activityDefinitionsElement, startActivity, completeActivity);
+            }
         }
     }
 

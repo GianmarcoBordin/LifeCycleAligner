@@ -1,9 +1,6 @@
 package main;
 
-import java.awt.*;
 import java.util.*;
-import java.util.List;
-import javax.swing.*;
 
 import org.processmining.ltl2automaton.plugins.automaton.Automaton;
 
@@ -56,6 +53,8 @@ public class Container {
 
 	// CONTAINER STRUCTURES START
 	private static Vector<String> activities_repository_vector = new Vector<String>();
+	private static Vector<String> generalActivitiesRepository = new Vector<String>();
+
 	private static Vector<String> alphabet_of_the_traces_vector = new Vector<String>();
 	private static Vector<String> alphabet_of_the_constraints_vector = new Vector<String>();
 	private static Vector<Trace> all_traces_vector = new Vector<Trace>();
@@ -308,6 +307,9 @@ public class Container {
 	}
 	public static boolean getNotRelevantAutomataForTrace(String tr) {
 		return Container.notRelevantAutomataForTrace.get(tr) == null;
+	}
+	public static Vector<String> getGeneralActivitiesRepository() {
+		return Container.generalActivitiesRepository;
 	}
 
 	// CONTAINER GETTER AND SETTER END
