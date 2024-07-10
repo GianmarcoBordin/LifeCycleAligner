@@ -271,9 +271,6 @@ public class Container {
 	public static void setPDDLAutomataInitialStates_sb(StringBuffer pDDL_automata_initial_states_sb) {
 		PDDL_automata_initial_states_sb = pDDL_automata_initial_states_sb;
 	}
-	public static Vector<String> getPDDLActivitiesVector() {
-		return PDDL_activities_vector;
-	}
 	public static void setPDDLActivitiesVector(Vector<String> PDDL_activities_vector) {
 		Container.PDDL_activities_vector = PDDL_activities_vector;
 	}
@@ -302,17 +299,9 @@ public class Container {
 	public static void setContentOfAnyDifferentTrace_Hashtable(Hashtable<String, String> content_of_any_trace_Hashtable) {
 		Container.content_of_any_different_trace_Hashtable = content_of_any_trace_Hashtable;
 	}
-	public static void setNotRelevantAutomataForTrace(String tr,String pathname) {
-		Container.notRelevantAutomataForTrace.put(tr,pathname);
-	}
-	public static boolean getNotRelevantAutomataForTrace(String tr) {
-		return Container.notRelevantAutomataForTrace.get(tr) == null;
-	}
 	public static Vector<String> getGeneralActivitiesRepository() {
 		return Container.generalActivitiesRepository;
 	}
-
-	// CONTAINER GETTER AND SETTER END
 
 
 }

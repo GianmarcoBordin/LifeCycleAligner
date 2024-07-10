@@ -12,8 +12,142 @@ import org.processmining.ltl2automaton.plugins.automaton.Automaton;
 import org.processmining.ltl2automaton.plugins.automaton.State;
 import org.processmining.ltl2automaton.plugins.automaton.Transition;
 
+import static main.Container.dots;
+import static main.Container.lifecycles;
+
 public class Utilities {
-	
+
+
+	public static String getFileExtension(String fileName) {
+		int dotIndex = fileName.lastIndexOf('.');
+		return (dotIndex == -1) ? "" : fileName.substring(dotIndex + 1);
+	}
+
+
+	public static File createLifecycleDot(String activity) {
+		// fake-init -> fake0 init -> 0 sink -> 1 assigned -> 2 started -> 3 completed -> 4
+
+		// preprocessing because we want the lifecycle for th activity not for the lifecycle activity
+		// if there is a lifecycle value that I have not taken into account may arise problems because is not correctly removed
+		for (int i=0;i< lifecycles.length;i++){
+			if (activity.contains(lifecycles[i]))
+				activity = activity.replaceAll(lifecycles[i], "");
+		}
+
+		//activity=removeAfterUnderscore(activity);
+
+		StringBuilder dot = new StringBuilder();
+		Map<String, String> flowEvents = new HashMap<>();
+		Map<String, Integer> index = new HashMap<>();
+
+		// states support structure
+		for (int i =0; i< lifecycles.length;i++){
+			index.put(lifecycles[i], i + 2);
+		}
+		flowEvents.put("init",lifecycles[0]);
+
+		// transitions support structure
+		for (int i =0; i< lifecycles.length;i++){
+			flowEvents.put(lifecycles[i], lifecycles[((i+1) % lifecycles.length)]);
+		}
+
+		dot.append("digraph {\n");
+		// static states
+		dot.append("\tfake0 [style=invisible]\n");
+		dot.append("\t0 [root=true]\n");
+		dot.append("\t1\n");
+		// variable states
+		for (int i =0; i< lifecycles.length;i++){
+			if (i == lifecycles.length - 1){
+				dot.append("\t" + index.get(lifecycles[i]) + " [shape=doublecircle]\n");
+
+			}else {
+				dot.append("\t" + index.get(lifecycles[i]) + "\n");
+			}
+		}
+		// static transitions
+		dot.append("\tfake0 -> 0 [style=bold]\n");
+
+		// variable non sink transitions
+
+		for (int i =0; i< lifecycles.length;i++){
+			flowEvents.put(lifecycles[i], lifecycles[((i+1) % lifecycles.length)]);
+		}
+
+		// variable sink transitions
+		for (int i =0; i< lifecycles.length;i++){
+			for (String event : lifecycles) {
+				if (event != flowEvents.get(lifecycles[i])) {
+					dot.append("\t" + index.get(lifecycles[i]) + " -> 1 [label=" + activity +  event + "]\n");
+				}
+				else{
+					dot.append("\t" + index.get(lifecycles[i]) + " -> " + index.get(event) + " [label=" + activity +  event + "]\n");
+				}
+			}
+		}
+		// init state transitions to sink
+		int i =0;
+		for (String event : lifecycles) {
+			if (event != flowEvents.get("init")) {
+				dot.append("\t" + i + " -> 1 [label=" + activity + event + "]\n");
+			}
+			else {
+				dot.append("\t" + i + " -> " + index.get(lifecycles[0]) + " [label=" + activity + event + "]\n");
+			}
+		}
+
+		dot.append("}");
+
+		// Write DOT content to a file
+		String pathname="/Users/applem2/Downloads/Work/tesi/Project/Aligner/Plan-based_Data_Aware_Declarative_Conf_Checker/resources/declarative-models/Data-Aware/5-CONSTRAINTS/"+activity + "_lifecycle.dot";
+		File dotFile = new File(pathname);
+		try (FileWriter writer = new FileWriter(dotFile)) {
+			writer.write(dot.toString());
+			dots.addElement(dotFile.toPath().toString());
+
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+
+		return dotFile;
+	}
+
+
+	public static String removeAfterUnderscore(String input) {
+		int lastUnderscoreIndex = input.lastIndexOf('_');
+		if (lastUnderscoreIndex != -1) {
+			return input.substring(0, lastUnderscoreIndex);
+		} else {
+			return input;
+		}
+	}
+	public static void cleanAll(){
+		Utilities.emptyFolder("/Users/applem2/Downloads/Work/tesi/Project/Aligner/Plan-based_Data_Aware_Declarative_Conf_Checker/resources/lifecycle-models");
+		Utilities.emptyFolder("/Users/applem2/Downloads/Work/tesi/Project/Aligner/Plan-based_Data_Aware_Declarative_Conf_Checker/seq-opt-symba-2/Conformance_Checking");
+		Utilities.emptyFolder("/Users/applem2/Downloads/Work/tesi/Project/Aligner/Plan-based_Data_Aware_Declarative_Conf_Checker/seq-opt-symba-2/results");
+
+	}
+	public static void setExecutables() {
+		//Force the executable files of Fast-downward and LPG to be executable
+		new File("translate_script").setExecutable(true);
+		new File("preprocess_script").setExecutable(true);
+		new File("planner_subopt_script").setExecutable(true);
+		new File("planner_opt_script").setExecutable(true);
+		new File("lpg_script").setExecutable(true);
+		new File("fast-downward/src/translate/translate.py").setExecutable(true);
+		new File("fast-downward/src/preprocess/preprocess").setExecutable(true);
+		new File("fast-downward/src/search/downward").setExecutable(true);
+		new File("fast-downward/src/search/unitcost").setExecutable(true);
+		new File("fast-downward/src/search/downward-release").setExecutable(true);
+		new File("LPG/lpg").setExecutable(true);
+		new File("run_FD").setExecutable(true);
+		new File("run_FD_all").setExecutable(true);
+		new File("run_SYMBA").setExecutable(true);
+		new File("run_SYMBA_all").setExecutable(true);
+		new File("checkNumberOfTraces").setExecutable(true);
+	}
+
+
 	public static Automaton getAutomatonForModelLearning(String filename) throws FileNotFoundException {
         File file = new File(filename);
         BufferedReader br = null;

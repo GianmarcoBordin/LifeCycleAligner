@@ -1,6 +1,5 @@
 package main;
 
-import main.Container;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 
@@ -15,7 +14,7 @@ import javax.xml.transform.stream.StreamResult;
 import java.io.File;
 import java.util.Vector;
 
-public class ActivityConDecGenerator {
+public class Lifecycle {
 
     public static File combine() {
         File output = null;
