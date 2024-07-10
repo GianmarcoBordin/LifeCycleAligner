@@ -12,7 +12,7 @@ import java.io.File;
 import java.util.Vector;
 
 
-import static main.Utilities.createLifecycleDot;
+import static main.Lifecycle.createLifecycleDot;
 import static main.Utilities.removeAfterUnderscore;
 
 public class Loader {
