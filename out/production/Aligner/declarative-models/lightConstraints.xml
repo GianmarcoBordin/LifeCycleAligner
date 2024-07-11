@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<model>
+	<assignment language="ConDec" name="new model">
+		<activitydefinitions>
+		</activitydefinitions>
+		<constraintdefinitions>
+		</constraintdefinitions>
+		<data/>
+		<team/>
+		<graphical>
+			<activities>
+			</activities>
+			<constraints>
+			</constraints>
+		</graphical>
+	</assignment>
+</model>
