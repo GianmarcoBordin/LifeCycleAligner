@@ -16,11 +16,12 @@ public class Container {
 
 	public static Vector<String> dots = new Vector<String>() ;
 	public static String PDDL_encoding = "AAAI17"; //It can be equal to "AAAI17" or to "ICAPS16".
-	private static boolean discard_duplicated_traces = false;
+    public static boolean hold_not_found_constraints = true;
+    private static boolean discard_duplicated_traces = false;
     private static boolean sinkStatesMenuItem = true;
 	private  static boolean disjunctiveGoalMenuItem= true;
-	private static boolean productAutomatonMenuItem;
-	private static boolean lenght_of_traces_checkBox;
+	private static boolean productAutomatonMenuItem =false;
+	private static boolean lenght_of_traces_checkBox = false;
 	private static boolean 	trace_duplicated_checkBox=true;
 
 
@@ -34,7 +35,7 @@ public class Container {
 	private static int number_of_traces_ComboBox_TO=1; // TODO used in result perspective
 	private static int lenght_of_traces_ComboBox_FROM= 0;
 	private static int lenght_of_traces_ComboBox_TO=0;
-	private static boolean number_of_traces_checkBox;
+	private static boolean number_of_traces_checkBox = false;
 
 	private static StringBuilder activitiesArea = new StringBuilder();
 	private static StringBuilder constraintsArea = new StringBuilder();

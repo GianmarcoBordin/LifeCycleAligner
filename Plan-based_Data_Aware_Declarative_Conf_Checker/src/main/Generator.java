@@ -18,7 +18,7 @@ public class Generator {
             // Reset the vector containing the minimum and maximum length of the traces.
             Container.setMinimumLengthOfATrace(0);
             Container.setMaximumLengthOfATrace(0);
-
+            System.out.println(Container.getConstraintsListModel());
             for(int i = 0; i< Container.getAlphabetListModel().size(); i++) {
                 String string = (String) Container.getAlphabetListModel().get(i);
 
@@ -38,7 +38,6 @@ public class Generator {
                 }
                 Container.getActivitiesCost_vector().addElement(v);
             }
-
 
             Container.setAllConstraints_vector(new Vector<String>());
 
@@ -516,14 +515,29 @@ public class Generator {
 
             if(Container.getPDDL_encoding().equalsIgnoreCase("AAAI17")) {
 
-                if(Container.getProductAutomatonMenuItem())  {
+                if(Container.getProductAutomatonMenuItem()) {
                     Automaton product_automaton = LTLFormula.generateAutomatonByLTLFormula(ltl_formula_for_product_automaton);
                     Iterator<Transition> it2 = product_automaton.transitions().iterator();
 
-                    while(it2.hasNext()) {
+                    while (it2.hasNext()) {
+                        // Transition t2 = (Transition) it2.next();
 
+	    	            			/*
+	    	            			 System.out.print(t2.getSource());
+	    	            			 System.out.print(" --> ");
+	    	            			 System.out.print(t2.getPositiveLabel());
+	    	            			 System.out.print(" ### ");
+	    	            			 System.out.print(t2.getNegativeLabels());
+	    	            			 System.out.print(" --> ");
+	    	            			 System.out.print(t2.getTarget());
+	    	            			 System.out.print(" ... INITIAL: ");
+	    	            			 System.out.print(product_automaton.getInit().getId());
+	    	            			 System.out.print(" ... FINALS: ");
+	    	            			 if(t2.getSource().isAccepting()) System.out.print(t2.getSource() + " %% ");
+	    	            			 if(t2.getTarget().isAccepting()) System.out.print(t2.getTarget());
+	    	            			 System.out.println();
+	    	            			 */
                     }
-
                 }
 
                 //
@@ -581,23 +595,22 @@ public class Generator {
                 // For any key of the "transition_map" object, i.e., for any label, identify the relevant transitions associated
                 // to that label.
                 //
-                Iterator<String> it = set_of_keys.iterator();
-                while(it.hasNext())  {
+                for (String key : set_of_keys) {
 
-                    String key = (String) it.next();
                     Collection<String> values = Container.getRelevantTransitions_map().get(key);
 
                     Object[] values_array = values.toArray();
 
                     Vector<String> automata_id_of_relevant_transitions_vector = new Vector<String>();
-                    for(int l=0;l<values_array.length;l++) {
-                        String transition_id = values_array[l].toString();
+                    for (Object o : values_array) {
+                        String transition_id = o.toString();
                         int first_underscore = transition_id.indexOf("_");
                         int last_underscore = transition_id.lastIndexOf("_");
-                        String automaton_id = transition_id.substring(first_underscore+1, last_underscore);
-                        if(!automata_id_of_relevant_transitions_vector.contains(automaton_id))
+                        String automaton_id = transition_id.substring(first_underscore + 1, last_underscore);
+                        if (!automata_id_of_relevant_transitions_vector.contains(automaton_id))
                             automata_id_of_relevant_transitions_vector.addElement(automaton_id);
                     }
+
 
                     //
                     // To identify the number of different automata involved in the relevant transitions helps to set the
@@ -605,10 +618,11 @@ public class Generator {
                     // calculate combinations with k=1 and k=2 at maximum).
                     // The method invoked removes automatically any combination that contains two transitions of the same automaton.
                     //
-                    for(int kl=1;kl<=automata_id_of_relevant_transitions_vector.size();kl++) {
+                    for (int kl = 1; kl <= automata_id_of_relevant_transitions_vector.size(); kl++) {
                         Utilities.findCombinationsOfTransitions(values_array, key, kl, kl, 0, new String[kl]);
                     }
                 }
+
 
 
             }

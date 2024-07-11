@@ -155,13 +155,13 @@ public class Loader {
                 act = removeAfterUnderscore(loaded_alphabet_vector.elementAt(kix));
                 assert act != null && lifecycleActivityDot != null && lifecycleActivityDot.exists() && lifecycleActivityDot.isFile();
                 //loadDot(lifecycleActivityDot);
-                if (!Container.getGeneralActivitiesRepository().contains(act)){
-                    if (!Objects.equals(act, "p18")) {
-                        Container.getGeneralActivitiesRepository().addElement(act);
+                for (String l: Container.lifecycles){
+                    if (!Container.getGeneralActivitiesRepository().contains(act+"_"+l)){
+                        Container.getGeneralActivitiesRepository().addElement(act+"_"+l);
+                        Container.getActivitiesRepository_vector().addElement(act+"_"+l);
                     }
+                    Container.getAlphabetListModel().addElement(act+"_"+l);
                 }
-                Container.getAlphabetListModel().addElement(loaded_alphabet_vector.elementAt(kix));
-                Container.getAlphabetListModel().addElement(loaded_alphabet_vector.elementAt(kix));
             }
         } catch (Exception exception) {
             exception.printStackTrace();
@@ -205,11 +205,13 @@ public class Loader {
 
                 int index = 0;
 
+
                 for (Parameter p : cd.getParameters()) {
 
                     if (cd.getBranches(p).iterator().hasNext()) {
 
                         String activityName = cd.getBranches(p).iterator().next().toString().toLowerCase();
+
 
 
                         if (activityName.contains(" "))
@@ -263,9 +265,12 @@ public class Loader {
 
                     int dialogResult = 0;
 
-                    System.out.println("The constraint '" + constraint + "' refers to the activity '" + activities_not_in_the_repo_vector.elementAt(0) + "',\nwhich is not listed in the activities repository! Such a constraint can not be properly imported, unless the missing activity is not imported in the repository.\n\nDo you want to import the activity '" + activities_not_in_the_repo_vector.elementAt(0) + "' in the activities repository? ATTENTION!");
+                    if (Container.hold_not_found_constraints == true) {
 
-                    for (int h = 0; h < activities_not_in_the_repo_vector.size(); h++) {
+
+                        System.out.println("The constraint '" + constraint + "' refers to the activity '" + activities_not_in_the_repo_vector.elementAt(0) + "',\nwhich is not listed in the activities repository! Such a constraint can not be properly imported, unless the missing activity is not imported in the repository.\n\nDo you want to import the activity '" + activities_not_in_the_repo_vector.elementAt(0) + "' in the activities repository? ATTENTION!");
+
+                        for (int h = 0; h < activities_not_in_the_repo_vector.size(); h++) {
                             String specific_activity = activities_not_in_the_repo_vector.elementAt(h);
 
                             Container.getActivitiesRepository_vector().addElement(specific_activity);
@@ -273,7 +278,7 @@ public class Loader {
                             Container.getAlphabetListModel().addElement(specific_activity);
                         }
                         Container.getConstraintsListModel().addElement(constraint);
-
+                    }
                 } else if (!Container.getConstraintsListModel().contains(constraint))
                     Container.getConstraintsListModel().addElement(constraint);
 

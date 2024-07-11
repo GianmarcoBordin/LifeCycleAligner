@@ -6,8 +6,11 @@ import javax.xml.transform.*;
 import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
 import java.io.*;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+
+import static main.Utilities.removeAfterUnderscore;
 
 public class Lifecycle {
 
@@ -22,7 +25,38 @@ public class Lifecycle {
 
             // List of general activities to be added
             List<String> generalActivities = Container.getGeneralActivitiesRepository();
+            List<String> generalActivities2 = new ArrayList<>();
+            List<String> seenActivities = new ArrayList<>();
+            List<String> notWanted =new ArrayList<>();
+            notWanted.add("activityr");
+            notWanted.add("activitym");
+            notWanted.add("activityl");
+            notWanted.add("activityp");
+            notWanted.add("activityo");
+            notWanted.add("activityn");
+            notWanted.add("activityk");
+            notWanted.add("p18");
+            notWanted.add("p22");
+            notWanted.add("p11");
+            notWanted.add("p2");
+            notWanted.add("p8");
+            notWanted.add("p4");
+            notWanted.add("p10");
+            notWanted.add("p13");
+            notWanted.add("p5");
+            notWanted.add("p1");
+            notWanted.add("p12");
+            notWanted.add("p20");
+            notWanted.add("p15");
+            notWanted.add("p6");
 
+            for (String a:generalActivities){
+                if (!seenActivities.contains(removeAfterUnderscore(a)) && !notWanted.contains(removeAfterUnderscore(a))) {
+                    generalActivities2.add(removeAfterUnderscore(a));
+                    seenActivities.add(removeAfterUnderscore(a));
+                }
+            }
+            System.out.println(generalActivities2);
             // Get the activitydefinitions element or create it if it doesn't exist
             NodeList activityDefinitionsNodes = doc.getElementsByTagName("activitydefinitions");
             Element activityDefinitionsElement;
@@ -34,7 +68,7 @@ public class Lifecycle {
             }
 
             // Add lifecycle activities and corresponding chain succession constraints
-            for (String activity : generalActivities) {
+            for (String activity : generalActivities2) {
                 createActivity(doc, activityDefinitionsElement, activity);
 
                 // Create chain succession constraints for this activity
@@ -70,6 +104,7 @@ public class Lifecycle {
     public static void createActivity(Document doc, Element activityDefinitionsElement, String activity) {
         // Create activity element
             for(int i = 0; i< Container.lifecycles.length; i++) {
+
                 String activityName= activity+"-"+Container.lifecycles[i];
 
                 Element activityElement = doc.createElement("activity");
@@ -151,11 +186,11 @@ public class Lifecycle {
         template.appendChild(description);
 
         Element display = doc.createElement("display");
-        display.appendChild(doc.createTextNode("not chain succession"));
+        display.appendChild(doc.createTextNode(" chain succession"));
         template.appendChild(display);
 
         Element templateName = doc.createElement("name");
-        templateName.appendChild(doc.createTextNode("not chain succession"));
+        templateName.appendChild(doc.createTextNode(" chain succession"));
         template.appendChild(templateName);
 
         Element text = doc.createElement("text");
