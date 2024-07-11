@@ -40,22 +40,18 @@ public class Main {
             }
         }
 
-
         System.out.println("----- FILE IMPORTS PHASE COMPLETED -----");
 
         System.out.println("----- PREPROCESSING PHASE STARTED -----");
 
-        File lifecycle_file = Lifecycle.combine();
-
-        Loader.loadXml(lifecycle_file);
 
         System.out.println("----- PREPROCESSING PHASE COMPLETED -----");
 
-
         System.out.println("----- GROUNDING PHASE STARTED -----");
 
-
-        Generator.goToPlanner();
+        if (!Generator.goToPlanner()){
+            System.exit(-1);
+        }
 
         System.out.println("----- GROUNDING PHASE COMPLETED -----");
 
@@ -65,18 +61,12 @@ public class Main {
 
         System.out.println("----- PDDL FILES GENERATION PHASE COMPLETED -----");
 
-        System.out.println("----- RESULT PHASE STARTED -----");
+        //System.out.println("----- RESULT PHASE STARTED -----");
 
-        Runner.runPlanner();
+        //Runner.runPlanner();
 
-        System.out.println("----- RESULT PHASE COMPLETED -----");
+        //System.out.println("----- RESULT PHASE COMPLETED -----");
 
 
     }
-
-
-
-
-
-
 }

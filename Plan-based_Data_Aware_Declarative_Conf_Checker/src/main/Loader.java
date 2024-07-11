@@ -7,12 +7,11 @@ import org.deckfour.xes.model.XLog;
 import org.deckfour.xes.model.XTrace;
 import org.processmining.plugins.declare.visualizing.*;
 
-import javax.swing.*;
 import java.io.File;
+import java.util.Objects;
 import java.util.Vector;
 
 
-import static main.Lifecycle.createLifecycleDot;
 import static main.Utilities.removeAfterUnderscore;
 
 public class Loader {
@@ -23,10 +22,14 @@ public class Loader {
                 loadXes(file);
                 break;
             case "xml":
-                loadXml(file);
+                File lifecycle_file = Lifecycle.combine(file.toPath().toString());
+                if (lifecycle_file == null){
+                    System.out.println("The Constraint file must not be null");
+                    System.exit(-1);
+                }
+                loadXml(lifecycle_file);
                 break;
             case "dot":
-                //dots.addElement(file.toPath().toString());
                 loadDot(file);
                 break;
             default:
@@ -148,13 +151,14 @@ public class Loader {
             Container.setActivitiesRepository_vector(loaded_alphabet_vector);
             String act = null;
             for (int kix = 0; kix < loaded_alphabet_vector.size(); kix++) {
-                //lifecycleActivityDot = createLifecycleDotActivityNotPresent(loaded_alphabet_vector.elementAt(kix));
-                lifecycleActivityDot = createLifecycleDot(loaded_alphabet_vector.elementAt(kix));
+                //lifecycleActivityDot = createLifecycleDot(loaded_alphabet_vector.elementAt(kix));
                 act = removeAfterUnderscore(loaded_alphabet_vector.elementAt(kix));
                 assert act != null && lifecycleActivityDot != null && lifecycleActivityDot.exists() && lifecycleActivityDot.isFile();
                 //loadDot(lifecycleActivityDot);
                 if (!Container.getGeneralActivitiesRepository().contains(act)){
-                    Container.getGeneralActivitiesRepository().addElement(act);
+                    if (!Objects.equals(act, "p18")) {
+                        Container.getGeneralActivitiesRepository().addElement(act);
+                    }
                 }
                 Container.getAlphabetListModel().addElement(loaded_alphabet_vector.elementAt(kix));
                 Container.getAlphabetListModel().addElement(loaded_alphabet_vector.elementAt(kix));
@@ -186,11 +190,13 @@ public class Loader {
     public static void loadXml(File selectedFile) {
         try {
 
+
             AssignmentViewBroker broker = XMLBrokerFactory.newAssignmentBroker(selectedFile.getAbsolutePath());
 
             AssignmentModel assmod = broker.readAssignment();
 
             for (ConstraintDefinition cd : assmod.getConstraintDefinitions()) {
+
 
                 boolean is_valid_constraint = true;
                 Vector<String> activities_not_in_the_repo_vector = new Vector<String>();
@@ -204,6 +210,7 @@ public class Loader {
                     if (cd.getBranches(p).iterator().hasNext()) {
 
                         String activityName = cd.getBranches(p).iterator().next().toString().toLowerCase();
+
 
                         if (activityName.contains(" "))
                             activityName = activityName.replaceAll(" ", "");
@@ -256,13 +263,9 @@ public class Loader {
 
                     int dialogResult = 0;
 
-                    if (activities_not_in_the_repo_vector.size() == 1)
-                        System.out.println("The constraint '" + constraint + "' refers to the activity '" + activities_not_in_the_repo_vector.elementAt(0) + "',\nwhich is not listed in the activities repository! Such a constraint can not be properly imported, unless the missing activity is not imported in the repository.\n\nDo you want to import the activity '" + activities_not_in_the_repo_vector.elementAt(0) + "' in the activities repository? ATTENTION!");
-                    else
-                        System.out.println(
-                                "The constraint '" + constraint + "' refers to the activities: \n" + activities_not_in_the_repo_vector + ", which are not listed in the activities repository!\nSuch a constraint can not be properly imported, unless the missing activities are not imported in the repository.\n\nDo you want to import the activities " + activities_not_in_the_repo_vector + " in the activities repository? ATTENTION!");
-                    if (dialogResult == JOptionPane.YES_OPTION) {
-                        for (int h = 0; h < activities_not_in_the_repo_vector.size(); h++) {
+                    System.out.println("The constraint '" + constraint + "' refers to the activity '" + activities_not_in_the_repo_vector.elementAt(0) + "',\nwhich is not listed in the activities repository! Such a constraint can not be properly imported, unless the missing activity is not imported in the repository.\n\nDo you want to import the activity '" + activities_not_in_the_repo_vector.elementAt(0) + "' in the activities repository? ATTENTION!");
+
+                    for (int h = 0; h < activities_not_in_the_repo_vector.size(); h++) {
                             String specific_activity = activities_not_in_the_repo_vector.elementAt(h);
 
                             Container.getActivitiesRepository_vector().addElement(specific_activity);
@@ -270,7 +273,7 @@ public class Loader {
                             Container.getAlphabetListModel().addElement(specific_activity);
                         }
                         Container.getConstraintsListModel().addElement(constraint);
-                    }
+
                 } else if (!Container.getConstraintsListModel().contains(constraint))
                     Container.getConstraintsListModel().addElement(constraint);
 

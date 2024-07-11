@@ -41,7 +41,7 @@ public class Runner {
 
                     Timestamp tmsp_log = new Timestamp(new Date().getTime());
 
-                    results_log_file = "results/res_" + tmsp_log + ".txt";
+                    results_log_file = "/Users/applem2/Downloads/Work/tesi/Project/Aligner/Plan-based_Data_Aware_Declarative_Conf_Checker/results/res_" + tmsp_log + ".txt";
                     scriviFile(results_log_file, new StringBuffer(""));
 
                     //results_csv_file = "results/csv_" + tmsp_log + ".csv";
@@ -100,12 +100,12 @@ public class Runner {
                         logBuffer.append("*******************************\n");
 
                         //Clean the 'output.sas' file of Fast Downward
-                        File outputSAS_file = new File("fast-downward/src/sas_plan");
+                        File outputSAS_file = new File("/Users/applem2/Downloads/Work/tesi/Project/Aligner/Plan-based_Data_Aware_Declarative_Conf_Checker/fast-downward/src/sas_plan");
                         PrintWriter writer = new PrintWriter(outputSAS_file);
                         writer.print("");
                         writer.close();
 
-                        File outputSYMBA_file = new File("seq-opt-symba-2/out.txt");
+                        File outputSYMBA_file = new File("/Users/applem2/Downloads/Work/tesi/Project/Aligner/Plan-based_Data_Aware_Declarative_Conf_Checker/seq-opt-symba-2/out.txt");
                         writer = new PrintWriter(outputSYMBA_file);
                         writer.print("");
                         writer.close();

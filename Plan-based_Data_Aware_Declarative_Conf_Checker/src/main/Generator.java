@@ -11,7 +11,7 @@ import java.util.*;
 
 public class Generator {
 
-    public static void goToPlanner() {
+    public static boolean goToPlanner() {
         if(!Container.getConstraintsListModel().isEmpty()) {
             Container.setActivitiesCost_vector(new Vector<Vector<String>>());
 
@@ -679,10 +679,12 @@ public class Generator {
 
             }
 
+            return true;
 
         }
         else {
             System.out.println("The list of Declare constraints can not be empty! ATTENTION!");
+            return false;
         }
     }
 
