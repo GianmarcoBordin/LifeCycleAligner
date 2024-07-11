@@ -315,6 +315,7 @@ public class Generator {
                             while (transitions.hasNext()) {
                                 Transition t = transitions.next();
                                 if (!Container.getAlphabetOfTheConstraints_vector().contains(t.getPositiveLabel())) {
+                                    // TODO insert lifecycle automatically
                                     Container.getAlphabetOfTheConstraints_vector().addElement(t.getPositiveLabel());
                                     //
                                     // Update the GUI to show the complete alphabet of activities of the constraints and of the log.

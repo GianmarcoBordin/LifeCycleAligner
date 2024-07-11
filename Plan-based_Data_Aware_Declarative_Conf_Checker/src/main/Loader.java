@@ -12,6 +12,7 @@ import java.util.Objects;
 import java.util.Vector;
 
 
+import static main.Utilities.createLifecycleDot;
 import static main.Utilities.removeAfterUnderscore;
 
 public class Loader {
@@ -151,10 +152,10 @@ public class Loader {
             Container.setActivitiesRepository_vector(loaded_alphabet_vector);
             String act = null;
             for (int kix = 0; kix < loaded_alphabet_vector.size(); kix++) {
-                //lifecycleActivityDot = createLifecycleDot(loaded_alphabet_vector.elementAt(kix));
+                lifecycleActivityDot = createLifecycleDot(loaded_alphabet_vector.elementAt(kix));
                 act = removeAfterUnderscore(loaded_alphabet_vector.elementAt(kix));
                 assert act != null && lifecycleActivityDot != null && lifecycleActivityDot.exists() && lifecycleActivityDot.isFile();
-                //loadDot(lifecycleActivityDot);
+                loadDot(lifecycleActivityDot);
                 for (String l: Container.lifecycles){
                     if (!Container.getGeneralActivitiesRepository().contains(act+"_"+l)){
                         Container.getGeneralActivitiesRepository().addElement(act+"_"+l);
