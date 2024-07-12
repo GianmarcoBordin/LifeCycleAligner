@@ -14,6 +14,10 @@ public class Container {
 
 	public final static String[] lifecycles = {"assign","start","complete"} ;
 
+	public final static String WORKING_LIFECYCLE_DIR = "/Users/applem2/Downloads/Work/tesi/Project/Aligner/Plan-based_Data_Aware_Declarative_Conf_Checker/resources/";
+
+	public final static String WORKING_DIR = "/Users/applem2/Downloads/Work/tesi/Project/Aligner/Plan-based_Data_Aware_Declarative_Conf_Checker/";
+
 	public static Vector<String> dots = new Vector<String>() ;
 	public static String PDDL_encoding = "AAAI17"; //It can be equal to "AAAI17" or to "ICAPS16".
     public static boolean hold_not_found_constraints = true;

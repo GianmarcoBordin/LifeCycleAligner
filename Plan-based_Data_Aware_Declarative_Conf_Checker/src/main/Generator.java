@@ -6,6 +6,7 @@ import org.processmining.ltl2automaton.plugins.automaton.Automaton;
 import org.processmining.ltl2automaton.plugins.automaton.State;
 import org.processmining.ltl2automaton.plugins.automaton.Transition;
 
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.*;
 
@@ -21,7 +22,6 @@ public class Generator {
             // Reset the vector containing the minimum and maximum length of the traces.
             Container.setMinimumLengthOfATrace(0);
             Container.setMaximumLengthOfATrace(0);
-            System.out.println(Container.getConstraintsListModel());
             for(int i = 0; i< Container.getAlphabetListModel().size(); i++) {
                 String string = (String) Container.getAlphabetListModel().get(i);
 
@@ -79,7 +79,7 @@ public class Generator {
             Container.setAutomataAllStates_vector(new Vector<String>());
 
             //
-            // Reset the global auxiliar stringbuffers used to record all the states/the accepting states/the initial states
+            // Reset the global auxiliary string buffers used to record all the states/the accepting states/the initial states
             // of the automata associated to the Declare/LTL constraints in the PDDL format.
             //
             Container.setPDDLAutomataInitialStates_sb(new StringBuffer());
@@ -395,10 +395,11 @@ public class Generator {
 
                         try {
                             automaton = Utilities.getAutomatonForModelLearning(DFA_file_path);
-                            //automaton = Utilities.getAutomatonForModelLearningDot(DFA_file_path);
                         } catch (FileNotFoundException e) {
                             e.printStackTrace();
                         }
+                        File currentFile = new File(DFA_file_path);
+                        currentFile.delete();
 
                         org.processmining.ltl2automaton.plugins.automaton.State s = automaton.getInit();
                         Iterator<State> it = automaton.iterator();
@@ -881,12 +882,12 @@ public class Generator {
             }
 
             if(Container.getFDOptimalCheckBox()) {
-                Utilities.emptyFolder("/Users/applem2/Downloads/Work/tesi/Project/Aligner/Plan-based_Data_Aware_Declarative_Conf_Checker/fast-downward/src/Conformance_Checking");
+                Utilities.emptyFolder(Container.WORKING_DIR+"fast-downward/src/Conformance_Checking");
             }
 
             if(Container.getSymBAoptimalCheckBox()) {
-                Utilities.emptyFolder("/Users/applem2/Downloads/Work/tesi/Project/Aligner/Plan-based_Data_Aware_Declarative_Conf_Checker/seq-opt-symba-2/Conformance_Checking");
-                Utilities.emptyFolder("/Users/applem2/Downloads/Work/tesi/Project/Aligner/Plan-based_Data_Aware_Declarative_Conf_Checker/seq-opt-symba-2/results");
+                Utilities.emptyFolder(Container.WORKING_DIR+"/seq-opt-symba-2/Conformance_Checking");
+                Utilities.emptyFolder(Container.WORKING_DIR+"/seq-opt-symba-2/results");
             }
 
             if(Container.getCostCheckBox()) {
@@ -936,13 +937,13 @@ public class Generator {
                             int trace_real_number = k + 1;
 
                             if(Container.getFDOptimalCheckBox()) {
-                                Utilities.createFile("/Users/applem2/Downloads/Work/tesi/Project/Aligner/Plan-based_Data_Aware_Declarative_Conf_Checker/fast-downward/src/Conformance_Checking/domain" + trace_real_number + ".pddl", sb_domain);
-                                Utilities.createFile("/Users/applem2/Downloads/Work/tesi/Project/Aligner/Plan-based_Data_Aware_Declarative_Conf_Checker/fast-downward/src/Conformance_Checking/problem" + trace_real_number + ".pddl", sb_problem);
+                                Utilities.createFile(Container.WORKING_DIR+"fast-downward/src/Conformance_Checking/domain" + trace_real_number + ".pddl", sb_domain);
+                                Utilities.createFile(Container.WORKING_DIR+"fast-downward/src/Conformance_Checking/problem" + trace_real_number + ".pddl", sb_problem);
                             }
 
                             if(Container.getSymBAoptimalCheckBox()) {
-                                Utilities.createFile("/Users/applem2/Downloads/Work/tesi/Project/Aligner/Plan-based_Data_Aware_Declarative_Conf_Checker/seq-opt-symba-2/Conformance_Checking/domain" + trace_real_number + ".pddl", sb_domain);
-                                Utilities.createFile("/Users/applem2/Downloads/Work/tesi/Project/Aligner/Plan-based_Data_Aware_Declarative_Conf_Checker/seq-opt-symba-2/Conformance_Checking/problem" + trace_real_number + ".pddl", sb_problem);
+                                Utilities.createFile(Container.WORKING_DIR+"seq-opt-symba-2/Conformance_Checking/domain" + trace_real_number + ".pddl", sb_domain);
+                                Utilities.createFile(Container.WORKING_DIR+"seq-opt-symba-2/Conformance_Checking/problem" + trace_real_number + ".pddl", sb_problem);
                             }
                         }
                     }
@@ -958,14 +959,14 @@ public class Generator {
                         int trace_real_number = k + 1;
 
                         if(Container.getFDOptimalCheckBox()) {
-                            Utilities.createFile("/Users/applem2/Downloads/Work/tesi/Project/Aligner/Plan-based_Data_Aware_Declarative_Conf_Checker/fast-downward/src/Conformance_Checking/domain" + trace_real_number + ".pddl", sb_domain);
-                            Utilities.createFile("/Users/applem2/Downloads/Work/tesi/Project/Aligner/Plan-based_Data_Aware_Declarative_Conf_Checker/fast-downward/src/Conformance_Checking/problem" + trace_real_number + ".pddl", sb_problem);
+                            Utilities.createFile(Container.WORKING_DIR+"fast-downward/src/Conformance_Checking/domain" + trace_real_number + ".pddl", sb_domain);
+                            Utilities.createFile(Container.WORKING_DIR+"fast-downward/src/Conformance_Checking/problem" + trace_real_number + ".pddl", sb_problem);
                         }
 
                         if(Container.getSymBAoptimalCheckBox()) {
 
-                            Utilities.createFile("/Users/applem2/Downloads/Work/tesi/Project/Aligner/Plan-based_Data_Aware_Declarative_Conf_Checker/seq-opt-symba-2/Conformance_Checking/domain" + trace_real_number + ".pddl", sb_domain);
-                            Utilities.createFile("/Users/applem2/Downloads/Work/tesi/Project/Aligner/Plan-based_Data_Aware_Declarative_Conf_Checker/seq-opt-symba-2/Conformance_Checking/problem" + trace_real_number + ".pddl", sb_problem);
+                            Utilities.createFile(Container.WORKING_DIR+"seq-opt-symba-2/Conformance_Checking/domain" + trace_real_number + ".pddl", sb_domain);
+                            Utilities.createFile(Container.WORKING_DIR+"seq-opt-symba-2/Conformance_Checking/problem" + trace_real_number + ".pddl", sb_problem);
                         }
                     }
                 }

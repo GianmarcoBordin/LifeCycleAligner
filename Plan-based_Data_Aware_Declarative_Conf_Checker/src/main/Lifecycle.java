@@ -89,7 +89,7 @@ public class Lifecycle {
         dot.append("}");
 
         // Write DOT content to a file
-        String pathname="/Users/applem2/Downloads/Work/tesi/Project/Aligner/Plan-based_Data_Aware_Declarative_Conf_Checker/resources/declarative-models/Data-Aware/5-CONSTRAINTS/"+activity + "_lifecycle.dot";
+        String pathname=Container.WORKING_LIFECYCLE_DIR+ "lifecycle/"+ activity + "_lifecycle.dot";
         File dotFile = new File(pathname);
         try (FileWriter writer = new FileWriter(dotFile)) {
             writer.write(dot.toString());
@@ -144,7 +144,6 @@ public class Lifecycle {
                     seenActivities.add(removeAfterUnderscore(a));
                 }
             }
-            System.out.println(generalActivities2);
             // Get the activitydefinitions element or create it if it doesn't exist
             NodeList activityDefinitionsNodes = doc.getElementsByTagName("activitydefinitions");
             Element activityDefinitionsElement;
@@ -174,11 +173,10 @@ public class Lifecycle {
             TransformerFactory transformerFactory = TransformerFactory.newInstance();
             Transformer transformer = transformerFactory.newTransformer();
             DOMSource source = new DOMSource(doc);
-            outputFile =new File("/Users/applem2/Downloads/Work/tesi/Project/Aligner/Plan-based_Data_Aware_Declarative_Conf_Checker/resources/declarative-models/DECLARE-models/10ConstraintsCopy.xml");
+            outputFile =new File(Container.WORKING_LIFECYCLE_DIR+"lifecycle/lifecycle.xml");
             StreamResult result = new StreamResult(outputFile);
             transformer.transform(source, result);
 
-            System.out.println("XML file updated successfully");
 
 
         } catch (Exception e) {

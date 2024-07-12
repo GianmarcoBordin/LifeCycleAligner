@@ -25,8 +25,7 @@ import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
 
-import static main.Container.dots;
-import static main.Container.lifecycles;
+import static main.Container.*;
 
 public class Utilities {
 
@@ -47,9 +46,9 @@ public class Utilities {
 		}
 	}
 	public static void cleanAll(){
-		Utilities.emptyFolder("/Users/applem2/Downloads/Work/tesi/Project/Aligner/Plan-based_Data_Aware_Declarative_Conf_Checker/resources/lifecycle");
-		Utilities.emptyFolder("/Users/applem2/Downloads/Work/tesi/Project/Aligner/Plan-based_Data_Aware_Declarative_Conf_Checker/seq-opt-symba-2/Conformance_Checking");
-		Utilities.emptyFolder("/Users/applem2/Downloads/Work/tesi/Project/Aligner/Plan-based_Data_Aware_Declarative_Conf_Checker/seq-opt-symba-2/results");
+		Utilities.emptyFolder(Container.WORKING_LIFECYCLE_DIR+"lifecycle");
+		Utilities.emptyFolder(WORKING_DIR+"seq-opt-symba-2/Conformance_Checking");
+		Utilities.emptyFolder(Container.WORKING_DIR+"seq-opt-symba-2/results");
 
 	}
 	public static void setExecutables() {
