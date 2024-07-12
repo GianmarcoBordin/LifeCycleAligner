@@ -154,16 +154,15 @@ public class Loader {
             Container.setActivitiesRepository_vector(loaded_alphabet_vector);
             String act = null;
             for (int kix = 0; kix < loaded_alphabet_vector.size(); kix++) {
-                //lifecycleActivityDot = createLifecycleDot(loaded_alphabet_vector.elementAt(kix));
                 lifecycleActivityDot = createLifecycleDot(loaded_alphabet_vector.elementAt(kix));
                 act = removeAfterUnderscore(loaded_alphabet_vector.elementAt(kix));
                 assert act != null && lifecycleActivityDot != null && lifecycleActivityDot.exists() && lifecycleActivityDot.isFile();
-                //loadDot(lifecycleActivityDot);
-                loadDot(lifecycleActivityDot);
+                if (Container.getLifecycle())
+                    loadDot(lifecycleActivityDot);
                 for (String l: Container.lifecycles){
                     if (!Container.getGeneralActivitiesRepository().contains(act+"_"+l)){
                         Container.getGeneralActivitiesRepository().addElement(act+"_"+l);
-                        Container.getActivitiesRepository_vector().addElement(act+"_"+l);
+                        Container.getActivitiesRepository_vector().addElement(act+"_"+l); // TODO see
                     }
                     Container.getAlphabetListModel().addElement(act+"_"+l);
                 }
@@ -270,7 +269,7 @@ public class Loader {
                     if (Container.hold_not_found_constraints == true) {
 
 
-                        System.out.println("The constraint '" + constraint + "' refers to the activity '" + activities_not_in_the_repo_vector.elementAt(0) + "',\nwhich is not listed in the activities repository! Such a constraint can not be properly imported, unless the missing activity is not imported in the repository.\n\nDo you want to import the activity '" + activities_not_in_the_repo_vector.elementAt(0) + "' in the activities repository? ATTENTION!");
+                        System.out.println("The constraint '" + constraint + "' refers to the activity '" + activities_not_in_the_repo_vector.elementAt(0) + "',\nwhich is not listed in the activities repository! Such a constraint can not be properly imported, unless the missing activity is not imported in the repository. ATTENTION!");
 
                         for (int h = 0; h < activities_not_in_the_repo_vector.size(); h++) {
                             String specific_activity = activities_not_in_the_repo_vector.elementAt(h);

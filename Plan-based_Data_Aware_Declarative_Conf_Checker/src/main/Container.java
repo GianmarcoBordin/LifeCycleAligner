@@ -23,6 +23,8 @@ public class Container {
     public static boolean hold_not_found_constraints = true;
     private static boolean discard_duplicated_traces = false;
 	private static boolean combineXml = false;
+
+	private static boolean lifecycle = false;
     private static boolean sinkStatesMenuItem = true;
 	private  static boolean disjunctiveGoalMenuItem= true;
 	private static boolean productAutomatonMenuItem =false;
@@ -37,7 +39,7 @@ public class Container {
 	private static int minimum_length_of_a_trace = 0;
 	private static int maximum_length_of_a_trace = 0;
 	private static int number_of_traces_ComboBox_FROM = 1;
-	private static int number_of_traces_ComboBox_TO=1; // TODO used in result perspective
+	private static int number_of_traces_ComboBox_TO=1;
 	private static int lenght_of_traces_ComboBox_FROM= 0;
 	private static int lenght_of_traces_ComboBox_TO=0;
 	private static boolean number_of_traces_checkBox = false;
@@ -312,5 +314,10 @@ public class Container {
 	public static boolean getCombineXml() {
 		return Container.combineXml;
 	}
+
+	public static boolean getLifecycle() {
+		return Container.lifecycle;
+	}
+
 
 }
