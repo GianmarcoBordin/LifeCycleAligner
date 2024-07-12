@@ -398,8 +398,8 @@ public class Generator {
                         } catch (FileNotFoundException e) {
                             e.printStackTrace();
                         }
-                        File currentFile = new File(DFA_file_path);
-                        currentFile.delete();
+                        /*File currentFile = new File(DFA_file_path);
+                        currentFile.delete();*/
 
                         org.processmining.ltl2automaton.plugins.automaton.State s = automaton.getInit();
                         Iterator<State> it = automaton.iterator();
