@@ -18,6 +18,7 @@ public class Container {
 	public static String PDDL_encoding = "AAAI17"; //It can be equal to "AAAI17" or to "ICAPS16".
     public static boolean hold_not_found_constraints = true;
     private static boolean discard_duplicated_traces = false;
+	private static boolean combineXml = false;
     private static boolean sinkStatesMenuItem = true;
 	private  static boolean disjunctiveGoalMenuItem= true;
 	private static boolean productAutomatonMenuItem =false;
@@ -304,5 +305,8 @@ public class Container {
 		return Container.generalActivitiesRepository;
 	}
 
+	public static boolean getCombineXml() {
+		return Container.combineXml;
+	}
 
 }

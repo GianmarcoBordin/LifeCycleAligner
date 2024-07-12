@@ -12,7 +12,7 @@ import java.util.Objects;
 import java.util.Vector;
 
 
-import static main.Utilities.createLifecycleDot;
+import static main.Lifecycle.createLifecycleDot;
 import static main.Utilities.removeAfterUnderscore;
 
 public class Loader {
@@ -23,12 +23,14 @@ public class Loader {
                 loadXes(file);
                 break;
             case "xml":
-                File lifecycle_file = Lifecycle.combine(file.toPath().toString());
-                if (lifecycle_file == null){
-                    System.out.println("The Constraint file must not be null");
-                    System.exit(-1);
+                if (Container.getCombineXml()) {
+                    file = Lifecycle.combine(file.toPath().toString());
+                    if (file == null) {
+                        System.out.println("The Constraint file must not be null");
+                        System.exit(-1);
+                    }
                 }
-                loadXml(lifecycle_file);
+                loadXml(file);
                 break;
             case "dot":
                 loadDot(file);
@@ -171,9 +173,6 @@ public class Loader {
         if (Container.getAllTraces_vector().isEmpty()) {
             System.out.println("There is no trace defined for the log!\nAt least a trace (even if empty) is required to run the software! ATTENTION!");
         } else {
-
-
-
 
             Container.setAlphabetOfTheTraces_vector(new Vector<String>());
 

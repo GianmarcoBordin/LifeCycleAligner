@@ -12,6 +12,9 @@ import java.util.*;
 public class Generator {
 
     public static boolean goToPlanner() {
+        //
+        // The tool works properly only if the set of Declare/LTL constraints is not empty. Otherwise, it throws an exception.
+        //
         if(!Container.getConstraintsListModel().isEmpty()) {
             Container.setActivitiesCost_vector(new Vector<Vector<String>>());
 
@@ -23,7 +26,9 @@ public class Generator {
                 String string = (String) Container.getAlphabetListModel().get(i);
 
                 Container.getActivitiesArea().append(string + "\n");
-
+                //
+                // Update the global vector containing the cost of adding/removing activities in/from the trace (the default cost is equal to 1).
+                //
                 Vector<String> v = new Vector<String>();
                 v.addElement(string);
 
@@ -38,50 +43,113 @@ public class Generator {
                 }
                 Container.getActivitiesCost_vector().addElement(v);
             }
+            //
+            // Reset the global vector containing the list of Declare/LTL constraints.
+            //
 
             Container.setAllConstraints_vector(new Vector<String>());
 
+            //
+            // Reset the vector containing the alphabet of activities involved ONLY in the Declare/LTL constraints.
+            //
             Container.setAlphabetOfTheConstraints_vector(new Vector<String>());
 
+            //
+            // LTL formula that records the conjunction of the single LTL formulas of any automaton (in order to build a product automaton).
+            //
             String ltl_formula_for_product_automaton = new String();
 
+            //
+            // Create a local vector containing an automaton for any Declare/LTL constraint.
+            //
             Vector<Automaton> automata_vector = new Vector<Automaton>();
 
+            //
+            // Create a local vector containing the relevant transitions (a transition is said to be "relevant" if the source and the target state
+            // are different) of any automaton representing a Declare/LTL constraint.
+            //
             Vector<RelevantTransition> relevant_transitions_vector = new Vector<RelevantTransition>();
 
+            //
+            // Reset the global vectors used to record all the states/the accepting states/the initial states
+            // of the automata associated to the Declare/LTL constraints.
+            //
             Container.setAutomataInitialStates_vector(new Vector<String>());
             Container.setAutomataAcceptingStates_vector(new Vector<String>());
             Container.setAutomataAllStates_vector(new Vector<String>());
 
+            //
+            // Reset the global auxiliar stringbuffers used to record all the states/the accepting states/the initial states
+            // of the automata associated to the Declare/LTL constraints in the PDDL format.
+            //
             Container.setPDDLAutomataInitialStates_sb(new StringBuffer());
             Container.setPDDLAutomataAcceptingStates_sb(new StringBuffer());
             Container.setPDDLAutomataAllStates_sb(new StringBuffer());
 
 
+            //
+            // Reset the global vector used to record the abstract accepting states of the automata associated to the Declare/LTL constraints.
+            //
             Container.setAutomataAbstractAcceptingStates_vector(new Vector<String>());
 
+            //
+            // Reset the global auxiliar StringBuffer used to record all the PDDL actions required to connect the regular accepting states
+            // of one automaton to the abstract states stored in the vector "Constant.automata_abstract_accepting_states".
+            //
+            //Constants.setPDDLActionsForAbstractAcceptingStates_sb(new StringBuffer());
+
+            //
+            // Reset the global vector used to record the non-accepting sink states of the automata associated to the Declare/LTL constraints.
+            //
             Container.setAutomataSinkNonAcceptingStates_vector(new Vector<String>());
 
+            //
+            // Define the prefix and the index of the states of the automata and of their relevant transitions.
+            // For example, if the first automaton (i.e., with "automaton_index" equal to 0) has two states and three relevant transitions,
+            // we would have: s_0_0, s_0_1 (states) and tr_0_1, tr_0_2, tr_0_3 (relevant transitions).
+            // A second automaton will "automaton_index" equal to 1, a third automaton will have "automaton_index" equal to 2, and so on.
+            //
             String st_prefix = "s";
             String tr_prefix = "tr";
             int automaton_index = 0;
             int single_tr_index = 0;
 
+            //
+            // Reset the local Multimap "transitions_map", which will contain the list of relevant transitions taken from
+            // any automaton with the associations to their specific label (e.g., a=[tr_0_0,tr_1_0], b=[tr_1_2], etc.).
+            //
             Multimap<String, String> transitions_map = HashMultimap.create();
 
+            //
+            // For any Declare/LTL constraint, generate the supporting structures required to synthexize correct planning domains and problems.
+            //
             for(int k = 0; k< Container.getConstraintsListModel().size(); k++) {
 
-
-
+                //
+                // Reset the local LTL formula that records the Declare/LTL constraint under consideration.
+                //
                 String ltl_formula = new String();
+                //
+                // Reset the local vector used to record the accepting states of an automaton.
+                //
 
                 Vector<String> automaton_accepting_states_vector = new Vector<String>();
+                //
+                // Reset for any Declare/LTL constraint - i.e., for any corresponding automaton - the index of its relevant transitions.
+                //
 
                 single_tr_index = 0;
+                //
+                // For any Declare/LTL constraint, update the instance of kind PlannerPerspective in order to show in the associated GUI
+                // (when the FOR cycle completes) the complete list of Declare/LTL constraints defined by the user.
+                //
 
                 String temporal_constraint = (String) Container.getConstraintsListModel().get(k);
                 Container.getConstraintsArea().append(temporal_constraint + "\n");
 
+                //
+                // Update the global vector containing the Declare/LTL constraints with the actual constraint under consideration.
+                //
                 Container.getAllConstraints_vector().addElement(temporal_constraint);
 
                 String constraint_name = "";
@@ -153,6 +221,9 @@ public class Generator {
                             if (!Container.getAlphabetOfTheConstraints_vector().contains(activities_of_ltl_formula_array[i])) {
                                 Container.getAlphabetOfTheConstraints_vector().addElement(activities_of_ltl_formula_array[i]);
 
+                                //
+                                // Update the global vector containing the cost of adding/removing activities in/from the trace (the default cost is equal to 1).
+                                //
                                 Vector<String> v = new Vector<String>();
                                 v.addElement(activities_of_ltl_formula_array[i]);
 
@@ -173,25 +244,43 @@ public class Generator {
                     }
                 }
                 else if (!temporal_constraint.startsWith("DFA{")) {
+                    //
+                    // Extract the activities involved in the constraint under consideration.
+                    //
 
                     String[] constraint_splitted = temporal_constraint.split("\\(");
 
 
+                    //
+                    // Extract the name of the constraint (existence, response, etc.).
+                    //
                     constraint_name = constraint_splitted[0];
 
                     String[] constraint_splitted_2 = constraint_splitted[1].split("\\)");
 
+                    //
+                    // FIRST CASE: the constraint involves two activities (e.g., response(A,B)).
+                    //
 
                     if (constraint_splitted_2[0].contains(",")) {
 
                         String[] constraint_splitted_3 = constraint_splitted_2[0].split(",");
 
 
+                        //
+                        // Extract the name of the first activity (e.g., if the constraint is response(A,B), the first activity is "A").
+                        //
                         String activity1 = constraint_splitted_3[0];
 
+                        //
+                        // Extract the name of the second activity (e.g., if the constraint is response(A,B), the second activity is "B").
+                        //
                         String activity2 = constraint_splitted_3[1];
 
 
+                        //
+                        // Update the global vector containing the alphabet of activities involved in the Declare/LTL constraints
+                        //
                         if (!Container.getAlphabetOfTheConstraints_vector().contains(activity1))
                             Container.getAlphabetOfTheConstraints_vector().addElement(activity1);
 
@@ -201,6 +290,9 @@ public class Generator {
 
                         if (Container.getPDDL_encoding().equalsIgnoreCase("AAAI17")) {
 
+                            //
+                            // Infer the LTL constraint associated to any Declare template.
+                            //
 
                             if (constraint_name.equalsIgnoreCase("choice"))
                                 ltl_formula = LTLFormula.getFormulaByTemplate(DeclareTemplate.Choice, activity1, activity2);
@@ -248,13 +340,15 @@ public class Generator {
                         }
                         /////// **** END of AAAI2017 **** ////////////////////////////
                     } else {
+                        //
+                        // SECOND CASE: the constraint involves one activity (e.g., existence(A))
+                        //
 
                         String activity = constraint_splitted_2[0];
 
                         if (!Container.getAlphabetOfTheConstraints_vector().contains(activity))
                             Container.getAlphabetOfTheConstraints_vector().addElement(activity);
 
-                        /////// **** AAAI2017 **** ////////////////////////////
 
                         if (Container.getPDDL_encoding().equalsIgnoreCase("AAAI17")) {
 
@@ -270,7 +364,6 @@ public class Generator {
                             else if (constraint_name.equalsIgnoreCase("absence2"))
                                 ltl_formula = LTLFormula.getFormulaByTemplate(DeclareTemplate.Absence2, activity, null);
                         }
-                        /////// **** END of AAAI2017 **** ////////////////////////////
                     }
                 }
                 if (Container.getPDDL_encoding().equalsIgnoreCase("AAAI17")) {
@@ -315,7 +408,6 @@ public class Generator {
                             while (transitions.hasNext()) {
                                 Transition t = transitions.next();
                                 if (!Container.getAlphabetOfTheConstraints_vector().contains(t.getPositiveLabel())) {
-                                    // TODO insert lifecycle automatically
                                     Container.getAlphabetOfTheConstraints_vector().addElement(t.getPositiveLabel());
                                     //
                                     // Update the GUI to show the complete alphabet of activities of the constraints and of the log.
@@ -355,6 +447,9 @@ public class Generator {
 
                     org.processmining.ltl2automaton.plugins.automaton.State initial_state_of_the_automaton = automaton.getInit();
 
+                    //
+                    // 1A. Add to the global vector of sink states each non accepting state of the automaton (we are still not sure that it is a sink).
+                    //
                     if (Container.getSinkStatesMenuItem()) {
                         Iterator<org.processmining.ltl2automaton.plugins.automaton.State> it_states = automaton.iterator();
 
@@ -365,11 +460,18 @@ public class Generator {
                         }
                     }
 
+                    //
+                    // Identify the initial state of the specific automaton under consideration and records it in the global vector/stringbuffer of the initial states.
+                    //
                     if (!Container.getAutomataInitialStates_vector().contains(st_prefix + "_" + automaton_index + "_" + initial_state_of_the_automaton.getId())) {
                         Container.getAutomataInitialStates_vector().addElement(st_prefix + "_" + automaton_index + "_" + initial_state_of_the_automaton.getId());
                         Container.getPDDLAutomataInitialStates_sb().append("(currstate " + st_prefix + "_" + automaton_index + "_" + initial_state_of_the_automaton.getId() + ")\n");
                     }
 
+                    //
+                    // For any transition of the automaton under consideration, we check if such transition is relevant
+                    // (i.e., if it connects a target state different from the source state).
+                    //
                     Iterator<Transition> it = automaton.transitions().iterator();
 
                     while (it.hasNext()) {
@@ -420,6 +522,10 @@ public class Generator {
                                 single_tr_index++;
                             } else {
 
+                                // If the label is negative (e.g., !A) there are several possible concrete positive labels (...B,C,D,E,...etc.),
+                                // i.e., several possible valid relevant transitions to be recorded. Starting from a negative label, the positive
+                                // ones are inferred from the repository of activities involved in the log and in the Declare constraints.
+
                                 Collection<String> coll = transition.getNegativeLabels();
 
                                 for (int ix = 0; ix < Container.getActivitiesRepository_vector().size(); ix++) {
@@ -440,6 +546,9 @@ public class Generator {
                                 }
                             }
 
+                            //
+                            // Keep track of all the states of the automaton under consideration and records it in the corresponding global stringbuffer/vector.
+                            //
                             if (!Container.getAutomataAllStates_vector().contains(tr_source_state)) {
                                 Container.getAutomataAllStates_vector().addElement(tr_source_state);
                                 Container.getPDDLAutomataAllStates_sb().append(tr_source_state + " - state\n");
@@ -448,6 +557,9 @@ public class Generator {
                                 Container.getAutomataAllStates_vector().addElement(tr_target_state);
                                 Container.getPDDLAutomataAllStates_sb().append(tr_target_state + " - state\n");
                             }
+                            //
+                            // Keep track of all the accepting states of the automaton under consideration and records it in a local vector.
+                            //
 
                             if (transition.getSource().isAccepting() && !automaton_accepting_states_vector.contains(tr_source_state)) {
                                 automaton_accepting_states_vector.addElement(tr_source_state);
@@ -458,12 +570,25 @@ public class Generator {
 
                         }
 
-
                     }
+                    // Record the accepting states of the automaton under consideration in the corresponding global vector and in the
+                    // global StringBuffer used to take trace of the goal condition.
+                    //
+                    // FIRST CASE: The automaton has several accepting states.
+                    //
+                    // If an automaton has more than one accepting state, such accepting states must be nested in an OR.
+                    // However, if disjunctive conditions are not allowed, an abstract state for the automaton must be generated,
+                    // together with as many planning actions as are the regular accepting states. Such actions represent the transitions
+                    // between the regular accepting states and the abstract accepting state generated.
+                    //
 
 
                     if (automaton_accepting_states_vector.size() > 1) {
 
+                        //
+                        // If the planner used to synhesize the alignment IS ABLE to manage disjunctive goal conditions,
+                        // we can use the OR disjunction in the goal.
+                        //
 
                         if (Container.getDisjunctiveGoalMenuItem()) {
                             Container.getPDDLAutomataAcceptingStates_sb().append("(or \n");
@@ -474,6 +599,10 @@ public class Generator {
                             }
                             Container.getPDDLAutomataAcceptingStates_sb().append(")\n");
                         } else {
+                            //
+                            // If the planner used to synhesize the alignment IS NOT ABLE to manage disjunctive goal conditions,
+                            // we need to generate a single ABSTRACT accepting state for the automaton, used as target for any regular accepting state.
+                            //
                             String aut_abstract_state = st_prefix + "_" + automaton_index + "_" + "abstract";
 
                             Container.getAutomataAbstractAcceptingStates_vector().addElement(aut_abstract_state);
@@ -601,6 +730,15 @@ public class Generator {
                     Collection<String> values = Container.getRelevantTransitions_map().get(key);
 
                     Object[] values_array = values.toArray();
+                    //
+                    // Given a specific label (e.g., A), which groups several transitions of different automata
+                    // (e.g., tr_0_0, tr_1_1, tr_1_2), it is important to discard those combinations that contain
+                    // transitions of the same automaton (for example, any combination that includes at the same time
+                    // tr_1_1 and tr_1_2 must be discarded).
+                    //
+                    // FIRST OF ALL, we identify the underlying automata of the relevant transitions associated to the
+                    // specific label. In the above example, two different automata having ID "0" and "1" are considered.
+                    //
 
                     Vector<String> automata_id_of_relevant_transitions_vector = new Vector<String>();
                     for (Object o : values_array) {
@@ -629,7 +767,9 @@ public class Generator {
             }
 
 
-
+            //
+            // Reset the global Hashtable used to record the content of all the different traces of the log (in the String format).
+            //
 
             Container.setContentOfAnyDifferentTrace_Hashtable(new Hashtable<String,String>());
 
@@ -647,11 +787,17 @@ public class Generator {
                 Container.getTraceArea().append("}\n");
 
 
+                //
+                // Update the global Hashtable used to record the content of all the different traces of the log (in the String format).
+                //
                 if(!Container.getContentOfAnyDifferentTrace_Hashtable().containsKey(trace.getOriginalTraceContent_string()))  {
                     Container.getContentOfAnyDifferentTrace_Hashtable().put(trace.getOriginalTraceContent_string().toString(),trace.getTraceName());
                 }
 
 
+                //
+                // For any analyzed trace, update the variables recording the minimum and maximum length of a log trace.
+                //
                 if(j==0)  {
                     Container.setMinimumLengthOfATrace(trace.getOriginalTraceContent_vector().size());
                 }
@@ -665,10 +811,14 @@ public class Generator {
                 trace.setTraceMissingActivities_vector(new Vector<String>());
                 trace.setTraceAlphabetWithMissingActivitiesOfTheConstraints_vector(trace.getTraceAlphabet_vector());
 
+                //Update the missing activities for the specific trace
+
                 for(int kj = 0; kj< Container.getActivitiesRepository_vector().size(); kj++)  {
                     String activity = Container.getActivitiesRepository_vector().elementAt(kj);
                     trace.getTraceMissingActivities_vector().addElement(activity);
                 }
+                // A -- Remove from the vector of the missing activities of the trace all the activities that already appear in the trace
+
 
                 for(int f=0;f<trace.getOriginalTraceContent_vector().size();f++) {
                     String string = trace.getOriginalTraceContent_vector().elementAt(f);
@@ -682,6 +832,8 @@ public class Generator {
                 }
 
                 Vector<String> final_missing_activities_vector = new Vector<String>(trace.getTraceMissingActivities_vector());
+
+                // B -- Remove from the vector of the missing activities of the trace all the activities that do not appear in any of the DECLARE constraints
 
                 for(int hj=0;hj<trace.getTraceMissingActivities_vector().size();hj++) {
                     String missing_activity = trace.getTraceMissingActivities_vector().elementAt(hj);

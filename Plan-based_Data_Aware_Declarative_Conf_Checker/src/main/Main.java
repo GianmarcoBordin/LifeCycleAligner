@@ -61,11 +61,11 @@ public class Main {
 
         System.out.println("----- PDDL FILES GENERATION PHASE COMPLETED -----");
 
-        //System.out.println("----- RESULT PHASE STARTED -----");
+        System.out.println("----- RESULT PHASE STARTED -----");
 
         //Runner.runPlanner();
 
-        //System.out.println("----- RESULT PHASE COMPLETED -----");
+        System.out.println("----- RESULT PHASE COMPLETED -----");
 
 
     }
