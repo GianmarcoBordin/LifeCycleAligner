@@ -1,17 +1,15 @@
 #!/bin/bash
-cd fast-downward/src
+cd /Users/applem2/Downloads/Work/tesi/fast-downward-23.06/
 date1=$(date +%s%N | cut -b1-13)
 searchtime=0
 traces=0
 for f in Conformance_Checking/domain*.pddl
 do
-traces=$(($traces+1))
-f2="${f/domain/problem}"
-translate/translate.py $f $f2 < output.sas >/dev/null
-preprocess/preprocess < output.sas >/dev/null
+domain="Conformance_Checking/domain$f.pddl"
+problem="Conformance_Checking/problem1.pddl"
 prima=$(date +%s%N | cut -b1-13)
 #echo $traces
-./search/downward --heuristic "hff=ff()"  --heuristic "hcea=cea()" --search "astar(blind())" < output >/dev/null
+./fast-downward.py $domain $problem --heuristic "hff=ff()"  --heuristic "hcea=cea()" --search "astar(blind())" < /Users/applem2/Downloads/Work/tesi/fast-downward-23.06/output.txt
 dopo=$(date +%s%N | cut -b1-13)
 searchtime=$(($searchtime+$dopo-$prima))
 #echo $traces

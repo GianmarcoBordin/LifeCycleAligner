@@ -53,22 +53,22 @@ public class Utilities {
 	}
 	public static void setExecutables() {
 		//Force the executable files of Fast-downward and LPG to be executable
-		new File("translate_script").setExecutable(true);
-		new File("preprocess_script").setExecutable(true);
-		new File("planner_subopt_script").setExecutable(true);
-		new File("planner_opt_script").setExecutable(true);
-		new File("lpg_script").setExecutable(true);
-		new File("fast-downward/src/translate/translate.py").setExecutable(true);
-		new File("fast-downward/src/preprocess/preprocess").setExecutable(true);
-		new File("fast-downward/src/search/downward").setExecutable(true);
-		new File("fast-downward/src/search/unitcost").setExecutable(true);
-		new File("fast-downward/src/search/downward-release").setExecutable(true);
-		new File("LPG/lpg").setExecutable(true);
-		new File("run_FD").setExecutable(true);
-		new File("run_FD_all").setExecutable(true);
-		new File("run_SYMBA").setExecutable(true);
-		new File("run_SYMBA_all").setExecutable(true);
-		new File("checkNumberOfTraces").setExecutable(true);
+		new File(WORKING_DIR+"translate_script").setExecutable(true);
+		new File(WORKING_DIR+"preprocess_script").setExecutable(true);
+		new File(WORKING_DIR+"planner_subopt_script").setExecutable(true);
+		new File(WORKING_DIR+"planner_opt_script").setExecutable(true);
+		new File(WORKING_DIR+"lpg_script").setExecutable(true);
+		new File(WORKING_DIR+"fast-downward/src/translate/translate.py").setExecutable(true);
+		new File(WORKING_DIR+"fast-downward/src/preprocess/preprocess").setExecutable(true);
+		new File(WORKING_DIR+"fast-downward/src/search/downward").setExecutable(true);
+		new File(WORKING_DIR+"fast-downward/src/search/unitcost").setExecutable(true);
+		new File(WORKING_DIR+"fast-downward/src/search/downward-release").setExecutable(true);
+		new File(WORKING_DIR+"LPG/lpg").setExecutable(true);
+		new File(WORKING_DIR+"run_FD").setExecutable(true);
+		new File(WORKING_DIR+"run_FD_all").setExecutable(true);
+		new File(WORKING_DIR+"run_SYMBA").setExecutable(true);
+		new File(WORKING_DIR+"run_SYMBA_all").setExecutable(true);
+		new File(WORKING_DIR+"checkNumberOfTraces").setExecutable(true);
 	}
 
 
@@ -148,7 +148,7 @@ public class Utilities {
             Iterator<Transition> transitions = ss.getOutput().iterator();
             while (transitions.hasNext()) {
                 Transition t = transitions.next();
-                //System.out.println("Source " + t.getSource() + " Target " + t.getTarget() + " Label " + t.getLabel().getaLiteral());
+                //System.out.txt.println("Source " + t.getSource() + " Target " + t.getTarget() + " Label " + t.getLabel().getaLiteral());
             }
         }
 
@@ -385,7 +385,7 @@ public class Utilities {
 								String data_values_id = data_values_array[lun].toString();
 								
 								if(data_values_id.equalsIgnoreCase(cot.getLabel())) {
-									//System.out.println(data_key + "   " + data_values_id);
+									//System.out.txt.println(data_key + "   " + data_values_id);
 								
 									PDDL_domain_buffer.append("(:action add-repl" + "-" + data_key + "-with-" + label_of_the_cot + "-" + cot.getId() + "\n");
 									PDDL_domain_buffer.append(":precondition ");
@@ -619,7 +619,7 @@ public class Utilities {
 				
 				PDDL_temp_effects_sb.append("(currstate " + abstract_state_id + ") ");
 				
-				//System.out.println(state_id);
+				//System.out.txt.println(state_id);
 				int first_underscore = abstract_state_id.indexOf("_");
 				int last_underscore = abstract_state_id.lastIndexOf("_");
 				String automaton_id = abstract_state_id.substring(first_underscore+1, last_underscore);

@@ -652,19 +652,19 @@ public class Generator {
                         // Transition t2 = (Transition) it2.next();
 
 	    	            			/*
-	    	            			 System.out.print(t2.getSource());
-	    	            			 System.out.print(" --> ");
-	    	            			 System.out.print(t2.getPositiveLabel());
-	    	            			 System.out.print(" ### ");
-	    	            			 System.out.print(t2.getNegativeLabels());
-	    	            			 System.out.print(" --> ");
-	    	            			 System.out.print(t2.getTarget());
-	    	            			 System.out.print(" ... INITIAL: ");
-	    	            			 System.out.print(product_automaton.getInit().getId());
-	    	            			 System.out.print(" ... FINALS: ");
-	    	            			 if(t2.getSource().isAccepting()) System.out.print(t2.getSource() + " %% ");
-	    	            			 if(t2.getTarget().isAccepting()) System.out.print(t2.getTarget());
-	    	            			 System.out.println();
+	    	            			 System.out.txt.print(t2.getSource());
+	    	            			 System.out.txt.print(" --> ");
+	    	            			 System.out.txt.print(t2.getPositiveLabel());
+	    	            			 System.out.txt.print(" ### ");
+	    	            			 System.out.txt.print(t2.getNegativeLabels());
+	    	            			 System.out.txt.print(" --> ");
+	    	            			 System.out.txt.print(t2.getTarget());
+	    	            			 System.out.txt.print(" ... INITIAL: ");
+	    	            			 System.out.txt.print(product_automaton.getInit().getId());
+	    	            			 System.out.txt.print(" ... FINALS: ");
+	    	            			 if(t2.getSource().isAccepting()) System.out.txt.print(t2.getSource() + " %% ");
+	    	            			 if(t2.getTarget().isAccepting()) System.out.txt.print(t2.getTarget());
+	    	            			 System.out.txt.println();
 	    	            			 */
                     }
                 }

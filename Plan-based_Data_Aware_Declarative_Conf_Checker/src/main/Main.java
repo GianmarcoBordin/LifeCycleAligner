@@ -63,7 +63,7 @@ public class Main {
 
         System.out.println("----- RESULT PHASE STARTED -----");
 
-        Runner.runPlanner();
+        Runner.invokePlanner();
 
         System.out.println("----- RESULT PHASE COMPLETED -----");
 

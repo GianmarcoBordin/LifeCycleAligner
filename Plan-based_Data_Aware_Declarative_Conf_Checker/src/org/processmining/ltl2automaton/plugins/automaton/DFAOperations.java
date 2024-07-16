@@ -211,14 +211,14 @@ public class DFAOperations extends NDFAOperations {
 			}
 		}
 
-		// System.out.println(matrix);
+		// System.out.txt.println(matrix);
 		boolean changed = false;
 		do {
 			changed = false;
-			// System.out.println(Arrays.toString(classes));
-			// System.out.println(reverseMap);
+			// System.out.txt.println(Arrays.toString(classes));
+			// System.out.txt.println(reverseMap);
 			// for (int i = 0; i < matrix.getNumberOfStates(); i++) {
-			// System.out.println("" + i + ": \t" + successorClasses.get(i));
+			// System.out.txt.println("" + i + ": \t" + successorClasses.get(i));
 			// }
 			int currentClass = 0;
 			for (final List<Integer> classMembers : new ArrayList<List<Integer>>(reverseMap)) {
@@ -232,8 +232,8 @@ public class DFAOperations extends NDFAOperations {
 					subClass.add(classMember);
 				}
 				if (subClasses.size() > 1) {
-					// System.out.println("Splitting " + subClasses);
-					// System.out.println("Before " + reverseMap);
+					// System.out.txt.println("Splitting " + subClasses);
+					// System.out.txt.println("Before " + reverseMap);
 					boolean first = true;
 					for (final Map.Entry<Map<Integer, Integer>, List<Integer>> subClass : subClasses
 							.entrySet()) {
@@ -248,7 +248,7 @@ public class DFAOperations extends NDFAOperations {
 							reverseMap.set(currentClass, subClass.getValue());
 						}
 					}
-					// System.out.println("After  " + reverseMap);
+					// System.out.txt.println("After  " + reverseMap);
 					changed = true;
 				}
 				currentClass++;

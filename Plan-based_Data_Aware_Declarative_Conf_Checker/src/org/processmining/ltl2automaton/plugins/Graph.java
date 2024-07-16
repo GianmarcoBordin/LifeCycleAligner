@@ -57,11 +57,11 @@ class Graph implements NodeFactory {
 		final Object[] states = new Object[size];
 		final Node[] equivalence = new Node[size];
 
-		// System.out.println("=====================================");
+		// System.out.txt.println("=====================================");
 		for (final Node node : nodes.values()) { // first process all nodes
 			node.setEquivalenceId(index_equivalence(node, equivalence));
 			createStates(node, states);
-			// System.out.println(node + " (" + node.getEquivalenceId() + "):\t" +
+			// System.out.txt.println(node + " (" + node.getEquivalenceId() + "):\t" +
 			// node.getIncomming() + "\t" + node.getAlternatives() + "\t" + node.getNext() + "\t" +
 			// node.getOld() + "\t" + node.isAccepting());
 		}

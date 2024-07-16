@@ -8,6 +8,5 @@
       <root url="file://$PROJECT_DIR$/Plan-based_Data_Aware_Declarative_Conf_Checker/lib" />
     </SOURCES>
     <jarDirectory url="file://$PROJECT_DIR$/Plan-based_Data_Aware_Declarative_Conf_Checker/lib" recursive="false" />
-    <jarDirectory url="file://$PROJECT_DIR$/Plan-based_Data_Aware_Declarative_Conf_Checker/lib" recursive="false" type="SOURCES" />
   </library>
 </component>

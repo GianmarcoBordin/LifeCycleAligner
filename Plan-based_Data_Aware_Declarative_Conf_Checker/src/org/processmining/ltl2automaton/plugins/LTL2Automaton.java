@@ -251,7 +251,7 @@ public class LTL2Automaton {
 			final DeterministicAutomaton result = cache.get(key);
 			if (result != null) { return result; }
 		}
-		// System.out.println(indent + "PRIM");
+		// System.out.txt.println(indent + "PRIM");
 		final AutomatonFactory factory = new DefaultAutomatonFactory();
 		final Graph graph = createGraph(formula, factory, true);
 		graph.createAutomaton();
@@ -294,7 +294,7 @@ public class LTL2Automaton {
 		if (LTL2Automaton.traceGeneration) {
 			System.out.println(indent + "PRIM " + formula);
 		}
-		// System.out.println(indent + "PRIM");
+		// System.out.txt.println(indent + "PRIM");
 		final AutomatonFactory factory = new DefaultAutomatonFactory();
 		final Graph graph = createGraph(formula, factory, true);
 		graph.createAutomaton();

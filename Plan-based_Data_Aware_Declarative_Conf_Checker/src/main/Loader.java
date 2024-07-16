@@ -61,7 +61,7 @@ public class Loader {
                 trace_int_id++;
 
                 String traceName = XConceptExtension.instance().extractName(trace);
-                //System.out.println("Trace Name : " + traceName);
+                //System.out.txt.println("Trace Name : " + traceName);
                 traceName = "trace" + trace_int_id;
 
                 Trace t = new Trace("Trace#" + trace_int_id, traceName);

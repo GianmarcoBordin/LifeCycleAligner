@@ -108,7 +108,7 @@ public class UtilitiesBackup {
  		//
 		// Method to generate k-combinations of a set of elements in an array. 
 	    // You just need to pass the array and the "k" value,  which is an integer that represents the length of the unique subsets 
-	    // you want to generate out of the original array. 
+	    // you want to generate out.txt of the original array.
 		// -- ATTENTION -- This method is customized for the plan-based declarative aligner.
 		// It removes any combination that contains two transitions of the same automaton
 	    //
@@ -159,7 +159,7 @@ public class UtilitiesBackup {
 	        
 	        if(Container.getSinkStatesMenuItem() && cot.containsSinkstates()) {
 	        	Container.getCombinationOfRelevantTransitions_vector().removeElement(cot);
-	        	// System.out.println("This combination of transition contains a sink state ");
+	        	// System.out.txt.println("This combination of transition contains a sink state ");
 	        } 
 	        return;
 	    }       
@@ -384,7 +384,7 @@ public class UtilitiesBackup {
 				
 				PDDL_temp_effects_sb.append("(currstate " + abstract_state_id + ") ");
 				
-				//System.out.println(state_id);
+				//System.out.txt.println(state_id);
 				int first_underscore = abstract_state_id.indexOf("_");
 				int last_underscore = abstract_state_id.lastIndexOf("_");
 				String automaton_id = abstract_state_id.substring(first_underscore+1, last_underscore);
