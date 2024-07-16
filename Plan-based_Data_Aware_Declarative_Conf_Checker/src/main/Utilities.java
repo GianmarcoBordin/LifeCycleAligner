@@ -48,7 +48,7 @@ public class Utilities {
 	public static void cleanAll(){
 		Utilities.emptyFolder(Container.WORKING_LIFECYCLE_DIR+"lifecycle");
 		//Utilities.emptyFolder(WORKING_DIR+"seq-opt-symba-2/Conformance_Checking");
-		Utilities.emptyFolder(Container.WORKING_DIR+"seq-opt-symba-2/results");
+		//Utilities.emptyFolder(Container.WORKING_DIR+"results");
 
 	}
 	public static void setExecutables() {

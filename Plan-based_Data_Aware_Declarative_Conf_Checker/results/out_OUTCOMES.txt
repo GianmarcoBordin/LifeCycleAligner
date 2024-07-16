@@ -1,0 +1,99 @@
+
+>>>> TRACE ID: Trace#1000 trace1000 1000
+>>>> TRACE CONTENT: [p10_complete, p13_complete, p4_complete, p5_complete, p18_complete, p22_complete, p2_complete, p8_complete, activityo_complete, activityo_complete, activityo_complete, activityo_complete, activityo_complete, activityo_complete, activityo_complete, activityo_complete, activityo_complete, activityo_complete, activityo_complete, activityo_complete]
+>>>> ORIGINAL TRACE LENGTH: 20
+>>>> ALIGNED TRACE LENGTH: 0.0
+>>>> COST OF ALIGNMENT: 0.0
+>>>> NUMBER OF ALIGNMENTS: 0.0
+>>>> FITNESS: 1.0
+
+
+>>>> TRACE ID: Trace#1000 trace1000 1000
+>>>> TRACE CONTENT: [p10_complete, p13_complete, p4_complete, p5_complete, p18_complete, p22_complete, p2_complete, p8_complete, activityo_complete, activityo_complete, activityo_complete, activityo_complete, activityo_complete, activityo_complete, activityo_complete, activityo_complete, activityo_complete, activityo_complete, activityo_complete, activityo_complete]
+>>>> ORIGINAL TRACE LENGTH: 20
+>>>> ALIGNED TRACE LENGTH: 0.0
+>>>> COST OF ALIGNMENT: 0.0
+>>>> NUMBER OF ALIGNMENTS: 0.0
+>>>> FITNESS: 1.0
+
+
+>>>> TRACE ID: Trace#1000 trace1000 1000
+>>>> TRACE CONTENT: [p10_complete, p13_complete, p4_complete, p5_complete, p18_complete, p22_complete, p2_complete, p8_complete, activityo_complete, activityo_complete, activityo_complete, activityo_complete, activityo_complete, activityo_complete, activityo_complete, activityo_complete, activityo_complete, activityo_complete, activityo_complete, activityo_complete]
+>>>> ORIGINAL TRACE LENGTH: 20
+>>>> ALIGNED TRACE LENGTH: 0.0
+>>>> COST OF ALIGNMENT: 0.0
+>>>> NUMBER OF ALIGNMENTS: 0.0
+>>>> FITNESS: 1.0
+
+
+>>>> TRACE ID: Trace#1000 trace1000 1000
+>>>> TRACE CONTENT: [p10_complete, p13_complete, p4_complete, p5_complete, p18_complete, p22_complete, p2_complete, p8_complete, activityo_complete, activityo_complete, activityo_complete, activityo_complete, activityo_complete, activityo_complete, activityo_complete, activityo_complete, activityo_complete, activityo_complete, activityo_complete, activityo_complete]
+>>>> ORIGINAL TRACE LENGTH: 20
+>>>> ALIGNED TRACE LENGTH: 0.0
+>>>> COST OF ALIGNMENT: 0.0
+>>>> NUMBER OF ALIGNMENTS: 0.0
+>>>> FITNESS: 1.0
+
+
+>>>> TRACE ID: Trace#1000 trace1000 1000
+>>>> TRACE CONTENT: [p10_complete, p13_complete, p4_complete, p5_complete, p18_complete, p22_complete, p2_complete, p8_complete, activityo_complete, activityo_complete, activityo_complete, activityo_complete, activityo_complete, activityo_complete, activityo_complete, activityo_complete, activityo_complete, activityo_complete, activityo_complete, activityo_complete]
+>>>> ORIGINAL TRACE LENGTH: 20
+>>>> ALIGNED TRACE LENGTH: 0.0
+>>>> COST OF ALIGNMENT: 0.0
+>>>> NUMBER OF ALIGNMENTS: 0.0
+>>>> FITNESS: 1.0
+
+
+>>>> TRACE ID: Trace#1000 trace1000 1000
+>>>> TRACE CONTENT: [p10_complete, p13_complete, p4_complete, p5_complete, p18_complete, p22_complete, p2_complete, p8_complete, activityo_complete, activityo_complete, activityo_complete, activityo_complete, activityo_complete, activityo_complete, activityo_complete, activityo_complete, activityo_complete, activityo_complete, activityo_complete, activityo_complete]
+>>>> ORIGINAL TRACE LENGTH: 20
+>>>> ALIGNED TRACE LENGTH: 0.0
+>>>> COST OF ALIGNMENT: 0.0
+>>>> NUMBER OF ALIGNMENTS: 0.0
+>>>> FITNESS: 1.0
+
+
+>>>> TRACE ID: Trace#1000 trace1000 1000
+>>>> TRACE CONTENT: [p10_complete, p13_complete, p4_complete, p5_complete, p18_complete, p22_complete, p2_complete, p8_complete, activityo_complete, activityo_complete, activityo_complete, activityo_complete, activityo_complete, activityo_complete, activityo_complete, activityo_complete, activityo_complete, activityo_complete, activityo_complete, activityo_complete]
+>>>> ORIGINAL TRACE LENGTH: 20
+>>>> ALIGNED TRACE LENGTH: 0.0
+>>>> COST OF ALIGNMENT: 0.0
+>>>> NUMBER OF ALIGNMENTS: 0.0
+>>>> FITNESS: 1.0
+
+
+>>>> TRACE ID: Trace#1000 trace1000 1000
+>>>> TRACE CONTENT: [p10_complete, p13_complete, p4_complete, p5_complete, p18_complete, p22_complete, p2_complete, p8_complete, activityo_complete, activityo_complete, activityo_complete, activityo_complete, activityo_complete, activityo_complete, activityo_complete, activityo_complete, activityo_complete, activityo_complete, activityo_complete, activityo_complete]
+>>>> ORIGINAL TRACE LENGTH: 20
+>>>> ALIGNED TRACE LENGTH: 0.0
+>>>> COST OF ALIGNMENT: 0.0
+>>>> NUMBER OF ALIGNMENTS: 0.0
+>>>> FITNESS: 1.0
+
+
+>>>> TRACE ID: Trace#1000 trace1000 1000
+>>>> TRACE CONTENT: [p10_complete, p13_complete, p4_complete, p5_complete, p18_complete, p22_complete, p2_complete, p8_complete, activityo_complete, activityo_complete, activityo_complete, activityo_complete, activityo_complete, activityo_complete, activityo_complete, activityo_complete, activityo_complete, activityo_complete, activityo_complete, activityo_complete]
+>>>> ORIGINAL TRACE LENGTH: 20
+>>>> ALIGNED TRACE LENGTH: 0.0
+>>>> COST OF ALIGNMENT: 0.0
+>>>> NUMBER OF ALIGNMENTS: 0.0
+>>>> FITNESS: 1.0
+
+
+>>>> TRACE ID: Trace#1000 trace1000 1000
+>>>> TRACE CONTENT: [p10_complete, p13_complete, p4_complete, p5_complete, p18_complete, p22_complete, p2_complete, p8_complete, activityo_complete, activityo_complete, activityo_complete, activityo_complete, activityo_complete, activityo_complete, activityo_complete, activityo_complete, activityo_complete, activityo_complete, activityo_complete, activityo_complete]
+>>>> ORIGINAL TRACE LENGTH: 20
+>>>> ALIGNED TRACE LENGTH: 0.0
+>>>> COST OF ALIGNMENT: 0.0
+>>>> NUMBER OF ALIGNMENTS: 0.0
+>>>> FITNESS: 1.0
+
+
+>>>> TRACE ID: Trace#1000 trace1000 1000
+>>>> TRACE CONTENT: [p10_complete, p13_complete, p4_complete, p5_complete, p18_complete, p22_complete, p2_complete, p8_complete, activityo_complete, activityo_complete, activityo_complete, activityo_complete, activityo_complete, activityo_complete, activityo_complete, activityo_complete, activityo_complete, activityo_complete, activityo_complete, activityo_complete]
+>>>> ORIGINAL TRACE LENGTH: 20
+>>>> ALIGNED TRACE LENGTH: 0.0
+>>>> COST OF ALIGNMENT: 0.0
+>>>> NUMBER OF ALIGNMENTS: 0.0
+>>>> FITNESS: 1.0
+

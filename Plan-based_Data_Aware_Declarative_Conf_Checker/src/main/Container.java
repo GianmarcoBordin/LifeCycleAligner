@@ -33,8 +33,8 @@ public class Container {
 
 
 	private static boolean costCheckBox=true;
-	private static boolean FDoptimalCheckBox = false;
-	private static boolean SymBAoptimalCheckBox=true;
+	private static boolean FDoptimalCheckBox = true;
+	private static boolean SymBAoptimalCheckBox=false;
 
 	private static int minimum_length_of_a_trace = 0;
 	private static int maximum_length_of_a_trace = 0;

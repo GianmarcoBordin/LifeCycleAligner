@@ -2,6 +2,7 @@ package main;
 
 import java.io.*;
 import java.sql.Timestamp;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.Vector;
 
@@ -29,46 +30,42 @@ public class Runner {
 
 
 
+// TODO the problem is here the planner is not launched in time must attend the thread
+    public static void invokePlanner() throws InterruptedException {
 
-    public static void invokePlanner()  {
+        try
+        {
 
+            Timestamp tmsp_log = new Timestamp(new Date().getTime());
 
-        planner_thread = new Thread(new Runnable() {
+            results_log_file = "/Users/applem2/Downloads/Work/tesi/Project/Aligner/Plan-based_Data_Aware_Declarative_Conf_Checker/results/res_" + tmsp_log + ".txt";
+            scriviFile(results_log_file, new StringBuffer(""));
 
-            public void run() {
-                try
-                {
+            //results_csv_file = "results/csv_" + tmsp_log + ".csv";
+            //scriviFile(results_csv_file, new StringBuffer(""));
 
-                    Timestamp tmsp_log = new Timestamp(new Date().getTime());
+            if(Container.getNumber_of_Traces_checkBox()) {
+                number_of_traces_to_check_from = Container.getNumber_of_traces_ComboBox_FROM();
+                number_of_traces_to_check_to = Container.getNumber_of_traces_ComboBox_TO();
+            }
+            else {
+                number_of_traces_to_check_from = 1;
+                number_of_traces_to_check_to = Container.getAllTraces_vector().size();
+            }
 
-                    results_log_file = "/Users/applem2/Downloads/Work/tesi/Project/Aligner/Plan-based_Data_Aware_Declarative_Conf_Checker/results/res_" + tmsp_log + ".txt";
-                    scriviFile(results_log_file, new StringBuffer(""));
+            for(int k=number_of_traces_to_check_from-1;k<number_of_traces_to_check_to;k++) {
 
-                    //results_csv_file = "results/csv_" + tmsp_log + ".csv";
-                    //scriviFile(results_csv_file, new StringBuffer(""));
+                int trace_number = k+1;
 
-                    if(Container.getNumber_of_Traces_checkBox()) {
-                        number_of_traces_to_check_from = Container.getNumber_of_traces_ComboBox_FROM();
-                        number_of_traces_to_check_to = Container.getNumber_of_traces_ComboBox_TO();
-                    }
-                    else {
-                        number_of_traces_to_check_from = 1;
-                        number_of_traces_to_check_to = Container.getAllTraces_vector().size();
-                    }
+                //StringBuffer used to record the logs of the planner execution
+                StringBuffer logBuffer = new StringBuffer();
 
-                    for(int k=number_of_traces_to_check_from-1;k<number_of_traces_to_check_to;k++) {
+                //StringBuffer used to record the statistics of the planning execution
+                //csvBuffer = new StringBuffer();
 
-                        int trace_number = k+1;
+                Trace trace = Container.getAllTraces_vector().elementAt(k);
 
-                        //StringBuffer used to record the logs of the planner execution
-                        StringBuffer logBuffer = new StringBuffer();
-
-                        //StringBuffer used to record the statistics of the planning execution
-                        //csvBuffer = new StringBuffer();
-
-                        Trace trace = Container.getAllTraces_vector().elementAt(k);
-
-                        Container.setPDDLActivitiesVector(new Vector<String>());
+                Container.setPDDLActivitiesVector(new Vector<String>());
 
      	            	/*
      	            	StringBuffer sb_domain = createDomain(trace);
@@ -91,214 +88,355 @@ public class Runner {
      	            	}
      	            	*/
 
-                        sb.append("*******************************\n");
-                        sb.append("ALIGNMENT FOR " + trace.getTraceID() + "\n");
-                        sb.append("*******************************\n");
 
-                        logBuffer.append("*******************************\n");
-                        logBuffer.append("ALIGNMENT FOR " + trace.getTraceID() + "\n");
-                        logBuffer.append("*******************************\n");
+                sb.append("*******************************\n");
+                sb.append("ALIGNMENT FOR " + trace.getTraceID() + "\n");
+                sb.append("*******************************\n");
 
-                        //Clean the 'output.sas' file of Fast Downward
-                        File outputSAS_file = new File("/Users/applem2/Downloads/Work/tesi/Project/Aligner/Plan-based_Data_Aware_Declarative_Conf_Checker/fast-downward/src/sas_plan");
-                        PrintWriter writer = new PrintWriter(outputSAS_file);
-                        writer.print("");
-                        writer.close();
+                logBuffer.append("*******************************\n");
+                logBuffer.append("ALIGNMENT FOR " + trace.getTraceID() + "\n");
+                logBuffer.append("*******************************\n");
 
-                        File outputSYMBA_file = new File("/Users/applem2/Downloads/Work/tesi/Project/Aligner/Plan-based_Data_Aware_Declarative_Conf_Checker/seq-opt-symba-2/out.txt");
-                        writer = new PrintWriter(outputSYMBA_file);
-                        writer.print("");
-                        writer.close();
+                //Clean the 'output.sas' file of Fast Downward
+                File outputSAS_file = new File("/Users/applem2/Downloads/Work/tesi/Project/Aligner/Plan-based_Data_Aware_Declarative_Conf_Checker/fast-downward/src/sas_plan");
+                PrintWriter writer = new PrintWriter(outputSAS_file);
+                writer.print("");
+                writer.close();
 
-
-                        sb.append(">>>> ORIGINAL TRACE: " + trace.getOriginalTraceContent_vector()+"\n");
-
-                        //resultsArea.append(">>>> DECLARE RULES: " + Constants.getAllConstraints_vector()+"\n");
-                        //resultsArea.append(">>>> STARTING TRACE in PDDL: " + trace.getTraceContentWithActivitiesInstances_vector() + "\n\n");
-
-                        //rp.getResultsArea().append("---- START THE ALIGNMENT PROCESS ----\n");
-                        //logBuffer.append("---- START THE ALIGNMENT PROCESS ----\n");
-
-                        Thread.sleep(5000);
-
-                        Timestamp tmsp1 = new Timestamp(new Date().getTime());
+                File outputSYMBA_file = new File("/Users/applem2/Downloads/Work/tesi/Project/Aligner/Plan-based_Data_Aware_Declarative_Conf_Checker/seq-opt-symba-2/output");
+                writer = new PrintWriter(outputSYMBA_file);
+                writer.print("");
+                writer.close();
 
 
-                        System.out.println(trace_number);
-                        Process pr = Runtime.getRuntime().exec("gnome-terminal -e ./run_SYMBA 3");
-                        pr.waitFor();
+                sb.append(">>>> ORIGINAL TRACE: " + trace.getOriginalTraceContent_vector()+"\n");
 
-                        //Timestamp tmsp2_a = new Timestamp(new java.util.Date().getTime());
+                //resultsArea.append(">>>> DECLARE RULES: " + Constants.getAllConstraints_vector()+"\n");
+                //resultsArea.append(">>>> STARTING TRACE in PDDL: " + trace.getTraceContentWithActivitiesInstances_vector() + "\n\n");
 
-                        //long translation_time = tmsp2_a.getTime()-tmsp1.getTime();
+                //rp.getResultsArea().append("---- START THE ALIGNMENT PROCESS ----\n");
+                //logBuffer.append("---- START THE ALIGNMENT PROCESS ----\n");
 
-                        //rp.getResultsArea().append(">>>> TRANSLATION TIME : ");
-                        //rp.getResultsArea().append(translation_time + " ms.\n");
+                // Thread.sleep(5000);
 
-                        //logBuffer.append(">>>> TRANSLATION TIME : ");
-                        //logBuffer.append(translation_time + " ms.\n");
-
-                        //totalTranslationTime += translation_time;
-
-                        Thread.sleep(5000);
+                Timestamp tmsp1 = new Timestamp(new Date().getTime());
 
 
-                        //Update the .csv File
-                        //csvBuffer.append(trace.getTraceNumber() + ",");
-                        //csvBuffer.append(trace.getOriginalTraceContent_vector().size() + ",");
-                        //csvBuffer.append((translation_time / 1000.0) + ",");
+                Process pr = Runtime.getRuntime().exec(new String[] {
+                        "osascript", "-e",
+                        "tell application \"Terminal\" to do script \"./run_SYMBA 3\""
+                });
+                pr.waitFor();
 
-                        //Timestamp tmsp2_b = new Timestamp(new java.util.Date().getTime());
+                //Timestamp tmsp2_a = new Timestamp(new java.util.Date().getTime());
 
-                        //Process pr2 = Runtime.getRuntime().exec("gnome-terminal -e ./preprocess_script");
-                        //pr2.waitFor();
+                //long translation_time = tmsp2_a.getTime()-tmsp1.getTime();
 
-                        //Timestamp tmsp3 = new Timestamp(new java.util.Date().getTime());
+                //rp.getResultsArea().append(">>>> TRANSLATION TIME : ");
+                //rp.getResultsArea().append(translation_time + " ms.\n");
 
-                        //long preprocessing_time = tmsp3.getTime()-tmsp2_b.getTime();
+                //logBuffer.append(">>>> TRANSLATION TIME : ");
+                //logBuffer.append(translation_time + " ms.\n");
 
-                        //rp.getResultsArea().append(">>>> PREPROCESSING TIME : ");
-                        //rp.getResultsArea().append(preprocessing_time + " ms.\n\n");
+                //totalTranslationTime += translation_time;
 
-                        //logBuffer.append(">>>> PREPROCESSING TIME : ");
-                        //logBuffer.append(preprocessing_time + " ms.\n");
-
-                        //Update the .csv File
-                        //csvBuffer.append((preprocessing_time / 1000.0) + ",");
-
-                        //totalPreprocessingTime += preprocessing_time;
-
-                        if(Container.getFDOptimalCheckBox())  {
-
-                            //Remove the 'sas_plan' file with the plan
-                            //File SASplan_file = new File("fast-downward/src/sas_plan");
-                            //SASplan_file.delete();
-
-                            Thread.sleep(1000);
-
-                            sb.append("\n---- SEARCH HEURISTIC: Blind A* ----\n");
-                            logBuffer.append("\n---- SEARCH HEURISTIC: Blind A* ----\n");
-
-                            //Timestamp tmsp6 = new Timestamp(new java.util.Date().getTime());
-                            //Process pr3 = Runtime.getRuntime().exec("gnome-terminal -e ./planner_opt_script");
-                            //pr3.waitFor();
-
-                            Timestamp tmsp7 = new Timestamp(new Date().getTime());
-
-                            long searching_time = tmsp7.getTime()-tmsp1.getTime();
-                            totalSearchingOptTime += searching_time;
-
-                            sb.append(">>>> SEARCHING TIME : ");
-                            sb.append(searching_time + " ms.\n");
-
-                            logBuffer.append(">>>> SEARCHING TIME : ");
-                            logBuffer.append(searching_time + " ms.\n");
-
-                            //Update the .csv File
-                            //csvBuffer.append((searching_time / 1000.0) + ",");
-
-                            try(PrintWriter out = new PrintWriter(new BufferedWriter(new FileWriter(results_log_file, true)))) {
-                                out.println(logBuffer);
-                            }catch (IOException e) {System.out.println("Il file non esiste");}
-
-                            Thread.sleep(1000);
-
-                            createResults(trace,"Fast-Downward");
-                        }
+                //Thread.sleep(5000);
 
 
+                //Update the .csv File
+                //csvBuffer.append(trace.getTraceNumber() + ",");
+                //csvBuffer.append(trace.getOriginalTraceContent_vector().size() + ",");
+                //csvBuffer.append((translation_time / 1000.0) + ",");
 
-                    }
-                    int total_number_of_traces = number_of_traces_to_check_to - number_of_traces_to_check_from + 1;
-                    int total_number_of_traces_analyzed = total_number_of_traces - number_of_traces_with_failure;
+                //Timestamp tmsp2_b = new Timestamp(new java.util.Date().getTime());
 
-                    sb.append("\n*******************************\n");
+                //Process pr2 = Runtime.getRuntime().exec("gnome-terminal -e ./preprocess_script");
+                //pr2.waitFor();
 
-                    sb.append("NUMBER OF TRACES ANALYZED : " + total_number_of_traces_analyzed + "\n");
-                    sb.append("NUMBER OF TRACES NOT ANALYZED (due to a planner failure) : " + number_of_traces_with_failure + "\n");
-                    if(number_of_traces_with_failure>0)
-                        sb.append("\nLIST OF TRACES NOT ANALYZED (due a planner failure) : " + traces_with_failure_vector + "\n");
-                    sb.append("NUMBER OF TRACES REQUIRING THE ALIGNMENT : " + number_of_traces_aligned + "\n");
-                    sb.append("FITNESS : " + log_fitness/total_number_of_traces_analyzed + "\n");
-                    sb.append("\n*******************************\n");
+                //Timestamp tmsp3 = new Timestamp(new java.util.Date().getTime());
 
-                    sb.append("TOTAL TRANSLATION TIME (in ms.) : " + totalTranslationTime + " ms\n");
-                    sb.append("AVERAGE TRANSLATION TIME (in ms.) : " + ((long)(totalTranslationTime / total_number_of_traces)) + " ms\n");
-                    double seconds = (totalTranslationTime / 1000.0);
-                    sb.append("TOTAL TRANSLATION TIME (in seconds) : " + seconds + " sec\n");
-                    sb.append("AVERAGE TRANSLATION TIME (in ms.) : " + ((double)(seconds / total_number_of_traces)) + " sec");
+                //long preprocessing_time = tmsp3.getTime()-tmsp2_b.getTime();
 
-                    sb.append("\n-------------------------------\n");
+                //rp.getResultsArea().append(">>>> PREPROCESSING TIME : ");
+                //rp.getResultsArea().append(preprocessing_time + " ms.\n\n");
 
-                    sb.append("TOTAL PREPROCESSING TIME (in ms.) : " + totalPreprocessingTime + " ms\n");
-                    sb.append("AVERAGE PREPROCESSING TIME (in ms.) : " + ((long)(totalPreprocessingTime / total_number_of_traces_analyzed)) + " ms\n");
-                    seconds = (totalPreprocessingTime / 1000.0);
-                    sb.append("TOTAL PREPROCESSING TIME (in seconds) : " + seconds + " sec\n");
-                    sb.append("AVERAGE PREPROCESSING TIME (in ms.) : " + ((double)(seconds / total_number_of_traces_analyzed)) + " sec");
+                //logBuffer.append(">>>> PREPROCESSING TIME : ");
+                //logBuffer.append(preprocessing_time + " ms.\n");
 
-                    if(Container.getFDOptimalCheckBox()) {
-                        sb.append("\n-------------------------------\n");
-                        sb.append("TOTAL SEARCHING TIME (in ms.) - Blind A* : " + totalSearchingOptTime + "\n");
-                        sb.append("AVERAGE SEARCHING TIME (in ms.) - Blind A* : " + ((long)(totalSearchingOptTime / total_number_of_traces_analyzed)) + " ms\n");
-                        seconds = (totalSearchingOptTime / 1000.0);
-                        sb.append("TOTAL SEARCHING TIME (in seconds) - Blind A* : " + seconds + " sec\n");
-                        sb.append("AVERAGE SEARCHING TIME (in seconds) - Blind A* : " + ((double)(seconds / total_number_of_traces_analyzed)) + " sec");
-                    }
+                //Update the .csv File
+                //csvBuffer.append((preprocessing_time / 1000.0) + ",");
 
-                    sb.append("\n*******************************\n");
+                //totalPreprocessingTime += preprocessing_time;
 
-                    StringBuffer resultBuffer = new StringBuffer();
+                if(Container.getFDOptimalCheckBox())  {
 
-                    resultBuffer.append("\n*******************************\n");
+                    //Remove the 'sas_plan' file with the plan
+                    //File SASplan_file = new File("fast-downward/src/sas_plan");
+                    //SASplan_file.delete();
 
-                    resultBuffer.append("NUMBER OF TRACES ANALYZED : " + total_number_of_traces_analyzed + "\n");
-                    resultBuffer.append("NUMBER OF TRACES NOT ANALYZED (due to a planner failure) : " + number_of_traces_with_failure + "\n");
-                    if(number_of_traces_with_failure>0)
-                        resultBuffer.append("\nLIST OF TRACES NOT ANALYZED (due a planner failure) : " + traces_with_failure_vector + "\n");
-                    resultBuffer.append("NUMBER OF TRACES REQUIRING THE ALIGNMENT : " + number_of_traces_aligned + "\n");
-                    resultBuffer.append("FITNESS : " + log_fitness/total_number_of_traces_analyzed + "\n");
-                    resultBuffer.append("\n*******************************\n");
+                    //Thread.sleep(1000);
 
-                    resultBuffer.append("TOTAL TRANSLATION TIME (in ms.) : " + totalTranslationTime + " ms\n");
-                    resultBuffer.append("AVERAGE TRANSLATION TIME (in ms.) : " + ((long)(totalTranslationTime / total_number_of_traces)) + " ms\n");
-                    seconds = (totalTranslationTime / 1000.0);
-                    resultBuffer.append("TOTAL TRANSLATION TIME (in seconds) : " + seconds + " sec\n");
-                    resultBuffer.append("AVERAGE TRANSLATION TIME (in ms.) : " + ((double)(seconds / total_number_of_traces)) + " sec");
 
-                    resultBuffer.append("\n-------------------------------\n");
+                    sb.append("\n---- SEARCH HEURISTIC: Blind A* ----\n");
+                    logBuffer.append("\n---- SEARCH HEURISTIC: Blind A* ----\n");
 
-                    resultBuffer.append("TOTAL PREPROCESSING TIME (in ms.) : " + totalPreprocessingTime + " ms\n");
-                    resultBuffer.append("AVERAGE PREPROCESSING TIME (in ms.) : " + ((long)(totalPreprocessingTime / total_number_of_traces_analyzed)) + " ms\n");
-                    seconds = (totalPreprocessingTime / 1000.0);
-                    resultBuffer.append("TOTAL PREPROCESSING TIME (in seconds) : " + seconds + " sec\n");
-                    resultBuffer.append("AVERAGE PREPROCESSING TIME (in ms.) : " + ((double)(seconds / total_number_of_traces_analyzed)) + " sec");
+                    //Timestamp tmsp6 = new Timestamp(new java.util.Date().getTime());
+                    //Process pr3 = Runtime.getRuntime().exec("gnome-terminal -e ./planner_opt_script");
+                    //pr3.waitFor();
 
-                    if(Container.getFDOptimalCheckBox()) {
-                        resultBuffer.append("\n-------------------------------\n");
-                        resultBuffer.append("TOTAL SEARCHING TIME (in ms.) - Blind A* : " + totalSearchingOptTime + "\n");
-                        resultBuffer.append("AVERAGE SEARCHING TIME (in ms.) - Blind A* : " + ((long)(totalSearchingOptTime / total_number_of_traces_analyzed)) + " ms\n");
-                        seconds = (totalSearchingOptTime / 1000.0);
-                        resultBuffer.append("TOTAL SEARCHING TIME (in seconds) - Blind A* : " + seconds + " sec\n");
-                        resultBuffer.append("AVERAGE SEARCHING TIME (in seconds) - Blind A* : " + ((double)(seconds / total_number_of_traces_analyzed)) + " sec");
-                    }
+                    Timestamp tmsp7 = new Timestamp(new Date().getTime());
 
-                    resultBuffer.append("\n*******************************\n");
+                    long searching_time = tmsp7.getTime()-tmsp1.getTime();
+                    totalSearchingOptTime += searching_time;
+
+                    sb.append(">>>> SEARCHING TIME : ");
+                    sb.append(searching_time + " ms.\n");
+
+                    logBuffer.append(">>>> SEARCHING TIME : ");
+                    logBuffer.append(searching_time + " ms.\n");
+
+                    //Update the .csv File
+                    //csvBuffer.append((searching_time / 1000.0) + ",");
 
                     try(PrintWriter out = new PrintWriter(new BufferedWriter(new FileWriter(results_log_file, true)))) {
-                        out.println(resultBuffer);
+                        out.println(logBuffer);
                     }catch (IOException e) {System.out.println("Il file non esiste");}
 
+                    Thread.sleep(1000);
 
-
+                    createResults(trace,"fast-downward");
+                }
+                else {
+                    createResults(trace,"SYMBA");
                 }
 
+
+
+            }
+            int total_number_of_traces = number_of_traces_to_check_to - number_of_traces_to_check_from + 1;
+            int total_number_of_traces_analyzed = total_number_of_traces - number_of_traces_with_failure;
+
+            sb.append("\n*******************************\n");
+
+            sb.append("NUMBER OF TRACES ANALYZED : " + total_number_of_traces_analyzed + "\n");
+            sb.append("NUMBER OF TRACES NOT ANALYZED (due to a planner failure) : " + number_of_traces_with_failure + "\n");
+            if(number_of_traces_with_failure>0)
+                sb.append("\nLIST OF TRACES NOT ANALYZED (due a planner failure) : " + traces_with_failure_vector + "\n");
+            sb.append("NUMBER OF TRACES REQUIRING THE ALIGNMENT : " + number_of_traces_aligned + "\n");
+            sb.append("FITNESS : " + log_fitness/total_number_of_traces_analyzed + "\n");
+            sb.append("\n*******************************\n");
+
+            sb.append("TOTAL TRANSLATION TIME (in ms.) : " + totalTranslationTime + " ms\n");
+            sb.append("AVERAGE TRANSLATION TIME (in ms.) : " + ((long)(totalTranslationTime / total_number_of_traces)) + " ms\n");
+            double seconds = (totalTranslationTime / 1000.0);
+            sb.append("TOTAL TRANSLATION TIME (in seconds) : " + seconds + " sec\n");
+            sb.append("AVERAGE TRANSLATION TIME (in ms.) : " + ((double)(seconds / total_number_of_traces)) + " sec");
+
+            sb.append("\n-------------------------------\n");
+
+            sb.append("TOTAL PREPROCESSING TIME (in ms.) : " + totalPreprocessingTime + " ms\n");
+            sb.append("AVERAGE PREPROCESSING TIME (in ms.) : " + ((long)(totalPreprocessingTime / total_number_of_traces_analyzed)) + " ms\n");
+            seconds = (totalPreprocessingTime / 1000.0);
+            sb.append("TOTAL PREPROCESSING TIME (in seconds) : " + seconds + " sec\n");
+            sb.append("AVERAGE PREPROCESSING TIME (in ms.) : " + ((double)(seconds / total_number_of_traces_analyzed)) + " sec");
+
+            if(Container.getFDOptimalCheckBox()) {
+                sb.append("\n-------------------------------\n");
+                sb.append("TOTAL SEARCHING TIME (in ms.) - Blind A* : " + totalSearchingOptTime + "\n");
+                sb.append("AVERAGE SEARCHING TIME (in ms.) - Blind A* : " + ((long)(totalSearchingOptTime / total_number_of_traces_analyzed)) + " ms\n");
+                seconds = (totalSearchingOptTime / 1000.0);
+                sb.append("TOTAL SEARCHING TIME (in seconds) - Blind A* : " + seconds + " sec\n");
+                sb.append("AVERAGE SEARCHING TIME (in seconds) - Blind A* : " + ((double)(seconds / total_number_of_traces_analyzed)) + " sec");
+            }
+
+            sb.append("\n*******************************\n");
+
+            StringBuffer resultBuffer = new StringBuffer();
+
+            resultBuffer.append("\n*******************************\n");
+
+            resultBuffer.append("NUMBER OF TRACES ANALYZED : " + total_number_of_traces_analyzed + "\n");
+            resultBuffer.append("NUMBER OF TRACES NOT ANALYZED (due to a planner failure) : " + number_of_traces_with_failure + "\n");
+            if(number_of_traces_with_failure>0)
+                resultBuffer.append("\nLIST OF TRACES NOT ANALYZED (due a planner failure) : " + traces_with_failure_vector + "\n");
+            resultBuffer.append("NUMBER OF TRACES REQUIRING THE ALIGNMENT : " + number_of_traces_aligned + "\n");
+            resultBuffer.append("FITNESS : " + log_fitness/total_number_of_traces_analyzed + "\n");
+            resultBuffer.append("\n*******************************\n");
+
+            resultBuffer.append("TOTAL TRANSLATION TIME (in ms.) : " + totalTranslationTime + " ms\n");
+            resultBuffer.append("AVERAGE TRANSLATION TIME (in ms.) : " + ((long)(totalTranslationTime / total_number_of_traces)) + " ms\n");
+            seconds = (totalTranslationTime / 1000.0);
+            resultBuffer.append("TOTAL TRANSLATION TIME (in seconds) : " + seconds + " sec\n");
+            resultBuffer.append("AVERAGE TRANSLATION TIME (in ms.) : " + ((double)(seconds / total_number_of_traces)) + " sec");
+
+            resultBuffer.append("\n-------------------------------\n");
+
+            resultBuffer.append("TOTAL PREPROCESSING TIME (in ms.) : " + totalPreprocessingTime + " ms\n");
+            resultBuffer.append("AVERAGE PREPROCESSING TIME (in ms.) : " + ((long)(totalPreprocessingTime / total_number_of_traces_analyzed)) + " ms\n");
+            seconds = (totalPreprocessingTime / 1000.0);
+            resultBuffer.append("TOTAL PREPROCESSING TIME (in seconds) : " + seconds + " sec\n");
+            resultBuffer.append("AVERAGE PREPROCESSING TIME (in ms.) : " + ((double)(seconds / total_number_of_traces_analyzed)) + " sec");
+
+            if(Container.getFDOptimalCheckBox()) {
+                resultBuffer.append("\n-------------------------------\n");
+                resultBuffer.append("TOTAL SEARCHING TIME (in ms.) - Blind A* : " + totalSearchingOptTime + "\n");
+                resultBuffer.append("AVERAGE SEARCHING TIME (in ms.) - Blind A* : " + ((long)(totalSearchingOptTime / total_number_of_traces_analyzed)) + " ms\n");
+                seconds = (totalSearchingOptTime / 1000.0);
+                resultBuffer.append("TOTAL SEARCHING TIME (in seconds) - Blind A* : " + seconds + " sec\n");
+                resultBuffer.append("AVERAGE SEARCHING TIME (in seconds) - Blind A* : " + ((double)(seconds / total_number_of_traces_analyzed)) + " sec");
+            }
+
+            resultBuffer.append("\n*******************************\n");
+
+            try(PrintWriter out = new PrintWriter(new BufferedWriter(new FileWriter(results_log_file, true)))) {
+                out.println(resultBuffer);
+            }catch (IOException e) {System.out.println("Il file non esiste");}
+
+
+
+        }
+
+        catch(Exception e)
+        {e.printStackTrace();
+        }
+    }
+
+    public static void runPlanner() throws InterruptedException {
+
+        invokePlanner();
+
+        int number_of_traces_to_check_from = 0;
+        int number_of_traces_to_check_to = 0;
+
+        if(Container.getNumber_of_Traces_checkBox()) {
+            number_of_traces_to_check_from = Container.getNumber_of_traces_ComboBox_FROM();
+            number_of_traces_to_check_to = Container.getNumber_of_traces_ComboBox_TO();
+        }
+        else {
+            number_of_traces_to_check_from = 1;
+            number_of_traces_to_check_to = Container.getAllTraces_vector().size();
+        }
+
+        double log_fitness_numerator = 0;
+        double log_fitness_denominator = 0;
+
+        File folder = new File("/Users/applem2/Downloads/Work/tesi/Project/Aligner/Plan-based_Data_Aware_Declarative_Conf_Checker/results");
+
+        double total_number_of_alignments = 0;
+        int total_number_of_traces_analyzed = 0;
+        double total_number_of_log_events = 0;
+
+        File[] directoryListing = folder.listFiles();
+
+        if (directoryListing != null) {
+            for (File child : directoryListing) {
+                //System.out.println(child.getName());
+
+                total_number_of_traces_analyzed++;
+
+                String[] split_file_name = child.getName().split("_");
+                String[] split_file_name_1 = split_file_name[0].split(".txt");
+
+                Trace trace = Utilities.getTracebyId("Trace#"+split_file_name_1[0]);
+
+                Vector<String> plan_vector = new Vector<String>();
+
+                BufferedReader reader = null;
+                try {
+                    reader = new BufferedReader(new FileReader(child.getAbsolutePath()));
+                    String line = reader.readLine();
+                    while(line!=null) {
+                        if(line!=null && line.contains("(") && line.contains(")")){
+                            plan_vector.addElement(line);
+                        }
+                        line = reader.readLine();
+                    }
+                }
                 catch(Exception e)
                 {e.printStackTrace();
                 }
 
+                StringBuffer logBuffer = new StringBuffer();
+                logBuffer.append("\n");
+                logBuffer.append(">>>> TRACE ID: " + trace.getTraceID() + " " + trace.getTraceName() + " " + trace.getTraceNumber() + "\n");
+                logBuffer.append(">>>> TRACE CONTENT: " + trace.getOriginalTraceContent_vector()+"\n");
+                logBuffer.append(">>>> ORIGINAL TRACE LENGTH: " + trace.getOriginalTraceContent_vector().size()+"\n");
+                total_number_of_log_events += trace.getOriginalTraceContent_vector().size();
+
+                float cost_of_alignments = 0;
+                float number_of_alignments = 0;
+                float length_of_trace_aligned = 0;
+
+
+
+                for (int index=0;index<plan_vector.size();index++) {
+                    String planning_action = (String) plan_vector.elementAt(index);
+                    String[] split = planning_action.split("\\(");
+                    String[] split1 = split[1].split("\\)");
+                    String[] complete_action = split1[0].split(" ");
+                    String action = complete_action[0];
+
+                    if(action.substring(0,8).equalsIgnoreCase("del-repl")) {
+                        number_of_alignments += 0.5;
+                    }
+                    else if(action.substring(0,8).equalsIgnoreCase("add-repl")) {
+                        number_of_alignments += 0.5;
+                    }
+
+
+                    else if(action.substring(0,3).equalsIgnoreCase("del")) {
+                        number_of_alignments++;
+                        cost_of_alignments++;
+                    }
+                    else if(action.substring(0,3).equalsIgnoreCase("add")) {
+                        number_of_alignments++;
+                        length_of_trace_aligned++;
+                        cost_of_alignments++;
+                    }
+                    else if(action.substring(0,4).equalsIgnoreCase("sync")) {
+                        length_of_trace_aligned++;
+                    }
+
+                }
+                logBuffer.append(">>>> ALIGNED TRACE LENGTH: " + length_of_trace_aligned+"\n");
+                logBuffer.append(">>>> COST OF ALIGNMENT: " + cost_of_alignments+"\n");
+                logBuffer.append(">>>> NUMBER OF ALIGNMENTS: " + number_of_alignments+"\n");
+
+                double fitness = 1 - (cost_of_alignments/(length_of_trace_aligned + trace.getOriginalTraceContent_vector().size()));
+                logBuffer.append(">>>> FITNESS: " + fitness+"\n");
+
+                log_fitness_numerator += cost_of_alignments;
+                log_fitness_denominator += length_of_trace_aligned + trace.getOriginalTraceContent_vector().size();
+
+                total_number_of_alignments += number_of_alignments;
+
+                try(PrintWriter out = new PrintWriter(new BufferedWriter(new FileWriter("/Users/applem2/Downloads/Work/tesi/Project/Aligner/Plan-based_Data_Aware_Declarative_Conf_Checker/results/out_" + split_file_name_1[0] + ".txt", true)))) {
+                    out.println(logBuffer);
+                }catch (IOException e) {System.out.println("Il file non esiste");}
+
+
             }
-        });
-        planner_thread.start();
+        }
+        double log_fitness = 1 - (log_fitness_numerator/log_fitness_denominator);
+
+        if(Container.getDataAware_map().isEmpty())
+            System.out.println("LOG FITNESS : " + log_fitness);
+
+        System.out.println("TRACES ANALYZED : " + total_number_of_traces_analyzed);
+        System.out.println("TOTAL NUMBER OF ALIGNMENTS : " + total_number_of_alignments);
+        System.out.println("AVERAGE NUMBER OF ALIGNMENTS : " + (total_number_of_alignments/total_number_of_traces_analyzed));
+        System.out.println("AVERAGE NUMBER OF LOG EVENTS : " + (total_number_of_log_events/total_number_of_traces_analyzed));
+
+
+        try(PrintWriter out = new PrintWriter(new BufferedWriter(new FileWriter("/Users/applem2/Downloads/Work/tesi/Project/Aligner/Plan-based_Data_Aware_Declarative_Conf_Checker/results/OUTCOMES.txt", true)))) {
+            out.println("TRACES ANALYZED : " + total_number_of_traces_analyzed);
+            out.println("AVERAGE NUMBER OF LOG EVENTS PER TRACE: " + (total_number_of_log_events/total_number_of_traces_analyzed));
+            out.println("TOTAL NUMBER OF ALIGNMENTS : " + total_number_of_alignments);
+            out.println("AVERAGE NUMBER OF ALIGNMENTS PER TRACE: " + (total_number_of_alignments/total_number_of_traces_analyzed));
+        }catch (IOException e) {System.out.println("Il file non esiste");}
+
+        //planner_thread.interrupt();
+
     }
 
 
@@ -308,9 +446,9 @@ public class Runner {
         //Create the results to be shown by the planner
         //
         if(planner_name.equalsIgnoreCase("fast-downward"))
-            new File("fast-downward/src/sas_plan");
+            new File("/Users/applem2/Downloads/Work/tesi/Project/Aligner/Plan-based_Data_Aware_Declarative_Conf_Checker/fast-downward/src/sas_plan");
         else if(planner_name.equalsIgnoreCase("SYMBA"))
-            new File("seq-opt-symba-2/out");
+            new File("/Users/applem2/Downloads/Work/tesi/Project/Aligner/Plan-based_Data_Aware_Declarative_Conf_Checker/seq-opt-symba-2/out");
 
         Vector<String> plan_vector = new Vector<String>();
 
@@ -318,10 +456,10 @@ public class Runner {
         try
         {
             if(planner_name.equalsIgnoreCase("fast-downward")) {
-                reader = new BufferedReader(new FileReader("fast-downward/src/sas_plan"));
+                reader = new BufferedReader(new FileReader("/Users/applem2/Downloads/Work/tesi/Project/Aligner/Plan-based_Data_Aware_Declarative_Conf_Checker/fast-downward/src/sas_plan"));
             }
             else if(planner_name.equalsIgnoreCase("SYMBA")) {
-                reader = new BufferedReader(new FileReader("seq-opt-symba-2/out"));
+                reader = new BufferedReader(new FileReader("/Users/applem2/Downloads/Work/tesi/Project/Aligner/Plan-based_Data_Aware_Declarative_Conf_Checker/seq-opt-symba-2/out"));
             }
             String line = reader.readLine();
             while(line!=null) {
@@ -634,142 +772,7 @@ public class Runner {
         return total_cost;
     }
 
-    public static void runPlanner() {
 
-        invokePlanner();
-        int number_of_traces_to_check_from = 0;
-        int number_of_traces_to_check_to = 0;
-
-        if(Container.getNumber_of_Traces_checkBox()) {
-            number_of_traces_to_check_from = Container.getNumber_of_traces_ComboBox_FROM();
-            number_of_traces_to_check_to = Container.getNumber_of_traces_ComboBox_TO();
-        }
-        else {
-            number_of_traces_to_check_from = 1;
-            number_of_traces_to_check_to = Container.getAllTraces_vector().size();
-        }
-
-        double log_fitness_numerator = 0;
-        double log_fitness_denominator = 0;
-
-        File folder = new File("seq-opt-symba-2/results/");
-
-        double total_number_of_alignments = 0;
-        int total_number_of_traces_analyzed = 0;
-        double total_number_of_log_events = 0;
-
-        File[] directoryListing = folder.listFiles();
-        if (directoryListing != null) {
-            for (File child : directoryListing) {
-                //System.out.println(child.getName());
-
-                total_number_of_traces_analyzed++;
-
-                String[] split_file_name = child.getName().split("_");
-                String[] split_file_name_1 = split_file_name[1].split(".txt");
-
-                Trace trace = Utilities.getTracebyId("Trace#"+split_file_name_1[0]);
-
-                Vector<String> plan_vector = new Vector<String>();
-
-                BufferedReader reader = null;
-                try {
-                    reader = new BufferedReader(new FileReader(child.getAbsolutePath()));
-                    String line = reader.readLine();
-                    while(line!=null) {
-                        if(line!=null && line.contains("(") && line.contains(")")){
-                            plan_vector.addElement(line);
-                        }
-                        line = reader.readLine();
-                    }
-                }
-                catch(Exception e)
-                {e.printStackTrace();
-                }
-
-                StringBuffer logBuffer = new StringBuffer();
-                logBuffer.append("\n");
-                logBuffer.append(">>>> TRACE ID: " + trace.getTraceID() + " " + trace.getTraceName() + " " + trace.getTraceNumber() + "\n");
-                logBuffer.append(">>>> TRACE CONTENT: " + trace.getOriginalTraceContent_vector()+"\n");
-                logBuffer.append(">>>> ORIGINAL TRACE LENGTH: " + trace.getOriginalTraceContent_vector().size()+"\n");
-                total_number_of_log_events += trace.getOriginalTraceContent_vector().size();
-
-                float cost_of_alignments = 0;
-                float number_of_alignments = 0;
-                float length_of_trace_aligned = 0;
-
-
-
-                for (int index=0;index<plan_vector.size();index++) {
-                    String planning_action = (String) plan_vector.elementAt(index);
-
-                    String[] split = planning_action.split("\\(");
-                    String[] split1 = split[1].split("\\)");
-                    String[] complete_action = split1[0].split(" ");
-                    String action = complete_action[0];
-
-                    if(action.substring(0,8).equalsIgnoreCase("del-repl")) {
-                        number_of_alignments += 0.5;
-                    }
-                    else if(action.substring(0,8).equalsIgnoreCase("add-repl")) {
-                        number_of_alignments += 0.5;
-                    }
-
-
-                    else if(action.substring(0,3).equalsIgnoreCase("del")) {
-                        number_of_alignments++;
-                        cost_of_alignments++;
-                    }
-                    else if(action.substring(0,3).equalsIgnoreCase("add")) {
-                        number_of_alignments++;
-                        length_of_trace_aligned++;
-                        cost_of_alignments++;
-                    }
-                    else if(action.substring(0,4).equalsIgnoreCase("sync")) {
-                        length_of_trace_aligned++;
-                    }
-
-                }
-                logBuffer.append(">>>> ALIGNED TRACE LENGTH: " + length_of_trace_aligned+"\n");
-                logBuffer.append(">>>> COST OF ALIGNMENT: " + cost_of_alignments+"\n");
-                logBuffer.append(">>>> NUMBER OF ALIGNMENTS: " + number_of_alignments+"\n");
-
-                double fitness = 1 - (cost_of_alignments/(length_of_trace_aligned + trace.getOriginalTraceContent_vector().size()));
-                logBuffer.append(">>>> FITNESS: " + fitness+"\n");
-
-                log_fitness_numerator += cost_of_alignments;
-                log_fitness_denominator += length_of_trace_aligned + trace.getOriginalTraceContent_vector().size();
-
-                total_number_of_alignments += number_of_alignments;
-
-                try(PrintWriter out = new PrintWriter(new BufferedWriter(new FileWriter("seq-opt-symba-2/results/out_" + split_file_name_1[0] + ".txt", true)))) {
-                    out.println(logBuffer);
-                }catch (IOException e) {System.out.println("Il file non esiste");}
-
-
-            }
-        }
-        double log_fitness = 1 - (log_fitness_numerator/log_fitness_denominator);
-
-        if(Container.getDataAware_map().isEmpty())
-            System.out.println("LOG FITNESS : " + log_fitness);
-
-        System.out.println("TRACES ANALYZED : " + total_number_of_traces_analyzed);
-        System.out.println("TOTAL NUMBER OF ALIGNMENTS : " + total_number_of_alignments);
-        System.out.println("AVERAGE NUMBER OF ALIGNMENTS : " + (total_number_of_alignments/total_number_of_traces_analyzed));
-        System.out.println("AVERAGE NUMBER OF LOG EVENTS : " + (total_number_of_log_events/total_number_of_traces_analyzed));
-
-
-        try(PrintWriter out = new PrintWriter(new BufferedWriter(new FileWriter("seq-opt-symba-2/results/OUTCOMES.txt", true)))) {
-            out.println("TRACES ANALYZED : " + total_number_of_traces_analyzed);
-            out.println("AVERAGE NUMBER OF LOG EVENTS PER TRACE: " + (total_number_of_log_events/total_number_of_traces_analyzed));
-            out.println("TOTAL NUMBER OF ALIGNMENTS : " + total_number_of_alignments);
-            out.println("AVERAGE NUMBER OF ALIGNMENTS PER TRACE: " + (total_number_of_alignments/total_number_of_traces_analyzed));
-        }catch (IOException e) {System.out.println("Il file non esiste");}
-
-        planner_thread.interrupt();
-
-    }
 
 
 }

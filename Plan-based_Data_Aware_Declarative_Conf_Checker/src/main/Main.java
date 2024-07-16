@@ -63,13 +63,13 @@ public class Main {
 
         System.out.println("----- RESULT PHASE STARTED -----");
 
-        //Runner.runPlanner();
+        Runner.runPlanner();
 
         System.out.println("----- RESULT PHASE COMPLETED -----");
 
-       System.out.println("----- CLEAN PHASE STARTED -----");
+        System.out.println("----- CLEAN PHASE STARTED -----");
 
-        //Utilities.cleanAll();
+        Utilities.cleanAll();
 
         System.out.println("----- CLEAN PHASE COMPLETED -----");
 
