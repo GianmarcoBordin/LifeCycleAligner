@@ -31,6 +31,8 @@ public class Runner {
 
 
 
+    // TODO correct also symba script to run all problems alignment and script to visualize results
+
     public static void invokePlanner() throws InterruptedException {
 
         try {
