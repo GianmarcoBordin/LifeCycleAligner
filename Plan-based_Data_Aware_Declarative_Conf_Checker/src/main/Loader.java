@@ -157,16 +157,19 @@ public class Loader {
                 lifecycleActivityDot = createLifecycleDot(loaded_alphabet_vector.elementAt(kix));
                 act = removeAfterUnderscore(loaded_alphabet_vector.elementAt(kix));
                 assert act != null && lifecycleActivityDot != null && lifecycleActivityDot.exists() && lifecycleActivityDot.isFile();
-                if (Container.getLifecycle())
+                if (Container.getLifecycle()) {
                     loadDot(lifecycleActivityDot);
+                }
                 for (String l: Container.lifecycles){
                     if (!Container.getGeneralActivitiesRepository().contains(act+"_"+l)){
                         Container.getGeneralActivitiesRepository().addElement(act+"_"+l);
-                        Container.getActivitiesRepository_vector().addElement(act+"_"+l); // TODO see
                     }
-                    Container.getAlphabetListModel().addElement(act+"_"+l);
+                    if (!Container.getAlphabetListModel().contains(act+"_"+l)){
+                        Container.getAlphabetListModel().addElement(act+"_"+l);
+                    }
                 }
             }
+
         } catch (Exception exception) {
             exception.printStackTrace();
         }
@@ -291,10 +294,9 @@ public class Loader {
 
     public static void loadDot(File selectedFile) {
         String model_learning_constraint = "DFA{" + selectedFile.getAbsolutePath() + "}";
-
-        Container.getConstraintsListModel().addElement(model_learning_constraint);
-
-
+        if (!Container.getConstraintsListModel().contains(model_learning_constraint)){
+            Container.getConstraintsListModel().addElement(model_learning_constraint);
+        }
     }
 
 
