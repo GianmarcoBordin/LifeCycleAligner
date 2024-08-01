@@ -44,7 +44,12 @@ public class Lifecycle {
         dot.append("digraph {\n");
         // static states
         dot.append("\tfake0 [style=invisible]\n");
-        dot.append("\t0 [root=true]\n");
+        if (Container.getHoldNotFoundConstraints()){
+            dot.append("\t0 [root=true]\n");
+        }
+        else {
+            dot.append("\t0 [root=true] [shape=doublecircle]\n");
+        }
         dot.append("\t1\n");
         // variable states
         for (int i =0; i< lifecycles.length;i++){

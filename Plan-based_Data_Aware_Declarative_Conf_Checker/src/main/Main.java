@@ -44,7 +44,6 @@ public class Main {
 
         System.out.println("----- PREPROCESSING PHASE STARTED -----");
 
-
         System.out.println("----- PREPROCESSING PHASE COMPLETED -----");
 
         System.out.println("----- GROUNDING PHASE STARTED -----");
@@ -63,7 +62,7 @@ public class Main {
 
         System.out.println("----- RESULT PHASE STARTED -----");
 
-        Runner.invokePlanner();
+        //Runner.invokePlanner();
 
         System.out.println("----- RESULT PHASE COMPLETED -----");
 

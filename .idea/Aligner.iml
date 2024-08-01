@@ -6,6 +6,7 @@
       <sourceFolder url="file://$MODULE_DIR$/Plan-based_Data_Aware_Declarative_Conf_Checker/resources" type="java-resource" />
       <sourceFolder url="file://$MODULE_DIR$/Plan-based_Data_Aware_Declarative_Conf_Checker/seq-opt-symba-2" type="java-resource" />
       <sourceFolder url="file://$MODULE_DIR$/Plan-based_Data_Aware_Declarative_Conf_Checker/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Plan-based_Data_Aware_Declarative_Conf_Checker/fast-downward" type="java-resource" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

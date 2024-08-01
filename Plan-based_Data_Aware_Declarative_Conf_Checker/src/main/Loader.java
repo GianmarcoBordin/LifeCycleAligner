@@ -266,7 +266,7 @@ public class Loader {
 
                     int dialogResult = 0;
 
-                    if (Container.hold_not_found_constraints == true) {
+                    if (Container.getHoldNotFoundConstraints()) {
 
 
                         System.out.println("The constraint '" + constraint + "' refers to the activity '" + activities_not_in_the_repo_vector.elementAt(0) + "',\nwhich is not listed in the activities repository! Such a constraint can not be properly imported, unless the missing activity is not imported in the repository. ATTENTION!");

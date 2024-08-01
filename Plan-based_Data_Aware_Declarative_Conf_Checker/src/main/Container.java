@@ -20,18 +20,16 @@ public class Container {
 
 	public static Vector<String> dots = new Vector<String>() ;
 	public static String PDDL_encoding = "AAAI17"; //It can be equal to "AAAI17" or to "ICAPS16".
-    public static boolean hold_not_found_constraints = true;
+    private static boolean hold_not_found_constraints = true; // TODO see it does not work when planner runs
     private static boolean discard_duplicated_traces = false;
 	private static boolean combineXml = false;
 
-	private static boolean lifecycle = false;
+	private static boolean lifecycle = true;
     private static boolean sinkStatesMenuItem = true;
 	private  static boolean disjunctiveGoalMenuItem= true;
 	private static boolean productAutomatonMenuItem =false;
 	private static boolean lenght_of_traces_checkBox = false;
 	private static boolean 	trace_duplicated_checkBox=true;
-
-
 	private static boolean costCheckBox=true;
 	private static boolean FDoptimalCheckBox = true;
 	private static boolean SymBAoptimalCheckBox=false;
@@ -317,6 +315,10 @@ public class Container {
 
 	public static boolean getLifecycle() {
 		return Container.lifecycle;
+	}
+
+	public static boolean getHoldNotFoundConstraints() {
+		return Container.hold_not_found_constraints;
 	}
 
 

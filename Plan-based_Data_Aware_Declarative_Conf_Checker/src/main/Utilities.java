@@ -111,13 +111,13 @@ public class Utilities {
 			        if (splited.length > 2) {
 			            String label = splited[0];
 			            State s = new State(Integer.parseInt(label));
-			            s.setAccepting(true);
 			            n.addState(s);
+						s.setAccepting(true);
 			            n.setInitial(s);
 			            states.put(Integer.parseInt(label), s);
 			        } else if (splited.length == 2) {
 						String label = splited[0];
-			            State s = new State(Integer.parseInt(label));
+						State s = new State(Integer.parseInt(label));
 			            n.addState(s);
 			            String text = splited[1].substring(1, splited[1].length() - 1);
 			            if (text.equals("shape=doublecircle")) {

@@ -1,0 +1,4 @@
+1) il planner impiega molto tempo in più quando è vicino al goal
+2) il costo del lifecyle è ancora da definire
+3) il planner symba va ancora integrato
+4) bug quando si ha uno stato accettante e iniziale nel parsing del dot file

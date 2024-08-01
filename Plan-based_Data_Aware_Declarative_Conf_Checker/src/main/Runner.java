@@ -36,33 +36,39 @@ public class Runner {
     public static void invokePlanner() throws InterruptedException {
 
         try {
-
             String[] command;
-            // Command to execute AppleScript which runs a Terminal command
+            String terminalCommand;
+            // Determine the command to run
             if (Container.getFDOptimalCheckBox()) {
-                // Command to execute AppleScript which runs a Terminal command
-                command = new String[]{
-                        "osascript", "-e",
-                        "tell application \"Terminal\" to do script \\\"/Users/applem2/Downloads/Work/tesi/Project/Aligner/Plan-based_Data_Aware_Declarative_Conf_Checker/run_FD 1\\\""
-                };
+                terminalCommand = "/Users/applem2/Downloads/Work/tesi/Project/Aligner/Plan-based_Data_Aware_Declarative_Conf_Checker/run_FD 1";
             } else {
-                // Command to execute AppleScript which runs a Terminal command
-                command = new String[]{
-                        "osascript", "-e",
-                        "tell application \"Terminal\" to do script \\\"/Users/applem2/Downloads/Work/tesi/Project/Aligner/Plan-based_Data_Aware_Declarative_Conf_Checker/run_SYMBA 1\\\""
-                };
+                terminalCommand = "/Users/applem2/Downloads/Work/tesi/Project/Aligner/Plan-based_Data_Aware_Declarative_Conf_Checker/run_SYMBA 1";
             }
 
+            // Properly escape the command for AppleScript
+            command = new String[]{
+                    "osascript", "-e",
+                    "tell application \"Terminal\" to do script \"" + terminalCommand.replace("\"", "\\\"") + "\""
+            };
 
             // Execute the command
             Process pr = Runtime.getRuntime().exec(command);
+
+            // Capture error stream for more details on failure
+            InputStream errorStream = pr.getErrorStream();
+            BufferedReader reader = new BufferedReader(new InputStreamReader(errorStream));
+            String line;
+            while ((line = reader.readLine()) != null) {
+                System.err.println(line);
+            }
+
             // Wait for the process to complete
-            pr.waitFor();
+            int exitCode = pr.waitFor();
+            if (exitCode != 0) {
+                System.err.println("Process exited with code: " + exitCode);
+            }
 
-
-
-
-        } catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
