@@ -153,7 +153,7 @@ public class DFAOperations extends NDFAOperations {
 
 	/**
 	 * Return a (possibly smaller) automaton accepting the same language as a. The parameter is not
-	 * modified. TODO - use minimizeSimple for now (worse execution time). Input must be completed.
+	 * modified.
 	 * 
 	 * @param a
 	 * @return

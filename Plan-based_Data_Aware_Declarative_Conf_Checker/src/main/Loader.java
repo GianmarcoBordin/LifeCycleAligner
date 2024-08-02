@@ -106,7 +106,7 @@ public class Loader {
 
                     String finalName = activityName + "_"+lifecycleTransition;
 
-                    loaded_trace_activities_vector.addElement(finalName);
+                    loaded_trace_activities_vector.addElement(finalName); // TODO see if inserting activities here like act1-assign, act1-start
 
                     if (!loaded_alphabet_vector.contains(finalName))
                         loaded_alphabet_vector.addElement(finalName);
@@ -166,6 +166,9 @@ public class Loader {
                     }
                     if (!Container.getAlphabetListModel().contains(act+"_"+l)){
                         Container.getAlphabetListModel().addElement(act+"_"+l);
+                    }
+                    if (!Container.getActivitiesRepository_vector().contains(act+"_"+l)){
+                        Container.getActivitiesRepository_vector().addElement(act+"_"+l);
                     }
                 }
             }

@@ -95,7 +95,7 @@ public class UnsortedTreeConjunction implements Conjunction {
 
 	@Override
 	public void balance() {
-		// TODO Auto-generated method stub
+
 
 	}
 

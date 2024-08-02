@@ -275,7 +275,7 @@ public class NDFAOperations {
 
 	/**
 	 * Return a (possibly smaller) automaton accepting the same language as a. The parameter is not
-	 * modified. TODO
+	 * modified.
 	 * 
 	 * @param a
 	 * @return
@@ -286,7 +286,7 @@ public class NDFAOperations {
 
 	/**
 	 * Return an automaton accepting the complement of the language accepted by a. The parameter is
-	 * modified. TODO - determinize and use deterministic operation for now
+	 * modified.
 	 * 
 	 * @param a
 	 * @return
@@ -368,7 +368,7 @@ public class NDFAOperations {
 
 	/**
 	 * Return an automaton accepting the union of the languages of a1 and a2. The parameters are
-	 * modified. FIXME merges init states; should create new init state which is merged. THIS
+	 * modified.
 	 * IMPLEMENTATION DOES NOT WORK!
 	 * 
 	 * @param a1

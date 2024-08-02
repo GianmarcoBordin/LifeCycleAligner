@@ -65,7 +65,7 @@ public class DefaultAutomatonFactory implements AutomatonFactory {
 
 	@Override
 	public void addTransition(final Transition t) {
-		// TODO Auto-generated method stub
+
 
 	}
 

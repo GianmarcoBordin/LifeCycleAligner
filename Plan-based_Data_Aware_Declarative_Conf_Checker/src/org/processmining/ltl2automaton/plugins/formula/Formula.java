@@ -289,7 +289,7 @@ public class Formula extends LTLFormula implements Iterable<String> {
 		case ALWAYS:
 			return getLeft().containsUntil();
 		case NEXT:
-		case WNEXT: // TODO What should be the rule for weak/strong next
+		case WNEXT:
 			return getLeft().mustSatisfyProposition();
 		case UNTIL:
 		case EVENTUALLY:

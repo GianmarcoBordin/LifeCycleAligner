@@ -20,7 +20,7 @@ public class Container {
 
 	public static Vector<String> dots = new Vector<String>() ;
 	public static String PDDL_encoding = "AAAI17"; //It can be equal to "AAAI17" or to "ICAPS16".
-    private static boolean hold_not_found_constraints = true; // TODO see it does not work when planner runs
+    private static boolean hold_not_found_constraints = true;
     private static boolean discard_duplicated_traces = false;
 	private static boolean combineXml = false;
 

@@ -122,7 +122,7 @@ public class DefaultFormulaFactory implements FormulaFactory<Formula> {
 			return Next(Not(f.getLeft()));
 
 		case LTLFormula.WNEXT:
-			// TODO implement Weak/strong next
+
 		default:
 			throw new RuntimeException("Unknown formula.");
 		}
