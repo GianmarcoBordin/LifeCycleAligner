@@ -111,8 +111,8 @@ public class Utilities {
 			        if (splited.length > 2) {
 			            String label = splited[0];
 			            State s = new State(Integer.parseInt(label));
-			            n.addState(s);
 						s.setAccepting(true);
+						n.addState(s);
 			            n.setInitial(s);
 			            states.put(Integer.parseInt(label), s);
 			        } else if (splited.length == 2) {

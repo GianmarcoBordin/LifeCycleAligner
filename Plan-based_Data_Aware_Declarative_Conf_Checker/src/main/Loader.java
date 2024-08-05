@@ -106,10 +106,27 @@ public class Loader {
 
                     String finalName = activityName + "_"+lifecycleTransition;
 
-                    loaded_trace_activities_vector.addElement(finalName); // TODO see if inserting activities here like act1-assign, act1-start
+                    loaded_trace_activities_vector.addElement(finalName);
 
                     if (!loaded_alphabet_vector.contains(finalName))
                         loaded_alphabet_vector.addElement(finalName);
+
+                    for (String l: Container.lifecycles){
+                        if (!Container.getGeneralActivitiesRepository().contains(activityName+"_"+l)){
+                            Container.getGeneralActivitiesRepository().addElement(activityName+"_"+l);
+                        }
+                        if (!Container.getAlphabetListModel().contains(activityName+"_"+l)){
+                            Container.getAlphabetListModel().addElement(activityName+"_"+l);
+                        }
+                        if (!Container.getActivitiesRepository_vector().contains(activityName+"_"+l)){
+                            Container.getActivitiesRepository_vector().addElement(activityName+"_"+l);
+                        }
+                        if(!loaded_trace_activities_vector.contains(activityName+"_"+l))
+                            loaded_trace_activities_vector.addElement(activityName+"_"+l);
+
+                        if (!loaded_alphabet_vector.contains(activityName+"_"+l))
+                            loaded_alphabet_vector.addElement(activityName+"_"+l);
+                    }
 
                 }
 
@@ -152,24 +169,10 @@ public class Loader {
 
             File lifecycleActivityDot= null;
             Container.setActivitiesRepository_vector(loaded_alphabet_vector);
-            String act = null;
             for (int kix = 0; kix < loaded_alphabet_vector.size(); kix++) {
                 lifecycleActivityDot = createLifecycleDot(loaded_alphabet_vector.elementAt(kix));
-                act = removeAfterUnderscore(loaded_alphabet_vector.elementAt(kix));
-                assert act != null && lifecycleActivityDot != null && lifecycleActivityDot.exists() && lifecycleActivityDot.isFile();
                 if (Container.getLifecycle()) {
                     loadDot(lifecycleActivityDot);
-                }
-                for (String l: Container.lifecycles){
-                    if (!Container.getGeneralActivitiesRepository().contains(act+"_"+l)){
-                        Container.getGeneralActivitiesRepository().addElement(act+"_"+l);
-                    }
-                    if (!Container.getAlphabetListModel().contains(act+"_"+l)){
-                        Container.getAlphabetListModel().addElement(act+"_"+l);
-                    }
-                    if (!Container.getActivitiesRepository_vector().contains(act+"_"+l)){
-                        Container.getActivitiesRepository_vector().addElement(act+"_"+l);
-                    }
                 }
             }
 

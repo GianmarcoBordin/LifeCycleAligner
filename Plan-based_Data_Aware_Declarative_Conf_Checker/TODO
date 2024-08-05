@@ -6,9 +6,3 @@ TODOs
 5) alfabeto corretto
 6) tests
 7) tesi
-
-
-BUGs
-1) bug quando si ha uno stato accettante e iniziale nel parsing del dot file
-2) il programma assume che i files di constraints abbiano al suo interno attività del tipo "act1-lifecycle"
-3) nel loader le attività del tipo assign,start vanno inserite al momento esatto del parsing non dopo

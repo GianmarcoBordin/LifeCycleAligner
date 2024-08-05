@@ -13,7 +13,6 @@ import static main.Container.lifecycles;
 import static main.Utilities.removeAfterUnderscore;
 
 public class Lifecycle {
-
     public static File createLifecycleDot(String activity) {
         // fake-init -> fake0 init -> 0 sink -> 1 assigned -> 2 started -> 3 completed -> 4
 
@@ -24,82 +23,69 @@ public class Lifecycle {
                 activity = activity.replaceAll(lifecycles[i], "");
         }
 
-        //activity=removeAfterUnderscore(activity);
-
         StringBuilder dot = new StringBuilder();
         Map<String, String> flowEvents = new HashMap<>();
         Map<String, Integer> index = new HashMap<>();
 
-        // states support structure
-        for (int i =0; i< lifecycles.length;i++){
-            index.put(lifecycles[i], i + 2);
-        }
-        flowEvents.put("init",lifecycles[0]);
+        // States support structure
+        for (int i = 0; i < lifecycles.length; i++) {
+            if (i!= lifecycles.length - 1) {
+                index.put(lifecycles[i], i+2);
+            }
+            else{
+                index.put(lifecycles[i], 0);
 
-        // transitions support structure
-        for (int i =0; i< lifecycles.length;i++){
-            flowEvents.put(lifecycles[i], lifecycles[((i+1) % lifecycles.length)]);
+            }
+        }
+        flowEvents.put("init", lifecycles[0]);
+
+        // Transitions support structure
+        for (int i = 0; i < lifecycles.length - 1; i++) {
+            flowEvents.put(lifecycles[i], lifecycles[((i + 1) % lifecycles.length)]);
         }
 
         dot.append("digraph {\n");
-        // static states
+        // Static states
         dot.append("\tfake0 [style=invisible]\n");
-        if (Container.getHoldNotFoundConstraints()){
-            dot.append("\t0 [root=true]\n");
-        }
-        else {
-            dot.append("\t0 [root=true] [shape=doublecircle]\n");
-        }
+        dot.append("\t0 [root=true] [shape=doublecircle]\n");
         dot.append("\t1\n");
-        // variable states
-        for (int i =0; i< lifecycles.length;i++){
-            if (i == lifecycles.length - 1){
-                dot.append("\t" + index.get(lifecycles[i]) + " [shape=doublecircle]\n");
 
-            }else {
-                dot.append("\t" + index.get(lifecycles[i]) + "\n");
-            }
+        // Variable states
+        for (int i = 0; i < lifecycles.length - 1; i++) {
+            dot.append("\t").append(index.get(lifecycles[i])).append("\n");
         }
-        // static transitions
+
+        // Static transitions
         dot.append("\tfake0 -> 0 [style=bold]\n");
-
-        // variable non sink transitions
-
-        for (int i =0; i< lifecycles.length;i++){
-            flowEvents.put(lifecycles[i], lifecycles[((i+1) % lifecycles.length)]);
+        // Variable sink transitions
+        for (int i = 0; i < lifecycles.length - 1; i++) {
+                for (String event : lifecycles) {
+                    if (!event.equals(flowEvents.get(lifecycles[i]))) {
+                        dot.append("\t").append(index.get(lifecycles[i])).append(" -> 1 [label=").append(activity).append(event).append("]\n");
+                    } else {
+                        dot.append("\t").append(index.get(lifecycles[i])).append(" -> ").append(index.get(event)).append(" [label=").append(activity).append(event).append("]\n");
+                    }
+                }
         }
 
-        // variable sink transitions
-        for (int i =0; i< lifecycles.length;i++){
-            for (String event : lifecycles) {
-                if (event != flowEvents.get(lifecycles[i])) {
-                    dot.append("\t" + index.get(lifecycles[i]) + " -> 1 [label=" + activity +  event + "]\n");
-                }
-                else{
-                    dot.append("\t" + index.get(lifecycles[i]) + " -> " + index.get(event) + " [label=" + activity +  event + "]\n");
-                }
-            }
-        }
-        // init state transitions to sink
-        int i =0;
+        // Init state transitions to sink
+        int i = 0;
         for (String event : lifecycles) {
-            if (event != flowEvents.get("init")) {
-                dot.append("\t" + i + " -> 1 [label=" + activity + event + "]\n");
-            }
-            else {
-                dot.append("\t" + i + " -> " + index.get(lifecycles[0]) + " [label=" + activity + event + "]\n");
+            if (!event.equals(flowEvents.get("init"))) {
+                dot.append("\t").append(i).append(" -> 1 [label=").append(activity).append(event).append("]\n");
+            } else {
+                dot.append("\t").append(i).append(" -> ").append(index.get(lifecycles[0])).append(" [label=").append(activity).append(event).append("]\n");
             }
         }
 
         dot.append("}");
 
         // Write DOT content to a file
-        String pathname=Container.WORKING_LIFECYCLE_DIR+ "lifecycle/"+ activity + "_lifecycle.dot";
+        String pathname = Container.WORKING_LIFECYCLE_DIR + "lifecycle/" + activity + "_lifecycle.dot";
         File dotFile = new File(pathname);
         try (FileWriter writer = new FileWriter(dotFile)) {
             writer.write(dot.toString());
             dots.addElement(dotFile.toPath().toString());
-
         } catch (IOException e) {
             e.printStackTrace();
         }
