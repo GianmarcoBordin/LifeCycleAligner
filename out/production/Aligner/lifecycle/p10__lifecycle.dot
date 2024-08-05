@@ -10,7 +10,7 @@ digraph {
 	2 -> 1 [label=p10_complete]
 	3 -> 1 [label=p10_assign]
 	3 -> 1 [label=p10_start]
-	3 -> 4 [label=p10_complete]
+	3 -> 0 [label=p10_complete]
 	0 -> 2 [label=p10_assign]
 	0 -> 1 [label=p10_start]
 	0 -> 1 [label=p10_complete]

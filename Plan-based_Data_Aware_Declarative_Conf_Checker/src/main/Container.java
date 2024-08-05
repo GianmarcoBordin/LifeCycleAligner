@@ -22,14 +22,15 @@ public class Container {
 	public static String PDDL_encoding = "AAAI17"; //It can be equal to "AAAI17" or to "ICAPS16".
 	///////
     private static boolean hold_not_found_constraints = false;
-	private static boolean hold_not_found_constraints2= true; // if false makes planner blocked at normalization time if true is blocked reaching the final goal unless cost is false
+	private static String  add_cost = "1";
+	private static String del_cost = "1";
 
 	private static boolean discard_duplicated_traces = false;
 	private static boolean combineXml = false;
-	private static boolean lifecycle = true;
+	private static boolean lifecycle = false;
     private static boolean sinkStatesMenuItem = true;
 	private  static boolean disjunctiveGoalMenuItem= true; //true lead to not normalizaton at planner time with all planners and with any value of sink states
-	private static boolean costCheckBox=false; // settled to false makes the planner find a solution
+	private static boolean costCheckBox=true; // settled to false makes the planner find a solution
 	private static boolean FDoptimalCheckBox = true;
 	private static boolean SymBAoptimalCheckBox=false;
 	/////////////
@@ -324,8 +325,11 @@ public class Container {
 		return Container.hold_not_found_constraints;
 	}
 
-
-	public static boolean getHoldNotFoundConstraints2() {
-		return Container.hold_not_found_constraints2;
+	public static String getAddCost() {
+		return Container.add_cost;
 	}
+	public static String getDelCost() {
+		return Container.del_cost;
+	}
+
 }

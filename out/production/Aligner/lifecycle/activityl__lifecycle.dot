@@ -10,7 +10,7 @@ digraph {
 	2 -> 1 [label=activityl_complete]
 	3 -> 1 [label=activityl_assign]
 	3 -> 1 [label=activityl_start]
-	3 -> 4 [label=activityl_complete]
+	3 -> 0 [label=activityl_complete]
 	0 -> 2 [label=activityl_assign]
 	0 -> 1 [label=activityl_start]
 	0 -> 1 [label=activityl_complete]

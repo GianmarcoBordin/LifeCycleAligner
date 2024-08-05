@@ -37,9 +37,8 @@ public class Generator {
                     v.addElement("2");
                 }
                 else {
-
-                    v.addElement("1");
-                    v.addElement("1");
+                    v.addElement(Container.getAddCost());
+                    v.addElement(Container.getDelCost());
                 }
                 Container.getActivitiesCost_vector().addElement(v);
             }
@@ -233,8 +232,8 @@ public class Generator {
                                     v.addElement("2");
                                 } else {
 
-                                    v.addElement("1");
-                                    v.addElement("1");
+                                    v.addElement(Container.getAddCost());
+                                    v.addElement(Container.getDelCost());
                                 }
                                 Container.getActivitiesCost_vector().addElement(v);
                             }
@@ -427,8 +426,8 @@ public class Generator {
                                     } else {
                                         //////////////////////////////////////////////////////
                                         //////////////////////////////////////////////////////
-                                        v.addElement("1");
-                                        v.addElement("1");
+                                        v.addElement(Container.getAddCost());
+                                        v.addElement(Container.getDelCost());
                                     }
                                     Container.getActivitiesCost_vector().addElement(v);
                                 }
