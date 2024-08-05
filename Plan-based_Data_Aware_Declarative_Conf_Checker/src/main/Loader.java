@@ -115,9 +115,6 @@ public class Loader {
                         if (!Container.getGeneralActivitiesRepository().contains(activityName+"_"+l)){
                             Container.getGeneralActivitiesRepository().addElement(activityName+"_"+l);
                         }
-                        if (!Container.getAlphabetListModel().contains(activityName+"_"+l)){
-                            Container.getAlphabetListModel().addElement(activityName+"_"+l);
-                        }
                         if (!Container.getActivitiesRepository_vector().contains(activityName+"_"+l)){
                             Container.getActivitiesRepository_vector().addElement(activityName+"_"+l);
                         }
@@ -164,7 +161,6 @@ public class Loader {
 
             File lifecycleActivityDot= null;
             Container.setActivitiesRepository_vector(loaded_alphabet_vector);
-            System.out.println(loaded_alphabet_vector);
             for (int kix = 0; kix < loaded_alphabet_vector.size(); kix++) {
                 lifecycleActivityDot = createLifecycleDot(loaded_alphabet_vector.elementAt(kix));
                 if (Container.getLifecycle()) {

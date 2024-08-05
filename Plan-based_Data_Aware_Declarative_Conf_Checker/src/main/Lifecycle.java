@@ -116,18 +116,19 @@ public class Lifecycle {
             notWanted.add("activityk");
             notWanted.add("p18");
             notWanted.add("p22");
-            notWanted.add("p11");
+            //notWanted.add("p11");
             notWanted.add("p2");
             notWanted.add("p8");
             notWanted.add("p4");
             notWanted.add("p10");
             notWanted.add("p13");
             notWanted.add("p5");
+            /*
             notWanted.add("p1");
             notWanted.add("p12");
             notWanted.add("p20");
             notWanted.add("p15");
-            notWanted.add("p6");
+            notWanted.add("p6");*/
 
             for (String a:generalActivities){
                 if (!seenActivities.contains(removeAfterUnderscore(a)) && !notWanted.contains(removeAfterUnderscore(a))) {

@@ -41,7 +41,6 @@ public class Main {
         }
 
         System.out.println("----- FILE IMPORTS PHASE COMPLETED -----");
-        System.out.println(Container.getAlphabetListModel());
 
         System.out.println("----- PREPROCESSING PHASE STARTED -----");
 

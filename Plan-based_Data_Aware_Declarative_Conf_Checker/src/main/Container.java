@@ -21,12 +21,12 @@ public class Container {
 	public static Vector<String> dots = new Vector<String>() ;
 	public static String PDDL_encoding = "AAAI17"; //It can be equal to "AAAI17" or to "ICAPS16".
 	///////
-    private static boolean hold_not_found_constraints = false;
+    private static boolean hold_not_found_constraints = true;
 	private static String  add_cost = "1";
-	private static String del_cost = "1";
+	private static String del_cost = "3";
 
 	private static boolean discard_duplicated_traces = false;
-	private static boolean combineXml = false;
+	private static boolean combineXml = true;
 	private static boolean lifecycle = false;
     private static boolean sinkStatesMenuItem = true;
 	private  static boolean disjunctiveGoalMenuItem= true; //true lead to not normalizaton at planner time with all planners and with any value of sink states
