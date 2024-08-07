@@ -24,7 +24,6 @@ public class Container {
     private static boolean hold_not_found_constraints = true;
 	private static String  add_cost = "1";
 	private static String del_cost = "3";
-
 	private static boolean discard_duplicated_traces = false;
 	private static boolean combineXml = true;
 	private static boolean lifecycle = false;
@@ -87,6 +86,7 @@ public class Container {
 	private static Vector<String> automata_sink_non_accepting_states_vector = new Vector<String>();
 	private static Vector<String> automata_abstract_accepting_states_vector = new Vector<String>();
 	private static Vector<String> PDDL_activities_vector = new Vector<String>();
+	private static Map<String, Boolean> memo = new HashMap<>();
 
 
 	// CONTAINER STRUCTURES END
@@ -330,6 +330,10 @@ public class Container {
 	}
 	public static String getDelCost() {
 		return Container.del_cost;
+	}
+
+	public static Map<String, Boolean> getMemo() {
+		return Container.memo;
 	}
 
 }

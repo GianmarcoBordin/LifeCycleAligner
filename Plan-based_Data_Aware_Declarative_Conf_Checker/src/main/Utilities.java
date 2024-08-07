@@ -11,19 +11,6 @@ import java.util.*;
 import org.processmining.ltl2automaton.plugins.automaton.Automaton;
 import org.processmining.ltl2automaton.plugins.automaton.State;
 import org.processmining.ltl2automaton.plugins.automaton.Transition;
-import org.w3c.dom.Document;
-import org.w3c.dom.Element;
-import org.w3c.dom.NodeList;
-import org.xml.sax.SAXException;
-
-import javax.xml.parsers.DocumentBuilder;
-import javax.xml.parsers.DocumentBuilderFactory;
-import javax.xml.parsers.ParserConfigurationException;
-import javax.xml.transform.Transformer;
-import javax.xml.transform.TransformerException;
-import javax.xml.transform.TransformerFactory;
-import javax.xml.transform.dom.DOMSource;
-import javax.xml.transform.stream.StreamResult;
 
 import static main.Container.*;
 
@@ -156,9 +143,64 @@ public class Utilities {
 		return n;
 	}
 
-	
+
+	/*public static void findCombinationsOfTransitions2(Object[] arr, String label, int len, int original_k_value, int startPosition, String[] result, Map<String, Boolean> memo) {
+		// Create a unique key for the current state
+		String key = generateKey(result, len, startPosition);
+
+		// Check if the result is already computed
+		if (memo.containsKey(key)) {
+			return;
+		}
+
+		if (len == 0) {
+			Vector<String> automata_ID_of_relevant_transitions_involved_in_a_combination_vector = new Vector<>();
+			Vector<String> combination_of_relevant_transitions_vector = new Vector<>();
+
+			for (String relevant_transition : result) {
+				int first_underscore = relevant_transition.indexOf("_");
+				int last_underscore = relevant_transition.lastIndexOf("_");
+				String automaton_id = relevant_transition.substring(first_underscore + 1, last_underscore);
+
+				if (automata_ID_of_relevant_transitions_involved_in_a_combination_vector.contains(automaton_id)) {
+					memo.put(key, false);
+					return;
+				} else {
+					combination_of_relevant_transitions_vector.addElement(relevant_transition);
+					automata_ID_of_relevant_transitions_involved_in_a_combination_vector.addElement(automaton_id);
+				}
+			}
+
+			Vector<String> original_transitions_associated_to_the_label_vector = new Vector<>();
+			for (Object o : arr) {
+				original_transitions_associated_to_the_label_vector.addElement(o.toString());
+			}
+
+			String cotID = "ct" + Container.getCombinationOfRelevantTransitions_vector().size();
+
+			CombinationOfRelevantTransitions cot = new CombinationOfRelevantTransitions(cotID, label, original_k_value,
+					combination_of_relevant_transitions_vector, original_transitions_associated_to_the_label_vector);
+
+			Container.getCombinationOfRelevantTransitions_vector().addElement(cot);
+
+			if (Container.getSinkStatesMenuItem() && cot.containsSinkstates()) {
+				Container.getCombinationOfRelevantTransitions_vector().removeElement(cot);
+			}
+
+			memo.put(key, true);
+			return;
+		}
+
+		for (int i = startPosition; i <= arr.length - len; i++) {
+			result[result.length - len] = arr[i].toString();
+			findCombinationsOfTransitions(arr, label, len - 1, original_k_value, i + 1, result, memo);
+		}
+	}
+*/
+
 	public static void findCombinationsOfTransitions(Object[] arr, String label, int len, int original_k_value, int startPosition, String[] result) {
-	    if (len == 0){
+
+		if (len == 0){
 	       	       
 	    	//String str = "";
 	    	 
@@ -203,13 +245,20 @@ public class Utilities {
 	        	Container.getCombinationOfRelevantTransitions_vector().removeElement(cot);
 	        }
 	        return;
-	    }       
+	    }
 	    for (int i = startPosition; i <= arr.length-len; i++){
 	        result[result.length - len] = arr[i].toString();
 	        findCombinationsOfTransitions(arr, label, len-1, original_k_value, i+1, result);
 	    }
 	}
-		
+	private static String generateKey(String[] result, int len, int startPosition) {
+		StringBuilder keyBuilder = new StringBuilder();
+		for (String s : result) {
+			keyBuilder.append(s).append(",");
+		}
+		keyBuilder.append(len).append(",").append(startPosition);
+		return keyBuilder.toString();
+	}
 	
 	public static void findCombinationsOfAcceptingStates(Object[] arr, int len, int startPosition, String[] result) {
 	    
@@ -557,9 +606,10 @@ public class Utilities {
 			PDDL_domain_buffer.append("(not (currstate t" + gk + ")) " + "(currstate t" + j + ") " );
 			if(Container.getCostCheckBox()) {
 				PDDL_domain_buffer.append(" (increase (total-cost) ");	
-			
 					for(int yu = 0; yu< Container.getActivitiesCost_vector().size(); yu++) {
 						Vector<String> specificTraceCostVector = Container.getActivitiesCost_vector().elementAt(yu);
+
+
 						if(specificTraceCostVector.elementAt(0).equalsIgnoreCase(trace.getOriginalTraceContent_vector().elementAt(gk))) {
 							PDDL_domain_buffer.append(specificTraceCostVector.elementAt(2) + "))\n");
 							break;

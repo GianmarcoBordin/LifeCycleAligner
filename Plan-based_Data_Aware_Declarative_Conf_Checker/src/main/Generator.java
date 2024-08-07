@@ -342,7 +342,6 @@ public class Generator {
                         //
                         // SECOND CASE: the constraint involves one activity (e.g., existence(A))
                         //
-
                         String activity = constraint_splitted_2[0];
 
                         if (!Container.getAlphabetOfTheConstraints_vector().contains(activity))
@@ -439,6 +438,7 @@ public class Generator {
                     /////////////////////////////////////////////////////////////////////////////
 
                     else {
+
                         automaton = LTLFormula.generateAutomatonByLTLFormula(ltl_formula);
                     }
 
@@ -465,7 +465,6 @@ public class Generator {
                         Container.getAutomataInitialStates_vector().addElement(st_prefix + "_" + automaton_index + "_" + initial_state_of_the_automaton.getId());
                         Container.getPDDLAutomataInitialStates_sb().append("(currstate " + st_prefix + "_" + automaton_index + "_" + initial_state_of_the_automaton.getId() + ")\n");
                     }
-
                     //
                     // For any transition of the automaton under consideration, we check if such transition is relevant
                     // (i.e., if it connects a target state different from the source state).
@@ -715,6 +714,7 @@ public class Generator {
                     Utilities.findCombinationsOfAcceptingStates(arr, k_value, 0, new String[k_value]);
                 }
 
+
                 ////////////////////////////////////////////////////////////////////
 
                 Set<String> set_of_keys = Container.getRelevantTransitions_map().keySet();
@@ -722,7 +722,7 @@ public class Generator {
                 //
                 // For any key of the "transition_map" object, i.e., for any label, identify the relevant transitions associated
                 // to that label.
-                //
+                // TODO maybe this slows all
                 for (String key : set_of_keys) {
 
                     Collection<String> values = Container.getRelevantTransitions_map().get(key);
@@ -748,7 +748,6 @@ public class Generator {
                             automata_id_of_relevant_transitions_vector.addElement(automaton_id);
                     }
 
-
                     //
                     // To identify the number of different automata involved in the relevant transitions helps to set the
                     // maximum "k" value to calculate the combination of relevant transitions (e.g., in our example, we
@@ -761,9 +760,7 @@ public class Generator {
                 }
 
 
-
             }
-
 
             //
             // Reset the global Hashtable used to record the content of all the different traces of the log (in the String format).

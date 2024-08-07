@@ -118,6 +118,8 @@ public class Loader {
                         if (!Container.getActivitiesRepository_vector().contains(activityName+"_"+l)){
                             Container.getActivitiesRepository_vector().addElement(activityName+"_"+l);
                         }
+                        if (!loaded_alphabet_vector.contains(activityName+"_"+l))
+                            loaded_alphabet_vector.addElement(activityName+"_"+l);
                     }
 
                 }
@@ -160,10 +162,10 @@ public class Loader {
             }
 
             File lifecycleActivityDot= null;
-            Container.setActivitiesRepository_vector(loaded_alphabet_vector);
+            //Container.setActivitiesRepository_vector(loaded_alphabet_vector);
             for (int kix = 0; kix < loaded_alphabet_vector.size(); kix++) {
-                lifecycleActivityDot = createLifecycleDot(loaded_alphabet_vector.elementAt(kix));
                 if (Container.getLifecycle()) {
+                    lifecycleActivityDot = createLifecycleDot(loaded_alphabet_vector.elementAt(kix));
                     loadDot(lifecycleActivityDot);
                 }
                 Container.getAlphabetListModel().addElement(loaded_alphabet_vector.elementAt(kix));
@@ -172,6 +174,8 @@ public class Loader {
         } catch (Exception exception) {
             exception.printStackTrace();
         }
+
+
 
         if (Container.getAllTraces_vector().isEmpty()) {
             System.out.println("There is no trace defined for the log!\nAt least a trace (even if empty) is required to run the software! ATTENTION!");
@@ -191,6 +195,7 @@ public class Loader {
     }
 
     public static void loadXml(File selectedFile) {
+
         try {
 
 
@@ -214,7 +219,6 @@ public class Loader {
                     if (cd.getBranches(p).iterator().hasNext()) {
 
                         String activityName = cd.getBranches(p).iterator().next().toString().toLowerCase();
-
 
 
                         if (activityName.contains(" "))
@@ -256,6 +260,9 @@ public class Loader {
 
                         constraint = constraint + activityName;
 
+
+
+
                         if (index < cd.getParameters().size() - 1)
                             constraint = constraint + ",";
                         index++;
@@ -277,8 +284,9 @@ public class Loader {
                             String specific_activity = activities_not_in_the_repo_vector.elementAt(h);
 
                             Container.getActivitiesRepository_vector().addElement(specific_activity);
-                            Container.getAlphabetListModel().addElement(specific_activity);
-                            Container.getAlphabetListModel().addElement(specific_activity);
+                            if (!Container.getAlphabetListModel().contains(specific_activity)) {
+                                Container.getAlphabetListModel().addElement(specific_activity);
+                            }
                         }
                         Container.getConstraintsListModel().addElement(constraint);
                     }
@@ -286,6 +294,7 @@ public class Loader {
                     Container.getConstraintsListModel().addElement(constraint);
 
             }
+            System.out.println(Container.getConstraintsListModel());
         } catch (Exception exception) {
             exception.printStackTrace();
         }

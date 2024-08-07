@@ -21,12 +21,12 @@ t17 - state
 t18 - state
 t19 - state
 t20 - state
+s_0_1 - state
 s_0_0 - state
-s_0_2 - state
 s_1_0 - state
 s_1_2 - state
-s_2_1 - state
 s_2_0 - state
+s_2_2 - state
 s_3_0 - state
 s_3_2 - state
 s_4_0 - state
@@ -54,9 +54,9 @@ s_14_2 - state
 )
 (:init
 (currstate t0)
-(currstate s_0_0)
+(currstate s_0_1)
 (currstate s_1_0)
-(currstate s_2_1)
+(currstate s_2_0)
 (currstate s_3_0)
 (currstate s_4_0)
 (currstate s_5_0)

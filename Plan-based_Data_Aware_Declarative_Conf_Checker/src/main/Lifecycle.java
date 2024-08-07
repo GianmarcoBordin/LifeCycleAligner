@@ -107,6 +107,7 @@ public class Lifecycle {
             List<String> generalActivities2 = new ArrayList<>();
             List<String> seenActivities = new ArrayList<>();
             List<String> notWanted =new ArrayList<>();
+
             notWanted.add("activityr");
             notWanted.add("activitym");
             notWanted.add("activityl");
@@ -114,21 +115,14 @@ public class Lifecycle {
             notWanted.add("activityo");
             notWanted.add("activityn");
             notWanted.add("activityk");
-            notWanted.add("p18");
-            notWanted.add("p22");
-            //notWanted.add("p11");
-            notWanted.add("p2");
-            notWanted.add("p8");
-            notWanted.add("p4");
-            notWanted.add("p10");
-            notWanted.add("p13");
-            notWanted.add("p5");
-            /*
             notWanted.add("p1");
+            notWanted.add("p3");
             notWanted.add("p12");
             notWanted.add("p20");
             notWanted.add("p15");
-            notWanted.add("p6");*/
+            notWanted.add("p6");
+
+
 
             for (String a:generalActivities){
                 if (!seenActivities.contains(removeAfterUnderscore(a)) && !notWanted.contains(removeAfterUnderscore(a))) {
@@ -136,6 +130,7 @@ public class Lifecycle {
                     seenActivities.add(removeAfterUnderscore(a));
                 }
             }
+
             // Get the activitydefinitions element or create it if it doesn't exist
             NodeList activityDefinitionsNodes = doc.getElementsByTagName("activitydefinitions");
             Element activityDefinitionsElement;
