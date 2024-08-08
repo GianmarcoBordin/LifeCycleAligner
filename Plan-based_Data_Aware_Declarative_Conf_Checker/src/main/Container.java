@@ -24,11 +24,11 @@ public class Container {
     private static boolean hold_not_found_constraints = true;
 	private static String  add_cost = "1";
 	private static String del_cost = "3";
-	private static boolean discard_duplicated_traces = false;
-	private static boolean combineXml = true;
-	private static boolean lifecycle = false;
-    private static boolean sinkStatesMenuItem = true;
-	private  static boolean disjunctiveGoalMenuItem= true; //true lead to not normalizaton at planner time with all planners and with any value of sink states
+	private static boolean discard_duplicated_traces = true;
+	private static boolean combineXml = false;
+	private static boolean lifecycle = true;
+    private static boolean sinkStatesMenuItem = true; // with lifecycle=true and sinks=true find a solution
+	private  static boolean disjunctiveGoalMenuItem= true; //false -->slow down the tool in the find combination of transitions ,true --> not normalization with fast downward
 	private static boolean costCheckBox=true; // settled to false makes the planner find a solution
 	private static boolean FDoptimalCheckBox = true;
 	private static boolean SymBAoptimalCheckBox=false;

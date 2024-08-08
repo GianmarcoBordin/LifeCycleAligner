@@ -21,40 +21,118 @@ t17 - state
 t18 - state
 t19 - state
 t20 - state
-s_0_1 - state
 s_0_0 - state
+s_0_2 - state
+s_0_3 - state
 s_1_0 - state
 s_1_2 - state
+s_1_3 - state
 s_2_0 - state
 s_2_2 - state
+s_2_3 - state
 s_3_0 - state
 s_3_2 - state
+s_3_3 - state
 s_4_0 - state
 s_4_2 - state
+s_4_3 - state
 s_5_0 - state
 s_5_2 - state
+s_5_3 - state
 s_6_0 - state
 s_6_2 - state
+s_6_3 - state
 s_7_0 - state
 s_7_2 - state
+s_7_3 - state
 s_8_0 - state
 s_8_2 - state
+s_8_3 - state
 s_9_0 - state
 s_9_2 - state
+s_9_3 - state
 s_10_0 - state
 s_10_2 - state
+s_10_3 - state
 s_11_0 - state
 s_11_2 - state
+s_11_3 - state
 s_12_0 - state
 s_12_2 - state
+s_12_3 - state
 s_13_0 - state
 s_13_2 - state
+s_13_3 - state
 s_14_0 - state
 s_14_2 - state
+s_14_3 - state
+s_15_0 - state
+s_15_2 - state
+s_15_3 - state
+s_16_0 - state
+s_16_2 - state
+s_16_3 - state
+s_17_0 - state
+s_17_2 - state
+s_17_3 - state
+s_18_0 - state
+s_18_2 - state
+s_18_3 - state
+s_19_0 - state
+s_19_2 - state
+s_19_3 - state
+s_20_0 - state
+s_20_2 - state
+s_20_3 - state
+s_21_0 - state
+s_21_2 - state
+s_21_3 - state
+s_22_0 - state
+s_22_1 - state
+s_23_0 - state
+s_23_2 - state
+s_24_0 - state
+s_24_2 - state
+s_25_0 - state
+s_25_2 - state
+s_26_2 - state
+s_26_0 - state
+s_27_0 - state
+s_27_2 - state
+s_28_0 - state
+s_28_3 - state
+s_28_2 - state
+s_29_0 - state
+s_29_2 - state
+s_30_0 - state
+s_30_2 - state
+s_31_2 - state
+s_31_0 - state
+s_31_1 - state
+s_32_2 - state
+s_32_0 - state
+s_33_1 - state
+s_33_0 - state
+s_34_1 - state
+s_34_0 - state
+s_35_1 - state
+s_35_0 - state
+s_36_0 - state
+s_36_1 - state
+s_37_2 - state
+s_37_0 - state
+s_38_0 - state
+s_38_1 - state
+s_39_1 - state
+s_39_0 - state
+s_40_0 - state
+s_40_2 - state
+s_41_0 - state
+s_41_2 - state
 )
 (:init
 (currstate t0)
-(currstate s_0_1)
+(currstate s_0_0)
 (currstate s_1_0)
 (currstate s_2_0)
 (currstate s_3_0)
@@ -69,6 +147,33 @@ s_14_2 - state
 (currstate s_12_0)
 (currstate s_13_0)
 (currstate s_14_0)
+(currstate s_15_0)
+(currstate s_16_0)
+(currstate s_17_0)
+(currstate s_18_0)
+(currstate s_19_0)
+(currstate s_20_0)
+(currstate s_21_0)
+(currstate s_22_0)
+(currstate s_23_0)
+(currstate s_24_0)
+(currstate s_25_0)
+(currstate s_26_2)
+(currstate s_27_0)
+(currstate s_28_0)
+(currstate s_29_0)
+(currstate s_30_0)
+(currstate s_31_2)
+(currstate s_32_2)
+(currstate s_33_1)
+(currstate s_34_1)
+(currstate s_35_1)
+(currstate s_36_0)
+(currstate s_37_2)
+(currstate s_38_0)
+(currstate s_39_1)
+(currstate s_40_0)
+(currstate s_41_0)
 (= (total-cost) 0)
 )
 (:goal
@@ -89,6 +194,67 @@ s_14_2 - state
 (currstate s_12_0)
 (currstate s_13_0)
 (currstate s_14_0)
+(currstate s_15_0)
+(currstate s_16_0)
+(currstate s_17_0)
+(currstate s_18_0)
+(currstate s_19_0)
+(currstate s_20_0)
+(currstate s_21_0)
+(currstate s_22_0)
+(or 
+(currstate s_23_0)
+(currstate s_23_2)
+)
+(currstate s_24_0)
+(currstate s_25_0)
+(or 
+(currstate s_26_2)
+(currstate s_26_0)
+)
+(or 
+(currstate s_27_0)
+(currstate s_27_2)
+)
+(or 
+(currstate s_28_0)
+(currstate s_28_3)
+(currstate s_28_2)
+)
+(or 
+(currstate s_29_0)
+(currstate s_29_2)
+)
+(or 
+(currstate s_30_0)
+(currstate s_30_2)
+)
+(or 
+(currstate s_31_2)
+(currstate s_31_0)
+)
+(or 
+(currstate s_32_2)
+(currstate s_32_0)
+)
+(currstate s_33_0)
+(currstate s_34_0)
+(currstate s_35_0)
+(currstate s_36_0)
+(or 
+(currstate s_37_2)
+(currstate s_37_0)
+)
+(currstate s_38_0)
+(currstate s_39_0)
+(or 
+(currstate s_40_0)
+(currstate s_40_2)
+)
+(or 
+(currstate s_41_0)
+(currstate s_41_2)
+)
 ))
 (:metric minimize (total-cost))
 )

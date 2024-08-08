@@ -160,7 +160,7 @@ public class Lifecycle {
             TransformerFactory transformerFactory = TransformerFactory.newInstance();
             Transformer transformer = transformerFactory.newTransformer();
             DOMSource source = new DOMSource(doc);
-            outputFile =new File(Container.WORKING_LIFECYCLE_DIR+"lifecycle/lifecycle.xml");
+            outputFile =new File(Container.WORKING_LIFECYCLE_DIR+ "declarative-models/DECLARE-models/lifecycle.xml");
             StreamResult result = new StreamResult(outputFile);
             transformer.transform(source, result);
 
@@ -249,7 +249,7 @@ public class Lifecycle {
         constraint.appendChild(condition);
 
         Element name = doc.createElement("name");
-        name.appendChild(doc.createTextNode("chain succession"));
+        name.appendChild(doc.createTextNode("responded existence"));
         constraint.appendChild(name);
 
         Element template = doc.createElement("template");
@@ -258,12 +258,8 @@ public class Lifecycle {
         description.appendChild(doc.createTextNode("A and B can never be executed next to each other where A is executed first and B second."));
         template.appendChild(description);
 
-        Element display = doc.createElement("display");
-        display.appendChild(doc.createTextNode(" chain succession"));
-        template.appendChild(display);
-
         Element templateName = doc.createElement("name");
-        templateName.appendChild(doc.createTextNode(" chain succession"));
+        templateName.appendChild(doc.createTextNode("responded existence"));
         template.appendChild(templateName);
 
         Element text = doc.createElement("text");

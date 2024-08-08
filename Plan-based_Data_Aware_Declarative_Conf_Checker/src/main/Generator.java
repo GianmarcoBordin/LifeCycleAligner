@@ -246,7 +246,7 @@ public class Generator {
                     //
                     // Extract the activities involved in the constraint under consideration.
                     //
-
+System.out.println(temporal_constraint);
                     String[] constraint_splitted = temporal_constraint.split("\\(");
 
 
@@ -438,7 +438,6 @@ public class Generator {
                     /////////////////////////////////////////////////////////////////////////////
 
                     else {
-
                         automaton = LTLFormula.generateAutomatonByLTLFormula(ltl_formula);
                     }
 
@@ -471,9 +470,12 @@ public class Generator {
                     //
                     Iterator<Transition> it = automaton.transitions().iterator();
 
+
+
                     while (it.hasNext()) {
 
                         Transition transition = (Transition) it.next();
+
                         int tr_source_state_id = transition.getSource().getId();
                         int tr_target_state_id = transition.getTarget().getId();
 
@@ -524,7 +526,6 @@ public class Generator {
                                 // ones are inferred from the repository of activities involved in the log and in the Declare constraints.
 
                                 Collection<String> coll = transition.getNegativeLabels();
-
                                 for (int ix = 0; ix < Container.getActivitiesRepository_vector().size(); ix++) {
                                     tr_id = tr_prefix + "_" + automaton_index + "_" + single_tr_index;
                                     String symbol = Container.getActivitiesRepository_vector().elementAt(ix);
@@ -722,7 +723,9 @@ public class Generator {
                 //
                 // For any key of the "transition_map" object, i.e., for any label, identify the relevant transitions associated
                 // to that label.
-                // TODO maybe this slows all
+                //
+               // System.out.println("TRANSITIONS: "+Container.getRelevantTransitions_map());
+
                 for (String key : set_of_keys) {
 
                     Collection<String> values = Container.getRelevantTransitions_map().get(key);
@@ -754,6 +757,8 @@ public class Generator {
                     // calculate combinations with k=1 and k=2 at maximum).
                     // The method invoked removes automatically any combination that contains two transitions of the same automaton.
                     //
+
+
                     for (int kl = 1; kl <= automata_id_of_relevant_transitions_vector.size(); kl++) {
                         Utilities.findCombinationsOfTransitions(values_array, key, kl, kl, 0, new String[kl]);
                     }

@@ -144,61 +144,14 @@ public class Utilities {
 	}
 
 
-	/*public static void findCombinationsOfTransitions2(Object[] arr, String label, int len, int original_k_value, int startPosition, String[] result, Map<String, Boolean> memo) {
-		// Create a unique key for the current state
-		String key = generateKey(result, len, startPosition);
+	/*public static void findCombinationsOfTransitions(Object[] arr, String label, int len, int original_k_value, int startPosition, String[] result) {
+		Optimizer.findCombinationsOfTransitions(arr, label, len, original_k_value);
 
-		// Check if the result is already computed
-		if (memo.containsKey(key)) {
-			return;
-		}
-
-		if (len == 0) {
-			Vector<String> automata_ID_of_relevant_transitions_involved_in_a_combination_vector = new Vector<>();
-			Vector<String> combination_of_relevant_transitions_vector = new Vector<>();
-
-			for (String relevant_transition : result) {
-				int first_underscore = relevant_transition.indexOf("_");
-				int last_underscore = relevant_transition.lastIndexOf("_");
-				String automaton_id = relevant_transition.substring(first_underscore + 1, last_underscore);
-
-				if (automata_ID_of_relevant_transitions_involved_in_a_combination_vector.contains(automaton_id)) {
-					memo.put(key, false);
-					return;
-				} else {
-					combination_of_relevant_transitions_vector.addElement(relevant_transition);
-					automata_ID_of_relevant_transitions_involved_in_a_combination_vector.addElement(automaton_id);
-				}
-			}
-
-			Vector<String> original_transitions_associated_to_the_label_vector = new Vector<>();
-			for (Object o : arr) {
-				original_transitions_associated_to_the_label_vector.addElement(o.toString());
-			}
-
-			String cotID = "ct" + Container.getCombinationOfRelevantTransitions_vector().size();
-
-			CombinationOfRelevantTransitions cot = new CombinationOfRelevantTransitions(cotID, label, original_k_value,
-					combination_of_relevant_transitions_vector, original_transitions_associated_to_the_label_vector);
-
-			Container.getCombinationOfRelevantTransitions_vector().addElement(cot);
-
-			if (Container.getSinkStatesMenuItem() && cot.containsSinkstates()) {
-				Container.getCombinationOfRelevantTransitions_vector().removeElement(cot);
-			}
-
-			memo.put(key, true);
-			return;
-		}
-
-		for (int i = startPosition; i <= arr.length - len; i++) {
-			result[result.length - len] = arr[i].toString();
-			findCombinationsOfTransitions(arr, label, len - 1, original_k_value, i + 1, result, memo);
-		}
-	}
-*/
+	}*/
 
 	public static void findCombinationsOfTransitions(Object[] arr, String label, int len, int original_k_value, int startPosition, String[] result) {
+
+
 
 		if (len == 0){
 	       	       

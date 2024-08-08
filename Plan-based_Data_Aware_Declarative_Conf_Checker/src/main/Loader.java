@@ -118,8 +118,8 @@ public class Loader {
                         if (!Container.getActivitiesRepository_vector().contains(activityName+"_"+l)){
                             Container.getActivitiesRepository_vector().addElement(activityName+"_"+l);
                         }
-                        if (!loaded_alphabet_vector.contains(activityName+"_"+l))
-                            loaded_alphabet_vector.addElement(activityName+"_"+l);
+                        if (!loaded_alphabet_vector.contains(activityName + "_" + l))
+                            loaded_alphabet_vector.addElement(activityName + "_" + l);
                     }
 
                 }
@@ -279,13 +279,31 @@ public class Loader {
 
 
                         System.out.println("The constraint '" + constraint + "' refers to the activity '" + activities_not_in_the_repo_vector.elementAt(0) + "',\nwhich is not listed in the activities repository! Such a constraint can not be properly imported, unless the missing activity is not imported in the repository. ATTENTION!");
+                        File lifecycleActivityDot= null;
 
                         for (int h = 0; h < activities_not_in_the_repo_vector.size(); h++) {
                             String specific_activity = activities_not_in_the_repo_vector.elementAt(h);
-
-                            Container.getActivitiesRepository_vector().addElement(specific_activity);
+                            if (!Container.getActivitiesRepository_vector().contains(specific_activity)) {
+                                Container.getActivitiesRepository_vector().addElement(specific_activity);
+                            }
                             if (!Container.getAlphabetListModel().contains(specific_activity)) {
                                 Container.getAlphabetListModel().addElement(specific_activity);
+                            }
+                            String generalActivity = removeAfterUnderscore(specific_activity);
+                            for (String l: Container.lifecycles){
+                                if (!Container.getGeneralActivitiesRepository().contains(generalActivity+"_"+l)){
+                                    Container.getGeneralActivitiesRepository().addElement(generalActivity+"_"+l);
+                                }
+                                if (!Container.getActivitiesRepository_vector().contains(generalActivity+"_"+l)){
+                                    Container.getActivitiesRepository_vector().addElement(generalActivity+"_"+l);
+                                }
+                                if (!Container.getAlphabetListModel().contains(generalActivity+"_"+l)) {
+                                    Container.getAlphabetListModel().addElement(generalActivity+"_"+l);
+                                }
+                            }
+                            if (Container.getLifecycle()) {
+                                lifecycleActivityDot = createLifecycleDot(specific_activity);
+                                loadDot(lifecycleActivityDot);
                             }
                         }
                         Container.getConstraintsListModel().addElement(constraint);
@@ -294,7 +312,6 @@ public class Loader {
                     Container.getConstraintsListModel().addElement(constraint);
 
             }
-            System.out.println(Container.getConstraintsListModel());
         } catch (Exception exception) {
             exception.printStackTrace();
         }
