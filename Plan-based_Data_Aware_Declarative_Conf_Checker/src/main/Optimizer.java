@@ -5,109 +5,72 @@ import java.util.*;
 public class Optimizer {
 
     // Memoization cache to store results of previous computations
-    private static final Map<String, List<CombinationOfRelevantTransitions>> memo = new HashMap<>();
 
-    public static void findCombinationsOfTransitions(Object[] arr, String label, int len, int original_k_value) {
-        // Initialize required variables and data structures
-        String[] result = new String[len];
-        Stack<State> stack = new Stack<>();
-        stack.push(new State(0, len, 0, 0, result));
 
-        // Preprocess automaton IDs
-        String[] automatonIds = new String[arr.length];
-        for (int i = 0; i < arr.length; i++) {
-            String relevant_transition = arr[i].toString();
-            int first_underscore = relevant_transition.indexOf("_");
-            int last_underscore = relevant_transition.lastIndexOf("_");
-            automatonIds[i] = relevant_transition.substring(first_underscore + 1, last_underscore);
-        }
+    public static void findCombinationsOfTransitions3Iterative(Object[] arr, String label, int len, int original_k_value) {
+        Stack<CombinationState> stack = new Stack<>();
+        stack.push(new CombinationState(new ArrayList<>(), 0, new HashSet<>()));
 
-        // Iterate instead of using recursion
         while (!stack.isEmpty()) {
-            State currentState = stack.pop();
-            int startPosition = currentState.startPosition;
-            int currentLen = currentState.len;
-            String[] currentResult = currentState.result;
-            int usedAutomatonIds = currentState.usedAutomatonIds;
+            CombinationState state = stack.pop();
+            ArrayList<String> currentCombination = state.combination;
+            int startPosition = state.startPosition;
+            HashSet<String> automataIDsInCombination = state.automataIDsInCombination;
 
-            if (currentLen == 0) {
-                processCombination(arr, label, original_k_value, currentResult);
-                continue;
-            }
+            if (currentCombination.size() == len) {
+                Vector<String> combinationOfRelevantTransitionsList = new Vector<>(currentCombination);
 
-            for (int i = startPosition; i <= arr.length - currentLen; i++) {
-                int automatonIdIndex = Integer.parseInt(automatonIds[i]);
-
-                // Skip if this automaton ID is already used
-                if ((usedAutomatonIds & (1 << automatonIdIndex)) != 0) {
-                    continue;
+                Vector<String> originalTransitionsList = new Vector<>();
+                for (Object item : arr) {
+                    originalTransitionsList.add(item.toString());
                 }
 
-                currentResult[currentResult.length - currentLen] = arr[i].toString();
+                String cotID = "ct" + Container.getCombinationOfRelevantTransitions_vector().size();
 
-                // Push the next state onto the stack
-                stack.push(new State(i + 1, currentLen - 1, usedAutomatonIds | (1 << automatonIdIndex), automatonIdIndex, currentResult.clone()));
-            }
-        }
-    }
+                CombinationOfRelevantTransitions cot = new CombinationOfRelevantTransitions(cotID, label, original_k_value, combinationOfRelevantTransitionsList, originalTransitionsList);
 
-    private static void processCombination(Object[] arr, String label, int original_k_value, String[] result) {
-        String key = Arrays.toString(result);
+                // Handle adding to the container
+                if (Container.getSinkStatesMenuItem() && cot.containsSinkstates()) {
+                    continue; // Discard if contains sink states
+                }
 
-        // Check the memoization cache
-        if (memo.containsKey(key)) {
-            return; // Skip processing if already done
-        }
-
-        Vector<String> automata_ID_of_relevant_transitions_involved_in_a_combination_vector = new Vector<>();
-        Vector<String> combination_of_relevant_transitions_vector = new Vector<>();
-
-        for (String relevant_transition : result) {
-            int first_underscore = relevant_transition.indexOf("_");
-            int last_underscore = relevant_transition.lastIndexOf("_");
-            String automaton_id = relevant_transition.substring(first_underscore + 1, last_underscore);
-
-            if (automata_ID_of_relevant_transitions_involved_in_a_combination_vector.contains(automaton_id)) {
-                return;
+                Container.getCombinationOfRelevantTransitions_vector().addElement(cot);
             } else {
-                combination_of_relevant_transitions_vector.addElement(relevant_transition);
-                automata_ID_of_relevant_transitions_involved_in_a_combination_vector.addElement(automaton_id);
+                for (int i = startPosition; i <= arr.length - (len - currentCombination.size()); i++) {
+                    String element = arr[i].toString();
+                    int first_underscore = element.indexOf("_");
+                    int last_underscore = element.lastIndexOf("_");
+                    String automaton_id = element.substring(first_underscore + 1, last_underscore);
+
+                    // Skip if this automaton_id is already in the combination
+                    if (automataIDsInCombination.contains(automaton_id)) {
+                        continue;
+                    }
+
+                    // Create a new combination state with the new element added
+                    ArrayList<String> newCombination = new ArrayList<>(currentCombination);
+                    newCombination.add(element);
+                    HashSet<String> newAutomataIDsInCombination = new HashSet<>(automataIDsInCombination);
+                    newAutomataIDsInCombination.add(automaton_id);
+
+                    stack.push(new CombinationState(newCombination, i + 1, newAutomataIDsInCombination));
+                }
             }
         }
-
-        Vector<String> original_transitions_associated_to_the_label_vector = new Vector<>();
-        for (Object o : arr) {
-            original_transitions_associated_to_the_label_vector.addElement(o.toString());
-        }
-
-        String cotID = "ct" + Container.getCombinationOfRelevantTransitions_vector().size();
-
-        CombinationOfRelevantTransitions cot = new CombinationOfRelevantTransitions(cotID, label, original_k_value, combination_of_relevant_transitions_vector, original_transitions_associated_to_the_label_vector);
-
-        // Add the combination to the container if it doesn't contain sink states
-        if (!Container.getSinkStatesMenuItem() || !cot.containsSinkstates()) {
-            Container.getCombinationOfRelevantTransitions_vector().addElement(cot);
-        }
-
-        // Store the result in the memoization cache
-        memo.put(key, Collections.singletonList(cot));
     }
 
-    // Helper class to manage state during the iteration (instead of recursion)
-    private static class State {
+    static class CombinationState {
+        ArrayList<String> combination;
         int startPosition;
-        int len;
-        int usedAutomatonIds;
-        int automatonIdIndex;
-        String[] result;
+        HashSet<String> automataIDsInCombination;
 
-        State(int startPosition, int len, int usedAutomatonIds, int automatonIdIndex, String[] result) {
+        CombinationState(ArrayList<String> combination, int startPosition, HashSet<String> automataIDsInCombination) {
+            this.combination = combination;
             this.startPosition = startPosition;
-            this.len = len;
-            this.usedAutomatonIds = usedAutomatonIds;
-            this.automatonIdIndex = automatonIdIndex;
-            this.result = result;
+            this.automataIDsInCombination = automataIDsInCombination;
         }
     }
-}
 
+
+
+}

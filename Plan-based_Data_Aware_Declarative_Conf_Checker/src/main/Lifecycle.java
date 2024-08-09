@@ -108,15 +108,15 @@ public class Lifecycle {
             List<String> seenActivities = new ArrayList<>();
             List<String> notWanted =new ArrayList<>();
 
-            notWanted.add("activityr");
+       /*     notWanted.add("activityr");
             notWanted.add("activitym");
             notWanted.add("activityl");
             notWanted.add("activityp");
             notWanted.add("activityo");
             notWanted.add("activityn");
             notWanted.add("activityk");
-            //notWanted.add("p1");
-            //notWanted.add("p2");
+            notWanted.add("p1");
+            notWanted.add("p2");
             notWanted.add("p3");
             notWanted.add("p4");
             notWanted.add("p5");
@@ -125,7 +125,7 @@ public class Lifecycle {
             notWanted.add("p8");
             notWanted.add("p9");
             notWanted.add("p10");
-            //notWanted.add("p11");
+            notWanted.add("p11");
             notWanted.add("p12");
             notWanted.add("p13");
             notWanted.add("p14");
@@ -136,7 +136,7 @@ public class Lifecycle {
             notWanted.add("p19");
             notWanted.add("p20");
             notWanted.add("p21");
-            notWanted.add("p22");
+            notWanted.add("p22");*/
 
 
 
@@ -175,16 +175,6 @@ public class Lifecycle {
                 // Append constraints to the document
                 constraintDefinitions = doc.getElementsByTagName("constraintdefinitions").item(0);
                 constraintDefinitions.appendChild(assignToStartConstraint);
-
-                Element precedence1 = createPrecedenceConstraint(doc, generateConstraintId(doc), activity + "-complete", activity + "-start");
-
-                constraintDefinitions = doc.getElementsByTagName("constraintdefinitions").item(0);
-                constraintDefinitions.appendChild(precedence1);
-
-                Element precedence2 = createPrecedenceConstraint(doc, generateConstraintId(doc), activity + "-start", activity + "-assign");
-
-                constraintDefinitions = doc.getElementsByTagName("constraintdefinitions").item(0);
-                constraintDefinitions.appendChild(precedence2);
 
             }
 
@@ -389,7 +379,7 @@ public class Lifecycle {
         constraint.appendChild(condition);
 
         Element name = doc.createElement("name");
-        name.appendChild(doc.createTextNode("succession"));
+        name.appendChild(doc.createTextNode("chain succession"));
         constraint.appendChild(name);
 
         Element template = doc.createElement("template");
@@ -399,7 +389,7 @@ public class Lifecycle {
         template.appendChild(description);
 
         Element templateName = doc.createElement("name");
-        templateName.appendChild(doc.createTextNode("succession"));
+        templateName.appendChild(doc.createTextNode("chain succession"));
         template.appendChild(templateName);
 
         Element text = doc.createElement("text");

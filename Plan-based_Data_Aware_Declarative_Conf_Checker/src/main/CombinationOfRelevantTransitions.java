@@ -1,5 +1,7 @@
 package main;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Vector;
 
 public class CombinationOfRelevantTransitions {
@@ -10,7 +12,7 @@ public class CombinationOfRelevantTransitions {
 	
 	private int length; // Length of the combination
 	
-	private Vector<String> combination_of_transitions_vector; // Vector containing a unique combinations of transitions related to a specific label 
+	private Vector<String> combination_of_transitions_vector; // Vector containing a unique combinations of transitions related to a specific label
 	private Vector<String> original_transitions_associated_to_the_label_vector; // Vector with all the transitions associated to the specific label
 	
 	private StringBuffer PDDL_preconditions; //StringBuffer recording the preconditions required to perform the transition

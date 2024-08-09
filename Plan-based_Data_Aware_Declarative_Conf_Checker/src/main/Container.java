@@ -26,7 +26,7 @@ public class Container {
 	private static String del_cost = "3";
 	private static boolean discard_duplicated_traces = true;
 	private static boolean combineXml = true;
-	private static boolean lifecycle = false;
+	private static boolean lifecycle = false; // the lifecycle is faster because the relevant transitions are calculated only for one automaton a time not the product automaton
     private static boolean sinkStatesMenuItem = true; // false slow down
 	private  static boolean disjunctiveGoalMenuItem= false; //false -->slow down the tool in the find combination of transitions ,true --> not normalization with fast downward
 	private static boolean costCheckBox=true; // settled to false makes the planner find a solution

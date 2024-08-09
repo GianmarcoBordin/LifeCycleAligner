@@ -14,6 +14,7 @@ import org.processmining.ltl2automaton.plugins.automaton.Transition;
 
 import static main.Container.*;
 
+
 public class Utilities {
 
 
@@ -145,29 +146,28 @@ public class Utilities {
 
 
 	public static void findCombinationsOfTransitions(Object[] arr, String label, int len, int original_k_value, int startPosition, String[] result) {
-		Optimizer.findCombinationsOfTransitions(arr, label, len, original_k_value);
+		//Optimizer.findCombinationsOfTransitions3Iterative(arr, label, len, original_k_value);
+		findCombinationsOfTransitions3(arr, label, len, original_k_value, startPosition, result);
 
 	}
 
-	/*public static void findCombinationsOfTransitions(Object[] arr, String label, int len, int original_k_value, int startPosition, String[] result) {
-
-
+	public static void findCombinationsOfTransitions3(Object[] arr, String label, int len, int original_k_value, int startPosition, String[] result) {
 
 		if (len == 0){
-	       	       
+
 	    	//String str = "";
-	    	 
+
 	        Vector<String> automata_ID_of_relevant_transitions_involved_in_a_combination_vector = new Vector<String>();
 	        Vector<String> combination_of_relevant_transitions_vector = new Vector<String>();
-	        
+
 	        for(String relevant_transition : result)
 	        {
 	        	int first_underscore = relevant_transition.indexOf("_");
 				int last_underscore = relevant_transition.lastIndexOf("_");
 				String automaton_id = relevant_transition.substring(first_underscore+1, last_underscore);
-	        	
+
 				//
-				// If a combination under construction contains two relevant transitions of the same automaton, 
+				// If a combination under construction contains two relevant transitions of the same automaton,
 				// the combination is immediately discarded. Conversely, if the combination contains ONLY relevant transitions
 				// taken from different automata, a new "RelevantTransition" object
 				//
@@ -176,24 +176,24 @@ public class Utilities {
 					return;
 				}
 				else  {
-					//str += transition.toString() + ", ";					
+					//str += transition.toString() + ", ";
 					combination_of_relevant_transitions_vector.addElement(relevant_transition);
 					automata_ID_of_relevant_transitions_involved_in_a_combination_vector.addElement(automaton_id);
 				}
 	        }
-	        
+
 	        Vector<String> original_transitions_associated_to_the_label_vector = new Vector<String>();
 	        for(int hu=0;hu<arr.length;hu++) {
 	        	original_transitions_associated_to_the_label_vector.addElement(arr[hu].toString());
 	        }
-	        	        
+
 	        String cotID = "ct" + Container.getCombinationOfRelevantTransitions_vector().size();
-	        
+
 	        CombinationOfRelevantTransitions cot = new CombinationOfRelevantTransitions(cotID, label, original_k_value, combination_of_relevant_transitions_vector, original_transitions_associated_to_the_label_vector);
-	                
+
 
 	        Container.getCombinationOfRelevantTransitions_vector().addElement(cot);
-	        
+
 	        if(Container.getSinkStatesMenuItem() && cot.containsSinkstates()) {
 	        	Container.getCombinationOfRelevantTransitions_vector().removeElement(cot);
 	        }
@@ -201,10 +201,10 @@ public class Utilities {
 	    }
 	    for (int i = startPosition; i <= arr.length-len; i++){
 	        result[result.length - len] = arr[i].toString();
-	        findCombinationsOfTransitions(arr, label, len-1, original_k_value, i+1, result);
+	        findCombinationsOfTransitions3(arr, label, len-1, original_k_value, i+1, result);
 	    }
 	}
-	*/
+
 	public static void findCombinationsOfAcceptingStates(Object[] arr, int len, int startPosition, String[] result) {
 	    
 		if (len == 0){
@@ -250,9 +250,7 @@ public class Utilities {
 	        findCombinationsOfAcceptingStates(arr, len-1, i+1, result);
 	    }
 	}
-	
-	
-	
+
 	public static StringBuffer createPropositionalDomain(Trace trace) {
 		
 		StringBuffer PDDL_domain_buffer = new StringBuffer();

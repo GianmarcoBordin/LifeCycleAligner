@@ -16,7 +16,7 @@ public class Generator {
         //
         // The tool works properly only if the set of Declare/LTL constraints is not empty. Otherwise, it throws an exception.
         //
-       System.out.println(Container.getConstraintsListModel());
+       System.out.println(Container.getConstraintsListModel().size());
 
         if(!Container.getConstraintsListModel().isEmpty()) {
             Container.setActivitiesCost_vector(new Vector<Vector<String>>());
@@ -719,7 +719,7 @@ public class Generator {
 
 
                 ////////////////////////////////////////////////////////////////////
-                // TODO arrive here with less size
+                //
 
                 Set<String> set_of_keys = Container.getRelevantTransitions_map().keySet();
 
@@ -761,7 +761,8 @@ public class Generator {
                     // The method invoked removes automatically any combination that contains two transitions of the same automaton.
                     //
 
-
+                    System.out.println(automata_id_of_relevant_transitions_vector.size());
+                    System.out.println(Arrays.toString(values_array));
                     for (int kl = 1; kl <= automata_id_of_relevant_transitions_vector.size(); kl++) {
                         Utilities.findCombinationsOfTransitions(values_array, key, kl, kl, 0, new String[kl]);
                     }
@@ -861,10 +862,9 @@ public class Generator {
     public static void generatePddlFiles() {
 
         if(Container.getCostCheckBox()) {
-            // TODO
         }
         else {
-            // TODO
+
 
         }
 
@@ -893,7 +893,6 @@ public class Generator {
             }
 
             if(Container.getCostCheckBox()) {
-                // TODO
             }
 
 

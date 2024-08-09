@@ -10,193 +10,448 @@
 (total-cost)
 )
 
-(:action add-p1_complete-ct0
-:precondition (and (currstate s_9_2) (not (currstate s_7_3)) (not (currstate s_7_0)) )
-:effect (and (not (currstate s_9_2)) (currstate s_9_0)  (increase (total-cost) 1))
+(:action add-activityo_assign-ct0
+:precondition (currstate s_13_0) 
+:effect (and (not (currstate s_13_0)) (currstate s_13_2)  (increase (total-cost) 1))
 )
 
-(:action add-p1_complete-ct1
-:precondition (and (currstate s_7_3) (not (currstate s_9_2)) )
-:effect (and (not (currstate s_7_3)) (currstate s_7_2)  (increase (total-cost) 1))
+(:action add-activityn_assign-ct1
+:precondition (currstate s_12_0) 
+:effect (and (not (currstate s_12_0)) (currstate s_12_2)  (increase (total-cost) 1))
 )
 
-(:action add-p1_complete-ct2
-:precondition (and (currstate s_7_3) (currstate s_9_2) )
-:effect (and (not (currstate s_7_3)) (currstate s_7_2) (not (currstate s_9_2)) (currstate s_9_0)  (increase (total-cost) 1))
+(:action add-activityp_assign-ct2
+:precondition (currstate s_14_0) 
+:effect (and (not (currstate s_14_0)) (currstate s_14_2)  (increase (total-cost) 1))
 )
 
-(:action add-p11_start-ct3
-:precondition (and (currstate s_1_2) (not (currstate s_2_3)) (not (currstate s_2_0)) (not (currstate s_3_0)) )
+(:action add-p2_complete-ct3
+:precondition (currstate s_3_3) 
+:effect (and (not (currstate s_3_3)) (currstate s_3_0)  (increase (total-cost) 1))
+)
+
+(:action sync-p2_complete-ct3
+:precondition (and (currstate t4) (currstate s_3_3) )
+:effect (and (not (currstate t4)) (currstate t5) (not (currstate s_3_3)) (currstate s_3_0) )
+)
+
+(:action add-activityl_start-ct4
+:precondition (currstate s_20_2) 
+:effect (and (not (currstate s_20_2)) (currstate s_20_3)  (increase (total-cost) 1))
+)
+
+(:action add-p2_start-ct5
+:precondition (currstate s_3_2) 
+:effect (and (not (currstate s_3_2)) (currstate s_3_3)  (increase (total-cost) 1))
+)
+
+(:action add-p10_complete-ct6
+:precondition (currstate s_6_3) 
+:effect (and (not (currstate s_6_3)) (currstate s_6_0)  (increase (total-cost) 1))
+)
+
+(:action sync-p10_complete-ct6
+:precondition (and (currstate t0) (currstate s_6_3) )
+:effect (and (not (currstate t0)) (currstate t1) (not (currstate s_6_3)) (currstate s_6_0) )
+)
+
+(:action add-p13_complete-ct7
+:precondition (currstate s_7_3) 
+:effect (and (not (currstate s_7_3)) (currstate s_7_0)  (increase (total-cost) 1))
+)
+
+(:action sync-p13_complete-ct7
+:precondition (and (currstate t1) (currstate s_7_3) )
+:effect (and (not (currstate t1)) (currstate t2) (not (currstate s_7_3)) (currstate s_7_0) )
+)
+
+(:action add-p22_complete-ct8
+:precondition (currstate s_1_3) 
+:effect (and (not (currstate s_1_3)) (currstate s_1_0)  (increase (total-cost) 1))
+)
+
+(:action sync-p22_complete-ct8
+:precondition (and (currstate t3) (currstate s_1_3) )
+:effect (and (not (currstate t3)) (currstate t4) (not (currstate s_1_3)) (currstate s_1_0) )
+)
+
+(:action add-p6_start-ct9
+:precondition (currstate s_21_2) 
+:effect (and (not (currstate s_21_2)) (currstate s_21_3)  (increase (total-cost) 1))
+)
+
+(:action add-activitym_complete-ct10
+:precondition (currstate s_19_3) 
+:effect (and (not (currstate s_19_3)) (currstate s_19_0)  (increase (total-cost) 1))
+)
+
+(:action sync-activitym_complete-ct10
+:precondition (and (currstate t16) (currstate s_19_3) )
+:effect (and (not (currstate t16)) (currstate t17) (not (currstate s_19_3)) (currstate s_19_0) )
+)
+
+(:action add-p20_assign-ct11
+:precondition (currstate s_15_0) 
+:effect (and (not (currstate s_15_0)) (currstate s_15_2)  (increase (total-cost) 1))
+)
+
+(:action add-p22_start-ct12
+:precondition (currstate s_1_2) 
 :effect (and (not (currstate s_1_2)) (currstate s_1_3)  (increase (total-cost) 1))
 )
 
-(:action add-p11_start-ct4
-:precondition (and (currstate s_2_3) (not (currstate s_1_0)) (not (currstate s_1_2)) (not (currstate s_3_0)) )
-:effect (and (not (currstate s_2_3)) (currstate s_2_2)  (increase (total-cost) 1))
+(:action add-p8_complete-ct13
+:precondition (currstate s_4_3) 
+:effect (and (not (currstate s_4_3)) (currstate s_4_0)  (increase (total-cost) 1))
 )
 
-(:action add-p11_start-ct5
-:precondition (and (currstate s_1_0) (not (currstate s_2_3)) (not (currstate s_2_0)) (not (currstate s_3_0)) )
-:effect (and (not (currstate s_1_0)) (currstate s_1_3)  (increase (total-cost) 1))
+(:action sync-p8_complete-ct13
+:precondition (and (currstate t6) (currstate s_4_3) )
+:effect (and (not (currstate t6)) (currstate t7) (not (currstate s_4_3)) (currstate s_4_0) )
 )
 
-(:action add-p11_start-ct6
-:precondition (and (currstate s_2_3) (currstate s_1_2) (not (currstate s_3_0)) )
-:effect (and (not (currstate s_2_3)) (currstate s_2_2) (not (currstate s_1_2)) (currstate s_1_3)  (increase (total-cost) 1))
+(:action add-activityr_assign-ct14
+:precondition (currstate s_16_0) 
+:effect (and (not (currstate s_16_0)) (currstate s_16_2)  (increase (total-cost) 1))
 )
 
-(:action add-p11_start-ct7
-:precondition (and (currstate s_1_0) (currstate s_2_3) (not (currstate s_3_0)) )
-:effect (and (not (currstate s_1_0)) (currstate s_1_3) (not (currstate s_2_3)) (currstate s_2_2)  (increase (total-cost) 1))
+(:action add-activityp_start-ct15
+:precondition (currstate s_14_2) 
+:effect (and (not (currstate s_14_2)) (currstate s_14_3)  (increase (total-cost) 1))
 )
 
-(:action add-p2_complete-ct8
-:precondition (and (currstate s_6_2) (not (currstate s_4_0)) (not (currstate s_4_3)) )
-:effect (and (not (currstate s_6_2)) (currstate s_6_0)  (increase (total-cost) 1))
+(:action add-activityk_assign-ct16
+:precondition (currstate s_18_0) 
+:effect (and (not (currstate s_18_0)) (currstate s_18_2)  (increase (total-cost) 1))
 )
 
-(:action sync-p2_complete-ct8
-:precondition (and (currstate t4) (currstate s_6_2) (not (currstate s_4_0)) (not (currstate s_4_3)) )
-:effect (and (not (currstate t4)) (currstate t5) (not (currstate s_6_2)) (currstate s_6_0) )
+(:action add-activityl_assign-ct17
+:precondition (currstate s_20_0) 
+:effect (and (not (currstate s_20_0)) (currstate s_20_2)  (increase (total-cost) 1))
 )
 
-(:action add-p2_complete-ct9
-:precondition (and (currstate s_4_3) (not (currstate s_6_2)) )
-:effect (and (not (currstate s_4_3)) (currstate s_4_2)  (increase (total-cost) 1))
+(:action add-p12_start-ct18
+:precondition (currstate s_11_2) 
+:effect (and (not (currstate s_11_2)) (currstate s_11_3)  (increase (total-cost) 1))
 )
 
-(:action sync-p2_complete-ct9
-:precondition (and (currstate t4) (currstate s_4_3) (not (currstate s_6_2)) )
-:effect (and (not (currstate t4)) (currstate t5) (not (currstate s_4_3)) (currstate s_4_2) )
+(:action add-activitym_assign-ct19
+:precondition (currstate s_19_0) 
+:effect (and (not (currstate s_19_0)) (currstate s_19_2)  (increase (total-cost) 1))
 )
 
-(:action add-p2_complete-ct10
-:precondition (and (currstate s_4_3) (currstate s_6_2) )
-:effect (and (not (currstate s_4_3)) (currstate s_4_2) (not (currstate s_6_2)) (currstate s_6_0)  (increase (total-cost) 1))
+(:action add-activityp_complete-ct20
+:precondition (currstate s_14_3) 
+:effect (and (not (currstate s_14_3)) (currstate s_14_0)  (increase (total-cost) 1))
 )
 
-(:action sync-p2_complete-ct10
-:precondition (and (currstate t4) (currstate s_4_3) (currstate s_6_2) )
-:effect (and (not (currstate t4)) (currstate t5) (not (currstate s_4_3)) (currstate s_4_2) (not (currstate s_6_2)) (currstate s_6_0) )
-)
-
-(:action add-p2_start-ct11
-:precondition (and (currstate s_5_3) (not (currstate s_4_0)) (not (currstate s_4_2)) (not (currstate s_6_2)) )
-:effect (and (not (currstate s_5_3)) (currstate s_5_0)  (increase (total-cost) 1))
-)
-
-(:action add-p2_start-ct12
-:precondition (and (currstate s_4_2) (not (currstate s_5_2)) (not (currstate s_5_3)) (not (currstate s_6_2)) )
-:effect (and (not (currstate s_4_2)) (currstate s_4_3)  (increase (total-cost) 1))
-)
-
-(:action add-p2_start-ct13
-:precondition (and (currstate s_4_0) (not (currstate s_5_2)) (not (currstate s_5_3)) (not (currstate s_6_2)) )
-:effect (and (not (currstate s_4_0)) (currstate s_4_3)  (increase (total-cost) 1))
-)
-
-(:action add-p2_start-ct14
-:precondition (and (currstate s_4_2) (currstate s_5_3) (not (currstate s_6_2)) )
-:effect (and (not (currstate s_4_2)) (currstate s_4_3) (not (currstate s_5_3)) (currstate s_5_0)  (increase (total-cost) 1))
-)
-
-(:action add-p2_start-ct15
-:precondition (and (currstate s_4_0) (currstate s_5_3) (not (currstate s_6_2)) )
-:effect (and (not (currstate s_4_0)) (currstate s_4_3) (not (currstate s_5_3)) (currstate s_5_0)  (increase (total-cost) 1))
-)
-
-(:action add-p2_assign-ct16
-:precondition (currstate s_5_2) 
-:effect (and (not (currstate s_5_2)) (currstate s_5_3)  (increase (total-cost) 1))
-)
-
-(:action add-p2_assign-ct17
-:precondition (currstate s_5_0) 
-:effect (and (not (currstate s_5_0)) (currstate s_5_3)  (increase (total-cost) 1))
-)
-
-(:action add-p1_assign-ct18
-:precondition (currstate s_8_0) 
-:effect (and (not (currstate s_8_0)) (currstate s_8_3)  (increase (total-cost) 1))
-)
-
-(:action add-p1_assign-ct19
-:precondition (currstate s_8_2) 
-:effect (and (not (currstate s_8_2)) (currstate s_8_3)  (increase (total-cost) 1))
-)
-
-(:action add-p6_assign-ct20
-:precondition (currstate s_0_1) 
-:effect (and (not (currstate s_0_1)) (currstate s_0_0)  (increase (total-cost) 1))
-)
-
-(:action add-p1_start-ct21
-:precondition (and (currstate s_8_3) (not (currstate s_7_0)) (not (currstate s_7_2)) (not (currstate s_9_2)) )
+(:action add-p5_complete-ct21
+:precondition (currstate s_8_3) 
 :effect (and (not (currstate s_8_3)) (currstate s_8_0)  (increase (total-cost) 1))
 )
 
-(:action add-p1_start-ct22
-:precondition (and (currstate s_7_2) (not (currstate s_8_2)) (not (currstate s_8_3)) (not (currstate s_9_2)) )
-:effect (and (not (currstate s_7_2)) (currstate s_7_3)  (increase (total-cost) 1))
+(:action sync-p5_complete-ct21
+:precondition (and (currstate t11) (currstate s_8_3) )
+:effect (and (not (currstate t11)) (currstate t12) (not (currstate s_8_3)) (currstate s_8_0) )
 )
 
-(:action add-p1_start-ct23
-:precondition (and (currstate s_7_0) (not (currstate s_8_2)) (not (currstate s_8_3)) (not (currstate s_9_2)) )
-:effect (and (not (currstate s_7_0)) (currstate s_7_3)  (increase (total-cost) 1))
+(:action add-activityk_start-ct22
+:precondition (currstate s_18_2) 
+:effect (and (not (currstate s_18_2)) (currstate s_18_3)  (increase (total-cost) 1))
 )
 
-(:action add-p1_start-ct24
-:precondition (and (currstate s_7_2) (currstate s_8_3) (not (currstate s_9_2)) )
-:effect (and (not (currstate s_7_2)) (currstate s_7_3) (not (currstate s_8_3)) (currstate s_8_0)  (increase (total-cost) 1))
+(:action add-p15_assign-ct23
+:precondition (currstate s_17_0) 
+:effect (and (not (currstate s_17_0)) (currstate s_17_2)  (increase (total-cost) 1))
 )
 
-(:action add-p1_start-ct25
-:precondition (and (currstate s_7_0) (currstate s_8_3) (not (currstate s_9_2)) )
-:effect (and (not (currstate s_7_0)) (currstate s_7_3) (not (currstate s_8_3)) (currstate s_8_0)  (increase (total-cost) 1))
+(:action add-p22_assign-ct24
+:precondition (currstate s_1_0) 
+:effect (and (not (currstate s_1_0)) (currstate s_1_2)  (increase (total-cost) 1))
 )
 
-(:action add-p11_assign-ct26
+(:action add-p6_complete-ct25
+:precondition (currstate s_21_3) 
+:effect (and (not (currstate s_21_3)) (currstate s_21_0)  (increase (total-cost) 1))
+)
+
+(:action add-p5_assign-ct26
+:precondition (currstate s_8_0) 
+:effect (and (not (currstate s_8_0)) (currstate s_8_2)  (increase (total-cost) 1))
+)
+
+(:action add-p12_complete-ct27
+:precondition (currstate s_11_3) 
+:effect (and (not (currstate s_11_3)) (currstate s_11_0)  (increase (total-cost) 1))
+)
+
+(:action add-p3_assign-ct28
+:precondition (currstate s_9_0) 
+:effect (and (not (currstate s_9_0)) (currstate s_9_2)  (increase (total-cost) 1))
+)
+
+(:action add-p1_assign-ct29
+:precondition (currstate s_10_0) 
+:effect (and (not (currstate s_10_0)) (currstate s_10_2)  (increase (total-cost) 1))
+)
+
+(:action add-activityk_complete-ct30
+:precondition (currstate s_18_3) 
+:effect (and (not (currstate s_18_3)) (currstate s_18_0)  (increase (total-cost) 1))
+)
+
+(:action add-p11_assign-ct31
 :precondition (currstate s_2_0) 
-:effect (and (not (currstate s_2_0)) (currstate s_2_3)  (increase (total-cost) 1))
+:effect (and (not (currstate s_2_0)) (currstate s_2_2)  (increase (total-cost) 1))
 )
 
-(:action add-p11_assign-ct27
+(:action add-p13_assign-ct32
+:precondition (currstate s_7_0) 
+:effect (and (not (currstate s_7_0)) (currstate s_7_2)  (increase (total-cost) 1))
+)
+
+(:action add-p8_start-ct33
+:precondition (currstate s_4_2) 
+:effect (and (not (currstate s_4_2)) (currstate s_4_3)  (increase (total-cost) 1))
+)
+
+(:action add-p20_start-ct34
+:precondition (currstate s_15_2) 
+:effect (and (not (currstate s_15_2)) (currstate s_15_3)  (increase (total-cost) 1))
+)
+
+(:action add-p15_start-ct35
+:precondition (currstate s_17_2) 
+:effect (and (not (currstate s_17_2)) (currstate s_17_3)  (increase (total-cost) 1))
+)
+
+(:action add-activityr_start-ct36
+:precondition (currstate s_16_2) 
+:effect (and (not (currstate s_16_2)) (currstate s_16_3)  (increase (total-cost) 1))
+)
+
+(:action add-p1_complete-ct37
+:precondition (currstate s_10_3) 
+:effect (and (not (currstate s_10_3)) (currstate s_10_0)  (increase (total-cost) 1))
+)
+
+(:action add-p11_start-ct38
 :precondition (currstate s_2_2) 
 :effect (and (not (currstate s_2_2)) (currstate s_2_3)  (increase (total-cost) 1))
 )
 
-(:action add-p11_complete-ct28
-:precondition (and (currstate s_1_3) (not (currstate s_3_0)) )
-:effect (and (not (currstate s_1_3)) (currstate s_1_0)  (increase (total-cost) 1))
+(:action add-p18_start-ct39
+:precondition (currstate s_0_2) 
+:effect (and (not (currstate s_0_2)) (currstate s_0_3)  (increase (total-cost) 1))
 )
 
-(:action sync-p11_complete-ct28
-:precondition (and (currstate t8) (currstate s_1_3) (not (currstate s_3_0)) )
-:effect (and (not (currstate t8)) (currstate t9) (not (currstate s_1_3)) (currstate s_1_0) )
+(:action add-activityo_start-ct40
+:precondition (currstate s_13_2) 
+:effect (and (not (currstate s_13_2)) (currstate s_13_3)  (increase (total-cost) 1))
 )
 
-(:action add-p11_complete-ct29
-:precondition (and (currstate s_3_0) (not (currstate s_1_2)) (not (currstate s_1_3)) )
+(:action add-p5_start-ct41
+:precondition (currstate s_8_2) 
+:effect (and (not (currstate s_8_2)) (currstate s_8_3)  (increase (total-cost) 1))
+)
+
+(:action add-p11_complete-ct42
+:precondition (currstate s_2_3) 
+:effect (and (not (currstate s_2_3)) (currstate s_2_0)  (increase (total-cost) 1))
+)
+
+(:action sync-p11_complete-ct42
+:precondition (and (currstate t8) (currstate s_2_3) )
+:effect (and (not (currstate t8)) (currstate t9) (not (currstate s_2_3)) (currstate s_2_0) )
+)
+
+(:action add-activityl_complete-ct43
+:precondition (currstate s_20_3) 
+:effect (and (not (currstate s_20_3)) (currstate s_20_0)  (increase (total-cost) 1))
+)
+
+(:action sync-activityl_complete-ct43
+:precondition (and (currstate t17) (currstate s_20_3) )
+:effect (and (not (currstate t17)) (currstate t18) (not (currstate s_20_3)) (currstate s_20_0) )
+)
+
+(:action add-activityr_complete-ct44
+:precondition (currstate s_16_3) 
+:effect (and (not (currstate s_16_3)) (currstate s_16_0)  (increase (total-cost) 1))
+)
+
+(:action sync-activityr_complete-ct44
+:precondition (and (currstate t9) (currstate s_16_3) )
+:effect (and (not (currstate t9)) (currstate t10) (not (currstate s_16_3)) (currstate s_16_0) )
+)
+
+(:action add-p4_start-ct45
+:precondition (currstate s_5_2) 
+:effect (and (not (currstate s_5_2)) (currstate s_5_3)  (increase (total-cost) 1))
+)
+
+(:action add-activityn_start-ct46
+:precondition (currstate s_12_2) 
+:effect (and (not (currstate s_12_2)) (currstate s_12_3)  (increase (total-cost) 1))
+)
+
+(:action add-p18_complete-ct47
+:precondition (currstate s_0_3) 
+:effect (and (not (currstate s_0_3)) (currstate s_0_0)  (increase (total-cost) 1))
+)
+
+(:action sync-p18_complete-ct47
+:precondition (and (currstate t2) (currstate s_0_3) )
+:effect (and (not (currstate t2)) (currstate t3) (not (currstate s_0_3)) (currstate s_0_0) )
+)
+
+(:action add-p1_start-ct48
+:precondition (currstate s_10_2) 
+:effect (and (not (currstate s_10_2)) (currstate s_10_3)  (increase (total-cost) 1))
+)
+
+(:action add-p15_complete-ct49
+:precondition (currstate s_17_3) 
+:effect (and (not (currstate s_17_3)) (currstate s_17_0)  (increase (total-cost) 1))
+)
+
+(:action add-p4_assign-ct50
+:precondition (currstate s_5_0) 
+:effect (and (not (currstate s_5_0)) (currstate s_5_2)  (increase (total-cost) 1))
+)
+
+(:action add-p2_assign-ct51
+:precondition (currstate s_3_0) 
 :effect (and (not (currstate s_3_0)) (currstate s_3_2)  (increase (total-cost) 1))
 )
 
-(:action sync-p11_complete-ct29
-:precondition (and (currstate t8) (currstate s_3_0) (not (currstate s_1_2)) (not (currstate s_1_3)) )
-:effect (and (not (currstate t8)) (currstate t9) (not (currstate s_3_0)) (currstate s_3_2) )
+(:action add-p12_assign-ct52
+:precondition (currstate s_11_0) 
+:effect (and (not (currstate s_11_0)) (currstate s_11_2)  (increase (total-cost) 1))
 )
 
-(:action add-p11_complete-ct30
-:precondition (and (currstate s_3_0) (currstate s_1_3) )
-:effect (and (not (currstate s_3_0)) (currstate s_3_2) (not (currstate s_1_3)) (currstate s_1_0)  (increase (total-cost) 1))
+(:action add-p18_assign-ct53
+:precondition (currstate s_0_0) 
+:effect (and (not (currstate s_0_0)) (currstate s_0_2)  (increase (total-cost) 1))
 )
 
-(:action sync-p11_complete-ct30
-:precondition (and (currstate t8) (currstate s_3_0) (currstate s_1_3) )
-:effect (and (not (currstate t8)) (currstate t9) (not (currstate s_3_0)) (currstate s_3_2) (not (currstate s_1_3)) (currstate s_1_0) )
+(:action add-p10_assign-ct54
+:precondition (currstate s_6_0) 
+:effect (and (not (currstate s_6_0)) (currstate s_6_2)  (increase (total-cost) 1))
+)
+
+(:action add-activitym_start-ct55
+:precondition (currstate s_19_2) 
+:effect (and (not (currstate s_19_2)) (currstate s_19_3)  (increase (total-cost) 1))
+)
+
+(:action add-p10_start-ct56
+:precondition (currstate s_6_2) 
+:effect (and (not (currstate s_6_2)) (currstate s_6_3)  (increase (total-cost) 1))
+)
+
+(:action add-p3_start-ct57
+:precondition (currstate s_9_2) 
+:effect (and (not (currstate s_9_2)) (currstate s_9_3)  (increase (total-cost) 1))
+)
+
+(:action add-activityn_complete-ct58
+:precondition (currstate s_12_3) 
+:effect (and (not (currstate s_12_3)) (currstate s_12_0)  (increase (total-cost) 1))
+)
+
+(:action add-p3_complete-ct59
+:precondition (currstate s_9_3) 
+:effect (and (not (currstate s_9_3)) (currstate s_9_0)  (increase (total-cost) 1))
+)
+
+(:action sync-p3_complete-ct59
+:precondition (and (currstate t12) (currstate s_9_3) )
+:effect (and (not (currstate t12)) (currstate t13) (not (currstate s_9_3)) (currstate s_9_0) )
+)
+
+(:action add-p8_assign-ct60
+:precondition (currstate s_4_0) 
+:effect (and (not (currstate s_4_0)) (currstate s_4_2)  (increase (total-cost) 1))
+)
+
+(:action add-p4_complete-ct61
+:precondition (currstate s_5_3) 
+:effect (and (not (currstate s_5_3)) (currstate s_5_0)  (increase (total-cost) 1))
+)
+
+(:action sync-p4_complete-ct61
+:precondition (and (currstate t10) (currstate s_5_3) )
+:effect (and (not (currstate t10)) (currstate t11) (not (currstate s_5_3)) (currstate s_5_0) )
+)
+
+(:action add-p20_complete-ct62
+:precondition (currstate s_15_3) 
+:effect (and (not (currstate s_15_3)) (currstate s_15_0)  (increase (total-cost) 1))
+)
+
+(:action add-p6_assign-ct63
+:precondition (and (currstate s_21_0) (not (currstate s_22_1)) )
+:effect (and (not (currstate s_21_0)) (currstate s_21_2)  (increase (total-cost) 1))
+)
+
+(:action add-p6_assign-ct64
+:precondition (and (currstate s_22_1) (not (currstate s_21_2)) (not (currstate s_21_3)) (not (currstate s_21_0)) )
+:effect (and (not (currstate s_22_1)) (currstate s_22_0)  (increase (total-cost) 1))
+)
+
+(:action add-p6_assign-ct65
+:precondition (and (currstate s_21_0) (currstate s_22_1) )
+:effect (and (not (currstate s_21_0)) (currstate s_21_2) (not (currstate s_22_1)) (currstate s_22_0)  (increase (total-cost) 1))
+)
+
+(:action add-activityo_complete-ct66
+:precondition (currstate s_13_3) 
+:effect (and (not (currstate s_13_3)) (currstate s_13_0)  (increase (total-cost) 1))
+)
+
+(:action sync-activityo_complete-ct66
+:precondition (and (currstate t5) (currstate s_13_3) )
+:effect (and (not (currstate t5)) (currstate t6) (not (currstate s_13_3)) (currstate s_13_0) )
+)
+
+(:action sync-activityo_complete-ct66
+:precondition (and (currstate t7) (currstate s_13_3) )
+:effect (and (not (currstate t7)) (currstate t8) (not (currstate s_13_3)) (currstate s_13_0) )
+)
+
+(:action sync-activityo_complete-ct66
+:precondition (and (currstate t13) (currstate s_13_3) )
+:effect (and (not (currstate t13)) (currstate t14) (not (currstate s_13_3)) (currstate s_13_0) )
+)
+
+(:action sync-activityo_complete-ct66
+:precondition (and (currstate t14) (currstate s_13_3) )
+:effect (and (not (currstate t14)) (currstate t15) (not (currstate s_13_3)) (currstate s_13_0) )
+)
+
+(:action sync-activityo_complete-ct66
+:precondition (and (currstate t15) (currstate s_13_3) )
+:effect (and (not (currstate t15)) (currstate t16) (not (currstate s_13_3)) (currstate s_13_0) )
+)
+
+(:action sync-activityo_complete-ct66
+:precondition (and (currstate t18) (currstate s_13_3) )
+:effect (and (not (currstate t18)) (currstate t19) (not (currstate s_13_3)) (currstate s_13_0) )
+)
+
+(:action sync-activityo_complete-ct66
+:precondition (and (currstate t19) (currstate s_13_3) )
+:effect (and (not (currstate t19)) (currstate t20) (not (currstate s_13_3)) (currstate s_13_0) )
+)
+
+(:action add-p13_start-ct67
+:precondition (currstate s_7_2) 
+:effect (and (not (currstate s_7_2)) (currstate s_7_3)  (increase (total-cost) 1))
 )
 
 (:action sync-p10_complete-t0t1
-:precondition (currstate t0) 
+:precondition (and (currstate t0) (not (currstate s_6_0)) (not (currstate s_6_3)) (not (currstate s_6_2)) )
 :effect (and (not (currstate t0)) (currstate t1)))
 
 (:action del-p10_complete-t0-t1
@@ -205,7 +460,7 @@
 )
 
 (:action sync-p13_complete-t1t2
-:precondition (currstate t1) 
+:precondition (and (currstate t1) (not (currstate s_7_2)) (not (currstate s_7_0)) (not (currstate s_7_3)) )
 :effect (and (not (currstate t1)) (currstate t2)))
 
 (:action del-p13_complete-t1-t2
@@ -214,7 +469,7 @@
 )
 
 (:action sync-p18_complete-t2t3
-:precondition (currstate t2) 
+:precondition (and (currstate t2) (not (currstate s_0_3)) (not (currstate s_0_2)) (not (currstate s_0_0)) )
 :effect (and (not (currstate t2)) (currstate t3)))
 
 (:action del-p18_complete-t2-t3
@@ -223,7 +478,7 @@
 )
 
 (:action sync-p22_complete-t3t4
-:precondition (currstate t3) 
+:precondition (and (currstate t3) (not (currstate s_1_3)) (not (currstate s_1_2)) (not (currstate s_1_0)) )
 :effect (and (not (currstate t3)) (currstate t4)))
 
 (:action del-p22_complete-t3-t4
@@ -232,7 +487,7 @@
 )
 
 (:action sync-p2_complete-t4t5
-:precondition (and (currstate t4) (not (currstate s_4_0)) (not (currstate s_4_3)) (not (currstate s_6_2)) )
+:precondition (and (currstate t4) (not (currstate s_3_2)) (not (currstate s_3_0)) (not (currstate s_3_3)) )
 :effect (and (not (currstate t4)) (currstate t5)))
 
 (:action del-p2_complete-t4-t5
@@ -241,7 +496,7 @@
 )
 
 (:action sync-activityo_complete-t5t6
-:precondition (currstate t5) 
+:precondition (and (currstate t5) (not (currstate s_13_2)) (not (currstate s_13_3)) (not (currstate s_13_0)) )
 :effect (and (not (currstate t5)) (currstate t6)))
 
 (:action del-activityo_complete-t5-t6
@@ -250,7 +505,7 @@
 )
 
 (:action sync-p8_complete-t6t7
-:precondition (currstate t6) 
+:precondition (and (currstate t6) (not (currstate s_4_3)) (not (currstate s_4_2)) (not (currstate s_4_0)) )
 :effect (and (not (currstate t6)) (currstate t7)))
 
 (:action del-p8_complete-t6-t7
@@ -259,7 +514,7 @@
 )
 
 (:action sync-activityo_complete-t7t8
-:precondition (currstate t7) 
+:precondition (and (currstate t7) (not (currstate s_13_2)) (not (currstate s_13_3)) (not (currstate s_13_0)) )
 :effect (and (not (currstate t7)) (currstate t8)))
 
 (:action del-activityo_complete-t7-t8
@@ -268,7 +523,7 @@
 )
 
 (:action sync-p11_complete-t8t9
-:precondition (and (currstate t8) (not (currstate s_3_0)) (not (currstate s_1_2)) (not (currstate s_1_3)) )
+:precondition (and (currstate t8) (not (currstate s_2_0)) (not (currstate s_2_3)) (not (currstate s_2_2)) )
 :effect (and (not (currstate t8)) (currstate t9)))
 
 (:action del-p11_complete-t8-t9
@@ -277,7 +532,7 @@
 )
 
 (:action sync-activityr_complete-t9t10
-:precondition (currstate t9) 
+:precondition (and (currstate t9) (not (currstate s_16_0)) (not (currstate s_16_2)) (not (currstate s_16_3)) )
 :effect (and (not (currstate t9)) (currstate t10)))
 
 (:action del-activityr_complete-t9-t10
@@ -286,7 +541,7 @@
 )
 
 (:action sync-p4_complete-t10t11
-:precondition (currstate t10) 
+:precondition (and (currstate t10) (not (currstate s_5_3)) (not (currstate s_5_2)) (not (currstate s_5_0)) )
 :effect (and (not (currstate t10)) (currstate t11)))
 
 (:action del-p4_complete-t10-t11
@@ -295,7 +550,7 @@
 )
 
 (:action sync-p5_complete-t11t12
-:precondition (currstate t11) 
+:precondition (and (currstate t11) (not (currstate s_8_3)) (not (currstate s_8_2)) (not (currstate s_8_0)) )
 :effect (and (not (currstate t11)) (currstate t12)))
 
 (:action del-p5_complete-t11-t12
@@ -304,7 +559,7 @@
 )
 
 (:action sync-p3_complete-t12t13
-:precondition (currstate t12) 
+:precondition (and (currstate t12) (not (currstate s_9_3)) (not (currstate s_9_2)) (not (currstate s_9_0)) )
 :effect (and (not (currstate t12)) (currstate t13)))
 
 (:action del-p3_complete-t12-t13
@@ -313,7 +568,7 @@
 )
 
 (:action sync-activityo_complete-t13t14
-:precondition (currstate t13) 
+:precondition (and (currstate t13) (not (currstate s_13_2)) (not (currstate s_13_3)) (not (currstate s_13_0)) )
 :effect (and (not (currstate t13)) (currstate t14)))
 
 (:action del-activityo_complete-t13-t14
@@ -322,7 +577,7 @@
 )
 
 (:action sync-activityo_complete-t14t15
-:precondition (currstate t14) 
+:precondition (and (currstate t14) (not (currstate s_13_2)) (not (currstate s_13_3)) (not (currstate s_13_0)) )
 :effect (and (not (currstate t14)) (currstate t15)))
 
 (:action del-activityo_complete-t14-t15
@@ -331,7 +586,7 @@
 )
 
 (:action sync-activityo_complete-t15t16
-:precondition (currstate t15) 
+:precondition (and (currstate t15) (not (currstate s_13_2)) (not (currstate s_13_3)) (not (currstate s_13_0)) )
 :effect (and (not (currstate t15)) (currstate t16)))
 
 (:action del-activityo_complete-t15-t16
@@ -340,7 +595,7 @@
 )
 
 (:action sync-activitym_complete-t16t17
-:precondition (currstate t16) 
+:precondition (and (currstate t16) (not (currstate s_19_0)) (not (currstate s_19_2)) (not (currstate s_19_3)) )
 :effect (and (not (currstate t16)) (currstate t17)))
 
 (:action del-activitym_complete-t16-t17
@@ -349,7 +604,7 @@
 )
 
 (:action sync-activityl_complete-t17t18
-:precondition (currstate t17) 
+:precondition (and (currstate t17) (not (currstate s_20_2)) (not (currstate s_20_3)) (not (currstate s_20_0)) )
 :effect (and (not (currstate t17)) (currstate t18)))
 
 (:action del-activityl_complete-t17-t18
@@ -358,7 +613,7 @@
 )
 
 (:action sync-activityo_complete-t18t19
-:precondition (currstate t18) 
+:precondition (and (currstate t18) (not (currstate s_13_2)) (not (currstate s_13_3)) (not (currstate s_13_0)) )
 :effect (and (not (currstate t18)) (currstate t19)))
 
 (:action del-activityo_complete-t18-t19
@@ -367,7 +622,7 @@
 )
 
 (:action sync-activityo_complete-t19t20
-:precondition (currstate t19) 
+:precondition (and (currstate t19) (not (currstate s_13_2)) (not (currstate s_13_3)) (not (currstate s_13_0)) )
 :effect (and (not (currstate t19)) (currstate t20)))
 
 (:action del-activityo_complete-t19-t20
@@ -376,2563 +631,8 @@
 )
 
 (:action goto-abstract_states-cs0
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_2) (currstate s_2_0) (currstate s_3_0) (currstate s_4_0) (currstate s_5_2) (currstate s_6_2) (currstate s_7_0) (currstate s_8_2) (currstate s_9_2) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_2)) (not (currstate s_2_0)) (not (currstate s_3_0)) (not (currstate s_4_0)) (not (currstate s_5_2)) (not (currstate s_6_2)) (not (currstate s_7_0)) (not (currstate s_8_2)) (not (currstate s_9_2)) )
-)
-
-(:action goto-abstract_states-cs1
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_2) (currstate s_2_0) (currstate s_3_0) (currstate s_4_0) (currstate s_5_2) (currstate s_6_2) (currstate s_7_0) (currstate s_8_2) (currstate s_9_0) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_2)) (not (currstate s_2_0)) (not (currstate s_3_0)) (not (currstate s_4_0)) (not (currstate s_5_2)) (not (currstate s_6_2)) (not (currstate s_7_0)) (not (currstate s_8_2)) (not (currstate s_9_0)) )
-)
-
-(:action goto-abstract_states-cs2
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_2) (currstate s_2_0) (currstate s_3_0) (currstate s_4_0) (currstate s_5_2) (currstate s_6_2) (currstate s_7_0) (currstate s_8_0) (currstate s_9_2) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_2)) (not (currstate s_2_0)) (not (currstate s_3_0)) (not (currstate s_4_0)) (not (currstate s_5_2)) (not (currstate s_6_2)) (not (currstate s_7_0)) (not (currstate s_8_0)) (not (currstate s_9_2)) )
-)
-
-(:action goto-abstract_states-cs3
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_2) (currstate s_2_0) (currstate s_3_0) (currstate s_4_0) (currstate s_5_2) (currstate s_6_2) (currstate s_7_0) (currstate s_8_0) (currstate s_9_0) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_2)) (not (currstate s_2_0)) (not (currstate s_3_0)) (not (currstate s_4_0)) (not (currstate s_5_2)) (not (currstate s_6_2)) (not (currstate s_7_0)) (not (currstate s_8_0)) (not (currstate s_9_0)) )
-)
-
-(:action goto-abstract_states-cs4
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_2) (currstate s_2_0) (currstate s_3_0) (currstate s_4_0) (currstate s_5_2) (currstate s_6_2) (currstate s_7_2) (currstate s_8_2) (currstate s_9_2) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_2)) (not (currstate s_2_0)) (not (currstate s_3_0)) (not (currstate s_4_0)) (not (currstate s_5_2)) (not (currstate s_6_2)) (not (currstate s_7_2)) (not (currstate s_8_2)) (not (currstate s_9_2)) )
-)
-
-(:action goto-abstract_states-cs5
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_2) (currstate s_2_0) (currstate s_3_0) (currstate s_4_0) (currstate s_5_2) (currstate s_6_2) (currstate s_7_2) (currstate s_8_2) (currstate s_9_0) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_2)) (not (currstate s_2_0)) (not (currstate s_3_0)) (not (currstate s_4_0)) (not (currstate s_5_2)) (not (currstate s_6_2)) (not (currstate s_7_2)) (not (currstate s_8_2)) (not (currstate s_9_0)) )
-)
-
-(:action goto-abstract_states-cs6
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_2) (currstate s_2_0) (currstate s_3_0) (currstate s_4_0) (currstate s_5_2) (currstate s_6_2) (currstate s_7_2) (currstate s_8_0) (currstate s_9_2) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_2)) (not (currstate s_2_0)) (not (currstate s_3_0)) (not (currstate s_4_0)) (not (currstate s_5_2)) (not (currstate s_6_2)) (not (currstate s_7_2)) (not (currstate s_8_0)) (not (currstate s_9_2)) )
-)
-
-(:action goto-abstract_states-cs7
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_2) (currstate s_2_0) (currstate s_3_0) (currstate s_4_0) (currstate s_5_2) (currstate s_6_2) (currstate s_7_2) (currstate s_8_0) (currstate s_9_0) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_2)) (not (currstate s_2_0)) (not (currstate s_3_0)) (not (currstate s_4_0)) (not (currstate s_5_2)) (not (currstate s_6_2)) (not (currstate s_7_2)) (not (currstate s_8_0)) (not (currstate s_9_0)) )
-)
-
-(:action goto-abstract_states-cs8
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_2) (currstate s_2_0) (currstate s_3_0) (currstate s_4_0) (currstate s_5_2) (currstate s_6_0) (currstate s_7_0) (currstate s_8_2) (currstate s_9_2) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_2)) (not (currstate s_2_0)) (not (currstate s_3_0)) (not (currstate s_4_0)) (not (currstate s_5_2)) (not (currstate s_6_0)) (not (currstate s_7_0)) (not (currstate s_8_2)) (not (currstate s_9_2)) )
-)
-
-(:action goto-abstract_states-cs9
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_2) (currstate s_2_0) (currstate s_3_0) (currstate s_4_0) (currstate s_5_2) (currstate s_6_0) (currstate s_7_0) (currstate s_8_2) (currstate s_9_0) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_2)) (not (currstate s_2_0)) (not (currstate s_3_0)) (not (currstate s_4_0)) (not (currstate s_5_2)) (not (currstate s_6_0)) (not (currstate s_7_0)) (not (currstate s_8_2)) (not (currstate s_9_0)) )
-)
-
-(:action goto-abstract_states-cs10
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_2) (currstate s_2_0) (currstate s_3_0) (currstate s_4_0) (currstate s_5_2) (currstate s_6_0) (currstate s_7_0) (currstate s_8_0) (currstate s_9_2) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_2)) (not (currstate s_2_0)) (not (currstate s_3_0)) (not (currstate s_4_0)) (not (currstate s_5_2)) (not (currstate s_6_0)) (not (currstate s_7_0)) (not (currstate s_8_0)) (not (currstate s_9_2)) )
-)
-
-(:action goto-abstract_states-cs11
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_2) (currstate s_2_0) (currstate s_3_0) (currstate s_4_0) (currstate s_5_2) (currstate s_6_0) (currstate s_7_0) (currstate s_8_0) (currstate s_9_0) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_2)) (not (currstate s_2_0)) (not (currstate s_3_0)) (not (currstate s_4_0)) (not (currstate s_5_2)) (not (currstate s_6_0)) (not (currstate s_7_0)) (not (currstate s_8_0)) (not (currstate s_9_0)) )
-)
-
-(:action goto-abstract_states-cs12
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_2) (currstate s_2_0) (currstate s_3_0) (currstate s_4_0) (currstate s_5_2) (currstate s_6_0) (currstate s_7_2) (currstate s_8_2) (currstate s_9_2) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_2)) (not (currstate s_2_0)) (not (currstate s_3_0)) (not (currstate s_4_0)) (not (currstate s_5_2)) (not (currstate s_6_0)) (not (currstate s_7_2)) (not (currstate s_8_2)) (not (currstate s_9_2)) )
-)
-
-(:action goto-abstract_states-cs13
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_2) (currstate s_2_0) (currstate s_3_0) (currstate s_4_0) (currstate s_5_2) (currstate s_6_0) (currstate s_7_2) (currstate s_8_2) (currstate s_9_0) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_2)) (not (currstate s_2_0)) (not (currstate s_3_0)) (not (currstate s_4_0)) (not (currstate s_5_2)) (not (currstate s_6_0)) (not (currstate s_7_2)) (not (currstate s_8_2)) (not (currstate s_9_0)) )
-)
-
-(:action goto-abstract_states-cs14
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_2) (currstate s_2_0) (currstate s_3_0) (currstate s_4_0) (currstate s_5_2) (currstate s_6_0) (currstate s_7_2) (currstate s_8_0) (currstate s_9_2) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_2)) (not (currstate s_2_0)) (not (currstate s_3_0)) (not (currstate s_4_0)) (not (currstate s_5_2)) (not (currstate s_6_0)) (not (currstate s_7_2)) (not (currstate s_8_0)) (not (currstate s_9_2)) )
-)
-
-(:action goto-abstract_states-cs15
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_2) (currstate s_2_0) (currstate s_3_0) (currstate s_4_0) (currstate s_5_2) (currstate s_6_0) (currstate s_7_2) (currstate s_8_0) (currstate s_9_0) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_2)) (not (currstate s_2_0)) (not (currstate s_3_0)) (not (currstate s_4_0)) (not (currstate s_5_2)) (not (currstate s_6_0)) (not (currstate s_7_2)) (not (currstate s_8_0)) (not (currstate s_9_0)) )
-)
-
-(:action goto-abstract_states-cs16
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_2) (currstate s_2_0) (currstate s_3_0) (currstate s_4_0) (currstate s_5_0) (currstate s_6_2) (currstate s_7_0) (currstate s_8_2) (currstate s_9_2) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_2)) (not (currstate s_2_0)) (not (currstate s_3_0)) (not (currstate s_4_0)) (not (currstate s_5_0)) (not (currstate s_6_2)) (not (currstate s_7_0)) (not (currstate s_8_2)) (not (currstate s_9_2)) )
-)
-
-(:action goto-abstract_states-cs17
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_2) (currstate s_2_0) (currstate s_3_0) (currstate s_4_0) (currstate s_5_0) (currstate s_6_2) (currstate s_7_0) (currstate s_8_2) (currstate s_9_0) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_2)) (not (currstate s_2_0)) (not (currstate s_3_0)) (not (currstate s_4_0)) (not (currstate s_5_0)) (not (currstate s_6_2)) (not (currstate s_7_0)) (not (currstate s_8_2)) (not (currstate s_9_0)) )
-)
-
-(:action goto-abstract_states-cs18
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_2) (currstate s_2_0) (currstate s_3_0) (currstate s_4_0) (currstate s_5_0) (currstate s_6_2) (currstate s_7_0) (currstate s_8_0) (currstate s_9_2) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_2)) (not (currstate s_2_0)) (not (currstate s_3_0)) (not (currstate s_4_0)) (not (currstate s_5_0)) (not (currstate s_6_2)) (not (currstate s_7_0)) (not (currstate s_8_0)) (not (currstate s_9_2)) )
-)
-
-(:action goto-abstract_states-cs19
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_2) (currstate s_2_0) (currstate s_3_0) (currstate s_4_0) (currstate s_5_0) (currstate s_6_2) (currstate s_7_0) (currstate s_8_0) (currstate s_9_0) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_2)) (not (currstate s_2_0)) (not (currstate s_3_0)) (not (currstate s_4_0)) (not (currstate s_5_0)) (not (currstate s_6_2)) (not (currstate s_7_0)) (not (currstate s_8_0)) (not (currstate s_9_0)) )
-)
-
-(:action goto-abstract_states-cs20
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_2) (currstate s_2_0) (currstate s_3_0) (currstate s_4_0) (currstate s_5_0) (currstate s_6_2) (currstate s_7_2) (currstate s_8_2) (currstate s_9_2) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_2)) (not (currstate s_2_0)) (not (currstate s_3_0)) (not (currstate s_4_0)) (not (currstate s_5_0)) (not (currstate s_6_2)) (not (currstate s_7_2)) (not (currstate s_8_2)) (not (currstate s_9_2)) )
-)
-
-(:action goto-abstract_states-cs21
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_2) (currstate s_2_0) (currstate s_3_0) (currstate s_4_0) (currstate s_5_0) (currstate s_6_2) (currstate s_7_2) (currstate s_8_2) (currstate s_9_0) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_2)) (not (currstate s_2_0)) (not (currstate s_3_0)) (not (currstate s_4_0)) (not (currstate s_5_0)) (not (currstate s_6_2)) (not (currstate s_7_2)) (not (currstate s_8_2)) (not (currstate s_9_0)) )
-)
-
-(:action goto-abstract_states-cs22
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_2) (currstate s_2_0) (currstate s_3_0) (currstate s_4_0) (currstate s_5_0) (currstate s_6_2) (currstate s_7_2) (currstate s_8_0) (currstate s_9_2) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_2)) (not (currstate s_2_0)) (not (currstate s_3_0)) (not (currstate s_4_0)) (not (currstate s_5_0)) (not (currstate s_6_2)) (not (currstate s_7_2)) (not (currstate s_8_0)) (not (currstate s_9_2)) )
-)
-
-(:action goto-abstract_states-cs23
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_2) (currstate s_2_0) (currstate s_3_0) (currstate s_4_0) (currstate s_5_0) (currstate s_6_2) (currstate s_7_2) (currstate s_8_0) (currstate s_9_0) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_2)) (not (currstate s_2_0)) (not (currstate s_3_0)) (not (currstate s_4_0)) (not (currstate s_5_0)) (not (currstate s_6_2)) (not (currstate s_7_2)) (not (currstate s_8_0)) (not (currstate s_9_0)) )
-)
-
-(:action goto-abstract_states-cs24
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_2) (currstate s_2_0) (currstate s_3_0) (currstate s_4_0) (currstate s_5_0) (currstate s_6_0) (currstate s_7_0) (currstate s_8_2) (currstate s_9_2) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_2)) (not (currstate s_2_0)) (not (currstate s_3_0)) (not (currstate s_4_0)) (not (currstate s_5_0)) (not (currstate s_6_0)) (not (currstate s_7_0)) (not (currstate s_8_2)) (not (currstate s_9_2)) )
-)
-
-(:action goto-abstract_states-cs25
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_2) (currstate s_2_0) (currstate s_3_0) (currstate s_4_0) (currstate s_5_0) (currstate s_6_0) (currstate s_7_0) (currstate s_8_2) (currstate s_9_0) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_2)) (not (currstate s_2_0)) (not (currstate s_3_0)) (not (currstate s_4_0)) (not (currstate s_5_0)) (not (currstate s_6_0)) (not (currstate s_7_0)) (not (currstate s_8_2)) (not (currstate s_9_0)) )
-)
-
-(:action goto-abstract_states-cs26
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_2) (currstate s_2_0) (currstate s_3_0) (currstate s_4_0) (currstate s_5_0) (currstate s_6_0) (currstate s_7_0) (currstate s_8_0) (currstate s_9_2) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_2)) (not (currstate s_2_0)) (not (currstate s_3_0)) (not (currstate s_4_0)) (not (currstate s_5_0)) (not (currstate s_6_0)) (not (currstate s_7_0)) (not (currstate s_8_0)) (not (currstate s_9_2)) )
-)
-
-(:action goto-abstract_states-cs27
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_2) (currstate s_2_0) (currstate s_3_0) (currstate s_4_0) (currstate s_5_0) (currstate s_6_0) (currstate s_7_0) (currstate s_8_0) (currstate s_9_0) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_2)) (not (currstate s_2_0)) (not (currstate s_3_0)) (not (currstate s_4_0)) (not (currstate s_5_0)) (not (currstate s_6_0)) (not (currstate s_7_0)) (not (currstate s_8_0)) (not (currstate s_9_0)) )
-)
-
-(:action goto-abstract_states-cs28
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_2) (currstate s_2_0) (currstate s_3_0) (currstate s_4_0) (currstate s_5_0) (currstate s_6_0) (currstate s_7_2) (currstate s_8_2) (currstate s_9_2) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_2)) (not (currstate s_2_0)) (not (currstate s_3_0)) (not (currstate s_4_0)) (not (currstate s_5_0)) (not (currstate s_6_0)) (not (currstate s_7_2)) (not (currstate s_8_2)) (not (currstate s_9_2)) )
-)
-
-(:action goto-abstract_states-cs29
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_2) (currstate s_2_0) (currstate s_3_0) (currstate s_4_0) (currstate s_5_0) (currstate s_6_0) (currstate s_7_2) (currstate s_8_2) (currstate s_9_0) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_2)) (not (currstate s_2_0)) (not (currstate s_3_0)) (not (currstate s_4_0)) (not (currstate s_5_0)) (not (currstate s_6_0)) (not (currstate s_7_2)) (not (currstate s_8_2)) (not (currstate s_9_0)) )
-)
-
-(:action goto-abstract_states-cs30
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_2) (currstate s_2_0) (currstate s_3_0) (currstate s_4_0) (currstate s_5_0) (currstate s_6_0) (currstate s_7_2) (currstate s_8_0) (currstate s_9_2) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_2)) (not (currstate s_2_0)) (not (currstate s_3_0)) (not (currstate s_4_0)) (not (currstate s_5_0)) (not (currstate s_6_0)) (not (currstate s_7_2)) (not (currstate s_8_0)) (not (currstate s_9_2)) )
-)
-
-(:action goto-abstract_states-cs31
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_2) (currstate s_2_0) (currstate s_3_0) (currstate s_4_0) (currstate s_5_0) (currstate s_6_0) (currstate s_7_2) (currstate s_8_0) (currstate s_9_0) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_2)) (not (currstate s_2_0)) (not (currstate s_3_0)) (not (currstate s_4_0)) (not (currstate s_5_0)) (not (currstate s_6_0)) (not (currstate s_7_2)) (not (currstate s_8_0)) (not (currstate s_9_0)) )
-)
-
-(:action goto-abstract_states-cs32
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_2) (currstate s_2_0) (currstate s_3_0) (currstate s_4_2) (currstate s_5_2) (currstate s_6_2) (currstate s_7_0) (currstate s_8_2) (currstate s_9_2) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_2)) (not (currstate s_2_0)) (not (currstate s_3_0)) (not (currstate s_4_2)) (not (currstate s_5_2)) (not (currstate s_6_2)) (not (currstate s_7_0)) (not (currstate s_8_2)) (not (currstate s_9_2)) )
-)
-
-(:action goto-abstract_states-cs33
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_2) (currstate s_2_0) (currstate s_3_0) (currstate s_4_2) (currstate s_5_2) (currstate s_6_2) (currstate s_7_0) (currstate s_8_2) (currstate s_9_0) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_2)) (not (currstate s_2_0)) (not (currstate s_3_0)) (not (currstate s_4_2)) (not (currstate s_5_2)) (not (currstate s_6_2)) (not (currstate s_7_0)) (not (currstate s_8_2)) (not (currstate s_9_0)) )
-)
-
-(:action goto-abstract_states-cs34
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_2) (currstate s_2_0) (currstate s_3_0) (currstate s_4_2) (currstate s_5_2) (currstate s_6_2) (currstate s_7_0) (currstate s_8_0) (currstate s_9_2) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_2)) (not (currstate s_2_0)) (not (currstate s_3_0)) (not (currstate s_4_2)) (not (currstate s_5_2)) (not (currstate s_6_2)) (not (currstate s_7_0)) (not (currstate s_8_0)) (not (currstate s_9_2)) )
-)
-
-(:action goto-abstract_states-cs35
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_2) (currstate s_2_0) (currstate s_3_0) (currstate s_4_2) (currstate s_5_2) (currstate s_6_2) (currstate s_7_0) (currstate s_8_0) (currstate s_9_0) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_2)) (not (currstate s_2_0)) (not (currstate s_3_0)) (not (currstate s_4_2)) (not (currstate s_5_2)) (not (currstate s_6_2)) (not (currstate s_7_0)) (not (currstate s_8_0)) (not (currstate s_9_0)) )
-)
-
-(:action goto-abstract_states-cs36
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_2) (currstate s_2_0) (currstate s_3_0) (currstate s_4_2) (currstate s_5_2) (currstate s_6_2) (currstate s_7_2) (currstate s_8_2) (currstate s_9_2) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_2)) (not (currstate s_2_0)) (not (currstate s_3_0)) (not (currstate s_4_2)) (not (currstate s_5_2)) (not (currstate s_6_2)) (not (currstate s_7_2)) (not (currstate s_8_2)) (not (currstate s_9_2)) )
-)
-
-(:action goto-abstract_states-cs37
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_2) (currstate s_2_0) (currstate s_3_0) (currstate s_4_2) (currstate s_5_2) (currstate s_6_2) (currstate s_7_2) (currstate s_8_2) (currstate s_9_0) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_2)) (not (currstate s_2_0)) (not (currstate s_3_0)) (not (currstate s_4_2)) (not (currstate s_5_2)) (not (currstate s_6_2)) (not (currstate s_7_2)) (not (currstate s_8_2)) (not (currstate s_9_0)) )
-)
-
-(:action goto-abstract_states-cs38
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_2) (currstate s_2_0) (currstate s_3_0) (currstate s_4_2) (currstate s_5_2) (currstate s_6_2) (currstate s_7_2) (currstate s_8_0) (currstate s_9_2) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_2)) (not (currstate s_2_0)) (not (currstate s_3_0)) (not (currstate s_4_2)) (not (currstate s_5_2)) (not (currstate s_6_2)) (not (currstate s_7_2)) (not (currstate s_8_0)) (not (currstate s_9_2)) )
-)
-
-(:action goto-abstract_states-cs39
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_2) (currstate s_2_0) (currstate s_3_0) (currstate s_4_2) (currstate s_5_2) (currstate s_6_2) (currstate s_7_2) (currstate s_8_0) (currstate s_9_0) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_2)) (not (currstate s_2_0)) (not (currstate s_3_0)) (not (currstate s_4_2)) (not (currstate s_5_2)) (not (currstate s_6_2)) (not (currstate s_7_2)) (not (currstate s_8_0)) (not (currstate s_9_0)) )
-)
-
-(:action goto-abstract_states-cs40
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_2) (currstate s_2_0) (currstate s_3_0) (currstate s_4_2) (currstate s_5_2) (currstate s_6_0) (currstate s_7_0) (currstate s_8_2) (currstate s_9_2) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_2)) (not (currstate s_2_0)) (not (currstate s_3_0)) (not (currstate s_4_2)) (not (currstate s_5_2)) (not (currstate s_6_0)) (not (currstate s_7_0)) (not (currstate s_8_2)) (not (currstate s_9_2)) )
-)
-
-(:action goto-abstract_states-cs41
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_2) (currstate s_2_0) (currstate s_3_0) (currstate s_4_2) (currstate s_5_2) (currstate s_6_0) (currstate s_7_0) (currstate s_8_2) (currstate s_9_0) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_2)) (not (currstate s_2_0)) (not (currstate s_3_0)) (not (currstate s_4_2)) (not (currstate s_5_2)) (not (currstate s_6_0)) (not (currstate s_7_0)) (not (currstate s_8_2)) (not (currstate s_9_0)) )
-)
-
-(:action goto-abstract_states-cs42
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_2) (currstate s_2_0) (currstate s_3_0) (currstate s_4_2) (currstate s_5_2) (currstate s_6_0) (currstate s_7_0) (currstate s_8_0) (currstate s_9_2) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_2)) (not (currstate s_2_0)) (not (currstate s_3_0)) (not (currstate s_4_2)) (not (currstate s_5_2)) (not (currstate s_6_0)) (not (currstate s_7_0)) (not (currstate s_8_0)) (not (currstate s_9_2)) )
-)
-
-(:action goto-abstract_states-cs43
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_2) (currstate s_2_0) (currstate s_3_0) (currstate s_4_2) (currstate s_5_2) (currstate s_6_0) (currstate s_7_0) (currstate s_8_0) (currstate s_9_0) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_2)) (not (currstate s_2_0)) (not (currstate s_3_0)) (not (currstate s_4_2)) (not (currstate s_5_2)) (not (currstate s_6_0)) (not (currstate s_7_0)) (not (currstate s_8_0)) (not (currstate s_9_0)) )
-)
-
-(:action goto-abstract_states-cs44
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_2) (currstate s_2_0) (currstate s_3_0) (currstate s_4_2) (currstate s_5_2) (currstate s_6_0) (currstate s_7_2) (currstate s_8_2) (currstate s_9_2) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_2)) (not (currstate s_2_0)) (not (currstate s_3_0)) (not (currstate s_4_2)) (not (currstate s_5_2)) (not (currstate s_6_0)) (not (currstate s_7_2)) (not (currstate s_8_2)) (not (currstate s_9_2)) )
-)
-
-(:action goto-abstract_states-cs45
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_2) (currstate s_2_0) (currstate s_3_0) (currstate s_4_2) (currstate s_5_2) (currstate s_6_0) (currstate s_7_2) (currstate s_8_2) (currstate s_9_0) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_2)) (not (currstate s_2_0)) (not (currstate s_3_0)) (not (currstate s_4_2)) (not (currstate s_5_2)) (not (currstate s_6_0)) (not (currstate s_7_2)) (not (currstate s_8_2)) (not (currstate s_9_0)) )
-)
-
-(:action goto-abstract_states-cs46
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_2) (currstate s_2_0) (currstate s_3_0) (currstate s_4_2) (currstate s_5_2) (currstate s_6_0) (currstate s_7_2) (currstate s_8_0) (currstate s_9_2) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_2)) (not (currstate s_2_0)) (not (currstate s_3_0)) (not (currstate s_4_2)) (not (currstate s_5_2)) (not (currstate s_6_0)) (not (currstate s_7_2)) (not (currstate s_8_0)) (not (currstate s_9_2)) )
-)
-
-(:action goto-abstract_states-cs47
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_2) (currstate s_2_0) (currstate s_3_0) (currstate s_4_2) (currstate s_5_2) (currstate s_6_0) (currstate s_7_2) (currstate s_8_0) (currstate s_9_0) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_2)) (not (currstate s_2_0)) (not (currstate s_3_0)) (not (currstate s_4_2)) (not (currstate s_5_2)) (not (currstate s_6_0)) (not (currstate s_7_2)) (not (currstate s_8_0)) (not (currstate s_9_0)) )
-)
-
-(:action goto-abstract_states-cs48
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_2) (currstate s_2_0) (currstate s_3_0) (currstate s_4_2) (currstate s_5_0) (currstate s_6_2) (currstate s_7_0) (currstate s_8_2) (currstate s_9_2) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_2)) (not (currstate s_2_0)) (not (currstate s_3_0)) (not (currstate s_4_2)) (not (currstate s_5_0)) (not (currstate s_6_2)) (not (currstate s_7_0)) (not (currstate s_8_2)) (not (currstate s_9_2)) )
-)
-
-(:action goto-abstract_states-cs49
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_2) (currstate s_2_0) (currstate s_3_0) (currstate s_4_2) (currstate s_5_0) (currstate s_6_2) (currstate s_7_0) (currstate s_8_2) (currstate s_9_0) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_2)) (not (currstate s_2_0)) (not (currstate s_3_0)) (not (currstate s_4_2)) (not (currstate s_5_0)) (not (currstate s_6_2)) (not (currstate s_7_0)) (not (currstate s_8_2)) (not (currstate s_9_0)) )
-)
-
-(:action goto-abstract_states-cs50
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_2) (currstate s_2_0) (currstate s_3_0) (currstate s_4_2) (currstate s_5_0) (currstate s_6_2) (currstate s_7_0) (currstate s_8_0) (currstate s_9_2) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_2)) (not (currstate s_2_0)) (not (currstate s_3_0)) (not (currstate s_4_2)) (not (currstate s_5_0)) (not (currstate s_6_2)) (not (currstate s_7_0)) (not (currstate s_8_0)) (not (currstate s_9_2)) )
-)
-
-(:action goto-abstract_states-cs51
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_2) (currstate s_2_0) (currstate s_3_0) (currstate s_4_2) (currstate s_5_0) (currstate s_6_2) (currstate s_7_0) (currstate s_8_0) (currstate s_9_0) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_2)) (not (currstate s_2_0)) (not (currstate s_3_0)) (not (currstate s_4_2)) (not (currstate s_5_0)) (not (currstate s_6_2)) (not (currstate s_7_0)) (not (currstate s_8_0)) (not (currstate s_9_0)) )
-)
-
-(:action goto-abstract_states-cs52
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_2) (currstate s_2_0) (currstate s_3_0) (currstate s_4_2) (currstate s_5_0) (currstate s_6_2) (currstate s_7_2) (currstate s_8_2) (currstate s_9_2) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_2)) (not (currstate s_2_0)) (not (currstate s_3_0)) (not (currstate s_4_2)) (not (currstate s_5_0)) (not (currstate s_6_2)) (not (currstate s_7_2)) (not (currstate s_8_2)) (not (currstate s_9_2)) )
-)
-
-(:action goto-abstract_states-cs53
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_2) (currstate s_2_0) (currstate s_3_0) (currstate s_4_2) (currstate s_5_0) (currstate s_6_2) (currstate s_7_2) (currstate s_8_2) (currstate s_9_0) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_2)) (not (currstate s_2_0)) (not (currstate s_3_0)) (not (currstate s_4_2)) (not (currstate s_5_0)) (not (currstate s_6_2)) (not (currstate s_7_2)) (not (currstate s_8_2)) (not (currstate s_9_0)) )
-)
-
-(:action goto-abstract_states-cs54
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_2) (currstate s_2_0) (currstate s_3_0) (currstate s_4_2) (currstate s_5_0) (currstate s_6_2) (currstate s_7_2) (currstate s_8_0) (currstate s_9_2) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_2)) (not (currstate s_2_0)) (not (currstate s_3_0)) (not (currstate s_4_2)) (not (currstate s_5_0)) (not (currstate s_6_2)) (not (currstate s_7_2)) (not (currstate s_8_0)) (not (currstate s_9_2)) )
-)
-
-(:action goto-abstract_states-cs55
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_2) (currstate s_2_0) (currstate s_3_0) (currstate s_4_2) (currstate s_5_0) (currstate s_6_2) (currstate s_7_2) (currstate s_8_0) (currstate s_9_0) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_2)) (not (currstate s_2_0)) (not (currstate s_3_0)) (not (currstate s_4_2)) (not (currstate s_5_0)) (not (currstate s_6_2)) (not (currstate s_7_2)) (not (currstate s_8_0)) (not (currstate s_9_0)) )
-)
-
-(:action goto-abstract_states-cs56
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_2) (currstate s_2_0) (currstate s_3_0) (currstate s_4_2) (currstate s_5_0) (currstate s_6_0) (currstate s_7_0) (currstate s_8_2) (currstate s_9_2) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_2)) (not (currstate s_2_0)) (not (currstate s_3_0)) (not (currstate s_4_2)) (not (currstate s_5_0)) (not (currstate s_6_0)) (not (currstate s_7_0)) (not (currstate s_8_2)) (not (currstate s_9_2)) )
-)
-
-(:action goto-abstract_states-cs57
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_2) (currstate s_2_0) (currstate s_3_0) (currstate s_4_2) (currstate s_5_0) (currstate s_6_0) (currstate s_7_0) (currstate s_8_2) (currstate s_9_0) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_2)) (not (currstate s_2_0)) (not (currstate s_3_0)) (not (currstate s_4_2)) (not (currstate s_5_0)) (not (currstate s_6_0)) (not (currstate s_7_0)) (not (currstate s_8_2)) (not (currstate s_9_0)) )
-)
-
-(:action goto-abstract_states-cs58
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_2) (currstate s_2_0) (currstate s_3_0) (currstate s_4_2) (currstate s_5_0) (currstate s_6_0) (currstate s_7_0) (currstate s_8_0) (currstate s_9_2) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_2)) (not (currstate s_2_0)) (not (currstate s_3_0)) (not (currstate s_4_2)) (not (currstate s_5_0)) (not (currstate s_6_0)) (not (currstate s_7_0)) (not (currstate s_8_0)) (not (currstate s_9_2)) )
-)
-
-(:action goto-abstract_states-cs59
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_2) (currstate s_2_0) (currstate s_3_0) (currstate s_4_2) (currstate s_5_0) (currstate s_6_0) (currstate s_7_0) (currstate s_8_0) (currstate s_9_0) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_2)) (not (currstate s_2_0)) (not (currstate s_3_0)) (not (currstate s_4_2)) (not (currstate s_5_0)) (not (currstate s_6_0)) (not (currstate s_7_0)) (not (currstate s_8_0)) (not (currstate s_9_0)) )
-)
-
-(:action goto-abstract_states-cs60
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_2) (currstate s_2_0) (currstate s_3_0) (currstate s_4_2) (currstate s_5_0) (currstate s_6_0) (currstate s_7_2) (currstate s_8_2) (currstate s_9_2) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_2)) (not (currstate s_2_0)) (not (currstate s_3_0)) (not (currstate s_4_2)) (not (currstate s_5_0)) (not (currstate s_6_0)) (not (currstate s_7_2)) (not (currstate s_8_2)) (not (currstate s_9_2)) )
-)
-
-(:action goto-abstract_states-cs61
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_2) (currstate s_2_0) (currstate s_3_0) (currstate s_4_2) (currstate s_5_0) (currstate s_6_0) (currstate s_7_2) (currstate s_8_2) (currstate s_9_0) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_2)) (not (currstate s_2_0)) (not (currstate s_3_0)) (not (currstate s_4_2)) (not (currstate s_5_0)) (not (currstate s_6_0)) (not (currstate s_7_2)) (not (currstate s_8_2)) (not (currstate s_9_0)) )
-)
-
-(:action goto-abstract_states-cs62
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_2) (currstate s_2_0) (currstate s_3_0) (currstate s_4_2) (currstate s_5_0) (currstate s_6_0) (currstate s_7_2) (currstate s_8_0) (currstate s_9_2) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_2)) (not (currstate s_2_0)) (not (currstate s_3_0)) (not (currstate s_4_2)) (not (currstate s_5_0)) (not (currstate s_6_0)) (not (currstate s_7_2)) (not (currstate s_8_0)) (not (currstate s_9_2)) )
-)
-
-(:action goto-abstract_states-cs63
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_2) (currstate s_2_0) (currstate s_3_0) (currstate s_4_2) (currstate s_5_0) (currstate s_6_0) (currstate s_7_2) (currstate s_8_0) (currstate s_9_0) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_2)) (not (currstate s_2_0)) (not (currstate s_3_0)) (not (currstate s_4_2)) (not (currstate s_5_0)) (not (currstate s_6_0)) (not (currstate s_7_2)) (not (currstate s_8_0)) (not (currstate s_9_0)) )
-)
-
-(:action goto-abstract_states-cs64
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_2) (currstate s_2_0) (currstate s_3_2) (currstate s_4_0) (currstate s_5_2) (currstate s_6_2) (currstate s_7_0) (currstate s_8_2) (currstate s_9_2) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_2)) (not (currstate s_2_0)) (not (currstate s_3_2)) (not (currstate s_4_0)) (not (currstate s_5_2)) (not (currstate s_6_2)) (not (currstate s_7_0)) (not (currstate s_8_2)) (not (currstate s_9_2)) )
-)
-
-(:action goto-abstract_states-cs65
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_2) (currstate s_2_0) (currstate s_3_2) (currstate s_4_0) (currstate s_5_2) (currstate s_6_2) (currstate s_7_0) (currstate s_8_2) (currstate s_9_0) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_2)) (not (currstate s_2_0)) (not (currstate s_3_2)) (not (currstate s_4_0)) (not (currstate s_5_2)) (not (currstate s_6_2)) (not (currstate s_7_0)) (not (currstate s_8_2)) (not (currstate s_9_0)) )
-)
-
-(:action goto-abstract_states-cs66
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_2) (currstate s_2_0) (currstate s_3_2) (currstate s_4_0) (currstate s_5_2) (currstate s_6_2) (currstate s_7_0) (currstate s_8_0) (currstate s_9_2) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_2)) (not (currstate s_2_0)) (not (currstate s_3_2)) (not (currstate s_4_0)) (not (currstate s_5_2)) (not (currstate s_6_2)) (not (currstate s_7_0)) (not (currstate s_8_0)) (not (currstate s_9_2)) )
-)
-
-(:action goto-abstract_states-cs67
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_2) (currstate s_2_0) (currstate s_3_2) (currstate s_4_0) (currstate s_5_2) (currstate s_6_2) (currstate s_7_0) (currstate s_8_0) (currstate s_9_0) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_2)) (not (currstate s_2_0)) (not (currstate s_3_2)) (not (currstate s_4_0)) (not (currstate s_5_2)) (not (currstate s_6_2)) (not (currstate s_7_0)) (not (currstate s_8_0)) (not (currstate s_9_0)) )
-)
-
-(:action goto-abstract_states-cs68
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_2) (currstate s_2_0) (currstate s_3_2) (currstate s_4_0) (currstate s_5_2) (currstate s_6_2) (currstate s_7_2) (currstate s_8_2) (currstate s_9_2) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_2)) (not (currstate s_2_0)) (not (currstate s_3_2)) (not (currstate s_4_0)) (not (currstate s_5_2)) (not (currstate s_6_2)) (not (currstate s_7_2)) (not (currstate s_8_2)) (not (currstate s_9_2)) )
-)
-
-(:action goto-abstract_states-cs69
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_2) (currstate s_2_0) (currstate s_3_2) (currstate s_4_0) (currstate s_5_2) (currstate s_6_2) (currstate s_7_2) (currstate s_8_2) (currstate s_9_0) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_2)) (not (currstate s_2_0)) (not (currstate s_3_2)) (not (currstate s_4_0)) (not (currstate s_5_2)) (not (currstate s_6_2)) (not (currstate s_7_2)) (not (currstate s_8_2)) (not (currstate s_9_0)) )
-)
-
-(:action goto-abstract_states-cs70
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_2) (currstate s_2_0) (currstate s_3_2) (currstate s_4_0) (currstate s_5_2) (currstate s_6_2) (currstate s_7_2) (currstate s_8_0) (currstate s_9_2) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_2)) (not (currstate s_2_0)) (not (currstate s_3_2)) (not (currstate s_4_0)) (not (currstate s_5_2)) (not (currstate s_6_2)) (not (currstate s_7_2)) (not (currstate s_8_0)) (not (currstate s_9_2)) )
-)
-
-(:action goto-abstract_states-cs71
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_2) (currstate s_2_0) (currstate s_3_2) (currstate s_4_0) (currstate s_5_2) (currstate s_6_2) (currstate s_7_2) (currstate s_8_0) (currstate s_9_0) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_2)) (not (currstate s_2_0)) (not (currstate s_3_2)) (not (currstate s_4_0)) (not (currstate s_5_2)) (not (currstate s_6_2)) (not (currstate s_7_2)) (not (currstate s_8_0)) (not (currstate s_9_0)) )
-)
-
-(:action goto-abstract_states-cs72
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_2) (currstate s_2_0) (currstate s_3_2) (currstate s_4_0) (currstate s_5_2) (currstate s_6_0) (currstate s_7_0) (currstate s_8_2) (currstate s_9_2) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_2)) (not (currstate s_2_0)) (not (currstate s_3_2)) (not (currstate s_4_0)) (not (currstate s_5_2)) (not (currstate s_6_0)) (not (currstate s_7_0)) (not (currstate s_8_2)) (not (currstate s_9_2)) )
-)
-
-(:action goto-abstract_states-cs73
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_2) (currstate s_2_0) (currstate s_3_2) (currstate s_4_0) (currstate s_5_2) (currstate s_6_0) (currstate s_7_0) (currstate s_8_2) (currstate s_9_0) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_2)) (not (currstate s_2_0)) (not (currstate s_3_2)) (not (currstate s_4_0)) (not (currstate s_5_2)) (not (currstate s_6_0)) (not (currstate s_7_0)) (not (currstate s_8_2)) (not (currstate s_9_0)) )
-)
-
-(:action goto-abstract_states-cs74
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_2) (currstate s_2_0) (currstate s_3_2) (currstate s_4_0) (currstate s_5_2) (currstate s_6_0) (currstate s_7_0) (currstate s_8_0) (currstate s_9_2) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_2)) (not (currstate s_2_0)) (not (currstate s_3_2)) (not (currstate s_4_0)) (not (currstate s_5_2)) (not (currstate s_6_0)) (not (currstate s_7_0)) (not (currstate s_8_0)) (not (currstate s_9_2)) )
-)
-
-(:action goto-abstract_states-cs75
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_2) (currstate s_2_0) (currstate s_3_2) (currstate s_4_0) (currstate s_5_2) (currstate s_6_0) (currstate s_7_0) (currstate s_8_0) (currstate s_9_0) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_2)) (not (currstate s_2_0)) (not (currstate s_3_2)) (not (currstate s_4_0)) (not (currstate s_5_2)) (not (currstate s_6_0)) (not (currstate s_7_0)) (not (currstate s_8_0)) (not (currstate s_9_0)) )
-)
-
-(:action goto-abstract_states-cs76
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_2) (currstate s_2_0) (currstate s_3_2) (currstate s_4_0) (currstate s_5_2) (currstate s_6_0) (currstate s_7_2) (currstate s_8_2) (currstate s_9_2) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_2)) (not (currstate s_2_0)) (not (currstate s_3_2)) (not (currstate s_4_0)) (not (currstate s_5_2)) (not (currstate s_6_0)) (not (currstate s_7_2)) (not (currstate s_8_2)) (not (currstate s_9_2)) )
-)
-
-(:action goto-abstract_states-cs77
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_2) (currstate s_2_0) (currstate s_3_2) (currstate s_4_0) (currstate s_5_2) (currstate s_6_0) (currstate s_7_2) (currstate s_8_2) (currstate s_9_0) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_2)) (not (currstate s_2_0)) (not (currstate s_3_2)) (not (currstate s_4_0)) (not (currstate s_5_2)) (not (currstate s_6_0)) (not (currstate s_7_2)) (not (currstate s_8_2)) (not (currstate s_9_0)) )
-)
-
-(:action goto-abstract_states-cs78
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_2) (currstate s_2_0) (currstate s_3_2) (currstate s_4_0) (currstate s_5_2) (currstate s_6_0) (currstate s_7_2) (currstate s_8_0) (currstate s_9_2) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_2)) (not (currstate s_2_0)) (not (currstate s_3_2)) (not (currstate s_4_0)) (not (currstate s_5_2)) (not (currstate s_6_0)) (not (currstate s_7_2)) (not (currstate s_8_0)) (not (currstate s_9_2)) )
-)
-
-(:action goto-abstract_states-cs79
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_2) (currstate s_2_0) (currstate s_3_2) (currstate s_4_0) (currstate s_5_2) (currstate s_6_0) (currstate s_7_2) (currstate s_8_0) (currstate s_9_0) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_2)) (not (currstate s_2_0)) (not (currstate s_3_2)) (not (currstate s_4_0)) (not (currstate s_5_2)) (not (currstate s_6_0)) (not (currstate s_7_2)) (not (currstate s_8_0)) (not (currstate s_9_0)) )
-)
-
-(:action goto-abstract_states-cs80
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_2) (currstate s_2_0) (currstate s_3_2) (currstate s_4_0) (currstate s_5_0) (currstate s_6_2) (currstate s_7_0) (currstate s_8_2) (currstate s_9_2) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_2)) (not (currstate s_2_0)) (not (currstate s_3_2)) (not (currstate s_4_0)) (not (currstate s_5_0)) (not (currstate s_6_2)) (not (currstate s_7_0)) (not (currstate s_8_2)) (not (currstate s_9_2)) )
-)
-
-(:action goto-abstract_states-cs81
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_2) (currstate s_2_0) (currstate s_3_2) (currstate s_4_0) (currstate s_5_0) (currstate s_6_2) (currstate s_7_0) (currstate s_8_2) (currstate s_9_0) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_2)) (not (currstate s_2_0)) (not (currstate s_3_2)) (not (currstate s_4_0)) (not (currstate s_5_0)) (not (currstate s_6_2)) (not (currstate s_7_0)) (not (currstate s_8_2)) (not (currstate s_9_0)) )
-)
-
-(:action goto-abstract_states-cs82
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_2) (currstate s_2_0) (currstate s_3_2) (currstate s_4_0) (currstate s_5_0) (currstate s_6_2) (currstate s_7_0) (currstate s_8_0) (currstate s_9_2) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_2)) (not (currstate s_2_0)) (not (currstate s_3_2)) (not (currstate s_4_0)) (not (currstate s_5_0)) (not (currstate s_6_2)) (not (currstate s_7_0)) (not (currstate s_8_0)) (not (currstate s_9_2)) )
-)
-
-(:action goto-abstract_states-cs83
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_2) (currstate s_2_0) (currstate s_3_2) (currstate s_4_0) (currstate s_5_0) (currstate s_6_2) (currstate s_7_0) (currstate s_8_0) (currstate s_9_0) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_2)) (not (currstate s_2_0)) (not (currstate s_3_2)) (not (currstate s_4_0)) (not (currstate s_5_0)) (not (currstate s_6_2)) (not (currstate s_7_0)) (not (currstate s_8_0)) (not (currstate s_9_0)) )
-)
-
-(:action goto-abstract_states-cs84
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_2) (currstate s_2_0) (currstate s_3_2) (currstate s_4_0) (currstate s_5_0) (currstate s_6_2) (currstate s_7_2) (currstate s_8_2) (currstate s_9_2) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_2)) (not (currstate s_2_0)) (not (currstate s_3_2)) (not (currstate s_4_0)) (not (currstate s_5_0)) (not (currstate s_6_2)) (not (currstate s_7_2)) (not (currstate s_8_2)) (not (currstate s_9_2)) )
-)
-
-(:action goto-abstract_states-cs85
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_2) (currstate s_2_0) (currstate s_3_2) (currstate s_4_0) (currstate s_5_0) (currstate s_6_2) (currstate s_7_2) (currstate s_8_2) (currstate s_9_0) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_2)) (not (currstate s_2_0)) (not (currstate s_3_2)) (not (currstate s_4_0)) (not (currstate s_5_0)) (not (currstate s_6_2)) (not (currstate s_7_2)) (not (currstate s_8_2)) (not (currstate s_9_0)) )
-)
-
-(:action goto-abstract_states-cs86
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_2) (currstate s_2_0) (currstate s_3_2) (currstate s_4_0) (currstate s_5_0) (currstate s_6_2) (currstate s_7_2) (currstate s_8_0) (currstate s_9_2) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_2)) (not (currstate s_2_0)) (not (currstate s_3_2)) (not (currstate s_4_0)) (not (currstate s_5_0)) (not (currstate s_6_2)) (not (currstate s_7_2)) (not (currstate s_8_0)) (not (currstate s_9_2)) )
-)
-
-(:action goto-abstract_states-cs87
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_2) (currstate s_2_0) (currstate s_3_2) (currstate s_4_0) (currstate s_5_0) (currstate s_6_2) (currstate s_7_2) (currstate s_8_0) (currstate s_9_0) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_2)) (not (currstate s_2_0)) (not (currstate s_3_2)) (not (currstate s_4_0)) (not (currstate s_5_0)) (not (currstate s_6_2)) (not (currstate s_7_2)) (not (currstate s_8_0)) (not (currstate s_9_0)) )
-)
-
-(:action goto-abstract_states-cs88
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_2) (currstate s_2_0) (currstate s_3_2) (currstate s_4_0) (currstate s_5_0) (currstate s_6_0) (currstate s_7_0) (currstate s_8_2) (currstate s_9_2) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_2)) (not (currstate s_2_0)) (not (currstate s_3_2)) (not (currstate s_4_0)) (not (currstate s_5_0)) (not (currstate s_6_0)) (not (currstate s_7_0)) (not (currstate s_8_2)) (not (currstate s_9_2)) )
-)
-
-(:action goto-abstract_states-cs89
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_2) (currstate s_2_0) (currstate s_3_2) (currstate s_4_0) (currstate s_5_0) (currstate s_6_0) (currstate s_7_0) (currstate s_8_2) (currstate s_9_0) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_2)) (not (currstate s_2_0)) (not (currstate s_3_2)) (not (currstate s_4_0)) (not (currstate s_5_0)) (not (currstate s_6_0)) (not (currstate s_7_0)) (not (currstate s_8_2)) (not (currstate s_9_0)) )
-)
-
-(:action goto-abstract_states-cs90
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_2) (currstate s_2_0) (currstate s_3_2) (currstate s_4_0) (currstate s_5_0) (currstate s_6_0) (currstate s_7_0) (currstate s_8_0) (currstate s_9_2) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_2)) (not (currstate s_2_0)) (not (currstate s_3_2)) (not (currstate s_4_0)) (not (currstate s_5_0)) (not (currstate s_6_0)) (not (currstate s_7_0)) (not (currstate s_8_0)) (not (currstate s_9_2)) )
-)
-
-(:action goto-abstract_states-cs91
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_2) (currstate s_2_0) (currstate s_3_2) (currstate s_4_0) (currstate s_5_0) (currstate s_6_0) (currstate s_7_0) (currstate s_8_0) (currstate s_9_0) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_2)) (not (currstate s_2_0)) (not (currstate s_3_2)) (not (currstate s_4_0)) (not (currstate s_5_0)) (not (currstate s_6_0)) (not (currstate s_7_0)) (not (currstate s_8_0)) (not (currstate s_9_0)) )
-)
-
-(:action goto-abstract_states-cs92
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_2) (currstate s_2_0) (currstate s_3_2) (currstate s_4_0) (currstate s_5_0) (currstate s_6_0) (currstate s_7_2) (currstate s_8_2) (currstate s_9_2) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_2)) (not (currstate s_2_0)) (not (currstate s_3_2)) (not (currstate s_4_0)) (not (currstate s_5_0)) (not (currstate s_6_0)) (not (currstate s_7_2)) (not (currstate s_8_2)) (not (currstate s_9_2)) )
-)
-
-(:action goto-abstract_states-cs93
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_2) (currstate s_2_0) (currstate s_3_2) (currstate s_4_0) (currstate s_5_0) (currstate s_6_0) (currstate s_7_2) (currstate s_8_2) (currstate s_9_0) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_2)) (not (currstate s_2_0)) (not (currstate s_3_2)) (not (currstate s_4_0)) (not (currstate s_5_0)) (not (currstate s_6_0)) (not (currstate s_7_2)) (not (currstate s_8_2)) (not (currstate s_9_0)) )
-)
-
-(:action goto-abstract_states-cs94
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_2) (currstate s_2_0) (currstate s_3_2) (currstate s_4_0) (currstate s_5_0) (currstate s_6_0) (currstate s_7_2) (currstate s_8_0) (currstate s_9_2) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_2)) (not (currstate s_2_0)) (not (currstate s_3_2)) (not (currstate s_4_0)) (not (currstate s_5_0)) (not (currstate s_6_0)) (not (currstate s_7_2)) (not (currstate s_8_0)) (not (currstate s_9_2)) )
-)
-
-(:action goto-abstract_states-cs95
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_2) (currstate s_2_0) (currstate s_3_2) (currstate s_4_0) (currstate s_5_0) (currstate s_6_0) (currstate s_7_2) (currstate s_8_0) (currstate s_9_0) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_2)) (not (currstate s_2_0)) (not (currstate s_3_2)) (not (currstate s_4_0)) (not (currstate s_5_0)) (not (currstate s_6_0)) (not (currstate s_7_2)) (not (currstate s_8_0)) (not (currstate s_9_0)) )
-)
-
-(:action goto-abstract_states-cs96
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_2) (currstate s_2_0) (currstate s_3_2) (currstate s_4_2) (currstate s_5_2) (currstate s_6_2) (currstate s_7_0) (currstate s_8_2) (currstate s_9_2) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_2)) (not (currstate s_2_0)) (not (currstate s_3_2)) (not (currstate s_4_2)) (not (currstate s_5_2)) (not (currstate s_6_2)) (not (currstate s_7_0)) (not (currstate s_8_2)) (not (currstate s_9_2)) )
-)
-
-(:action goto-abstract_states-cs97
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_2) (currstate s_2_0) (currstate s_3_2) (currstate s_4_2) (currstate s_5_2) (currstate s_6_2) (currstate s_7_0) (currstate s_8_2) (currstate s_9_0) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_2)) (not (currstate s_2_0)) (not (currstate s_3_2)) (not (currstate s_4_2)) (not (currstate s_5_2)) (not (currstate s_6_2)) (not (currstate s_7_0)) (not (currstate s_8_2)) (not (currstate s_9_0)) )
-)
-
-(:action goto-abstract_states-cs98
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_2) (currstate s_2_0) (currstate s_3_2) (currstate s_4_2) (currstate s_5_2) (currstate s_6_2) (currstate s_7_0) (currstate s_8_0) (currstate s_9_2) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_2)) (not (currstate s_2_0)) (not (currstate s_3_2)) (not (currstate s_4_2)) (not (currstate s_5_2)) (not (currstate s_6_2)) (not (currstate s_7_0)) (not (currstate s_8_0)) (not (currstate s_9_2)) )
-)
-
-(:action goto-abstract_states-cs99
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_2) (currstate s_2_0) (currstate s_3_2) (currstate s_4_2) (currstate s_5_2) (currstate s_6_2) (currstate s_7_0) (currstate s_8_0) (currstate s_9_0) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_2)) (not (currstate s_2_0)) (not (currstate s_3_2)) (not (currstate s_4_2)) (not (currstate s_5_2)) (not (currstate s_6_2)) (not (currstate s_7_0)) (not (currstate s_8_0)) (not (currstate s_9_0)) )
-)
-
-(:action goto-abstract_states-cs100
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_2) (currstate s_2_0) (currstate s_3_2) (currstate s_4_2) (currstate s_5_2) (currstate s_6_2) (currstate s_7_2) (currstate s_8_2) (currstate s_9_2) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_2)) (not (currstate s_2_0)) (not (currstate s_3_2)) (not (currstate s_4_2)) (not (currstate s_5_2)) (not (currstate s_6_2)) (not (currstate s_7_2)) (not (currstate s_8_2)) (not (currstate s_9_2)) )
-)
-
-(:action goto-abstract_states-cs101
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_2) (currstate s_2_0) (currstate s_3_2) (currstate s_4_2) (currstate s_5_2) (currstate s_6_2) (currstate s_7_2) (currstate s_8_2) (currstate s_9_0) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_2)) (not (currstate s_2_0)) (not (currstate s_3_2)) (not (currstate s_4_2)) (not (currstate s_5_2)) (not (currstate s_6_2)) (not (currstate s_7_2)) (not (currstate s_8_2)) (not (currstate s_9_0)) )
-)
-
-(:action goto-abstract_states-cs102
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_2) (currstate s_2_0) (currstate s_3_2) (currstate s_4_2) (currstate s_5_2) (currstate s_6_2) (currstate s_7_2) (currstate s_8_0) (currstate s_9_2) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_2)) (not (currstate s_2_0)) (not (currstate s_3_2)) (not (currstate s_4_2)) (not (currstate s_5_2)) (not (currstate s_6_2)) (not (currstate s_7_2)) (not (currstate s_8_0)) (not (currstate s_9_2)) )
-)
-
-(:action goto-abstract_states-cs103
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_2) (currstate s_2_0) (currstate s_3_2) (currstate s_4_2) (currstate s_5_2) (currstate s_6_2) (currstate s_7_2) (currstate s_8_0) (currstate s_9_0) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_2)) (not (currstate s_2_0)) (not (currstate s_3_2)) (not (currstate s_4_2)) (not (currstate s_5_2)) (not (currstate s_6_2)) (not (currstate s_7_2)) (not (currstate s_8_0)) (not (currstate s_9_0)) )
-)
-
-(:action goto-abstract_states-cs104
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_2) (currstate s_2_0) (currstate s_3_2) (currstate s_4_2) (currstate s_5_2) (currstate s_6_0) (currstate s_7_0) (currstate s_8_2) (currstate s_9_2) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_2)) (not (currstate s_2_0)) (not (currstate s_3_2)) (not (currstate s_4_2)) (not (currstate s_5_2)) (not (currstate s_6_0)) (not (currstate s_7_0)) (not (currstate s_8_2)) (not (currstate s_9_2)) )
-)
-
-(:action goto-abstract_states-cs105
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_2) (currstate s_2_0) (currstate s_3_2) (currstate s_4_2) (currstate s_5_2) (currstate s_6_0) (currstate s_7_0) (currstate s_8_2) (currstate s_9_0) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_2)) (not (currstate s_2_0)) (not (currstate s_3_2)) (not (currstate s_4_2)) (not (currstate s_5_2)) (not (currstate s_6_0)) (not (currstate s_7_0)) (not (currstate s_8_2)) (not (currstate s_9_0)) )
-)
-
-(:action goto-abstract_states-cs106
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_2) (currstate s_2_0) (currstate s_3_2) (currstate s_4_2) (currstate s_5_2) (currstate s_6_0) (currstate s_7_0) (currstate s_8_0) (currstate s_9_2) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_2)) (not (currstate s_2_0)) (not (currstate s_3_2)) (not (currstate s_4_2)) (not (currstate s_5_2)) (not (currstate s_6_0)) (not (currstate s_7_0)) (not (currstate s_8_0)) (not (currstate s_9_2)) )
-)
-
-(:action goto-abstract_states-cs107
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_2) (currstate s_2_0) (currstate s_3_2) (currstate s_4_2) (currstate s_5_2) (currstate s_6_0) (currstate s_7_0) (currstate s_8_0) (currstate s_9_0) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_2)) (not (currstate s_2_0)) (not (currstate s_3_2)) (not (currstate s_4_2)) (not (currstate s_5_2)) (not (currstate s_6_0)) (not (currstate s_7_0)) (not (currstate s_8_0)) (not (currstate s_9_0)) )
-)
-
-(:action goto-abstract_states-cs108
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_2) (currstate s_2_0) (currstate s_3_2) (currstate s_4_2) (currstate s_5_2) (currstate s_6_0) (currstate s_7_2) (currstate s_8_2) (currstate s_9_2) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_2)) (not (currstate s_2_0)) (not (currstate s_3_2)) (not (currstate s_4_2)) (not (currstate s_5_2)) (not (currstate s_6_0)) (not (currstate s_7_2)) (not (currstate s_8_2)) (not (currstate s_9_2)) )
-)
-
-(:action goto-abstract_states-cs109
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_2) (currstate s_2_0) (currstate s_3_2) (currstate s_4_2) (currstate s_5_2) (currstate s_6_0) (currstate s_7_2) (currstate s_8_2) (currstate s_9_0) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_2)) (not (currstate s_2_0)) (not (currstate s_3_2)) (not (currstate s_4_2)) (not (currstate s_5_2)) (not (currstate s_6_0)) (not (currstate s_7_2)) (not (currstate s_8_2)) (not (currstate s_9_0)) )
-)
-
-(:action goto-abstract_states-cs110
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_2) (currstate s_2_0) (currstate s_3_2) (currstate s_4_2) (currstate s_5_2) (currstate s_6_0) (currstate s_7_2) (currstate s_8_0) (currstate s_9_2) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_2)) (not (currstate s_2_0)) (not (currstate s_3_2)) (not (currstate s_4_2)) (not (currstate s_5_2)) (not (currstate s_6_0)) (not (currstate s_7_2)) (not (currstate s_8_0)) (not (currstate s_9_2)) )
-)
-
-(:action goto-abstract_states-cs111
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_2) (currstate s_2_0) (currstate s_3_2) (currstate s_4_2) (currstate s_5_2) (currstate s_6_0) (currstate s_7_2) (currstate s_8_0) (currstate s_9_0) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_2)) (not (currstate s_2_0)) (not (currstate s_3_2)) (not (currstate s_4_2)) (not (currstate s_5_2)) (not (currstate s_6_0)) (not (currstate s_7_2)) (not (currstate s_8_0)) (not (currstate s_9_0)) )
-)
-
-(:action goto-abstract_states-cs112
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_2) (currstate s_2_0) (currstate s_3_2) (currstate s_4_2) (currstate s_5_0) (currstate s_6_2) (currstate s_7_0) (currstate s_8_2) (currstate s_9_2) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_2)) (not (currstate s_2_0)) (not (currstate s_3_2)) (not (currstate s_4_2)) (not (currstate s_5_0)) (not (currstate s_6_2)) (not (currstate s_7_0)) (not (currstate s_8_2)) (not (currstate s_9_2)) )
-)
-
-(:action goto-abstract_states-cs113
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_2) (currstate s_2_0) (currstate s_3_2) (currstate s_4_2) (currstate s_5_0) (currstate s_6_2) (currstate s_7_0) (currstate s_8_2) (currstate s_9_0) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_2)) (not (currstate s_2_0)) (not (currstate s_3_2)) (not (currstate s_4_2)) (not (currstate s_5_0)) (not (currstate s_6_2)) (not (currstate s_7_0)) (not (currstate s_8_2)) (not (currstate s_9_0)) )
-)
-
-(:action goto-abstract_states-cs114
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_2) (currstate s_2_0) (currstate s_3_2) (currstate s_4_2) (currstate s_5_0) (currstate s_6_2) (currstate s_7_0) (currstate s_8_0) (currstate s_9_2) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_2)) (not (currstate s_2_0)) (not (currstate s_3_2)) (not (currstate s_4_2)) (not (currstate s_5_0)) (not (currstate s_6_2)) (not (currstate s_7_0)) (not (currstate s_8_0)) (not (currstate s_9_2)) )
-)
-
-(:action goto-abstract_states-cs115
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_2) (currstate s_2_0) (currstate s_3_2) (currstate s_4_2) (currstate s_5_0) (currstate s_6_2) (currstate s_7_0) (currstate s_8_0) (currstate s_9_0) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_2)) (not (currstate s_2_0)) (not (currstate s_3_2)) (not (currstate s_4_2)) (not (currstate s_5_0)) (not (currstate s_6_2)) (not (currstate s_7_0)) (not (currstate s_8_0)) (not (currstate s_9_0)) )
-)
-
-(:action goto-abstract_states-cs116
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_2) (currstate s_2_0) (currstate s_3_2) (currstate s_4_2) (currstate s_5_0) (currstate s_6_2) (currstate s_7_2) (currstate s_8_2) (currstate s_9_2) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_2)) (not (currstate s_2_0)) (not (currstate s_3_2)) (not (currstate s_4_2)) (not (currstate s_5_0)) (not (currstate s_6_2)) (not (currstate s_7_2)) (not (currstate s_8_2)) (not (currstate s_9_2)) )
-)
-
-(:action goto-abstract_states-cs117
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_2) (currstate s_2_0) (currstate s_3_2) (currstate s_4_2) (currstate s_5_0) (currstate s_6_2) (currstate s_7_2) (currstate s_8_2) (currstate s_9_0) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_2)) (not (currstate s_2_0)) (not (currstate s_3_2)) (not (currstate s_4_2)) (not (currstate s_5_0)) (not (currstate s_6_2)) (not (currstate s_7_2)) (not (currstate s_8_2)) (not (currstate s_9_0)) )
-)
-
-(:action goto-abstract_states-cs118
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_2) (currstate s_2_0) (currstate s_3_2) (currstate s_4_2) (currstate s_5_0) (currstate s_6_2) (currstate s_7_2) (currstate s_8_0) (currstate s_9_2) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_2)) (not (currstate s_2_0)) (not (currstate s_3_2)) (not (currstate s_4_2)) (not (currstate s_5_0)) (not (currstate s_6_2)) (not (currstate s_7_2)) (not (currstate s_8_0)) (not (currstate s_9_2)) )
-)
-
-(:action goto-abstract_states-cs119
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_2) (currstate s_2_0) (currstate s_3_2) (currstate s_4_2) (currstate s_5_0) (currstate s_6_2) (currstate s_7_2) (currstate s_8_0) (currstate s_9_0) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_2)) (not (currstate s_2_0)) (not (currstate s_3_2)) (not (currstate s_4_2)) (not (currstate s_5_0)) (not (currstate s_6_2)) (not (currstate s_7_2)) (not (currstate s_8_0)) (not (currstate s_9_0)) )
-)
-
-(:action goto-abstract_states-cs120
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_2) (currstate s_2_0) (currstate s_3_2) (currstate s_4_2) (currstate s_5_0) (currstate s_6_0) (currstate s_7_0) (currstate s_8_2) (currstate s_9_2) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_2)) (not (currstate s_2_0)) (not (currstate s_3_2)) (not (currstate s_4_2)) (not (currstate s_5_0)) (not (currstate s_6_0)) (not (currstate s_7_0)) (not (currstate s_8_2)) (not (currstate s_9_2)) )
-)
-
-(:action goto-abstract_states-cs121
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_2) (currstate s_2_0) (currstate s_3_2) (currstate s_4_2) (currstate s_5_0) (currstate s_6_0) (currstate s_7_0) (currstate s_8_2) (currstate s_9_0) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_2)) (not (currstate s_2_0)) (not (currstate s_3_2)) (not (currstate s_4_2)) (not (currstate s_5_0)) (not (currstate s_6_0)) (not (currstate s_7_0)) (not (currstate s_8_2)) (not (currstate s_9_0)) )
-)
-
-(:action goto-abstract_states-cs122
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_2) (currstate s_2_0) (currstate s_3_2) (currstate s_4_2) (currstate s_5_0) (currstate s_6_0) (currstate s_7_0) (currstate s_8_0) (currstate s_9_2) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_2)) (not (currstate s_2_0)) (not (currstate s_3_2)) (not (currstate s_4_2)) (not (currstate s_5_0)) (not (currstate s_6_0)) (not (currstate s_7_0)) (not (currstate s_8_0)) (not (currstate s_9_2)) )
-)
-
-(:action goto-abstract_states-cs123
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_2) (currstate s_2_0) (currstate s_3_2) (currstate s_4_2) (currstate s_5_0) (currstate s_6_0) (currstate s_7_0) (currstate s_8_0) (currstate s_9_0) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_2)) (not (currstate s_2_0)) (not (currstate s_3_2)) (not (currstate s_4_2)) (not (currstate s_5_0)) (not (currstate s_6_0)) (not (currstate s_7_0)) (not (currstate s_8_0)) (not (currstate s_9_0)) )
-)
-
-(:action goto-abstract_states-cs124
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_2) (currstate s_2_0) (currstate s_3_2) (currstate s_4_2) (currstate s_5_0) (currstate s_6_0) (currstate s_7_2) (currstate s_8_2) (currstate s_9_2) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_2)) (not (currstate s_2_0)) (not (currstate s_3_2)) (not (currstate s_4_2)) (not (currstate s_5_0)) (not (currstate s_6_0)) (not (currstate s_7_2)) (not (currstate s_8_2)) (not (currstate s_9_2)) )
-)
-
-(:action goto-abstract_states-cs125
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_2) (currstate s_2_0) (currstate s_3_2) (currstate s_4_2) (currstate s_5_0) (currstate s_6_0) (currstate s_7_2) (currstate s_8_2) (currstate s_9_0) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_2)) (not (currstate s_2_0)) (not (currstate s_3_2)) (not (currstate s_4_2)) (not (currstate s_5_0)) (not (currstate s_6_0)) (not (currstate s_7_2)) (not (currstate s_8_2)) (not (currstate s_9_0)) )
-)
-
-(:action goto-abstract_states-cs126
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_2) (currstate s_2_0) (currstate s_3_2) (currstate s_4_2) (currstate s_5_0) (currstate s_6_0) (currstate s_7_2) (currstate s_8_0) (currstate s_9_2) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_2)) (not (currstate s_2_0)) (not (currstate s_3_2)) (not (currstate s_4_2)) (not (currstate s_5_0)) (not (currstate s_6_0)) (not (currstate s_7_2)) (not (currstate s_8_0)) (not (currstate s_9_2)) )
-)
-
-(:action goto-abstract_states-cs127
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_2) (currstate s_2_0) (currstate s_3_2) (currstate s_4_2) (currstate s_5_0) (currstate s_6_0) (currstate s_7_2) (currstate s_8_0) (currstate s_9_0) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_2)) (not (currstate s_2_0)) (not (currstate s_3_2)) (not (currstate s_4_2)) (not (currstate s_5_0)) (not (currstate s_6_0)) (not (currstate s_7_2)) (not (currstate s_8_0)) (not (currstate s_9_0)) )
-)
-
-(:action goto-abstract_states-cs128
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_2) (currstate s_2_2) (currstate s_3_0) (currstate s_4_0) (currstate s_5_2) (currstate s_6_2) (currstate s_7_0) (currstate s_8_2) (currstate s_9_2) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_2)) (not (currstate s_2_2)) (not (currstate s_3_0)) (not (currstate s_4_0)) (not (currstate s_5_2)) (not (currstate s_6_2)) (not (currstate s_7_0)) (not (currstate s_8_2)) (not (currstate s_9_2)) )
-)
-
-(:action goto-abstract_states-cs129
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_2) (currstate s_2_2) (currstate s_3_0) (currstate s_4_0) (currstate s_5_2) (currstate s_6_2) (currstate s_7_0) (currstate s_8_2) (currstate s_9_0) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_2)) (not (currstate s_2_2)) (not (currstate s_3_0)) (not (currstate s_4_0)) (not (currstate s_5_2)) (not (currstate s_6_2)) (not (currstate s_7_0)) (not (currstate s_8_2)) (not (currstate s_9_0)) )
-)
-
-(:action goto-abstract_states-cs130
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_2) (currstate s_2_2) (currstate s_3_0) (currstate s_4_0) (currstate s_5_2) (currstate s_6_2) (currstate s_7_0) (currstate s_8_0) (currstate s_9_2) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_2)) (not (currstate s_2_2)) (not (currstate s_3_0)) (not (currstate s_4_0)) (not (currstate s_5_2)) (not (currstate s_6_2)) (not (currstate s_7_0)) (not (currstate s_8_0)) (not (currstate s_9_2)) )
-)
-
-(:action goto-abstract_states-cs131
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_2) (currstate s_2_2) (currstate s_3_0) (currstate s_4_0) (currstate s_5_2) (currstate s_6_2) (currstate s_7_0) (currstate s_8_0) (currstate s_9_0) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_2)) (not (currstate s_2_2)) (not (currstate s_3_0)) (not (currstate s_4_0)) (not (currstate s_5_2)) (not (currstate s_6_2)) (not (currstate s_7_0)) (not (currstate s_8_0)) (not (currstate s_9_0)) )
-)
-
-(:action goto-abstract_states-cs132
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_2) (currstate s_2_2) (currstate s_3_0) (currstate s_4_0) (currstate s_5_2) (currstate s_6_2) (currstate s_7_2) (currstate s_8_2) (currstate s_9_2) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_2)) (not (currstate s_2_2)) (not (currstate s_3_0)) (not (currstate s_4_0)) (not (currstate s_5_2)) (not (currstate s_6_2)) (not (currstate s_7_2)) (not (currstate s_8_2)) (not (currstate s_9_2)) )
-)
-
-(:action goto-abstract_states-cs133
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_2) (currstate s_2_2) (currstate s_3_0) (currstate s_4_0) (currstate s_5_2) (currstate s_6_2) (currstate s_7_2) (currstate s_8_2) (currstate s_9_0) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_2)) (not (currstate s_2_2)) (not (currstate s_3_0)) (not (currstate s_4_0)) (not (currstate s_5_2)) (not (currstate s_6_2)) (not (currstate s_7_2)) (not (currstate s_8_2)) (not (currstate s_9_0)) )
-)
-
-(:action goto-abstract_states-cs134
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_2) (currstate s_2_2) (currstate s_3_0) (currstate s_4_0) (currstate s_5_2) (currstate s_6_2) (currstate s_7_2) (currstate s_8_0) (currstate s_9_2) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_2)) (not (currstate s_2_2)) (not (currstate s_3_0)) (not (currstate s_4_0)) (not (currstate s_5_2)) (not (currstate s_6_2)) (not (currstate s_7_2)) (not (currstate s_8_0)) (not (currstate s_9_2)) )
-)
-
-(:action goto-abstract_states-cs135
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_2) (currstate s_2_2) (currstate s_3_0) (currstate s_4_0) (currstate s_5_2) (currstate s_6_2) (currstate s_7_2) (currstate s_8_0) (currstate s_9_0) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_2)) (not (currstate s_2_2)) (not (currstate s_3_0)) (not (currstate s_4_0)) (not (currstate s_5_2)) (not (currstate s_6_2)) (not (currstate s_7_2)) (not (currstate s_8_0)) (not (currstate s_9_0)) )
-)
-
-(:action goto-abstract_states-cs136
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_2) (currstate s_2_2) (currstate s_3_0) (currstate s_4_0) (currstate s_5_2) (currstate s_6_0) (currstate s_7_0) (currstate s_8_2) (currstate s_9_2) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_2)) (not (currstate s_2_2)) (not (currstate s_3_0)) (not (currstate s_4_0)) (not (currstate s_5_2)) (not (currstate s_6_0)) (not (currstate s_7_0)) (not (currstate s_8_2)) (not (currstate s_9_2)) )
-)
-
-(:action goto-abstract_states-cs137
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_2) (currstate s_2_2) (currstate s_3_0) (currstate s_4_0) (currstate s_5_2) (currstate s_6_0) (currstate s_7_0) (currstate s_8_2) (currstate s_9_0) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_2)) (not (currstate s_2_2)) (not (currstate s_3_0)) (not (currstate s_4_0)) (not (currstate s_5_2)) (not (currstate s_6_0)) (not (currstate s_7_0)) (not (currstate s_8_2)) (not (currstate s_9_0)) )
-)
-
-(:action goto-abstract_states-cs138
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_2) (currstate s_2_2) (currstate s_3_0) (currstate s_4_0) (currstate s_5_2) (currstate s_6_0) (currstate s_7_0) (currstate s_8_0) (currstate s_9_2) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_2)) (not (currstate s_2_2)) (not (currstate s_3_0)) (not (currstate s_4_0)) (not (currstate s_5_2)) (not (currstate s_6_0)) (not (currstate s_7_0)) (not (currstate s_8_0)) (not (currstate s_9_2)) )
-)
-
-(:action goto-abstract_states-cs139
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_2) (currstate s_2_2) (currstate s_3_0) (currstate s_4_0) (currstate s_5_2) (currstate s_6_0) (currstate s_7_0) (currstate s_8_0) (currstate s_9_0) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_2)) (not (currstate s_2_2)) (not (currstate s_3_0)) (not (currstate s_4_0)) (not (currstate s_5_2)) (not (currstate s_6_0)) (not (currstate s_7_0)) (not (currstate s_8_0)) (not (currstate s_9_0)) )
-)
-
-(:action goto-abstract_states-cs140
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_2) (currstate s_2_2) (currstate s_3_0) (currstate s_4_0) (currstate s_5_2) (currstate s_6_0) (currstate s_7_2) (currstate s_8_2) (currstate s_9_2) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_2)) (not (currstate s_2_2)) (not (currstate s_3_0)) (not (currstate s_4_0)) (not (currstate s_5_2)) (not (currstate s_6_0)) (not (currstate s_7_2)) (not (currstate s_8_2)) (not (currstate s_9_2)) )
-)
-
-(:action goto-abstract_states-cs141
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_2) (currstate s_2_2) (currstate s_3_0) (currstate s_4_0) (currstate s_5_2) (currstate s_6_0) (currstate s_7_2) (currstate s_8_2) (currstate s_9_0) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_2)) (not (currstate s_2_2)) (not (currstate s_3_0)) (not (currstate s_4_0)) (not (currstate s_5_2)) (not (currstate s_6_0)) (not (currstate s_7_2)) (not (currstate s_8_2)) (not (currstate s_9_0)) )
-)
-
-(:action goto-abstract_states-cs142
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_2) (currstate s_2_2) (currstate s_3_0) (currstate s_4_0) (currstate s_5_2) (currstate s_6_0) (currstate s_7_2) (currstate s_8_0) (currstate s_9_2) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_2)) (not (currstate s_2_2)) (not (currstate s_3_0)) (not (currstate s_4_0)) (not (currstate s_5_2)) (not (currstate s_6_0)) (not (currstate s_7_2)) (not (currstate s_8_0)) (not (currstate s_9_2)) )
-)
-
-(:action goto-abstract_states-cs143
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_2) (currstate s_2_2) (currstate s_3_0) (currstate s_4_0) (currstate s_5_2) (currstate s_6_0) (currstate s_7_2) (currstate s_8_0) (currstate s_9_0) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_2)) (not (currstate s_2_2)) (not (currstate s_3_0)) (not (currstate s_4_0)) (not (currstate s_5_2)) (not (currstate s_6_0)) (not (currstate s_7_2)) (not (currstate s_8_0)) (not (currstate s_9_0)) )
-)
-
-(:action goto-abstract_states-cs144
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_2) (currstate s_2_2) (currstate s_3_0) (currstate s_4_0) (currstate s_5_0) (currstate s_6_2) (currstate s_7_0) (currstate s_8_2) (currstate s_9_2) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_2)) (not (currstate s_2_2)) (not (currstate s_3_0)) (not (currstate s_4_0)) (not (currstate s_5_0)) (not (currstate s_6_2)) (not (currstate s_7_0)) (not (currstate s_8_2)) (not (currstate s_9_2)) )
-)
-
-(:action goto-abstract_states-cs145
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_2) (currstate s_2_2) (currstate s_3_0) (currstate s_4_0) (currstate s_5_0) (currstate s_6_2) (currstate s_7_0) (currstate s_8_2) (currstate s_9_0) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_2)) (not (currstate s_2_2)) (not (currstate s_3_0)) (not (currstate s_4_0)) (not (currstate s_5_0)) (not (currstate s_6_2)) (not (currstate s_7_0)) (not (currstate s_8_2)) (not (currstate s_9_0)) )
-)
-
-(:action goto-abstract_states-cs146
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_2) (currstate s_2_2) (currstate s_3_0) (currstate s_4_0) (currstate s_5_0) (currstate s_6_2) (currstate s_7_0) (currstate s_8_0) (currstate s_9_2) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_2)) (not (currstate s_2_2)) (not (currstate s_3_0)) (not (currstate s_4_0)) (not (currstate s_5_0)) (not (currstate s_6_2)) (not (currstate s_7_0)) (not (currstate s_8_0)) (not (currstate s_9_2)) )
-)
-
-(:action goto-abstract_states-cs147
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_2) (currstate s_2_2) (currstate s_3_0) (currstate s_4_0) (currstate s_5_0) (currstate s_6_2) (currstate s_7_0) (currstate s_8_0) (currstate s_9_0) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_2)) (not (currstate s_2_2)) (not (currstate s_3_0)) (not (currstate s_4_0)) (not (currstate s_5_0)) (not (currstate s_6_2)) (not (currstate s_7_0)) (not (currstate s_8_0)) (not (currstate s_9_0)) )
-)
-
-(:action goto-abstract_states-cs148
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_2) (currstate s_2_2) (currstate s_3_0) (currstate s_4_0) (currstate s_5_0) (currstate s_6_2) (currstate s_7_2) (currstate s_8_2) (currstate s_9_2) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_2)) (not (currstate s_2_2)) (not (currstate s_3_0)) (not (currstate s_4_0)) (not (currstate s_5_0)) (not (currstate s_6_2)) (not (currstate s_7_2)) (not (currstate s_8_2)) (not (currstate s_9_2)) )
-)
-
-(:action goto-abstract_states-cs149
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_2) (currstate s_2_2) (currstate s_3_0) (currstate s_4_0) (currstate s_5_0) (currstate s_6_2) (currstate s_7_2) (currstate s_8_2) (currstate s_9_0) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_2)) (not (currstate s_2_2)) (not (currstate s_3_0)) (not (currstate s_4_0)) (not (currstate s_5_0)) (not (currstate s_6_2)) (not (currstate s_7_2)) (not (currstate s_8_2)) (not (currstate s_9_0)) )
-)
-
-(:action goto-abstract_states-cs150
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_2) (currstate s_2_2) (currstate s_3_0) (currstate s_4_0) (currstate s_5_0) (currstate s_6_2) (currstate s_7_2) (currstate s_8_0) (currstate s_9_2) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_2)) (not (currstate s_2_2)) (not (currstate s_3_0)) (not (currstate s_4_0)) (not (currstate s_5_0)) (not (currstate s_6_2)) (not (currstate s_7_2)) (not (currstate s_8_0)) (not (currstate s_9_2)) )
-)
-
-(:action goto-abstract_states-cs151
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_2) (currstate s_2_2) (currstate s_3_0) (currstate s_4_0) (currstate s_5_0) (currstate s_6_2) (currstate s_7_2) (currstate s_8_0) (currstate s_9_0) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_2)) (not (currstate s_2_2)) (not (currstate s_3_0)) (not (currstate s_4_0)) (not (currstate s_5_0)) (not (currstate s_6_2)) (not (currstate s_7_2)) (not (currstate s_8_0)) (not (currstate s_9_0)) )
-)
-
-(:action goto-abstract_states-cs152
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_2) (currstate s_2_2) (currstate s_3_0) (currstate s_4_0) (currstate s_5_0) (currstate s_6_0) (currstate s_7_0) (currstate s_8_2) (currstate s_9_2) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_2)) (not (currstate s_2_2)) (not (currstate s_3_0)) (not (currstate s_4_0)) (not (currstate s_5_0)) (not (currstate s_6_0)) (not (currstate s_7_0)) (not (currstate s_8_2)) (not (currstate s_9_2)) )
-)
-
-(:action goto-abstract_states-cs153
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_2) (currstate s_2_2) (currstate s_3_0) (currstate s_4_0) (currstate s_5_0) (currstate s_6_0) (currstate s_7_0) (currstate s_8_2) (currstate s_9_0) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_2)) (not (currstate s_2_2)) (not (currstate s_3_0)) (not (currstate s_4_0)) (not (currstate s_5_0)) (not (currstate s_6_0)) (not (currstate s_7_0)) (not (currstate s_8_2)) (not (currstate s_9_0)) )
-)
-
-(:action goto-abstract_states-cs154
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_2) (currstate s_2_2) (currstate s_3_0) (currstate s_4_0) (currstate s_5_0) (currstate s_6_0) (currstate s_7_0) (currstate s_8_0) (currstate s_9_2) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_2)) (not (currstate s_2_2)) (not (currstate s_3_0)) (not (currstate s_4_0)) (not (currstate s_5_0)) (not (currstate s_6_0)) (not (currstate s_7_0)) (not (currstate s_8_0)) (not (currstate s_9_2)) )
-)
-
-(:action goto-abstract_states-cs155
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_2) (currstate s_2_2) (currstate s_3_0) (currstate s_4_0) (currstate s_5_0) (currstate s_6_0) (currstate s_7_0) (currstate s_8_0) (currstate s_9_0) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_2)) (not (currstate s_2_2)) (not (currstate s_3_0)) (not (currstate s_4_0)) (not (currstate s_5_0)) (not (currstate s_6_0)) (not (currstate s_7_0)) (not (currstate s_8_0)) (not (currstate s_9_0)) )
-)
-
-(:action goto-abstract_states-cs156
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_2) (currstate s_2_2) (currstate s_3_0) (currstate s_4_0) (currstate s_5_0) (currstate s_6_0) (currstate s_7_2) (currstate s_8_2) (currstate s_9_2) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_2)) (not (currstate s_2_2)) (not (currstate s_3_0)) (not (currstate s_4_0)) (not (currstate s_5_0)) (not (currstate s_6_0)) (not (currstate s_7_2)) (not (currstate s_8_2)) (not (currstate s_9_2)) )
-)
-
-(:action goto-abstract_states-cs157
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_2) (currstate s_2_2) (currstate s_3_0) (currstate s_4_0) (currstate s_5_0) (currstate s_6_0) (currstate s_7_2) (currstate s_8_2) (currstate s_9_0) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_2)) (not (currstate s_2_2)) (not (currstate s_3_0)) (not (currstate s_4_0)) (not (currstate s_5_0)) (not (currstate s_6_0)) (not (currstate s_7_2)) (not (currstate s_8_2)) (not (currstate s_9_0)) )
-)
-
-(:action goto-abstract_states-cs158
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_2) (currstate s_2_2) (currstate s_3_0) (currstate s_4_0) (currstate s_5_0) (currstate s_6_0) (currstate s_7_2) (currstate s_8_0) (currstate s_9_2) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_2)) (not (currstate s_2_2)) (not (currstate s_3_0)) (not (currstate s_4_0)) (not (currstate s_5_0)) (not (currstate s_6_0)) (not (currstate s_7_2)) (not (currstate s_8_0)) (not (currstate s_9_2)) )
-)
-
-(:action goto-abstract_states-cs159
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_2) (currstate s_2_2) (currstate s_3_0) (currstate s_4_0) (currstate s_5_0) (currstate s_6_0) (currstate s_7_2) (currstate s_8_0) (currstate s_9_0) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_2)) (not (currstate s_2_2)) (not (currstate s_3_0)) (not (currstate s_4_0)) (not (currstate s_5_0)) (not (currstate s_6_0)) (not (currstate s_7_2)) (not (currstate s_8_0)) (not (currstate s_9_0)) )
-)
-
-(:action goto-abstract_states-cs160
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_2) (currstate s_2_2) (currstate s_3_0) (currstate s_4_2) (currstate s_5_2) (currstate s_6_2) (currstate s_7_0) (currstate s_8_2) (currstate s_9_2) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_2)) (not (currstate s_2_2)) (not (currstate s_3_0)) (not (currstate s_4_2)) (not (currstate s_5_2)) (not (currstate s_6_2)) (not (currstate s_7_0)) (not (currstate s_8_2)) (not (currstate s_9_2)) )
-)
-
-(:action goto-abstract_states-cs161
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_2) (currstate s_2_2) (currstate s_3_0) (currstate s_4_2) (currstate s_5_2) (currstate s_6_2) (currstate s_7_0) (currstate s_8_2) (currstate s_9_0) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_2)) (not (currstate s_2_2)) (not (currstate s_3_0)) (not (currstate s_4_2)) (not (currstate s_5_2)) (not (currstate s_6_2)) (not (currstate s_7_0)) (not (currstate s_8_2)) (not (currstate s_9_0)) )
-)
-
-(:action goto-abstract_states-cs162
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_2) (currstate s_2_2) (currstate s_3_0) (currstate s_4_2) (currstate s_5_2) (currstate s_6_2) (currstate s_7_0) (currstate s_8_0) (currstate s_9_2) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_2)) (not (currstate s_2_2)) (not (currstate s_3_0)) (not (currstate s_4_2)) (not (currstate s_5_2)) (not (currstate s_6_2)) (not (currstate s_7_0)) (not (currstate s_8_0)) (not (currstate s_9_2)) )
-)
-
-(:action goto-abstract_states-cs163
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_2) (currstate s_2_2) (currstate s_3_0) (currstate s_4_2) (currstate s_5_2) (currstate s_6_2) (currstate s_7_0) (currstate s_8_0) (currstate s_9_0) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_2)) (not (currstate s_2_2)) (not (currstate s_3_0)) (not (currstate s_4_2)) (not (currstate s_5_2)) (not (currstate s_6_2)) (not (currstate s_7_0)) (not (currstate s_8_0)) (not (currstate s_9_0)) )
-)
-
-(:action goto-abstract_states-cs164
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_2) (currstate s_2_2) (currstate s_3_0) (currstate s_4_2) (currstate s_5_2) (currstate s_6_2) (currstate s_7_2) (currstate s_8_2) (currstate s_9_2) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_2)) (not (currstate s_2_2)) (not (currstate s_3_0)) (not (currstate s_4_2)) (not (currstate s_5_2)) (not (currstate s_6_2)) (not (currstate s_7_2)) (not (currstate s_8_2)) (not (currstate s_9_2)) )
-)
-
-(:action goto-abstract_states-cs165
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_2) (currstate s_2_2) (currstate s_3_0) (currstate s_4_2) (currstate s_5_2) (currstate s_6_2) (currstate s_7_2) (currstate s_8_2) (currstate s_9_0) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_2)) (not (currstate s_2_2)) (not (currstate s_3_0)) (not (currstate s_4_2)) (not (currstate s_5_2)) (not (currstate s_6_2)) (not (currstate s_7_2)) (not (currstate s_8_2)) (not (currstate s_9_0)) )
-)
-
-(:action goto-abstract_states-cs166
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_2) (currstate s_2_2) (currstate s_3_0) (currstate s_4_2) (currstate s_5_2) (currstate s_6_2) (currstate s_7_2) (currstate s_8_0) (currstate s_9_2) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_2)) (not (currstate s_2_2)) (not (currstate s_3_0)) (not (currstate s_4_2)) (not (currstate s_5_2)) (not (currstate s_6_2)) (not (currstate s_7_2)) (not (currstate s_8_0)) (not (currstate s_9_2)) )
-)
-
-(:action goto-abstract_states-cs167
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_2) (currstate s_2_2) (currstate s_3_0) (currstate s_4_2) (currstate s_5_2) (currstate s_6_2) (currstate s_7_2) (currstate s_8_0) (currstate s_9_0) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_2)) (not (currstate s_2_2)) (not (currstate s_3_0)) (not (currstate s_4_2)) (not (currstate s_5_2)) (not (currstate s_6_2)) (not (currstate s_7_2)) (not (currstate s_8_0)) (not (currstate s_9_0)) )
-)
-
-(:action goto-abstract_states-cs168
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_2) (currstate s_2_2) (currstate s_3_0) (currstate s_4_2) (currstate s_5_2) (currstate s_6_0) (currstate s_7_0) (currstate s_8_2) (currstate s_9_2) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_2)) (not (currstate s_2_2)) (not (currstate s_3_0)) (not (currstate s_4_2)) (not (currstate s_5_2)) (not (currstate s_6_0)) (not (currstate s_7_0)) (not (currstate s_8_2)) (not (currstate s_9_2)) )
-)
-
-(:action goto-abstract_states-cs169
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_2) (currstate s_2_2) (currstate s_3_0) (currstate s_4_2) (currstate s_5_2) (currstate s_6_0) (currstate s_7_0) (currstate s_8_2) (currstate s_9_0) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_2)) (not (currstate s_2_2)) (not (currstate s_3_0)) (not (currstate s_4_2)) (not (currstate s_5_2)) (not (currstate s_6_0)) (not (currstate s_7_0)) (not (currstate s_8_2)) (not (currstate s_9_0)) )
-)
-
-(:action goto-abstract_states-cs170
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_2) (currstate s_2_2) (currstate s_3_0) (currstate s_4_2) (currstate s_5_2) (currstate s_6_0) (currstate s_7_0) (currstate s_8_0) (currstate s_9_2) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_2)) (not (currstate s_2_2)) (not (currstate s_3_0)) (not (currstate s_4_2)) (not (currstate s_5_2)) (not (currstate s_6_0)) (not (currstate s_7_0)) (not (currstate s_8_0)) (not (currstate s_9_2)) )
-)
-
-(:action goto-abstract_states-cs171
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_2) (currstate s_2_2) (currstate s_3_0) (currstate s_4_2) (currstate s_5_2) (currstate s_6_0) (currstate s_7_0) (currstate s_8_0) (currstate s_9_0) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_2)) (not (currstate s_2_2)) (not (currstate s_3_0)) (not (currstate s_4_2)) (not (currstate s_5_2)) (not (currstate s_6_0)) (not (currstate s_7_0)) (not (currstate s_8_0)) (not (currstate s_9_0)) )
-)
-
-(:action goto-abstract_states-cs172
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_2) (currstate s_2_2) (currstate s_3_0) (currstate s_4_2) (currstate s_5_2) (currstate s_6_0) (currstate s_7_2) (currstate s_8_2) (currstate s_9_2) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_2)) (not (currstate s_2_2)) (not (currstate s_3_0)) (not (currstate s_4_2)) (not (currstate s_5_2)) (not (currstate s_6_0)) (not (currstate s_7_2)) (not (currstate s_8_2)) (not (currstate s_9_2)) )
-)
-
-(:action goto-abstract_states-cs173
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_2) (currstate s_2_2) (currstate s_3_0) (currstate s_4_2) (currstate s_5_2) (currstate s_6_0) (currstate s_7_2) (currstate s_8_2) (currstate s_9_0) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_2)) (not (currstate s_2_2)) (not (currstate s_3_0)) (not (currstate s_4_2)) (not (currstate s_5_2)) (not (currstate s_6_0)) (not (currstate s_7_2)) (not (currstate s_8_2)) (not (currstate s_9_0)) )
-)
-
-(:action goto-abstract_states-cs174
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_2) (currstate s_2_2) (currstate s_3_0) (currstate s_4_2) (currstate s_5_2) (currstate s_6_0) (currstate s_7_2) (currstate s_8_0) (currstate s_9_2) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_2)) (not (currstate s_2_2)) (not (currstate s_3_0)) (not (currstate s_4_2)) (not (currstate s_5_2)) (not (currstate s_6_0)) (not (currstate s_7_2)) (not (currstate s_8_0)) (not (currstate s_9_2)) )
-)
-
-(:action goto-abstract_states-cs175
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_2) (currstate s_2_2) (currstate s_3_0) (currstate s_4_2) (currstate s_5_2) (currstate s_6_0) (currstate s_7_2) (currstate s_8_0) (currstate s_9_0) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_2)) (not (currstate s_2_2)) (not (currstate s_3_0)) (not (currstate s_4_2)) (not (currstate s_5_2)) (not (currstate s_6_0)) (not (currstate s_7_2)) (not (currstate s_8_0)) (not (currstate s_9_0)) )
-)
-
-(:action goto-abstract_states-cs176
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_2) (currstate s_2_2) (currstate s_3_0) (currstate s_4_2) (currstate s_5_0) (currstate s_6_2) (currstate s_7_0) (currstate s_8_2) (currstate s_9_2) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_2)) (not (currstate s_2_2)) (not (currstate s_3_0)) (not (currstate s_4_2)) (not (currstate s_5_0)) (not (currstate s_6_2)) (not (currstate s_7_0)) (not (currstate s_8_2)) (not (currstate s_9_2)) )
-)
-
-(:action goto-abstract_states-cs177
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_2) (currstate s_2_2) (currstate s_3_0) (currstate s_4_2) (currstate s_5_0) (currstate s_6_2) (currstate s_7_0) (currstate s_8_2) (currstate s_9_0) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_2)) (not (currstate s_2_2)) (not (currstate s_3_0)) (not (currstate s_4_2)) (not (currstate s_5_0)) (not (currstate s_6_2)) (not (currstate s_7_0)) (not (currstate s_8_2)) (not (currstate s_9_0)) )
-)
-
-(:action goto-abstract_states-cs178
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_2) (currstate s_2_2) (currstate s_3_0) (currstate s_4_2) (currstate s_5_0) (currstate s_6_2) (currstate s_7_0) (currstate s_8_0) (currstate s_9_2) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_2)) (not (currstate s_2_2)) (not (currstate s_3_0)) (not (currstate s_4_2)) (not (currstate s_5_0)) (not (currstate s_6_2)) (not (currstate s_7_0)) (not (currstate s_8_0)) (not (currstate s_9_2)) )
-)
-
-(:action goto-abstract_states-cs179
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_2) (currstate s_2_2) (currstate s_3_0) (currstate s_4_2) (currstate s_5_0) (currstate s_6_2) (currstate s_7_0) (currstate s_8_0) (currstate s_9_0) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_2)) (not (currstate s_2_2)) (not (currstate s_3_0)) (not (currstate s_4_2)) (not (currstate s_5_0)) (not (currstate s_6_2)) (not (currstate s_7_0)) (not (currstate s_8_0)) (not (currstate s_9_0)) )
-)
-
-(:action goto-abstract_states-cs180
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_2) (currstate s_2_2) (currstate s_3_0) (currstate s_4_2) (currstate s_5_0) (currstate s_6_2) (currstate s_7_2) (currstate s_8_2) (currstate s_9_2) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_2)) (not (currstate s_2_2)) (not (currstate s_3_0)) (not (currstate s_4_2)) (not (currstate s_5_0)) (not (currstate s_6_2)) (not (currstate s_7_2)) (not (currstate s_8_2)) (not (currstate s_9_2)) )
-)
-
-(:action goto-abstract_states-cs181
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_2) (currstate s_2_2) (currstate s_3_0) (currstate s_4_2) (currstate s_5_0) (currstate s_6_2) (currstate s_7_2) (currstate s_8_2) (currstate s_9_0) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_2)) (not (currstate s_2_2)) (not (currstate s_3_0)) (not (currstate s_4_2)) (not (currstate s_5_0)) (not (currstate s_6_2)) (not (currstate s_7_2)) (not (currstate s_8_2)) (not (currstate s_9_0)) )
-)
-
-(:action goto-abstract_states-cs182
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_2) (currstate s_2_2) (currstate s_3_0) (currstate s_4_2) (currstate s_5_0) (currstate s_6_2) (currstate s_7_2) (currstate s_8_0) (currstate s_9_2) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_2)) (not (currstate s_2_2)) (not (currstate s_3_0)) (not (currstate s_4_2)) (not (currstate s_5_0)) (not (currstate s_6_2)) (not (currstate s_7_2)) (not (currstate s_8_0)) (not (currstate s_9_2)) )
-)
-
-(:action goto-abstract_states-cs183
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_2) (currstate s_2_2) (currstate s_3_0) (currstate s_4_2) (currstate s_5_0) (currstate s_6_2) (currstate s_7_2) (currstate s_8_0) (currstate s_9_0) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_2)) (not (currstate s_2_2)) (not (currstate s_3_0)) (not (currstate s_4_2)) (not (currstate s_5_0)) (not (currstate s_6_2)) (not (currstate s_7_2)) (not (currstate s_8_0)) (not (currstate s_9_0)) )
-)
-
-(:action goto-abstract_states-cs184
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_2) (currstate s_2_2) (currstate s_3_0) (currstate s_4_2) (currstate s_5_0) (currstate s_6_0) (currstate s_7_0) (currstate s_8_2) (currstate s_9_2) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_2)) (not (currstate s_2_2)) (not (currstate s_3_0)) (not (currstate s_4_2)) (not (currstate s_5_0)) (not (currstate s_6_0)) (not (currstate s_7_0)) (not (currstate s_8_2)) (not (currstate s_9_2)) )
-)
-
-(:action goto-abstract_states-cs185
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_2) (currstate s_2_2) (currstate s_3_0) (currstate s_4_2) (currstate s_5_0) (currstate s_6_0) (currstate s_7_0) (currstate s_8_2) (currstate s_9_0) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_2)) (not (currstate s_2_2)) (not (currstate s_3_0)) (not (currstate s_4_2)) (not (currstate s_5_0)) (not (currstate s_6_0)) (not (currstate s_7_0)) (not (currstate s_8_2)) (not (currstate s_9_0)) )
-)
-
-(:action goto-abstract_states-cs186
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_2) (currstate s_2_2) (currstate s_3_0) (currstate s_4_2) (currstate s_5_0) (currstate s_6_0) (currstate s_7_0) (currstate s_8_0) (currstate s_9_2) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_2)) (not (currstate s_2_2)) (not (currstate s_3_0)) (not (currstate s_4_2)) (not (currstate s_5_0)) (not (currstate s_6_0)) (not (currstate s_7_0)) (not (currstate s_8_0)) (not (currstate s_9_2)) )
-)
-
-(:action goto-abstract_states-cs187
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_2) (currstate s_2_2) (currstate s_3_0) (currstate s_4_2) (currstate s_5_0) (currstate s_6_0) (currstate s_7_0) (currstate s_8_0) (currstate s_9_0) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_2)) (not (currstate s_2_2)) (not (currstate s_3_0)) (not (currstate s_4_2)) (not (currstate s_5_0)) (not (currstate s_6_0)) (not (currstate s_7_0)) (not (currstate s_8_0)) (not (currstate s_9_0)) )
-)
-
-(:action goto-abstract_states-cs188
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_2) (currstate s_2_2) (currstate s_3_0) (currstate s_4_2) (currstate s_5_0) (currstate s_6_0) (currstate s_7_2) (currstate s_8_2) (currstate s_9_2) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_2)) (not (currstate s_2_2)) (not (currstate s_3_0)) (not (currstate s_4_2)) (not (currstate s_5_0)) (not (currstate s_6_0)) (not (currstate s_7_2)) (not (currstate s_8_2)) (not (currstate s_9_2)) )
-)
-
-(:action goto-abstract_states-cs189
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_2) (currstate s_2_2) (currstate s_3_0) (currstate s_4_2) (currstate s_5_0) (currstate s_6_0) (currstate s_7_2) (currstate s_8_2) (currstate s_9_0) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_2)) (not (currstate s_2_2)) (not (currstate s_3_0)) (not (currstate s_4_2)) (not (currstate s_5_0)) (not (currstate s_6_0)) (not (currstate s_7_2)) (not (currstate s_8_2)) (not (currstate s_9_0)) )
-)
-
-(:action goto-abstract_states-cs190
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_2) (currstate s_2_2) (currstate s_3_0) (currstate s_4_2) (currstate s_5_0) (currstate s_6_0) (currstate s_7_2) (currstate s_8_0) (currstate s_9_2) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_2)) (not (currstate s_2_2)) (not (currstate s_3_0)) (not (currstate s_4_2)) (not (currstate s_5_0)) (not (currstate s_6_0)) (not (currstate s_7_2)) (not (currstate s_8_0)) (not (currstate s_9_2)) )
-)
-
-(:action goto-abstract_states-cs191
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_2) (currstate s_2_2) (currstate s_3_0) (currstate s_4_2) (currstate s_5_0) (currstate s_6_0) (currstate s_7_2) (currstate s_8_0) (currstate s_9_0) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_2)) (not (currstate s_2_2)) (not (currstate s_3_0)) (not (currstate s_4_2)) (not (currstate s_5_0)) (not (currstate s_6_0)) (not (currstate s_7_2)) (not (currstate s_8_0)) (not (currstate s_9_0)) )
-)
-
-(:action goto-abstract_states-cs192
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_2) (currstate s_2_2) (currstate s_3_2) (currstate s_4_0) (currstate s_5_2) (currstate s_6_2) (currstate s_7_0) (currstate s_8_2) (currstate s_9_2) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_2)) (not (currstate s_2_2)) (not (currstate s_3_2)) (not (currstate s_4_0)) (not (currstate s_5_2)) (not (currstate s_6_2)) (not (currstate s_7_0)) (not (currstate s_8_2)) (not (currstate s_9_2)) )
-)
-
-(:action goto-abstract_states-cs193
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_2) (currstate s_2_2) (currstate s_3_2) (currstate s_4_0) (currstate s_5_2) (currstate s_6_2) (currstate s_7_0) (currstate s_8_2) (currstate s_9_0) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_2)) (not (currstate s_2_2)) (not (currstate s_3_2)) (not (currstate s_4_0)) (not (currstate s_5_2)) (not (currstate s_6_2)) (not (currstate s_7_0)) (not (currstate s_8_2)) (not (currstate s_9_0)) )
-)
-
-(:action goto-abstract_states-cs194
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_2) (currstate s_2_2) (currstate s_3_2) (currstate s_4_0) (currstate s_5_2) (currstate s_6_2) (currstate s_7_0) (currstate s_8_0) (currstate s_9_2) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_2)) (not (currstate s_2_2)) (not (currstate s_3_2)) (not (currstate s_4_0)) (not (currstate s_5_2)) (not (currstate s_6_2)) (not (currstate s_7_0)) (not (currstate s_8_0)) (not (currstate s_9_2)) )
-)
-
-(:action goto-abstract_states-cs195
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_2) (currstate s_2_2) (currstate s_3_2) (currstate s_4_0) (currstate s_5_2) (currstate s_6_2) (currstate s_7_0) (currstate s_8_0) (currstate s_9_0) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_2)) (not (currstate s_2_2)) (not (currstate s_3_2)) (not (currstate s_4_0)) (not (currstate s_5_2)) (not (currstate s_6_2)) (not (currstate s_7_0)) (not (currstate s_8_0)) (not (currstate s_9_0)) )
-)
-
-(:action goto-abstract_states-cs196
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_2) (currstate s_2_2) (currstate s_3_2) (currstate s_4_0) (currstate s_5_2) (currstate s_6_2) (currstate s_7_2) (currstate s_8_2) (currstate s_9_2) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_2)) (not (currstate s_2_2)) (not (currstate s_3_2)) (not (currstate s_4_0)) (not (currstate s_5_2)) (not (currstate s_6_2)) (not (currstate s_7_2)) (not (currstate s_8_2)) (not (currstate s_9_2)) )
-)
-
-(:action goto-abstract_states-cs197
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_2) (currstate s_2_2) (currstate s_3_2) (currstate s_4_0) (currstate s_5_2) (currstate s_6_2) (currstate s_7_2) (currstate s_8_2) (currstate s_9_0) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_2)) (not (currstate s_2_2)) (not (currstate s_3_2)) (not (currstate s_4_0)) (not (currstate s_5_2)) (not (currstate s_6_2)) (not (currstate s_7_2)) (not (currstate s_8_2)) (not (currstate s_9_0)) )
-)
-
-(:action goto-abstract_states-cs198
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_2) (currstate s_2_2) (currstate s_3_2) (currstate s_4_0) (currstate s_5_2) (currstate s_6_2) (currstate s_7_2) (currstate s_8_0) (currstate s_9_2) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_2)) (not (currstate s_2_2)) (not (currstate s_3_2)) (not (currstate s_4_0)) (not (currstate s_5_2)) (not (currstate s_6_2)) (not (currstate s_7_2)) (not (currstate s_8_0)) (not (currstate s_9_2)) )
-)
-
-(:action goto-abstract_states-cs199
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_2) (currstate s_2_2) (currstate s_3_2) (currstate s_4_0) (currstate s_5_2) (currstate s_6_2) (currstate s_7_2) (currstate s_8_0) (currstate s_9_0) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_2)) (not (currstate s_2_2)) (not (currstate s_3_2)) (not (currstate s_4_0)) (not (currstate s_5_2)) (not (currstate s_6_2)) (not (currstate s_7_2)) (not (currstate s_8_0)) (not (currstate s_9_0)) )
-)
-
-(:action goto-abstract_states-cs200
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_2) (currstate s_2_2) (currstate s_3_2) (currstate s_4_0) (currstate s_5_2) (currstate s_6_0) (currstate s_7_0) (currstate s_8_2) (currstate s_9_2) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_2)) (not (currstate s_2_2)) (not (currstate s_3_2)) (not (currstate s_4_0)) (not (currstate s_5_2)) (not (currstate s_6_0)) (not (currstate s_7_0)) (not (currstate s_8_2)) (not (currstate s_9_2)) )
-)
-
-(:action goto-abstract_states-cs201
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_2) (currstate s_2_2) (currstate s_3_2) (currstate s_4_0) (currstate s_5_2) (currstate s_6_0) (currstate s_7_0) (currstate s_8_2) (currstate s_9_0) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_2)) (not (currstate s_2_2)) (not (currstate s_3_2)) (not (currstate s_4_0)) (not (currstate s_5_2)) (not (currstate s_6_0)) (not (currstate s_7_0)) (not (currstate s_8_2)) (not (currstate s_9_0)) )
-)
-
-(:action goto-abstract_states-cs202
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_2) (currstate s_2_2) (currstate s_3_2) (currstate s_4_0) (currstate s_5_2) (currstate s_6_0) (currstate s_7_0) (currstate s_8_0) (currstate s_9_2) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_2)) (not (currstate s_2_2)) (not (currstate s_3_2)) (not (currstate s_4_0)) (not (currstate s_5_2)) (not (currstate s_6_0)) (not (currstate s_7_0)) (not (currstate s_8_0)) (not (currstate s_9_2)) )
-)
-
-(:action goto-abstract_states-cs203
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_2) (currstate s_2_2) (currstate s_3_2) (currstate s_4_0) (currstate s_5_2) (currstate s_6_0) (currstate s_7_0) (currstate s_8_0) (currstate s_9_0) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_2)) (not (currstate s_2_2)) (not (currstate s_3_2)) (not (currstate s_4_0)) (not (currstate s_5_2)) (not (currstate s_6_0)) (not (currstate s_7_0)) (not (currstate s_8_0)) (not (currstate s_9_0)) )
-)
-
-(:action goto-abstract_states-cs204
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_2) (currstate s_2_2) (currstate s_3_2) (currstate s_4_0) (currstate s_5_2) (currstate s_6_0) (currstate s_7_2) (currstate s_8_2) (currstate s_9_2) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_2)) (not (currstate s_2_2)) (not (currstate s_3_2)) (not (currstate s_4_0)) (not (currstate s_5_2)) (not (currstate s_6_0)) (not (currstate s_7_2)) (not (currstate s_8_2)) (not (currstate s_9_2)) )
-)
-
-(:action goto-abstract_states-cs205
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_2) (currstate s_2_2) (currstate s_3_2) (currstate s_4_0) (currstate s_5_2) (currstate s_6_0) (currstate s_7_2) (currstate s_8_2) (currstate s_9_0) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_2)) (not (currstate s_2_2)) (not (currstate s_3_2)) (not (currstate s_4_0)) (not (currstate s_5_2)) (not (currstate s_6_0)) (not (currstate s_7_2)) (not (currstate s_8_2)) (not (currstate s_9_0)) )
-)
-
-(:action goto-abstract_states-cs206
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_2) (currstate s_2_2) (currstate s_3_2) (currstate s_4_0) (currstate s_5_2) (currstate s_6_0) (currstate s_7_2) (currstate s_8_0) (currstate s_9_2) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_2)) (not (currstate s_2_2)) (not (currstate s_3_2)) (not (currstate s_4_0)) (not (currstate s_5_2)) (not (currstate s_6_0)) (not (currstate s_7_2)) (not (currstate s_8_0)) (not (currstate s_9_2)) )
-)
-
-(:action goto-abstract_states-cs207
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_2) (currstate s_2_2) (currstate s_3_2) (currstate s_4_0) (currstate s_5_2) (currstate s_6_0) (currstate s_7_2) (currstate s_8_0) (currstate s_9_0) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_2)) (not (currstate s_2_2)) (not (currstate s_3_2)) (not (currstate s_4_0)) (not (currstate s_5_2)) (not (currstate s_6_0)) (not (currstate s_7_2)) (not (currstate s_8_0)) (not (currstate s_9_0)) )
-)
-
-(:action goto-abstract_states-cs208
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_2) (currstate s_2_2) (currstate s_3_2) (currstate s_4_0) (currstate s_5_0) (currstate s_6_2) (currstate s_7_0) (currstate s_8_2) (currstate s_9_2) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_2)) (not (currstate s_2_2)) (not (currstate s_3_2)) (not (currstate s_4_0)) (not (currstate s_5_0)) (not (currstate s_6_2)) (not (currstate s_7_0)) (not (currstate s_8_2)) (not (currstate s_9_2)) )
-)
-
-(:action goto-abstract_states-cs209
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_2) (currstate s_2_2) (currstate s_3_2) (currstate s_4_0) (currstate s_5_0) (currstate s_6_2) (currstate s_7_0) (currstate s_8_2) (currstate s_9_0) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_2)) (not (currstate s_2_2)) (not (currstate s_3_2)) (not (currstate s_4_0)) (not (currstate s_5_0)) (not (currstate s_6_2)) (not (currstate s_7_0)) (not (currstate s_8_2)) (not (currstate s_9_0)) )
-)
-
-(:action goto-abstract_states-cs210
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_2) (currstate s_2_2) (currstate s_3_2) (currstate s_4_0) (currstate s_5_0) (currstate s_6_2) (currstate s_7_0) (currstate s_8_0) (currstate s_9_2) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_2)) (not (currstate s_2_2)) (not (currstate s_3_2)) (not (currstate s_4_0)) (not (currstate s_5_0)) (not (currstate s_6_2)) (not (currstate s_7_0)) (not (currstate s_8_0)) (not (currstate s_9_2)) )
-)
-
-(:action goto-abstract_states-cs211
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_2) (currstate s_2_2) (currstate s_3_2) (currstate s_4_0) (currstate s_5_0) (currstate s_6_2) (currstate s_7_0) (currstate s_8_0) (currstate s_9_0) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_2)) (not (currstate s_2_2)) (not (currstate s_3_2)) (not (currstate s_4_0)) (not (currstate s_5_0)) (not (currstate s_6_2)) (not (currstate s_7_0)) (not (currstate s_8_0)) (not (currstate s_9_0)) )
-)
-
-(:action goto-abstract_states-cs212
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_2) (currstate s_2_2) (currstate s_3_2) (currstate s_4_0) (currstate s_5_0) (currstate s_6_2) (currstate s_7_2) (currstate s_8_2) (currstate s_9_2) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_2)) (not (currstate s_2_2)) (not (currstate s_3_2)) (not (currstate s_4_0)) (not (currstate s_5_0)) (not (currstate s_6_2)) (not (currstate s_7_2)) (not (currstate s_8_2)) (not (currstate s_9_2)) )
-)
-
-(:action goto-abstract_states-cs213
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_2) (currstate s_2_2) (currstate s_3_2) (currstate s_4_0) (currstate s_5_0) (currstate s_6_2) (currstate s_7_2) (currstate s_8_2) (currstate s_9_0) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_2)) (not (currstate s_2_2)) (not (currstate s_3_2)) (not (currstate s_4_0)) (not (currstate s_5_0)) (not (currstate s_6_2)) (not (currstate s_7_2)) (not (currstate s_8_2)) (not (currstate s_9_0)) )
-)
-
-(:action goto-abstract_states-cs214
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_2) (currstate s_2_2) (currstate s_3_2) (currstate s_4_0) (currstate s_5_0) (currstate s_6_2) (currstate s_7_2) (currstate s_8_0) (currstate s_9_2) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_2)) (not (currstate s_2_2)) (not (currstate s_3_2)) (not (currstate s_4_0)) (not (currstate s_5_0)) (not (currstate s_6_2)) (not (currstate s_7_2)) (not (currstate s_8_0)) (not (currstate s_9_2)) )
-)
-
-(:action goto-abstract_states-cs215
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_2) (currstate s_2_2) (currstate s_3_2) (currstate s_4_0) (currstate s_5_0) (currstate s_6_2) (currstate s_7_2) (currstate s_8_0) (currstate s_9_0) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_2)) (not (currstate s_2_2)) (not (currstate s_3_2)) (not (currstate s_4_0)) (not (currstate s_5_0)) (not (currstate s_6_2)) (not (currstate s_7_2)) (not (currstate s_8_0)) (not (currstate s_9_0)) )
-)
-
-(:action goto-abstract_states-cs216
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_2) (currstate s_2_2) (currstate s_3_2) (currstate s_4_0) (currstate s_5_0) (currstate s_6_0) (currstate s_7_0) (currstate s_8_2) (currstate s_9_2) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_2)) (not (currstate s_2_2)) (not (currstate s_3_2)) (not (currstate s_4_0)) (not (currstate s_5_0)) (not (currstate s_6_0)) (not (currstate s_7_0)) (not (currstate s_8_2)) (not (currstate s_9_2)) )
-)
-
-(:action goto-abstract_states-cs217
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_2) (currstate s_2_2) (currstate s_3_2) (currstate s_4_0) (currstate s_5_0) (currstate s_6_0) (currstate s_7_0) (currstate s_8_2) (currstate s_9_0) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_2)) (not (currstate s_2_2)) (not (currstate s_3_2)) (not (currstate s_4_0)) (not (currstate s_5_0)) (not (currstate s_6_0)) (not (currstate s_7_0)) (not (currstate s_8_2)) (not (currstate s_9_0)) )
-)
-
-(:action goto-abstract_states-cs218
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_2) (currstate s_2_2) (currstate s_3_2) (currstate s_4_0) (currstate s_5_0) (currstate s_6_0) (currstate s_7_0) (currstate s_8_0) (currstate s_9_2) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_2)) (not (currstate s_2_2)) (not (currstate s_3_2)) (not (currstate s_4_0)) (not (currstate s_5_0)) (not (currstate s_6_0)) (not (currstate s_7_0)) (not (currstate s_8_0)) (not (currstate s_9_2)) )
-)
-
-(:action goto-abstract_states-cs219
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_2) (currstate s_2_2) (currstate s_3_2) (currstate s_4_0) (currstate s_5_0) (currstate s_6_0) (currstate s_7_0) (currstate s_8_0) (currstate s_9_0) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_2)) (not (currstate s_2_2)) (not (currstate s_3_2)) (not (currstate s_4_0)) (not (currstate s_5_0)) (not (currstate s_6_0)) (not (currstate s_7_0)) (not (currstate s_8_0)) (not (currstate s_9_0)) )
-)
-
-(:action goto-abstract_states-cs220
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_2) (currstate s_2_2) (currstate s_3_2) (currstate s_4_0) (currstate s_5_0) (currstate s_6_0) (currstate s_7_2) (currstate s_8_2) (currstate s_9_2) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_2)) (not (currstate s_2_2)) (not (currstate s_3_2)) (not (currstate s_4_0)) (not (currstate s_5_0)) (not (currstate s_6_0)) (not (currstate s_7_2)) (not (currstate s_8_2)) (not (currstate s_9_2)) )
-)
-
-(:action goto-abstract_states-cs221
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_2) (currstate s_2_2) (currstate s_3_2) (currstate s_4_0) (currstate s_5_0) (currstate s_6_0) (currstate s_7_2) (currstate s_8_2) (currstate s_9_0) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_2)) (not (currstate s_2_2)) (not (currstate s_3_2)) (not (currstate s_4_0)) (not (currstate s_5_0)) (not (currstate s_6_0)) (not (currstate s_7_2)) (not (currstate s_8_2)) (not (currstate s_9_0)) )
-)
-
-(:action goto-abstract_states-cs222
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_2) (currstate s_2_2) (currstate s_3_2) (currstate s_4_0) (currstate s_5_0) (currstate s_6_0) (currstate s_7_2) (currstate s_8_0) (currstate s_9_2) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_2)) (not (currstate s_2_2)) (not (currstate s_3_2)) (not (currstate s_4_0)) (not (currstate s_5_0)) (not (currstate s_6_0)) (not (currstate s_7_2)) (not (currstate s_8_0)) (not (currstate s_9_2)) )
-)
-
-(:action goto-abstract_states-cs223
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_2) (currstate s_2_2) (currstate s_3_2) (currstate s_4_0) (currstate s_5_0) (currstate s_6_0) (currstate s_7_2) (currstate s_8_0) (currstate s_9_0) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_2)) (not (currstate s_2_2)) (not (currstate s_3_2)) (not (currstate s_4_0)) (not (currstate s_5_0)) (not (currstate s_6_0)) (not (currstate s_7_2)) (not (currstate s_8_0)) (not (currstate s_9_0)) )
-)
-
-(:action goto-abstract_states-cs224
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_2) (currstate s_2_2) (currstate s_3_2) (currstate s_4_2) (currstate s_5_2) (currstate s_6_2) (currstate s_7_0) (currstate s_8_2) (currstate s_9_2) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_2)) (not (currstate s_2_2)) (not (currstate s_3_2)) (not (currstate s_4_2)) (not (currstate s_5_2)) (not (currstate s_6_2)) (not (currstate s_7_0)) (not (currstate s_8_2)) (not (currstate s_9_2)) )
-)
-
-(:action goto-abstract_states-cs225
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_2) (currstate s_2_2) (currstate s_3_2) (currstate s_4_2) (currstate s_5_2) (currstate s_6_2) (currstate s_7_0) (currstate s_8_2) (currstate s_9_0) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_2)) (not (currstate s_2_2)) (not (currstate s_3_2)) (not (currstate s_4_2)) (not (currstate s_5_2)) (not (currstate s_6_2)) (not (currstate s_7_0)) (not (currstate s_8_2)) (not (currstate s_9_0)) )
-)
-
-(:action goto-abstract_states-cs226
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_2) (currstate s_2_2) (currstate s_3_2) (currstate s_4_2) (currstate s_5_2) (currstate s_6_2) (currstate s_7_0) (currstate s_8_0) (currstate s_9_2) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_2)) (not (currstate s_2_2)) (not (currstate s_3_2)) (not (currstate s_4_2)) (not (currstate s_5_2)) (not (currstate s_6_2)) (not (currstate s_7_0)) (not (currstate s_8_0)) (not (currstate s_9_2)) )
-)
-
-(:action goto-abstract_states-cs227
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_2) (currstate s_2_2) (currstate s_3_2) (currstate s_4_2) (currstate s_5_2) (currstate s_6_2) (currstate s_7_0) (currstate s_8_0) (currstate s_9_0) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_2)) (not (currstate s_2_2)) (not (currstate s_3_2)) (not (currstate s_4_2)) (not (currstate s_5_2)) (not (currstate s_6_2)) (not (currstate s_7_0)) (not (currstate s_8_0)) (not (currstate s_9_0)) )
-)
-
-(:action goto-abstract_states-cs228
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_2) (currstate s_2_2) (currstate s_3_2) (currstate s_4_2) (currstate s_5_2) (currstate s_6_2) (currstate s_7_2) (currstate s_8_2) (currstate s_9_2) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_2)) (not (currstate s_2_2)) (not (currstate s_3_2)) (not (currstate s_4_2)) (not (currstate s_5_2)) (not (currstate s_6_2)) (not (currstate s_7_2)) (not (currstate s_8_2)) (not (currstate s_9_2)) )
-)
-
-(:action goto-abstract_states-cs229
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_2) (currstate s_2_2) (currstate s_3_2) (currstate s_4_2) (currstate s_5_2) (currstate s_6_2) (currstate s_7_2) (currstate s_8_2) (currstate s_9_0) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_2)) (not (currstate s_2_2)) (not (currstate s_3_2)) (not (currstate s_4_2)) (not (currstate s_5_2)) (not (currstate s_6_2)) (not (currstate s_7_2)) (not (currstate s_8_2)) (not (currstate s_9_0)) )
-)
-
-(:action goto-abstract_states-cs230
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_2) (currstate s_2_2) (currstate s_3_2) (currstate s_4_2) (currstate s_5_2) (currstate s_6_2) (currstate s_7_2) (currstate s_8_0) (currstate s_9_2) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_2)) (not (currstate s_2_2)) (not (currstate s_3_2)) (not (currstate s_4_2)) (not (currstate s_5_2)) (not (currstate s_6_2)) (not (currstate s_7_2)) (not (currstate s_8_0)) (not (currstate s_9_2)) )
-)
-
-(:action goto-abstract_states-cs231
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_2) (currstate s_2_2) (currstate s_3_2) (currstate s_4_2) (currstate s_5_2) (currstate s_6_2) (currstate s_7_2) (currstate s_8_0) (currstate s_9_0) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_2)) (not (currstate s_2_2)) (not (currstate s_3_2)) (not (currstate s_4_2)) (not (currstate s_5_2)) (not (currstate s_6_2)) (not (currstate s_7_2)) (not (currstate s_8_0)) (not (currstate s_9_0)) )
-)
-
-(:action goto-abstract_states-cs232
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_2) (currstate s_2_2) (currstate s_3_2) (currstate s_4_2) (currstate s_5_2) (currstate s_6_0) (currstate s_7_0) (currstate s_8_2) (currstate s_9_2) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_2)) (not (currstate s_2_2)) (not (currstate s_3_2)) (not (currstate s_4_2)) (not (currstate s_5_2)) (not (currstate s_6_0)) (not (currstate s_7_0)) (not (currstate s_8_2)) (not (currstate s_9_2)) )
-)
-
-(:action goto-abstract_states-cs233
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_2) (currstate s_2_2) (currstate s_3_2) (currstate s_4_2) (currstate s_5_2) (currstate s_6_0) (currstate s_7_0) (currstate s_8_2) (currstate s_9_0) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_2)) (not (currstate s_2_2)) (not (currstate s_3_2)) (not (currstate s_4_2)) (not (currstate s_5_2)) (not (currstate s_6_0)) (not (currstate s_7_0)) (not (currstate s_8_2)) (not (currstate s_9_0)) )
-)
-
-(:action goto-abstract_states-cs234
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_2) (currstate s_2_2) (currstate s_3_2) (currstate s_4_2) (currstate s_5_2) (currstate s_6_0) (currstate s_7_0) (currstate s_8_0) (currstate s_9_2) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_2)) (not (currstate s_2_2)) (not (currstate s_3_2)) (not (currstate s_4_2)) (not (currstate s_5_2)) (not (currstate s_6_0)) (not (currstate s_7_0)) (not (currstate s_8_0)) (not (currstate s_9_2)) )
-)
-
-(:action goto-abstract_states-cs235
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_2) (currstate s_2_2) (currstate s_3_2) (currstate s_4_2) (currstate s_5_2) (currstate s_6_0) (currstate s_7_0) (currstate s_8_0) (currstate s_9_0) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_2)) (not (currstate s_2_2)) (not (currstate s_3_2)) (not (currstate s_4_2)) (not (currstate s_5_2)) (not (currstate s_6_0)) (not (currstate s_7_0)) (not (currstate s_8_0)) (not (currstate s_9_0)) )
-)
-
-(:action goto-abstract_states-cs236
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_2) (currstate s_2_2) (currstate s_3_2) (currstate s_4_2) (currstate s_5_2) (currstate s_6_0) (currstate s_7_2) (currstate s_8_2) (currstate s_9_2) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_2)) (not (currstate s_2_2)) (not (currstate s_3_2)) (not (currstate s_4_2)) (not (currstate s_5_2)) (not (currstate s_6_0)) (not (currstate s_7_2)) (not (currstate s_8_2)) (not (currstate s_9_2)) )
-)
-
-(:action goto-abstract_states-cs237
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_2) (currstate s_2_2) (currstate s_3_2) (currstate s_4_2) (currstate s_5_2) (currstate s_6_0) (currstate s_7_2) (currstate s_8_2) (currstate s_9_0) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_2)) (not (currstate s_2_2)) (not (currstate s_3_2)) (not (currstate s_4_2)) (not (currstate s_5_2)) (not (currstate s_6_0)) (not (currstate s_7_2)) (not (currstate s_8_2)) (not (currstate s_9_0)) )
-)
-
-(:action goto-abstract_states-cs238
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_2) (currstate s_2_2) (currstate s_3_2) (currstate s_4_2) (currstate s_5_2) (currstate s_6_0) (currstate s_7_2) (currstate s_8_0) (currstate s_9_2) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_2)) (not (currstate s_2_2)) (not (currstate s_3_2)) (not (currstate s_4_2)) (not (currstate s_5_2)) (not (currstate s_6_0)) (not (currstate s_7_2)) (not (currstate s_8_0)) (not (currstate s_9_2)) )
-)
-
-(:action goto-abstract_states-cs239
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_2) (currstate s_2_2) (currstate s_3_2) (currstate s_4_2) (currstate s_5_2) (currstate s_6_0) (currstate s_7_2) (currstate s_8_0) (currstate s_9_0) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_2)) (not (currstate s_2_2)) (not (currstate s_3_2)) (not (currstate s_4_2)) (not (currstate s_5_2)) (not (currstate s_6_0)) (not (currstate s_7_2)) (not (currstate s_8_0)) (not (currstate s_9_0)) )
-)
-
-(:action goto-abstract_states-cs240
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_2) (currstate s_2_2) (currstate s_3_2) (currstate s_4_2) (currstate s_5_0) (currstate s_6_2) (currstate s_7_0) (currstate s_8_2) (currstate s_9_2) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_2)) (not (currstate s_2_2)) (not (currstate s_3_2)) (not (currstate s_4_2)) (not (currstate s_5_0)) (not (currstate s_6_2)) (not (currstate s_7_0)) (not (currstate s_8_2)) (not (currstate s_9_2)) )
-)
-
-(:action goto-abstract_states-cs241
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_2) (currstate s_2_2) (currstate s_3_2) (currstate s_4_2) (currstate s_5_0) (currstate s_6_2) (currstate s_7_0) (currstate s_8_2) (currstate s_9_0) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_2)) (not (currstate s_2_2)) (not (currstate s_3_2)) (not (currstate s_4_2)) (not (currstate s_5_0)) (not (currstate s_6_2)) (not (currstate s_7_0)) (not (currstate s_8_2)) (not (currstate s_9_0)) )
-)
-
-(:action goto-abstract_states-cs242
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_2) (currstate s_2_2) (currstate s_3_2) (currstate s_4_2) (currstate s_5_0) (currstate s_6_2) (currstate s_7_0) (currstate s_8_0) (currstate s_9_2) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_2)) (not (currstate s_2_2)) (not (currstate s_3_2)) (not (currstate s_4_2)) (not (currstate s_5_0)) (not (currstate s_6_2)) (not (currstate s_7_0)) (not (currstate s_8_0)) (not (currstate s_9_2)) )
-)
-
-(:action goto-abstract_states-cs243
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_2) (currstate s_2_2) (currstate s_3_2) (currstate s_4_2) (currstate s_5_0) (currstate s_6_2) (currstate s_7_0) (currstate s_8_0) (currstate s_9_0) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_2)) (not (currstate s_2_2)) (not (currstate s_3_2)) (not (currstate s_4_2)) (not (currstate s_5_0)) (not (currstate s_6_2)) (not (currstate s_7_0)) (not (currstate s_8_0)) (not (currstate s_9_0)) )
-)
-
-(:action goto-abstract_states-cs244
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_2) (currstate s_2_2) (currstate s_3_2) (currstate s_4_2) (currstate s_5_0) (currstate s_6_2) (currstate s_7_2) (currstate s_8_2) (currstate s_9_2) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_2)) (not (currstate s_2_2)) (not (currstate s_3_2)) (not (currstate s_4_2)) (not (currstate s_5_0)) (not (currstate s_6_2)) (not (currstate s_7_2)) (not (currstate s_8_2)) (not (currstate s_9_2)) )
-)
-
-(:action goto-abstract_states-cs245
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_2) (currstate s_2_2) (currstate s_3_2) (currstate s_4_2) (currstate s_5_0) (currstate s_6_2) (currstate s_7_2) (currstate s_8_2) (currstate s_9_0) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_2)) (not (currstate s_2_2)) (not (currstate s_3_2)) (not (currstate s_4_2)) (not (currstate s_5_0)) (not (currstate s_6_2)) (not (currstate s_7_2)) (not (currstate s_8_2)) (not (currstate s_9_0)) )
-)
-
-(:action goto-abstract_states-cs246
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_2) (currstate s_2_2) (currstate s_3_2) (currstate s_4_2) (currstate s_5_0) (currstate s_6_2) (currstate s_7_2) (currstate s_8_0) (currstate s_9_2) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_2)) (not (currstate s_2_2)) (not (currstate s_3_2)) (not (currstate s_4_2)) (not (currstate s_5_0)) (not (currstate s_6_2)) (not (currstate s_7_2)) (not (currstate s_8_0)) (not (currstate s_9_2)) )
-)
-
-(:action goto-abstract_states-cs247
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_2) (currstate s_2_2) (currstate s_3_2) (currstate s_4_2) (currstate s_5_0) (currstate s_6_2) (currstate s_7_2) (currstate s_8_0) (currstate s_9_0) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_2)) (not (currstate s_2_2)) (not (currstate s_3_2)) (not (currstate s_4_2)) (not (currstate s_5_0)) (not (currstate s_6_2)) (not (currstate s_7_2)) (not (currstate s_8_0)) (not (currstate s_9_0)) )
-)
-
-(:action goto-abstract_states-cs248
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_2) (currstate s_2_2) (currstate s_3_2) (currstate s_4_2) (currstate s_5_0) (currstate s_6_0) (currstate s_7_0) (currstate s_8_2) (currstate s_9_2) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_2)) (not (currstate s_2_2)) (not (currstate s_3_2)) (not (currstate s_4_2)) (not (currstate s_5_0)) (not (currstate s_6_0)) (not (currstate s_7_0)) (not (currstate s_8_2)) (not (currstate s_9_2)) )
-)
-
-(:action goto-abstract_states-cs249
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_2) (currstate s_2_2) (currstate s_3_2) (currstate s_4_2) (currstate s_5_0) (currstate s_6_0) (currstate s_7_0) (currstate s_8_2) (currstate s_9_0) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_2)) (not (currstate s_2_2)) (not (currstate s_3_2)) (not (currstate s_4_2)) (not (currstate s_5_0)) (not (currstate s_6_0)) (not (currstate s_7_0)) (not (currstate s_8_2)) (not (currstate s_9_0)) )
-)
-
-(:action goto-abstract_states-cs250
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_2) (currstate s_2_2) (currstate s_3_2) (currstate s_4_2) (currstate s_5_0) (currstate s_6_0) (currstate s_7_0) (currstate s_8_0) (currstate s_9_2) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_2)) (not (currstate s_2_2)) (not (currstate s_3_2)) (not (currstate s_4_2)) (not (currstate s_5_0)) (not (currstate s_6_0)) (not (currstate s_7_0)) (not (currstate s_8_0)) (not (currstate s_9_2)) )
-)
-
-(:action goto-abstract_states-cs251
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_2) (currstate s_2_2) (currstate s_3_2) (currstate s_4_2) (currstate s_5_0) (currstate s_6_0) (currstate s_7_0) (currstate s_8_0) (currstate s_9_0) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_2)) (not (currstate s_2_2)) (not (currstate s_3_2)) (not (currstate s_4_2)) (not (currstate s_5_0)) (not (currstate s_6_0)) (not (currstate s_7_0)) (not (currstate s_8_0)) (not (currstate s_9_0)) )
-)
-
-(:action goto-abstract_states-cs252
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_2) (currstate s_2_2) (currstate s_3_2) (currstate s_4_2) (currstate s_5_0) (currstate s_6_0) (currstate s_7_2) (currstate s_8_2) (currstate s_9_2) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_2)) (not (currstate s_2_2)) (not (currstate s_3_2)) (not (currstate s_4_2)) (not (currstate s_5_0)) (not (currstate s_6_0)) (not (currstate s_7_2)) (not (currstate s_8_2)) (not (currstate s_9_2)) )
-)
-
-(:action goto-abstract_states-cs253
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_2) (currstate s_2_2) (currstate s_3_2) (currstate s_4_2) (currstate s_5_0) (currstate s_6_0) (currstate s_7_2) (currstate s_8_2) (currstate s_9_0) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_2)) (not (currstate s_2_2)) (not (currstate s_3_2)) (not (currstate s_4_2)) (not (currstate s_5_0)) (not (currstate s_6_0)) (not (currstate s_7_2)) (not (currstate s_8_2)) (not (currstate s_9_0)) )
-)
-
-(:action goto-abstract_states-cs254
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_2) (currstate s_2_2) (currstate s_3_2) (currstate s_4_2) (currstate s_5_0) (currstate s_6_0) (currstate s_7_2) (currstate s_8_0) (currstate s_9_2) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_2)) (not (currstate s_2_2)) (not (currstate s_3_2)) (not (currstate s_4_2)) (not (currstate s_5_0)) (not (currstate s_6_0)) (not (currstate s_7_2)) (not (currstate s_8_0)) (not (currstate s_9_2)) )
-)
-
-(:action goto-abstract_states-cs255
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_2) (currstate s_2_2) (currstate s_3_2) (currstate s_4_2) (currstate s_5_0) (currstate s_6_0) (currstate s_7_2) (currstate s_8_0) (currstate s_9_0) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_2)) (not (currstate s_2_2)) (not (currstate s_3_2)) (not (currstate s_4_2)) (not (currstate s_5_0)) (not (currstate s_6_0)) (not (currstate s_7_2)) (not (currstate s_8_0)) (not (currstate s_9_0)) )
-)
-
-(:action goto-abstract_states-cs256
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_0) (currstate s_2_0) (currstate s_3_0) (currstate s_4_0) (currstate s_5_2) (currstate s_6_2) (currstate s_7_0) (currstate s_8_2) (currstate s_9_2) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_0)) (not (currstate s_2_0)) (not (currstate s_3_0)) (not (currstate s_4_0)) (not (currstate s_5_2)) (not (currstate s_6_2)) (not (currstate s_7_0)) (not (currstate s_8_2)) (not (currstate s_9_2)) )
-)
-
-(:action goto-abstract_states-cs257
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_0) (currstate s_2_0) (currstate s_3_0) (currstate s_4_0) (currstate s_5_2) (currstate s_6_2) (currstate s_7_0) (currstate s_8_2) (currstate s_9_0) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_0)) (not (currstate s_2_0)) (not (currstate s_3_0)) (not (currstate s_4_0)) (not (currstate s_5_2)) (not (currstate s_6_2)) (not (currstate s_7_0)) (not (currstate s_8_2)) (not (currstate s_9_0)) )
-)
-
-(:action goto-abstract_states-cs258
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_0) (currstate s_2_0) (currstate s_3_0) (currstate s_4_0) (currstate s_5_2) (currstate s_6_2) (currstate s_7_0) (currstate s_8_0) (currstate s_9_2) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_0)) (not (currstate s_2_0)) (not (currstate s_3_0)) (not (currstate s_4_0)) (not (currstate s_5_2)) (not (currstate s_6_2)) (not (currstate s_7_0)) (not (currstate s_8_0)) (not (currstate s_9_2)) )
-)
-
-(:action goto-abstract_states-cs259
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_0) (currstate s_2_0) (currstate s_3_0) (currstate s_4_0) (currstate s_5_2) (currstate s_6_2) (currstate s_7_0) (currstate s_8_0) (currstate s_9_0) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_0)) (not (currstate s_2_0)) (not (currstate s_3_0)) (not (currstate s_4_0)) (not (currstate s_5_2)) (not (currstate s_6_2)) (not (currstate s_7_0)) (not (currstate s_8_0)) (not (currstate s_9_0)) )
-)
-
-(:action goto-abstract_states-cs260
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_0) (currstate s_2_0) (currstate s_3_0) (currstate s_4_0) (currstate s_5_2) (currstate s_6_2) (currstate s_7_2) (currstate s_8_2) (currstate s_9_2) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_0)) (not (currstate s_2_0)) (not (currstate s_3_0)) (not (currstate s_4_0)) (not (currstate s_5_2)) (not (currstate s_6_2)) (not (currstate s_7_2)) (not (currstate s_8_2)) (not (currstate s_9_2)) )
-)
-
-(:action goto-abstract_states-cs261
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_0) (currstate s_2_0) (currstate s_3_0) (currstate s_4_0) (currstate s_5_2) (currstate s_6_2) (currstate s_7_2) (currstate s_8_2) (currstate s_9_0) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_0)) (not (currstate s_2_0)) (not (currstate s_3_0)) (not (currstate s_4_0)) (not (currstate s_5_2)) (not (currstate s_6_2)) (not (currstate s_7_2)) (not (currstate s_8_2)) (not (currstate s_9_0)) )
-)
-
-(:action goto-abstract_states-cs262
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_0) (currstate s_2_0) (currstate s_3_0) (currstate s_4_0) (currstate s_5_2) (currstate s_6_2) (currstate s_7_2) (currstate s_8_0) (currstate s_9_2) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_0)) (not (currstate s_2_0)) (not (currstate s_3_0)) (not (currstate s_4_0)) (not (currstate s_5_2)) (not (currstate s_6_2)) (not (currstate s_7_2)) (not (currstate s_8_0)) (not (currstate s_9_2)) )
-)
-
-(:action goto-abstract_states-cs263
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_0) (currstate s_2_0) (currstate s_3_0) (currstate s_4_0) (currstate s_5_2) (currstate s_6_2) (currstate s_7_2) (currstate s_8_0) (currstate s_9_0) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_0)) (not (currstate s_2_0)) (not (currstate s_3_0)) (not (currstate s_4_0)) (not (currstate s_5_2)) (not (currstate s_6_2)) (not (currstate s_7_2)) (not (currstate s_8_0)) (not (currstate s_9_0)) )
-)
-
-(:action goto-abstract_states-cs264
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_0) (currstate s_2_0) (currstate s_3_0) (currstate s_4_0) (currstate s_5_2) (currstate s_6_0) (currstate s_7_0) (currstate s_8_2) (currstate s_9_2) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_0)) (not (currstate s_2_0)) (not (currstate s_3_0)) (not (currstate s_4_0)) (not (currstate s_5_2)) (not (currstate s_6_0)) (not (currstate s_7_0)) (not (currstate s_8_2)) (not (currstate s_9_2)) )
-)
-
-(:action goto-abstract_states-cs265
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_0) (currstate s_2_0) (currstate s_3_0) (currstate s_4_0) (currstate s_5_2) (currstate s_6_0) (currstate s_7_0) (currstate s_8_2) (currstate s_9_0) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_0)) (not (currstate s_2_0)) (not (currstate s_3_0)) (not (currstate s_4_0)) (not (currstate s_5_2)) (not (currstate s_6_0)) (not (currstate s_7_0)) (not (currstate s_8_2)) (not (currstate s_9_0)) )
-)
-
-(:action goto-abstract_states-cs266
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_0) (currstate s_2_0) (currstate s_3_0) (currstate s_4_0) (currstate s_5_2) (currstate s_6_0) (currstate s_7_0) (currstate s_8_0) (currstate s_9_2) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_0)) (not (currstate s_2_0)) (not (currstate s_3_0)) (not (currstate s_4_0)) (not (currstate s_5_2)) (not (currstate s_6_0)) (not (currstate s_7_0)) (not (currstate s_8_0)) (not (currstate s_9_2)) )
-)
-
-(:action goto-abstract_states-cs267
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_0) (currstate s_2_0) (currstate s_3_0) (currstate s_4_0) (currstate s_5_2) (currstate s_6_0) (currstate s_7_0) (currstate s_8_0) (currstate s_9_0) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_0)) (not (currstate s_2_0)) (not (currstate s_3_0)) (not (currstate s_4_0)) (not (currstate s_5_2)) (not (currstate s_6_0)) (not (currstate s_7_0)) (not (currstate s_8_0)) (not (currstate s_9_0)) )
-)
-
-(:action goto-abstract_states-cs268
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_0) (currstate s_2_0) (currstate s_3_0) (currstate s_4_0) (currstate s_5_2) (currstate s_6_0) (currstate s_7_2) (currstate s_8_2) (currstate s_9_2) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_0)) (not (currstate s_2_0)) (not (currstate s_3_0)) (not (currstate s_4_0)) (not (currstate s_5_2)) (not (currstate s_6_0)) (not (currstate s_7_2)) (not (currstate s_8_2)) (not (currstate s_9_2)) )
-)
-
-(:action goto-abstract_states-cs269
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_0) (currstate s_2_0) (currstate s_3_0) (currstate s_4_0) (currstate s_5_2) (currstate s_6_0) (currstate s_7_2) (currstate s_8_2) (currstate s_9_0) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_0)) (not (currstate s_2_0)) (not (currstate s_3_0)) (not (currstate s_4_0)) (not (currstate s_5_2)) (not (currstate s_6_0)) (not (currstate s_7_2)) (not (currstate s_8_2)) (not (currstate s_9_0)) )
-)
-
-(:action goto-abstract_states-cs270
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_0) (currstate s_2_0) (currstate s_3_0) (currstate s_4_0) (currstate s_5_2) (currstate s_6_0) (currstate s_7_2) (currstate s_8_0) (currstate s_9_2) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_0)) (not (currstate s_2_0)) (not (currstate s_3_0)) (not (currstate s_4_0)) (not (currstate s_5_2)) (not (currstate s_6_0)) (not (currstate s_7_2)) (not (currstate s_8_0)) (not (currstate s_9_2)) )
-)
-
-(:action goto-abstract_states-cs271
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_0) (currstate s_2_0) (currstate s_3_0) (currstate s_4_0) (currstate s_5_2) (currstate s_6_0) (currstate s_7_2) (currstate s_8_0) (currstate s_9_0) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_0)) (not (currstate s_2_0)) (not (currstate s_3_0)) (not (currstate s_4_0)) (not (currstate s_5_2)) (not (currstate s_6_0)) (not (currstate s_7_2)) (not (currstate s_8_0)) (not (currstate s_9_0)) )
-)
-
-(:action goto-abstract_states-cs272
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_0) (currstate s_2_0) (currstate s_3_0) (currstate s_4_0) (currstate s_5_0) (currstate s_6_2) (currstate s_7_0) (currstate s_8_2) (currstate s_9_2) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_0)) (not (currstate s_2_0)) (not (currstate s_3_0)) (not (currstate s_4_0)) (not (currstate s_5_0)) (not (currstate s_6_2)) (not (currstate s_7_0)) (not (currstate s_8_2)) (not (currstate s_9_2)) )
-)
-
-(:action goto-abstract_states-cs273
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_0) (currstate s_2_0) (currstate s_3_0) (currstate s_4_0) (currstate s_5_0) (currstate s_6_2) (currstate s_7_0) (currstate s_8_2) (currstate s_9_0) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_0)) (not (currstate s_2_0)) (not (currstate s_3_0)) (not (currstate s_4_0)) (not (currstate s_5_0)) (not (currstate s_6_2)) (not (currstate s_7_0)) (not (currstate s_8_2)) (not (currstate s_9_0)) )
-)
-
-(:action goto-abstract_states-cs274
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_0) (currstate s_2_0) (currstate s_3_0) (currstate s_4_0) (currstate s_5_0) (currstate s_6_2) (currstate s_7_0) (currstate s_8_0) (currstate s_9_2) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_0)) (not (currstate s_2_0)) (not (currstate s_3_0)) (not (currstate s_4_0)) (not (currstate s_5_0)) (not (currstate s_6_2)) (not (currstate s_7_0)) (not (currstate s_8_0)) (not (currstate s_9_2)) )
-)
-
-(:action goto-abstract_states-cs275
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_0) (currstate s_2_0) (currstate s_3_0) (currstate s_4_0) (currstate s_5_0) (currstate s_6_2) (currstate s_7_0) (currstate s_8_0) (currstate s_9_0) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_0)) (not (currstate s_2_0)) (not (currstate s_3_0)) (not (currstate s_4_0)) (not (currstate s_5_0)) (not (currstate s_6_2)) (not (currstate s_7_0)) (not (currstate s_8_0)) (not (currstate s_9_0)) )
-)
-
-(:action goto-abstract_states-cs276
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_0) (currstate s_2_0) (currstate s_3_0) (currstate s_4_0) (currstate s_5_0) (currstate s_6_2) (currstate s_7_2) (currstate s_8_2) (currstate s_9_2) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_0)) (not (currstate s_2_0)) (not (currstate s_3_0)) (not (currstate s_4_0)) (not (currstate s_5_0)) (not (currstate s_6_2)) (not (currstate s_7_2)) (not (currstate s_8_2)) (not (currstate s_9_2)) )
-)
-
-(:action goto-abstract_states-cs277
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_0) (currstate s_2_0) (currstate s_3_0) (currstate s_4_0) (currstate s_5_0) (currstate s_6_2) (currstate s_7_2) (currstate s_8_2) (currstate s_9_0) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_0)) (not (currstate s_2_0)) (not (currstate s_3_0)) (not (currstate s_4_0)) (not (currstate s_5_0)) (not (currstate s_6_2)) (not (currstate s_7_2)) (not (currstate s_8_2)) (not (currstate s_9_0)) )
-)
-
-(:action goto-abstract_states-cs278
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_0) (currstate s_2_0) (currstate s_3_0) (currstate s_4_0) (currstate s_5_0) (currstate s_6_2) (currstate s_7_2) (currstate s_8_0) (currstate s_9_2) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_0)) (not (currstate s_2_0)) (not (currstate s_3_0)) (not (currstate s_4_0)) (not (currstate s_5_0)) (not (currstate s_6_2)) (not (currstate s_7_2)) (not (currstate s_8_0)) (not (currstate s_9_2)) )
-)
-
-(:action goto-abstract_states-cs279
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_0) (currstate s_2_0) (currstate s_3_0) (currstate s_4_0) (currstate s_5_0) (currstate s_6_2) (currstate s_7_2) (currstate s_8_0) (currstate s_9_0) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_0)) (not (currstate s_2_0)) (not (currstate s_3_0)) (not (currstate s_4_0)) (not (currstate s_5_0)) (not (currstate s_6_2)) (not (currstate s_7_2)) (not (currstate s_8_0)) (not (currstate s_9_0)) )
-)
-
-(:action goto-abstract_states-cs280
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_0) (currstate s_2_0) (currstate s_3_0) (currstate s_4_0) (currstate s_5_0) (currstate s_6_0) (currstate s_7_0) (currstate s_8_2) (currstate s_9_2) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_0)) (not (currstate s_2_0)) (not (currstate s_3_0)) (not (currstate s_4_0)) (not (currstate s_5_0)) (not (currstate s_6_0)) (not (currstate s_7_0)) (not (currstate s_8_2)) (not (currstate s_9_2)) )
-)
-
-(:action goto-abstract_states-cs281
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_0) (currstate s_2_0) (currstate s_3_0) (currstate s_4_0) (currstate s_5_0) (currstate s_6_0) (currstate s_7_0) (currstate s_8_2) (currstate s_9_0) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_0)) (not (currstate s_2_0)) (not (currstate s_3_0)) (not (currstate s_4_0)) (not (currstate s_5_0)) (not (currstate s_6_0)) (not (currstate s_7_0)) (not (currstate s_8_2)) (not (currstate s_9_0)) )
-)
-
-(:action goto-abstract_states-cs282
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_0) (currstate s_2_0) (currstate s_3_0) (currstate s_4_0) (currstate s_5_0) (currstate s_6_0) (currstate s_7_0) (currstate s_8_0) (currstate s_9_2) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_0)) (not (currstate s_2_0)) (not (currstate s_3_0)) (not (currstate s_4_0)) (not (currstate s_5_0)) (not (currstate s_6_0)) (not (currstate s_7_0)) (not (currstate s_8_0)) (not (currstate s_9_2)) )
-)
-
-(:action goto-abstract_states-cs283
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_0) (currstate s_2_0) (currstate s_3_0) (currstate s_4_0) (currstate s_5_0) (currstate s_6_0) (currstate s_7_0) (currstate s_8_0) (currstate s_9_0) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_0)) (not (currstate s_2_0)) (not (currstate s_3_0)) (not (currstate s_4_0)) (not (currstate s_5_0)) (not (currstate s_6_0)) (not (currstate s_7_0)) (not (currstate s_8_0)) (not (currstate s_9_0)) )
-)
-
-(:action goto-abstract_states-cs284
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_0) (currstate s_2_0) (currstate s_3_0) (currstate s_4_0) (currstate s_5_0) (currstate s_6_0) (currstate s_7_2) (currstate s_8_2) (currstate s_9_2) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_0)) (not (currstate s_2_0)) (not (currstate s_3_0)) (not (currstate s_4_0)) (not (currstate s_5_0)) (not (currstate s_6_0)) (not (currstate s_7_2)) (not (currstate s_8_2)) (not (currstate s_9_2)) )
-)
-
-(:action goto-abstract_states-cs285
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_0) (currstate s_2_0) (currstate s_3_0) (currstate s_4_0) (currstate s_5_0) (currstate s_6_0) (currstate s_7_2) (currstate s_8_2) (currstate s_9_0) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_0)) (not (currstate s_2_0)) (not (currstate s_3_0)) (not (currstate s_4_0)) (not (currstate s_5_0)) (not (currstate s_6_0)) (not (currstate s_7_2)) (not (currstate s_8_2)) (not (currstate s_9_0)) )
-)
-
-(:action goto-abstract_states-cs286
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_0) (currstate s_2_0) (currstate s_3_0) (currstate s_4_0) (currstate s_5_0) (currstate s_6_0) (currstate s_7_2) (currstate s_8_0) (currstate s_9_2) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_0)) (not (currstate s_2_0)) (not (currstate s_3_0)) (not (currstate s_4_0)) (not (currstate s_5_0)) (not (currstate s_6_0)) (not (currstate s_7_2)) (not (currstate s_8_0)) (not (currstate s_9_2)) )
-)
-
-(:action goto-abstract_states-cs287
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_0) (currstate s_2_0) (currstate s_3_0) (currstate s_4_0) (currstate s_5_0) (currstate s_6_0) (currstate s_7_2) (currstate s_8_0) (currstate s_9_0) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_0)) (not (currstate s_2_0)) (not (currstate s_3_0)) (not (currstate s_4_0)) (not (currstate s_5_0)) (not (currstate s_6_0)) (not (currstate s_7_2)) (not (currstate s_8_0)) (not (currstate s_9_0)) )
-)
-
-(:action goto-abstract_states-cs288
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_0) (currstate s_2_0) (currstate s_3_0) (currstate s_4_2) (currstate s_5_2) (currstate s_6_2) (currstate s_7_0) (currstate s_8_2) (currstate s_9_2) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_0)) (not (currstate s_2_0)) (not (currstate s_3_0)) (not (currstate s_4_2)) (not (currstate s_5_2)) (not (currstate s_6_2)) (not (currstate s_7_0)) (not (currstate s_8_2)) (not (currstate s_9_2)) )
-)
-
-(:action goto-abstract_states-cs289
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_0) (currstate s_2_0) (currstate s_3_0) (currstate s_4_2) (currstate s_5_2) (currstate s_6_2) (currstate s_7_0) (currstate s_8_2) (currstate s_9_0) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_0)) (not (currstate s_2_0)) (not (currstate s_3_0)) (not (currstate s_4_2)) (not (currstate s_5_2)) (not (currstate s_6_2)) (not (currstate s_7_0)) (not (currstate s_8_2)) (not (currstate s_9_0)) )
-)
-
-(:action goto-abstract_states-cs290
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_0) (currstate s_2_0) (currstate s_3_0) (currstate s_4_2) (currstate s_5_2) (currstate s_6_2) (currstate s_7_0) (currstate s_8_0) (currstate s_9_2) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_0)) (not (currstate s_2_0)) (not (currstate s_3_0)) (not (currstate s_4_2)) (not (currstate s_5_2)) (not (currstate s_6_2)) (not (currstate s_7_0)) (not (currstate s_8_0)) (not (currstate s_9_2)) )
-)
-
-(:action goto-abstract_states-cs291
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_0) (currstate s_2_0) (currstate s_3_0) (currstate s_4_2) (currstate s_5_2) (currstate s_6_2) (currstate s_7_0) (currstate s_8_0) (currstate s_9_0) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_0)) (not (currstate s_2_0)) (not (currstate s_3_0)) (not (currstate s_4_2)) (not (currstate s_5_2)) (not (currstate s_6_2)) (not (currstate s_7_0)) (not (currstate s_8_0)) (not (currstate s_9_0)) )
-)
-
-(:action goto-abstract_states-cs292
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_0) (currstate s_2_0) (currstate s_3_0) (currstate s_4_2) (currstate s_5_2) (currstate s_6_2) (currstate s_7_2) (currstate s_8_2) (currstate s_9_2) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_0)) (not (currstate s_2_0)) (not (currstate s_3_0)) (not (currstate s_4_2)) (not (currstate s_5_2)) (not (currstate s_6_2)) (not (currstate s_7_2)) (not (currstate s_8_2)) (not (currstate s_9_2)) )
-)
-
-(:action goto-abstract_states-cs293
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_0) (currstate s_2_0) (currstate s_3_0) (currstate s_4_2) (currstate s_5_2) (currstate s_6_2) (currstate s_7_2) (currstate s_8_2) (currstate s_9_0) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_0)) (not (currstate s_2_0)) (not (currstate s_3_0)) (not (currstate s_4_2)) (not (currstate s_5_2)) (not (currstate s_6_2)) (not (currstate s_7_2)) (not (currstate s_8_2)) (not (currstate s_9_0)) )
-)
-
-(:action goto-abstract_states-cs294
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_0) (currstate s_2_0) (currstate s_3_0) (currstate s_4_2) (currstate s_5_2) (currstate s_6_2) (currstate s_7_2) (currstate s_8_0) (currstate s_9_2) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_0)) (not (currstate s_2_0)) (not (currstate s_3_0)) (not (currstate s_4_2)) (not (currstate s_5_2)) (not (currstate s_6_2)) (not (currstate s_7_2)) (not (currstate s_8_0)) (not (currstate s_9_2)) )
-)
-
-(:action goto-abstract_states-cs295
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_0) (currstate s_2_0) (currstate s_3_0) (currstate s_4_2) (currstate s_5_2) (currstate s_6_2) (currstate s_7_2) (currstate s_8_0) (currstate s_9_0) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_0)) (not (currstate s_2_0)) (not (currstate s_3_0)) (not (currstate s_4_2)) (not (currstate s_5_2)) (not (currstate s_6_2)) (not (currstate s_7_2)) (not (currstate s_8_0)) (not (currstate s_9_0)) )
-)
-
-(:action goto-abstract_states-cs296
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_0) (currstate s_2_0) (currstate s_3_0) (currstate s_4_2) (currstate s_5_2) (currstate s_6_0) (currstate s_7_0) (currstate s_8_2) (currstate s_9_2) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_0)) (not (currstate s_2_0)) (not (currstate s_3_0)) (not (currstate s_4_2)) (not (currstate s_5_2)) (not (currstate s_6_0)) (not (currstate s_7_0)) (not (currstate s_8_2)) (not (currstate s_9_2)) )
-)
-
-(:action goto-abstract_states-cs297
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_0) (currstate s_2_0) (currstate s_3_0) (currstate s_4_2) (currstate s_5_2) (currstate s_6_0) (currstate s_7_0) (currstate s_8_2) (currstate s_9_0) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_0)) (not (currstate s_2_0)) (not (currstate s_3_0)) (not (currstate s_4_2)) (not (currstate s_5_2)) (not (currstate s_6_0)) (not (currstate s_7_0)) (not (currstate s_8_2)) (not (currstate s_9_0)) )
-)
-
-(:action goto-abstract_states-cs298
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_0) (currstate s_2_0) (currstate s_3_0) (currstate s_4_2) (currstate s_5_2) (currstate s_6_0) (currstate s_7_0) (currstate s_8_0) (currstate s_9_2) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_0)) (not (currstate s_2_0)) (not (currstate s_3_0)) (not (currstate s_4_2)) (not (currstate s_5_2)) (not (currstate s_6_0)) (not (currstate s_7_0)) (not (currstate s_8_0)) (not (currstate s_9_2)) )
-)
-
-(:action goto-abstract_states-cs299
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_0) (currstate s_2_0) (currstate s_3_0) (currstate s_4_2) (currstate s_5_2) (currstate s_6_0) (currstate s_7_0) (currstate s_8_0) (currstate s_9_0) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_0)) (not (currstate s_2_0)) (not (currstate s_3_0)) (not (currstate s_4_2)) (not (currstate s_5_2)) (not (currstate s_6_0)) (not (currstate s_7_0)) (not (currstate s_8_0)) (not (currstate s_9_0)) )
-)
-
-(:action goto-abstract_states-cs300
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_0) (currstate s_2_0) (currstate s_3_0) (currstate s_4_2) (currstate s_5_2) (currstate s_6_0) (currstate s_7_2) (currstate s_8_2) (currstate s_9_2) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_0)) (not (currstate s_2_0)) (not (currstate s_3_0)) (not (currstate s_4_2)) (not (currstate s_5_2)) (not (currstate s_6_0)) (not (currstate s_7_2)) (not (currstate s_8_2)) (not (currstate s_9_2)) )
-)
-
-(:action goto-abstract_states-cs301
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_0) (currstate s_2_0) (currstate s_3_0) (currstate s_4_2) (currstate s_5_2) (currstate s_6_0) (currstate s_7_2) (currstate s_8_2) (currstate s_9_0) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_0)) (not (currstate s_2_0)) (not (currstate s_3_0)) (not (currstate s_4_2)) (not (currstate s_5_2)) (not (currstate s_6_0)) (not (currstate s_7_2)) (not (currstate s_8_2)) (not (currstate s_9_0)) )
-)
-
-(:action goto-abstract_states-cs302
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_0) (currstate s_2_0) (currstate s_3_0) (currstate s_4_2) (currstate s_5_2) (currstate s_6_0) (currstate s_7_2) (currstate s_8_0) (currstate s_9_2) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_0)) (not (currstate s_2_0)) (not (currstate s_3_0)) (not (currstate s_4_2)) (not (currstate s_5_2)) (not (currstate s_6_0)) (not (currstate s_7_2)) (not (currstate s_8_0)) (not (currstate s_9_2)) )
-)
-
-(:action goto-abstract_states-cs303
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_0) (currstate s_2_0) (currstate s_3_0) (currstate s_4_2) (currstate s_5_2) (currstate s_6_0) (currstate s_7_2) (currstate s_8_0) (currstate s_9_0) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_0)) (not (currstate s_2_0)) (not (currstate s_3_0)) (not (currstate s_4_2)) (not (currstate s_5_2)) (not (currstate s_6_0)) (not (currstate s_7_2)) (not (currstate s_8_0)) (not (currstate s_9_0)) )
-)
-
-(:action goto-abstract_states-cs304
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_0) (currstate s_2_0) (currstate s_3_0) (currstate s_4_2) (currstate s_5_0) (currstate s_6_2) (currstate s_7_0) (currstate s_8_2) (currstate s_9_2) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_0)) (not (currstate s_2_0)) (not (currstate s_3_0)) (not (currstate s_4_2)) (not (currstate s_5_0)) (not (currstate s_6_2)) (not (currstate s_7_0)) (not (currstate s_8_2)) (not (currstate s_9_2)) )
-)
-
-(:action goto-abstract_states-cs305
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_0) (currstate s_2_0) (currstate s_3_0) (currstate s_4_2) (currstate s_5_0) (currstate s_6_2) (currstate s_7_0) (currstate s_8_2) (currstate s_9_0) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_0)) (not (currstate s_2_0)) (not (currstate s_3_0)) (not (currstate s_4_2)) (not (currstate s_5_0)) (not (currstate s_6_2)) (not (currstate s_7_0)) (not (currstate s_8_2)) (not (currstate s_9_0)) )
-)
-
-(:action goto-abstract_states-cs306
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_0) (currstate s_2_0) (currstate s_3_0) (currstate s_4_2) (currstate s_5_0) (currstate s_6_2) (currstate s_7_0) (currstate s_8_0) (currstate s_9_2) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_0)) (not (currstate s_2_0)) (not (currstate s_3_0)) (not (currstate s_4_2)) (not (currstate s_5_0)) (not (currstate s_6_2)) (not (currstate s_7_0)) (not (currstate s_8_0)) (not (currstate s_9_2)) )
-)
-
-(:action goto-abstract_states-cs307
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_0) (currstate s_2_0) (currstate s_3_0) (currstate s_4_2) (currstate s_5_0) (currstate s_6_2) (currstate s_7_0) (currstate s_8_0) (currstate s_9_0) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_0)) (not (currstate s_2_0)) (not (currstate s_3_0)) (not (currstate s_4_2)) (not (currstate s_5_0)) (not (currstate s_6_2)) (not (currstate s_7_0)) (not (currstate s_8_0)) (not (currstate s_9_0)) )
-)
-
-(:action goto-abstract_states-cs308
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_0) (currstate s_2_0) (currstate s_3_0) (currstate s_4_2) (currstate s_5_0) (currstate s_6_2) (currstate s_7_2) (currstate s_8_2) (currstate s_9_2) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_0)) (not (currstate s_2_0)) (not (currstate s_3_0)) (not (currstate s_4_2)) (not (currstate s_5_0)) (not (currstate s_6_2)) (not (currstate s_7_2)) (not (currstate s_8_2)) (not (currstate s_9_2)) )
-)
-
-(:action goto-abstract_states-cs309
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_0) (currstate s_2_0) (currstate s_3_0) (currstate s_4_2) (currstate s_5_0) (currstate s_6_2) (currstate s_7_2) (currstate s_8_2) (currstate s_9_0) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_0)) (not (currstate s_2_0)) (not (currstate s_3_0)) (not (currstate s_4_2)) (not (currstate s_5_0)) (not (currstate s_6_2)) (not (currstate s_7_2)) (not (currstate s_8_2)) (not (currstate s_9_0)) )
-)
-
-(:action goto-abstract_states-cs310
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_0) (currstate s_2_0) (currstate s_3_0) (currstate s_4_2) (currstate s_5_0) (currstate s_6_2) (currstate s_7_2) (currstate s_8_0) (currstate s_9_2) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_0)) (not (currstate s_2_0)) (not (currstate s_3_0)) (not (currstate s_4_2)) (not (currstate s_5_0)) (not (currstate s_6_2)) (not (currstate s_7_2)) (not (currstate s_8_0)) (not (currstate s_9_2)) )
-)
-
-(:action goto-abstract_states-cs311
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_0) (currstate s_2_0) (currstate s_3_0) (currstate s_4_2) (currstate s_5_0) (currstate s_6_2) (currstate s_7_2) (currstate s_8_0) (currstate s_9_0) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_0)) (not (currstate s_2_0)) (not (currstate s_3_0)) (not (currstate s_4_2)) (not (currstate s_5_0)) (not (currstate s_6_2)) (not (currstate s_7_2)) (not (currstate s_8_0)) (not (currstate s_9_0)) )
-)
-
-(:action goto-abstract_states-cs312
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_0) (currstate s_2_0) (currstate s_3_0) (currstate s_4_2) (currstate s_5_0) (currstate s_6_0) (currstate s_7_0) (currstate s_8_2) (currstate s_9_2) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_0)) (not (currstate s_2_0)) (not (currstate s_3_0)) (not (currstate s_4_2)) (not (currstate s_5_0)) (not (currstate s_6_0)) (not (currstate s_7_0)) (not (currstate s_8_2)) (not (currstate s_9_2)) )
-)
-
-(:action goto-abstract_states-cs313
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_0) (currstate s_2_0) (currstate s_3_0) (currstate s_4_2) (currstate s_5_0) (currstate s_6_0) (currstate s_7_0) (currstate s_8_2) (currstate s_9_0) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_0)) (not (currstate s_2_0)) (not (currstate s_3_0)) (not (currstate s_4_2)) (not (currstate s_5_0)) (not (currstate s_6_0)) (not (currstate s_7_0)) (not (currstate s_8_2)) (not (currstate s_9_0)) )
-)
-
-(:action goto-abstract_states-cs314
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_0) (currstate s_2_0) (currstate s_3_0) (currstate s_4_2) (currstate s_5_0) (currstate s_6_0) (currstate s_7_0) (currstate s_8_0) (currstate s_9_2) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_0)) (not (currstate s_2_0)) (not (currstate s_3_0)) (not (currstate s_4_2)) (not (currstate s_5_0)) (not (currstate s_6_0)) (not (currstate s_7_0)) (not (currstate s_8_0)) (not (currstate s_9_2)) )
-)
-
-(:action goto-abstract_states-cs315
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_0) (currstate s_2_0) (currstate s_3_0) (currstate s_4_2) (currstate s_5_0) (currstate s_6_0) (currstate s_7_0) (currstate s_8_0) (currstate s_9_0) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_0)) (not (currstate s_2_0)) (not (currstate s_3_0)) (not (currstate s_4_2)) (not (currstate s_5_0)) (not (currstate s_6_0)) (not (currstate s_7_0)) (not (currstate s_8_0)) (not (currstate s_9_0)) )
-)
-
-(:action goto-abstract_states-cs316
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_0) (currstate s_2_0) (currstate s_3_0) (currstate s_4_2) (currstate s_5_0) (currstate s_6_0) (currstate s_7_2) (currstate s_8_2) (currstate s_9_2) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_0)) (not (currstate s_2_0)) (not (currstate s_3_0)) (not (currstate s_4_2)) (not (currstate s_5_0)) (not (currstate s_6_0)) (not (currstate s_7_2)) (not (currstate s_8_2)) (not (currstate s_9_2)) )
-)
-
-(:action goto-abstract_states-cs317
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_0) (currstate s_2_0) (currstate s_3_0) (currstate s_4_2) (currstate s_5_0) (currstate s_6_0) (currstate s_7_2) (currstate s_8_2) (currstate s_9_0) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_0)) (not (currstate s_2_0)) (not (currstate s_3_0)) (not (currstate s_4_2)) (not (currstate s_5_0)) (not (currstate s_6_0)) (not (currstate s_7_2)) (not (currstate s_8_2)) (not (currstate s_9_0)) )
-)
-
-(:action goto-abstract_states-cs318
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_0) (currstate s_2_0) (currstate s_3_0) (currstate s_4_2) (currstate s_5_0) (currstate s_6_0) (currstate s_7_2) (currstate s_8_0) (currstate s_9_2) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_0)) (not (currstate s_2_0)) (not (currstate s_3_0)) (not (currstate s_4_2)) (not (currstate s_5_0)) (not (currstate s_6_0)) (not (currstate s_7_2)) (not (currstate s_8_0)) (not (currstate s_9_2)) )
-)
-
-(:action goto-abstract_states-cs319
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_0) (currstate s_2_0) (currstate s_3_0) (currstate s_4_2) (currstate s_5_0) (currstate s_6_0) (currstate s_7_2) (currstate s_8_0) (currstate s_9_0) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_0)) (not (currstate s_2_0)) (not (currstate s_3_0)) (not (currstate s_4_2)) (not (currstate s_5_0)) (not (currstate s_6_0)) (not (currstate s_7_2)) (not (currstate s_8_0)) (not (currstate s_9_0)) )
-)
-
-(:action goto-abstract_states-cs320
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_0) (currstate s_2_0) (currstate s_3_2) (currstate s_4_0) (currstate s_5_2) (currstate s_6_2) (currstate s_7_0) (currstate s_8_2) (currstate s_9_2) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_0)) (not (currstate s_2_0)) (not (currstate s_3_2)) (not (currstate s_4_0)) (not (currstate s_5_2)) (not (currstate s_6_2)) (not (currstate s_7_0)) (not (currstate s_8_2)) (not (currstate s_9_2)) )
-)
-
-(:action goto-abstract_states-cs321
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_0) (currstate s_2_0) (currstate s_3_2) (currstate s_4_0) (currstate s_5_2) (currstate s_6_2) (currstate s_7_0) (currstate s_8_2) (currstate s_9_0) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_0)) (not (currstate s_2_0)) (not (currstate s_3_2)) (not (currstate s_4_0)) (not (currstate s_5_2)) (not (currstate s_6_2)) (not (currstate s_7_0)) (not (currstate s_8_2)) (not (currstate s_9_0)) )
-)
-
-(:action goto-abstract_states-cs322
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_0) (currstate s_2_0) (currstate s_3_2) (currstate s_4_0) (currstate s_5_2) (currstate s_6_2) (currstate s_7_0) (currstate s_8_0) (currstate s_9_2) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_0)) (not (currstate s_2_0)) (not (currstate s_3_2)) (not (currstate s_4_0)) (not (currstate s_5_2)) (not (currstate s_6_2)) (not (currstate s_7_0)) (not (currstate s_8_0)) (not (currstate s_9_2)) )
-)
-
-(:action goto-abstract_states-cs323
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_0) (currstate s_2_0) (currstate s_3_2) (currstate s_4_0) (currstate s_5_2) (currstate s_6_2) (currstate s_7_0) (currstate s_8_0) (currstate s_9_0) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_0)) (not (currstate s_2_0)) (not (currstate s_3_2)) (not (currstate s_4_0)) (not (currstate s_5_2)) (not (currstate s_6_2)) (not (currstate s_7_0)) (not (currstate s_8_0)) (not (currstate s_9_0)) )
-)
-
-(:action goto-abstract_states-cs324
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_0) (currstate s_2_0) (currstate s_3_2) (currstate s_4_0) (currstate s_5_2) (currstate s_6_2) (currstate s_7_2) (currstate s_8_2) (currstate s_9_2) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_0)) (not (currstate s_2_0)) (not (currstate s_3_2)) (not (currstate s_4_0)) (not (currstate s_5_2)) (not (currstate s_6_2)) (not (currstate s_7_2)) (not (currstate s_8_2)) (not (currstate s_9_2)) )
-)
-
-(:action goto-abstract_states-cs325
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_0) (currstate s_2_0) (currstate s_3_2) (currstate s_4_0) (currstate s_5_2) (currstate s_6_2) (currstate s_7_2) (currstate s_8_2) (currstate s_9_0) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_0)) (not (currstate s_2_0)) (not (currstate s_3_2)) (not (currstate s_4_0)) (not (currstate s_5_2)) (not (currstate s_6_2)) (not (currstate s_7_2)) (not (currstate s_8_2)) (not (currstate s_9_0)) )
-)
-
-(:action goto-abstract_states-cs326
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_0) (currstate s_2_0) (currstate s_3_2) (currstate s_4_0) (currstate s_5_2) (currstate s_6_2) (currstate s_7_2) (currstate s_8_0) (currstate s_9_2) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_0)) (not (currstate s_2_0)) (not (currstate s_3_2)) (not (currstate s_4_0)) (not (currstate s_5_2)) (not (currstate s_6_2)) (not (currstate s_7_2)) (not (currstate s_8_0)) (not (currstate s_9_2)) )
-)
-
-(:action goto-abstract_states-cs327
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_0) (currstate s_2_0) (currstate s_3_2) (currstate s_4_0) (currstate s_5_2) (currstate s_6_2) (currstate s_7_2) (currstate s_8_0) (currstate s_9_0) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_0)) (not (currstate s_2_0)) (not (currstate s_3_2)) (not (currstate s_4_0)) (not (currstate s_5_2)) (not (currstate s_6_2)) (not (currstate s_7_2)) (not (currstate s_8_0)) (not (currstate s_9_0)) )
-)
-
-(:action goto-abstract_states-cs328
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_0) (currstate s_2_0) (currstate s_3_2) (currstate s_4_0) (currstate s_5_2) (currstate s_6_0) (currstate s_7_0) (currstate s_8_2) (currstate s_9_2) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_0)) (not (currstate s_2_0)) (not (currstate s_3_2)) (not (currstate s_4_0)) (not (currstate s_5_2)) (not (currstate s_6_0)) (not (currstate s_7_0)) (not (currstate s_8_2)) (not (currstate s_9_2)) )
-)
-
-(:action goto-abstract_states-cs329
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_0) (currstate s_2_0) (currstate s_3_2) (currstate s_4_0) (currstate s_5_2) (currstate s_6_0) (currstate s_7_0) (currstate s_8_2) (currstate s_9_0) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_0)) (not (currstate s_2_0)) (not (currstate s_3_2)) (not (currstate s_4_0)) (not (currstate s_5_2)) (not (currstate s_6_0)) (not (currstate s_7_0)) (not (currstate s_8_2)) (not (currstate s_9_0)) )
-)
-
-(:action goto-abstract_states-cs330
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_0) (currstate s_2_0) (currstate s_3_2) (currstate s_4_0) (currstate s_5_2) (currstate s_6_0) (currstate s_7_0) (currstate s_8_0) (currstate s_9_2) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_0)) (not (currstate s_2_0)) (not (currstate s_3_2)) (not (currstate s_4_0)) (not (currstate s_5_2)) (not (currstate s_6_0)) (not (currstate s_7_0)) (not (currstate s_8_0)) (not (currstate s_9_2)) )
-)
-
-(:action goto-abstract_states-cs331
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_0) (currstate s_2_0) (currstate s_3_2) (currstate s_4_0) (currstate s_5_2) (currstate s_6_0) (currstate s_7_0) (currstate s_8_0) (currstate s_9_0) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_0)) (not (currstate s_2_0)) (not (currstate s_3_2)) (not (currstate s_4_0)) (not (currstate s_5_2)) (not (currstate s_6_0)) (not (currstate s_7_0)) (not (currstate s_8_0)) (not (currstate s_9_0)) )
-)
-
-(:action goto-abstract_states-cs332
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_0) (currstate s_2_0) (currstate s_3_2) (currstate s_4_0) (currstate s_5_2) (currstate s_6_0) (currstate s_7_2) (currstate s_8_2) (currstate s_9_2) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_0)) (not (currstate s_2_0)) (not (currstate s_3_2)) (not (currstate s_4_0)) (not (currstate s_5_2)) (not (currstate s_6_0)) (not (currstate s_7_2)) (not (currstate s_8_2)) (not (currstate s_9_2)) )
-)
-
-(:action goto-abstract_states-cs333
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_0) (currstate s_2_0) (currstate s_3_2) (currstate s_4_0) (currstate s_5_2) (currstate s_6_0) (currstate s_7_2) (currstate s_8_2) (currstate s_9_0) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_0)) (not (currstate s_2_0)) (not (currstate s_3_2)) (not (currstate s_4_0)) (not (currstate s_5_2)) (not (currstate s_6_0)) (not (currstate s_7_2)) (not (currstate s_8_2)) (not (currstate s_9_0)) )
-)
-
-(:action goto-abstract_states-cs334
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_0) (currstate s_2_0) (currstate s_3_2) (currstate s_4_0) (currstate s_5_2) (currstate s_6_0) (currstate s_7_2) (currstate s_8_0) (currstate s_9_2) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_0)) (not (currstate s_2_0)) (not (currstate s_3_2)) (not (currstate s_4_0)) (not (currstate s_5_2)) (not (currstate s_6_0)) (not (currstate s_7_2)) (not (currstate s_8_0)) (not (currstate s_9_2)) )
-)
-
-(:action goto-abstract_states-cs335
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_0) (currstate s_2_0) (currstate s_3_2) (currstate s_4_0) (currstate s_5_2) (currstate s_6_0) (currstate s_7_2) (currstate s_8_0) (currstate s_9_0) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_0)) (not (currstate s_2_0)) (not (currstate s_3_2)) (not (currstate s_4_0)) (not (currstate s_5_2)) (not (currstate s_6_0)) (not (currstate s_7_2)) (not (currstate s_8_0)) (not (currstate s_9_0)) )
-)
-
-(:action goto-abstract_states-cs336
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_0) (currstate s_2_0) (currstate s_3_2) (currstate s_4_0) (currstate s_5_0) (currstate s_6_2) (currstate s_7_0) (currstate s_8_2) (currstate s_9_2) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_0)) (not (currstate s_2_0)) (not (currstate s_3_2)) (not (currstate s_4_0)) (not (currstate s_5_0)) (not (currstate s_6_2)) (not (currstate s_7_0)) (not (currstate s_8_2)) (not (currstate s_9_2)) )
-)
-
-(:action goto-abstract_states-cs337
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_0) (currstate s_2_0) (currstate s_3_2) (currstate s_4_0) (currstate s_5_0) (currstate s_6_2) (currstate s_7_0) (currstate s_8_2) (currstate s_9_0) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_0)) (not (currstate s_2_0)) (not (currstate s_3_2)) (not (currstate s_4_0)) (not (currstate s_5_0)) (not (currstate s_6_2)) (not (currstate s_7_0)) (not (currstate s_8_2)) (not (currstate s_9_0)) )
-)
-
-(:action goto-abstract_states-cs338
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_0) (currstate s_2_0) (currstate s_3_2) (currstate s_4_0) (currstate s_5_0) (currstate s_6_2) (currstate s_7_0) (currstate s_8_0) (currstate s_9_2) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_0)) (not (currstate s_2_0)) (not (currstate s_3_2)) (not (currstate s_4_0)) (not (currstate s_5_0)) (not (currstate s_6_2)) (not (currstate s_7_0)) (not (currstate s_8_0)) (not (currstate s_9_2)) )
-)
-
-(:action goto-abstract_states-cs339
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_0) (currstate s_2_0) (currstate s_3_2) (currstate s_4_0) (currstate s_5_0) (currstate s_6_2) (currstate s_7_0) (currstate s_8_0) (currstate s_9_0) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_0)) (not (currstate s_2_0)) (not (currstate s_3_2)) (not (currstate s_4_0)) (not (currstate s_5_0)) (not (currstate s_6_2)) (not (currstate s_7_0)) (not (currstate s_8_0)) (not (currstate s_9_0)) )
-)
-
-(:action goto-abstract_states-cs340
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_0) (currstate s_2_0) (currstate s_3_2) (currstate s_4_0) (currstate s_5_0) (currstate s_6_2) (currstate s_7_2) (currstate s_8_2) (currstate s_9_2) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_0)) (not (currstate s_2_0)) (not (currstate s_3_2)) (not (currstate s_4_0)) (not (currstate s_5_0)) (not (currstate s_6_2)) (not (currstate s_7_2)) (not (currstate s_8_2)) (not (currstate s_9_2)) )
-)
-
-(:action goto-abstract_states-cs341
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_0) (currstate s_2_0) (currstate s_3_2) (currstate s_4_0) (currstate s_5_0) (currstate s_6_2) (currstate s_7_2) (currstate s_8_2) (currstate s_9_0) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_0)) (not (currstate s_2_0)) (not (currstate s_3_2)) (not (currstate s_4_0)) (not (currstate s_5_0)) (not (currstate s_6_2)) (not (currstate s_7_2)) (not (currstate s_8_2)) (not (currstate s_9_0)) )
-)
-
-(:action goto-abstract_states-cs342
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_0) (currstate s_2_0) (currstate s_3_2) (currstate s_4_0) (currstate s_5_0) (currstate s_6_2) (currstate s_7_2) (currstate s_8_0) (currstate s_9_2) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_0)) (not (currstate s_2_0)) (not (currstate s_3_2)) (not (currstate s_4_0)) (not (currstate s_5_0)) (not (currstate s_6_2)) (not (currstate s_7_2)) (not (currstate s_8_0)) (not (currstate s_9_2)) )
-)
-
-(:action goto-abstract_states-cs343
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_0) (currstate s_2_0) (currstate s_3_2) (currstate s_4_0) (currstate s_5_0) (currstate s_6_2) (currstate s_7_2) (currstate s_8_0) (currstate s_9_0) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_0)) (not (currstate s_2_0)) (not (currstate s_3_2)) (not (currstate s_4_0)) (not (currstate s_5_0)) (not (currstate s_6_2)) (not (currstate s_7_2)) (not (currstate s_8_0)) (not (currstate s_9_0)) )
-)
-
-(:action goto-abstract_states-cs344
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_0) (currstate s_2_0) (currstate s_3_2) (currstate s_4_0) (currstate s_5_0) (currstate s_6_0) (currstate s_7_0) (currstate s_8_2) (currstate s_9_2) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_0)) (not (currstate s_2_0)) (not (currstate s_3_2)) (not (currstate s_4_0)) (not (currstate s_5_0)) (not (currstate s_6_0)) (not (currstate s_7_0)) (not (currstate s_8_2)) (not (currstate s_9_2)) )
-)
-
-(:action goto-abstract_states-cs345
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_0) (currstate s_2_0) (currstate s_3_2) (currstate s_4_0) (currstate s_5_0) (currstate s_6_0) (currstate s_7_0) (currstate s_8_2) (currstate s_9_0) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_0)) (not (currstate s_2_0)) (not (currstate s_3_2)) (not (currstate s_4_0)) (not (currstate s_5_0)) (not (currstate s_6_0)) (not (currstate s_7_0)) (not (currstate s_8_2)) (not (currstate s_9_0)) )
-)
-
-(:action goto-abstract_states-cs346
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_0) (currstate s_2_0) (currstate s_3_2) (currstate s_4_0) (currstate s_5_0) (currstate s_6_0) (currstate s_7_0) (currstate s_8_0) (currstate s_9_2) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_0)) (not (currstate s_2_0)) (not (currstate s_3_2)) (not (currstate s_4_0)) (not (currstate s_5_0)) (not (currstate s_6_0)) (not (currstate s_7_0)) (not (currstate s_8_0)) (not (currstate s_9_2)) )
-)
-
-(:action goto-abstract_states-cs347
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_0) (currstate s_2_0) (currstate s_3_2) (currstate s_4_0) (currstate s_5_0) (currstate s_6_0) (currstate s_7_0) (currstate s_8_0) (currstate s_9_0) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_0)) (not (currstate s_2_0)) (not (currstate s_3_2)) (not (currstate s_4_0)) (not (currstate s_5_0)) (not (currstate s_6_0)) (not (currstate s_7_0)) (not (currstate s_8_0)) (not (currstate s_9_0)) )
-)
-
-(:action goto-abstract_states-cs348
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_0) (currstate s_2_0) (currstate s_3_2) (currstate s_4_0) (currstate s_5_0) (currstate s_6_0) (currstate s_7_2) (currstate s_8_2) (currstate s_9_2) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_0)) (not (currstate s_2_0)) (not (currstate s_3_2)) (not (currstate s_4_0)) (not (currstate s_5_0)) (not (currstate s_6_0)) (not (currstate s_7_2)) (not (currstate s_8_2)) (not (currstate s_9_2)) )
-)
-
-(:action goto-abstract_states-cs349
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_0) (currstate s_2_0) (currstate s_3_2) (currstate s_4_0) (currstate s_5_0) (currstate s_6_0) (currstate s_7_2) (currstate s_8_2) (currstate s_9_0) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_0)) (not (currstate s_2_0)) (not (currstate s_3_2)) (not (currstate s_4_0)) (not (currstate s_5_0)) (not (currstate s_6_0)) (not (currstate s_7_2)) (not (currstate s_8_2)) (not (currstate s_9_0)) )
-)
-
-(:action goto-abstract_states-cs350
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_0) (currstate s_2_0) (currstate s_3_2) (currstate s_4_0) (currstate s_5_0) (currstate s_6_0) (currstate s_7_2) (currstate s_8_0) (currstate s_9_2) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_0)) (not (currstate s_2_0)) (not (currstate s_3_2)) (not (currstate s_4_0)) (not (currstate s_5_0)) (not (currstate s_6_0)) (not (currstate s_7_2)) (not (currstate s_8_0)) (not (currstate s_9_2)) )
-)
-
-(:action goto-abstract_states-cs351
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_0) (currstate s_2_0) (currstate s_3_2) (currstate s_4_0) (currstate s_5_0) (currstate s_6_0) (currstate s_7_2) (currstate s_8_0) (currstate s_9_0) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_0)) (not (currstate s_2_0)) (not (currstate s_3_2)) (not (currstate s_4_0)) (not (currstate s_5_0)) (not (currstate s_6_0)) (not (currstate s_7_2)) (not (currstate s_8_0)) (not (currstate s_9_0)) )
-)
-
-(:action goto-abstract_states-cs352
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_0) (currstate s_2_0) (currstate s_3_2) (currstate s_4_2) (currstate s_5_2) (currstate s_6_2) (currstate s_7_0) (currstate s_8_2) (currstate s_9_2) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_0)) (not (currstate s_2_0)) (not (currstate s_3_2)) (not (currstate s_4_2)) (not (currstate s_5_2)) (not (currstate s_6_2)) (not (currstate s_7_0)) (not (currstate s_8_2)) (not (currstate s_9_2)) )
-)
-
-(:action goto-abstract_states-cs353
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_0) (currstate s_2_0) (currstate s_3_2) (currstate s_4_2) (currstate s_5_2) (currstate s_6_2) (currstate s_7_0) (currstate s_8_2) (currstate s_9_0) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_0)) (not (currstate s_2_0)) (not (currstate s_3_2)) (not (currstate s_4_2)) (not (currstate s_5_2)) (not (currstate s_6_2)) (not (currstate s_7_0)) (not (currstate s_8_2)) (not (currstate s_9_0)) )
-)
-
-(:action goto-abstract_states-cs354
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_0) (currstate s_2_0) (currstate s_3_2) (currstate s_4_2) (currstate s_5_2) (currstate s_6_2) (currstate s_7_0) (currstate s_8_0) (currstate s_9_2) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_0)) (not (currstate s_2_0)) (not (currstate s_3_2)) (not (currstate s_4_2)) (not (currstate s_5_2)) (not (currstate s_6_2)) (not (currstate s_7_0)) (not (currstate s_8_0)) (not (currstate s_9_2)) )
-)
-
-(:action goto-abstract_states-cs355
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_0) (currstate s_2_0) (currstate s_3_2) (currstate s_4_2) (currstate s_5_2) (currstate s_6_2) (currstate s_7_0) (currstate s_8_0) (currstate s_9_0) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_0)) (not (currstate s_2_0)) (not (currstate s_3_2)) (not (currstate s_4_2)) (not (currstate s_5_2)) (not (currstate s_6_2)) (not (currstate s_7_0)) (not (currstate s_8_0)) (not (currstate s_9_0)) )
-)
-
-(:action goto-abstract_states-cs356
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_0) (currstate s_2_0) (currstate s_3_2) (currstate s_4_2) (currstate s_5_2) (currstate s_6_2) (currstate s_7_2) (currstate s_8_2) (currstate s_9_2) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_0)) (not (currstate s_2_0)) (not (currstate s_3_2)) (not (currstate s_4_2)) (not (currstate s_5_2)) (not (currstate s_6_2)) (not (currstate s_7_2)) (not (currstate s_8_2)) (not (currstate s_9_2)) )
-)
-
-(:action goto-abstract_states-cs357
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_0) (currstate s_2_0) (currstate s_3_2) (currstate s_4_2) (currstate s_5_2) (currstate s_6_2) (currstate s_7_2) (currstate s_8_2) (currstate s_9_0) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_0)) (not (currstate s_2_0)) (not (currstate s_3_2)) (not (currstate s_4_2)) (not (currstate s_5_2)) (not (currstate s_6_2)) (not (currstate s_7_2)) (not (currstate s_8_2)) (not (currstate s_9_0)) )
-)
-
-(:action goto-abstract_states-cs358
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_0) (currstate s_2_0) (currstate s_3_2) (currstate s_4_2) (currstate s_5_2) (currstate s_6_2) (currstate s_7_2) (currstate s_8_0) (currstate s_9_2) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_0)) (not (currstate s_2_0)) (not (currstate s_3_2)) (not (currstate s_4_2)) (not (currstate s_5_2)) (not (currstate s_6_2)) (not (currstate s_7_2)) (not (currstate s_8_0)) (not (currstate s_9_2)) )
-)
-
-(:action goto-abstract_states-cs359
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_0) (currstate s_2_0) (currstate s_3_2) (currstate s_4_2) (currstate s_5_2) (currstate s_6_2) (currstate s_7_2) (currstate s_8_0) (currstate s_9_0) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_0)) (not (currstate s_2_0)) (not (currstate s_3_2)) (not (currstate s_4_2)) (not (currstate s_5_2)) (not (currstate s_6_2)) (not (currstate s_7_2)) (not (currstate s_8_0)) (not (currstate s_9_0)) )
-)
-
-(:action goto-abstract_states-cs360
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_0) (currstate s_2_0) (currstate s_3_2) (currstate s_4_2) (currstate s_5_2) (currstate s_6_0) (currstate s_7_0) (currstate s_8_2) (currstate s_9_2) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_0)) (not (currstate s_2_0)) (not (currstate s_3_2)) (not (currstate s_4_2)) (not (currstate s_5_2)) (not (currstate s_6_0)) (not (currstate s_7_0)) (not (currstate s_8_2)) (not (currstate s_9_2)) )
-)
-
-(:action goto-abstract_states-cs361
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_0) (currstate s_2_0) (currstate s_3_2) (currstate s_4_2) (currstate s_5_2) (currstate s_6_0) (currstate s_7_0) (currstate s_8_2) (currstate s_9_0) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_0)) (not (currstate s_2_0)) (not (currstate s_3_2)) (not (currstate s_4_2)) (not (currstate s_5_2)) (not (currstate s_6_0)) (not (currstate s_7_0)) (not (currstate s_8_2)) (not (currstate s_9_0)) )
-)
-
-(:action goto-abstract_states-cs362
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_0) (currstate s_2_0) (currstate s_3_2) (currstate s_4_2) (currstate s_5_2) (currstate s_6_0) (currstate s_7_0) (currstate s_8_0) (currstate s_9_2) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_0)) (not (currstate s_2_0)) (not (currstate s_3_2)) (not (currstate s_4_2)) (not (currstate s_5_2)) (not (currstate s_6_0)) (not (currstate s_7_0)) (not (currstate s_8_0)) (not (currstate s_9_2)) )
-)
-
-(:action goto-abstract_states-cs363
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_0) (currstate s_2_0) (currstate s_3_2) (currstate s_4_2) (currstate s_5_2) (currstate s_6_0) (currstate s_7_0) (currstate s_8_0) (currstate s_9_0) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_0)) (not (currstate s_2_0)) (not (currstate s_3_2)) (not (currstate s_4_2)) (not (currstate s_5_2)) (not (currstate s_6_0)) (not (currstate s_7_0)) (not (currstate s_8_0)) (not (currstate s_9_0)) )
-)
-
-(:action goto-abstract_states-cs364
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_0) (currstate s_2_0) (currstate s_3_2) (currstate s_4_2) (currstate s_5_2) (currstate s_6_0) (currstate s_7_2) (currstate s_8_2) (currstate s_9_2) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_0)) (not (currstate s_2_0)) (not (currstate s_3_2)) (not (currstate s_4_2)) (not (currstate s_5_2)) (not (currstate s_6_0)) (not (currstate s_7_2)) (not (currstate s_8_2)) (not (currstate s_9_2)) )
-)
-
-(:action goto-abstract_states-cs365
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_0) (currstate s_2_0) (currstate s_3_2) (currstate s_4_2) (currstate s_5_2) (currstate s_6_0) (currstate s_7_2) (currstate s_8_2) (currstate s_9_0) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_0)) (not (currstate s_2_0)) (not (currstate s_3_2)) (not (currstate s_4_2)) (not (currstate s_5_2)) (not (currstate s_6_0)) (not (currstate s_7_2)) (not (currstate s_8_2)) (not (currstate s_9_0)) )
-)
-
-(:action goto-abstract_states-cs366
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_0) (currstate s_2_0) (currstate s_3_2) (currstate s_4_2) (currstate s_5_2) (currstate s_6_0) (currstate s_7_2) (currstate s_8_0) (currstate s_9_2) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_0)) (not (currstate s_2_0)) (not (currstate s_3_2)) (not (currstate s_4_2)) (not (currstate s_5_2)) (not (currstate s_6_0)) (not (currstate s_7_2)) (not (currstate s_8_0)) (not (currstate s_9_2)) )
-)
-
-(:action goto-abstract_states-cs367
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_0) (currstate s_2_0) (currstate s_3_2) (currstate s_4_2) (currstate s_5_2) (currstate s_6_0) (currstate s_7_2) (currstate s_8_0) (currstate s_9_0) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_0)) (not (currstate s_2_0)) (not (currstate s_3_2)) (not (currstate s_4_2)) (not (currstate s_5_2)) (not (currstate s_6_0)) (not (currstate s_7_2)) (not (currstate s_8_0)) (not (currstate s_9_0)) )
-)
-
-(:action goto-abstract_states-cs368
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_0) (currstate s_2_0) (currstate s_3_2) (currstate s_4_2) (currstate s_5_0) (currstate s_6_2) (currstate s_7_0) (currstate s_8_2) (currstate s_9_2) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_0)) (not (currstate s_2_0)) (not (currstate s_3_2)) (not (currstate s_4_2)) (not (currstate s_5_0)) (not (currstate s_6_2)) (not (currstate s_7_0)) (not (currstate s_8_2)) (not (currstate s_9_2)) )
-)
-
-(:action goto-abstract_states-cs369
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_0) (currstate s_2_0) (currstate s_3_2) (currstate s_4_2) (currstate s_5_0) (currstate s_6_2) (currstate s_7_0) (currstate s_8_2) (currstate s_9_0) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_0)) (not (currstate s_2_0)) (not (currstate s_3_2)) (not (currstate s_4_2)) (not (currstate s_5_0)) (not (currstate s_6_2)) (not (currstate s_7_0)) (not (currstate s_8_2)) (not (currstate s_9_0)) )
-)
-
-(:action goto-abstract_states-cs370
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_0) (currstate s_2_0) (currstate s_3_2) (currstate s_4_2) (currstate s_5_0) (currstate s_6_2) (currstate s_7_0) (currstate s_8_0) (currstate s_9_2) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_0)) (not (currstate s_2_0)) (not (currstate s_3_2)) (not (currstate s_4_2)) (not (currstate s_5_0)) (not (currstate s_6_2)) (not (currstate s_7_0)) (not (currstate s_8_0)) (not (currstate s_9_2)) )
-)
-
-(:action goto-abstract_states-cs371
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_0) (currstate s_2_0) (currstate s_3_2) (currstate s_4_2) (currstate s_5_0) (currstate s_6_2) (currstate s_7_0) (currstate s_8_0) (currstate s_9_0) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_0)) (not (currstate s_2_0)) (not (currstate s_3_2)) (not (currstate s_4_2)) (not (currstate s_5_0)) (not (currstate s_6_2)) (not (currstate s_7_0)) (not (currstate s_8_0)) (not (currstate s_9_0)) )
-)
-
-(:action goto-abstract_states-cs372
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_0) (currstate s_2_0) (currstate s_3_2) (currstate s_4_2) (currstate s_5_0) (currstate s_6_2) (currstate s_7_2) (currstate s_8_2) (currstate s_9_2) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_0)) (not (currstate s_2_0)) (not (currstate s_3_2)) (not (currstate s_4_2)) (not (currstate s_5_0)) (not (currstate s_6_2)) (not (currstate s_7_2)) (not (currstate s_8_2)) (not (currstate s_9_2)) )
-)
-
-(:action goto-abstract_states-cs373
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_0) (currstate s_2_0) (currstate s_3_2) (currstate s_4_2) (currstate s_5_0) (currstate s_6_2) (currstate s_7_2) (currstate s_8_2) (currstate s_9_0) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_0)) (not (currstate s_2_0)) (not (currstate s_3_2)) (not (currstate s_4_2)) (not (currstate s_5_0)) (not (currstate s_6_2)) (not (currstate s_7_2)) (not (currstate s_8_2)) (not (currstate s_9_0)) )
-)
-
-(:action goto-abstract_states-cs374
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_0) (currstate s_2_0) (currstate s_3_2) (currstate s_4_2) (currstate s_5_0) (currstate s_6_2) (currstate s_7_2) (currstate s_8_0) (currstate s_9_2) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_0)) (not (currstate s_2_0)) (not (currstate s_3_2)) (not (currstate s_4_2)) (not (currstate s_5_0)) (not (currstate s_6_2)) (not (currstate s_7_2)) (not (currstate s_8_0)) (not (currstate s_9_2)) )
-)
-
-(:action goto-abstract_states-cs375
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_0) (currstate s_2_0) (currstate s_3_2) (currstate s_4_2) (currstate s_5_0) (currstate s_6_2) (currstate s_7_2) (currstate s_8_0) (currstate s_9_0) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_0)) (not (currstate s_2_0)) (not (currstate s_3_2)) (not (currstate s_4_2)) (not (currstate s_5_0)) (not (currstate s_6_2)) (not (currstate s_7_2)) (not (currstate s_8_0)) (not (currstate s_9_0)) )
-)
-
-(:action goto-abstract_states-cs376
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_0) (currstate s_2_0) (currstate s_3_2) (currstate s_4_2) (currstate s_5_0) (currstate s_6_0) (currstate s_7_0) (currstate s_8_2) (currstate s_9_2) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_0)) (not (currstate s_2_0)) (not (currstate s_3_2)) (not (currstate s_4_2)) (not (currstate s_5_0)) (not (currstate s_6_0)) (not (currstate s_7_0)) (not (currstate s_8_2)) (not (currstate s_9_2)) )
-)
-
-(:action goto-abstract_states-cs377
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_0) (currstate s_2_0) (currstate s_3_2) (currstate s_4_2) (currstate s_5_0) (currstate s_6_0) (currstate s_7_0) (currstate s_8_2) (currstate s_9_0) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_0)) (not (currstate s_2_0)) (not (currstate s_3_2)) (not (currstate s_4_2)) (not (currstate s_5_0)) (not (currstate s_6_0)) (not (currstate s_7_0)) (not (currstate s_8_2)) (not (currstate s_9_0)) )
-)
-
-(:action goto-abstract_states-cs378
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_0) (currstate s_2_0) (currstate s_3_2) (currstate s_4_2) (currstate s_5_0) (currstate s_6_0) (currstate s_7_0) (currstate s_8_0) (currstate s_9_2) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_0)) (not (currstate s_2_0)) (not (currstate s_3_2)) (not (currstate s_4_2)) (not (currstate s_5_0)) (not (currstate s_6_0)) (not (currstate s_7_0)) (not (currstate s_8_0)) (not (currstate s_9_2)) )
-)
-
-(:action goto-abstract_states-cs379
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_0) (currstate s_2_0) (currstate s_3_2) (currstate s_4_2) (currstate s_5_0) (currstate s_6_0) (currstate s_7_0) (currstate s_8_0) (currstate s_9_0) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_0)) (not (currstate s_2_0)) (not (currstate s_3_2)) (not (currstate s_4_2)) (not (currstate s_5_0)) (not (currstate s_6_0)) (not (currstate s_7_0)) (not (currstate s_8_0)) (not (currstate s_9_0)) )
-)
-
-(:action goto-abstract_states-cs380
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_0) (currstate s_2_0) (currstate s_3_2) (currstate s_4_2) (currstate s_5_0) (currstate s_6_0) (currstate s_7_2) (currstate s_8_2) (currstate s_9_2) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_0)) (not (currstate s_2_0)) (not (currstate s_3_2)) (not (currstate s_4_2)) (not (currstate s_5_0)) (not (currstate s_6_0)) (not (currstate s_7_2)) (not (currstate s_8_2)) (not (currstate s_9_2)) )
-)
-
-(:action goto-abstract_states-cs381
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_0) (currstate s_2_0) (currstate s_3_2) (currstate s_4_2) (currstate s_5_0) (currstate s_6_0) (currstate s_7_2) (currstate s_8_2) (currstate s_9_0) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_0)) (not (currstate s_2_0)) (not (currstate s_3_2)) (not (currstate s_4_2)) (not (currstate s_5_0)) (not (currstate s_6_0)) (not (currstate s_7_2)) (not (currstate s_8_2)) (not (currstate s_9_0)) )
-)
-
-(:action goto-abstract_states-cs382
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_0) (currstate s_2_0) (currstate s_3_2) (currstate s_4_2) (currstate s_5_0) (currstate s_6_0) (currstate s_7_2) (currstate s_8_0) (currstate s_9_2) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_0)) (not (currstate s_2_0)) (not (currstate s_3_2)) (not (currstate s_4_2)) (not (currstate s_5_0)) (not (currstate s_6_0)) (not (currstate s_7_2)) (not (currstate s_8_0)) (not (currstate s_9_2)) )
-)
-
-(:action goto-abstract_states-cs383
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_0) (currstate s_2_0) (currstate s_3_2) (currstate s_4_2) (currstate s_5_0) (currstate s_6_0) (currstate s_7_2) (currstate s_8_0) (currstate s_9_0) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_0)) (not (currstate s_2_0)) (not (currstate s_3_2)) (not (currstate s_4_2)) (not (currstate s_5_0)) (not (currstate s_6_0)) (not (currstate s_7_2)) (not (currstate s_8_0)) (not (currstate s_9_0)) )
-)
-
-(:action goto-abstract_states-cs384
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_0) (currstate s_2_2) (currstate s_3_0) (currstate s_4_0) (currstate s_5_2) (currstate s_6_2) (currstate s_7_0) (currstate s_8_2) (currstate s_9_2) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_0)) (not (currstate s_2_2)) (not (currstate s_3_0)) (not (currstate s_4_0)) (not (currstate s_5_2)) (not (currstate s_6_2)) (not (currstate s_7_0)) (not (currstate s_8_2)) (not (currstate s_9_2)) )
-)
-
-(:action goto-abstract_states-cs385
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_0) (currstate s_2_2) (currstate s_3_0) (currstate s_4_0) (currstate s_5_2) (currstate s_6_2) (currstate s_7_0) (currstate s_8_2) (currstate s_9_0) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_0)) (not (currstate s_2_2)) (not (currstate s_3_0)) (not (currstate s_4_0)) (not (currstate s_5_2)) (not (currstate s_6_2)) (not (currstate s_7_0)) (not (currstate s_8_2)) (not (currstate s_9_0)) )
-)
-
-(:action goto-abstract_states-cs386
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_0) (currstate s_2_2) (currstate s_3_0) (currstate s_4_0) (currstate s_5_2) (currstate s_6_2) (currstate s_7_0) (currstate s_8_0) (currstate s_9_2) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_0)) (not (currstate s_2_2)) (not (currstate s_3_0)) (not (currstate s_4_0)) (not (currstate s_5_2)) (not (currstate s_6_2)) (not (currstate s_7_0)) (not (currstate s_8_0)) (not (currstate s_9_2)) )
-)
-
-(:action goto-abstract_states-cs387
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_0) (currstate s_2_2) (currstate s_3_0) (currstate s_4_0) (currstate s_5_2) (currstate s_6_2) (currstate s_7_0) (currstate s_8_0) (currstate s_9_0) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_0)) (not (currstate s_2_2)) (not (currstate s_3_0)) (not (currstate s_4_0)) (not (currstate s_5_2)) (not (currstate s_6_2)) (not (currstate s_7_0)) (not (currstate s_8_0)) (not (currstate s_9_0)) )
-)
-
-(:action goto-abstract_states-cs388
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_0) (currstate s_2_2) (currstate s_3_0) (currstate s_4_0) (currstate s_5_2) (currstate s_6_2) (currstate s_7_2) (currstate s_8_2) (currstate s_9_2) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_0)) (not (currstate s_2_2)) (not (currstate s_3_0)) (not (currstate s_4_0)) (not (currstate s_5_2)) (not (currstate s_6_2)) (not (currstate s_7_2)) (not (currstate s_8_2)) (not (currstate s_9_2)) )
-)
-
-(:action goto-abstract_states-cs389
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_0) (currstate s_2_2) (currstate s_3_0) (currstate s_4_0) (currstate s_5_2) (currstate s_6_2) (currstate s_7_2) (currstate s_8_2) (currstate s_9_0) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_0)) (not (currstate s_2_2)) (not (currstate s_3_0)) (not (currstate s_4_0)) (not (currstate s_5_2)) (not (currstate s_6_2)) (not (currstate s_7_2)) (not (currstate s_8_2)) (not (currstate s_9_0)) )
-)
-
-(:action goto-abstract_states-cs390
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_0) (currstate s_2_2) (currstate s_3_0) (currstate s_4_0) (currstate s_5_2) (currstate s_6_2) (currstate s_7_2) (currstate s_8_0) (currstate s_9_2) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_0)) (not (currstate s_2_2)) (not (currstate s_3_0)) (not (currstate s_4_0)) (not (currstate s_5_2)) (not (currstate s_6_2)) (not (currstate s_7_2)) (not (currstate s_8_0)) (not (currstate s_9_2)) )
-)
-
-(:action goto-abstract_states-cs391
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_0) (currstate s_2_2) (currstate s_3_0) (currstate s_4_0) (currstate s_5_2) (currstate s_6_2) (currstate s_7_2) (currstate s_8_0) (currstate s_9_0) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_0)) (not (currstate s_2_2)) (not (currstate s_3_0)) (not (currstate s_4_0)) (not (currstate s_5_2)) (not (currstate s_6_2)) (not (currstate s_7_2)) (not (currstate s_8_0)) (not (currstate s_9_0)) )
-)
-
-(:action goto-abstract_states-cs392
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_0) (currstate s_2_2) (currstate s_3_0) (currstate s_4_0) (currstate s_5_2) (currstate s_6_0) (currstate s_7_0) (currstate s_8_2) (currstate s_9_2) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_0)) (not (currstate s_2_2)) (not (currstate s_3_0)) (not (currstate s_4_0)) (not (currstate s_5_2)) (not (currstate s_6_0)) (not (currstate s_7_0)) (not (currstate s_8_2)) (not (currstate s_9_2)) )
-)
-
-(:action goto-abstract_states-cs393
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_0) (currstate s_2_2) (currstate s_3_0) (currstate s_4_0) (currstate s_5_2) (currstate s_6_0) (currstate s_7_0) (currstate s_8_2) (currstate s_9_0) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_0)) (not (currstate s_2_2)) (not (currstate s_3_0)) (not (currstate s_4_0)) (not (currstate s_5_2)) (not (currstate s_6_0)) (not (currstate s_7_0)) (not (currstate s_8_2)) (not (currstate s_9_0)) )
-)
-
-(:action goto-abstract_states-cs394
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_0) (currstate s_2_2) (currstate s_3_0) (currstate s_4_0) (currstate s_5_2) (currstate s_6_0) (currstate s_7_0) (currstate s_8_0) (currstate s_9_2) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_0)) (not (currstate s_2_2)) (not (currstate s_3_0)) (not (currstate s_4_0)) (not (currstate s_5_2)) (not (currstate s_6_0)) (not (currstate s_7_0)) (not (currstate s_8_0)) (not (currstate s_9_2)) )
-)
-
-(:action goto-abstract_states-cs395
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_0) (currstate s_2_2) (currstate s_3_0) (currstate s_4_0) (currstate s_5_2) (currstate s_6_0) (currstate s_7_0) (currstate s_8_0) (currstate s_9_0) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_0)) (not (currstate s_2_2)) (not (currstate s_3_0)) (not (currstate s_4_0)) (not (currstate s_5_2)) (not (currstate s_6_0)) (not (currstate s_7_0)) (not (currstate s_8_0)) (not (currstate s_9_0)) )
-)
-
-(:action goto-abstract_states-cs396
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_0) (currstate s_2_2) (currstate s_3_0) (currstate s_4_0) (currstate s_5_2) (currstate s_6_0) (currstate s_7_2) (currstate s_8_2) (currstate s_9_2) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_0)) (not (currstate s_2_2)) (not (currstate s_3_0)) (not (currstate s_4_0)) (not (currstate s_5_2)) (not (currstate s_6_0)) (not (currstate s_7_2)) (not (currstate s_8_2)) (not (currstate s_9_2)) )
-)
-
-(:action goto-abstract_states-cs397
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_0) (currstate s_2_2) (currstate s_3_0) (currstate s_4_0) (currstate s_5_2) (currstate s_6_0) (currstate s_7_2) (currstate s_8_2) (currstate s_9_0) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_0)) (not (currstate s_2_2)) (not (currstate s_3_0)) (not (currstate s_4_0)) (not (currstate s_5_2)) (not (currstate s_6_0)) (not (currstate s_7_2)) (not (currstate s_8_2)) (not (currstate s_9_0)) )
-)
-
-(:action goto-abstract_states-cs398
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_0) (currstate s_2_2) (currstate s_3_0) (currstate s_4_0) (currstate s_5_2) (currstate s_6_0) (currstate s_7_2) (currstate s_8_0) (currstate s_9_2) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_0)) (not (currstate s_2_2)) (not (currstate s_3_0)) (not (currstate s_4_0)) (not (currstate s_5_2)) (not (currstate s_6_0)) (not (currstate s_7_2)) (not (currstate s_8_0)) (not (currstate s_9_2)) )
-)
-
-(:action goto-abstract_states-cs399
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_0) (currstate s_2_2) (currstate s_3_0) (currstate s_4_0) (currstate s_5_2) (currstate s_6_0) (currstate s_7_2) (currstate s_8_0) (currstate s_9_0) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_0)) (not (currstate s_2_2)) (not (currstate s_3_0)) (not (currstate s_4_0)) (not (currstate s_5_2)) (not (currstate s_6_0)) (not (currstate s_7_2)) (not (currstate s_8_0)) (not (currstate s_9_0)) )
-)
-
-(:action goto-abstract_states-cs400
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_0) (currstate s_2_2) (currstate s_3_0) (currstate s_4_0) (currstate s_5_0) (currstate s_6_2) (currstate s_7_0) (currstate s_8_2) (currstate s_9_2) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_0)) (not (currstate s_2_2)) (not (currstate s_3_0)) (not (currstate s_4_0)) (not (currstate s_5_0)) (not (currstate s_6_2)) (not (currstate s_7_0)) (not (currstate s_8_2)) (not (currstate s_9_2)) )
-)
-
-(:action goto-abstract_states-cs401
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_0) (currstate s_2_2) (currstate s_3_0) (currstate s_4_0) (currstate s_5_0) (currstate s_6_2) (currstate s_7_0) (currstate s_8_2) (currstate s_9_0) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_0)) (not (currstate s_2_2)) (not (currstate s_3_0)) (not (currstate s_4_0)) (not (currstate s_5_0)) (not (currstate s_6_2)) (not (currstate s_7_0)) (not (currstate s_8_2)) (not (currstate s_9_0)) )
-)
-
-(:action goto-abstract_states-cs402
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_0) (currstate s_2_2) (currstate s_3_0) (currstate s_4_0) (currstate s_5_0) (currstate s_6_2) (currstate s_7_0) (currstate s_8_0) (currstate s_9_2) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_0)) (not (currstate s_2_2)) (not (currstate s_3_0)) (not (currstate s_4_0)) (not (currstate s_5_0)) (not (currstate s_6_2)) (not (currstate s_7_0)) (not (currstate s_8_0)) (not (currstate s_9_2)) )
-)
-
-(:action goto-abstract_states-cs403
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_0) (currstate s_2_2) (currstate s_3_0) (currstate s_4_0) (currstate s_5_0) (currstate s_6_2) (currstate s_7_0) (currstate s_8_0) (currstate s_9_0) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_0)) (not (currstate s_2_2)) (not (currstate s_3_0)) (not (currstate s_4_0)) (not (currstate s_5_0)) (not (currstate s_6_2)) (not (currstate s_7_0)) (not (currstate s_8_0)) (not (currstate s_9_0)) )
-)
-
-(:action goto-abstract_states-cs404
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_0) (currstate s_2_2) (currstate s_3_0) (currstate s_4_0) (currstate s_5_0) (currstate s_6_2) (currstate s_7_2) (currstate s_8_2) (currstate s_9_2) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_0)) (not (currstate s_2_2)) (not (currstate s_3_0)) (not (currstate s_4_0)) (not (currstate s_5_0)) (not (currstate s_6_2)) (not (currstate s_7_2)) (not (currstate s_8_2)) (not (currstate s_9_2)) )
-)
-
-(:action goto-abstract_states-cs405
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_0) (currstate s_2_2) (currstate s_3_0) (currstate s_4_0) (currstate s_5_0) (currstate s_6_2) (currstate s_7_2) (currstate s_8_2) (currstate s_9_0) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_0)) (not (currstate s_2_2)) (not (currstate s_3_0)) (not (currstate s_4_0)) (not (currstate s_5_0)) (not (currstate s_6_2)) (not (currstate s_7_2)) (not (currstate s_8_2)) (not (currstate s_9_0)) )
-)
-
-(:action goto-abstract_states-cs406
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_0) (currstate s_2_2) (currstate s_3_0) (currstate s_4_0) (currstate s_5_0) (currstate s_6_2) (currstate s_7_2) (currstate s_8_0) (currstate s_9_2) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_0)) (not (currstate s_2_2)) (not (currstate s_3_0)) (not (currstate s_4_0)) (not (currstate s_5_0)) (not (currstate s_6_2)) (not (currstate s_7_2)) (not (currstate s_8_0)) (not (currstate s_9_2)) )
-)
-
-(:action goto-abstract_states-cs407
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_0) (currstate s_2_2) (currstate s_3_0) (currstate s_4_0) (currstate s_5_0) (currstate s_6_2) (currstate s_7_2) (currstate s_8_0) (currstate s_9_0) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_0)) (not (currstate s_2_2)) (not (currstate s_3_0)) (not (currstate s_4_0)) (not (currstate s_5_0)) (not (currstate s_6_2)) (not (currstate s_7_2)) (not (currstate s_8_0)) (not (currstate s_9_0)) )
-)
-
-(:action goto-abstract_states-cs408
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_0) (currstate s_2_2) (currstate s_3_0) (currstate s_4_0) (currstate s_5_0) (currstate s_6_0) (currstate s_7_0) (currstate s_8_2) (currstate s_9_2) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_0)) (not (currstate s_2_2)) (not (currstate s_3_0)) (not (currstate s_4_0)) (not (currstate s_5_0)) (not (currstate s_6_0)) (not (currstate s_7_0)) (not (currstate s_8_2)) (not (currstate s_9_2)) )
-)
-
-(:action goto-abstract_states-cs409
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_0) (currstate s_2_2) (currstate s_3_0) (currstate s_4_0) (currstate s_5_0) (currstate s_6_0) (currstate s_7_0) (currstate s_8_2) (currstate s_9_0) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_0)) (not (currstate s_2_2)) (not (currstate s_3_0)) (not (currstate s_4_0)) (not (currstate s_5_0)) (not (currstate s_6_0)) (not (currstate s_7_0)) (not (currstate s_8_2)) (not (currstate s_9_0)) )
-)
-
-(:action goto-abstract_states-cs410
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_0) (currstate s_2_2) (currstate s_3_0) (currstate s_4_0) (currstate s_5_0) (currstate s_6_0) (currstate s_7_0) (currstate s_8_0) (currstate s_9_2) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_0)) (not (currstate s_2_2)) (not (currstate s_3_0)) (not (currstate s_4_0)) (not (currstate s_5_0)) (not (currstate s_6_0)) (not (currstate s_7_0)) (not (currstate s_8_0)) (not (currstate s_9_2)) )
-)
-
-(:action goto-abstract_states-cs411
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_0) (currstate s_2_2) (currstate s_3_0) (currstate s_4_0) (currstate s_5_0) (currstate s_6_0) (currstate s_7_0) (currstate s_8_0) (currstate s_9_0) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_0)) (not (currstate s_2_2)) (not (currstate s_3_0)) (not (currstate s_4_0)) (not (currstate s_5_0)) (not (currstate s_6_0)) (not (currstate s_7_0)) (not (currstate s_8_0)) (not (currstate s_9_0)) )
-)
-
-(:action goto-abstract_states-cs412
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_0) (currstate s_2_2) (currstate s_3_0) (currstate s_4_0) (currstate s_5_0) (currstate s_6_0) (currstate s_7_2) (currstate s_8_2) (currstate s_9_2) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_0)) (not (currstate s_2_2)) (not (currstate s_3_0)) (not (currstate s_4_0)) (not (currstate s_5_0)) (not (currstate s_6_0)) (not (currstate s_7_2)) (not (currstate s_8_2)) (not (currstate s_9_2)) )
-)
-
-(:action goto-abstract_states-cs413
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_0) (currstate s_2_2) (currstate s_3_0) (currstate s_4_0) (currstate s_5_0) (currstate s_6_0) (currstate s_7_2) (currstate s_8_2) (currstate s_9_0) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_0)) (not (currstate s_2_2)) (not (currstate s_3_0)) (not (currstate s_4_0)) (not (currstate s_5_0)) (not (currstate s_6_0)) (not (currstate s_7_2)) (not (currstate s_8_2)) (not (currstate s_9_0)) )
-)
-
-(:action goto-abstract_states-cs414
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_0) (currstate s_2_2) (currstate s_3_0) (currstate s_4_0) (currstate s_5_0) (currstate s_6_0) (currstate s_7_2) (currstate s_8_0) (currstate s_9_2) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_0)) (not (currstate s_2_2)) (not (currstate s_3_0)) (not (currstate s_4_0)) (not (currstate s_5_0)) (not (currstate s_6_0)) (not (currstate s_7_2)) (not (currstate s_8_0)) (not (currstate s_9_2)) )
-)
-
-(:action goto-abstract_states-cs415
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_0) (currstate s_2_2) (currstate s_3_0) (currstate s_4_0) (currstate s_5_0) (currstate s_6_0) (currstate s_7_2) (currstate s_8_0) (currstate s_9_0) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_0)) (not (currstate s_2_2)) (not (currstate s_3_0)) (not (currstate s_4_0)) (not (currstate s_5_0)) (not (currstate s_6_0)) (not (currstate s_7_2)) (not (currstate s_8_0)) (not (currstate s_9_0)) )
-)
-
-(:action goto-abstract_states-cs416
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_0) (currstate s_2_2) (currstate s_3_0) (currstate s_4_2) (currstate s_5_2) (currstate s_6_2) (currstate s_7_0) (currstate s_8_2) (currstate s_9_2) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_0)) (not (currstate s_2_2)) (not (currstate s_3_0)) (not (currstate s_4_2)) (not (currstate s_5_2)) (not (currstate s_6_2)) (not (currstate s_7_0)) (not (currstate s_8_2)) (not (currstate s_9_2)) )
-)
-
-(:action goto-abstract_states-cs417
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_0) (currstate s_2_2) (currstate s_3_0) (currstate s_4_2) (currstate s_5_2) (currstate s_6_2) (currstate s_7_0) (currstate s_8_2) (currstate s_9_0) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_0)) (not (currstate s_2_2)) (not (currstate s_3_0)) (not (currstate s_4_2)) (not (currstate s_5_2)) (not (currstate s_6_2)) (not (currstate s_7_0)) (not (currstate s_8_2)) (not (currstate s_9_0)) )
-)
-
-(:action goto-abstract_states-cs418
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_0) (currstate s_2_2) (currstate s_3_0) (currstate s_4_2) (currstate s_5_2) (currstate s_6_2) (currstate s_7_0) (currstate s_8_0) (currstate s_9_2) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_0)) (not (currstate s_2_2)) (not (currstate s_3_0)) (not (currstate s_4_2)) (not (currstate s_5_2)) (not (currstate s_6_2)) (not (currstate s_7_0)) (not (currstate s_8_0)) (not (currstate s_9_2)) )
-)
-
-(:action goto-abstract_states-cs419
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_0) (currstate s_2_2) (currstate s_3_0) (currstate s_4_2) (currstate s_5_2) (currstate s_6_2) (currstate s_7_0) (currstate s_8_0) (currstate s_9_0) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_0)) (not (currstate s_2_2)) (not (currstate s_3_0)) (not (currstate s_4_2)) (not (currstate s_5_2)) (not (currstate s_6_2)) (not (currstate s_7_0)) (not (currstate s_8_0)) (not (currstate s_9_0)) )
-)
-
-(:action goto-abstract_states-cs420
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_0) (currstate s_2_2) (currstate s_3_0) (currstate s_4_2) (currstate s_5_2) (currstate s_6_2) (currstate s_7_2) (currstate s_8_2) (currstate s_9_2) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_0)) (not (currstate s_2_2)) (not (currstate s_3_0)) (not (currstate s_4_2)) (not (currstate s_5_2)) (not (currstate s_6_2)) (not (currstate s_7_2)) (not (currstate s_8_2)) (not (currstate s_9_2)) )
-)
-
-(:action goto-abstract_states-cs421
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_0) (currstate s_2_2) (currstate s_3_0) (currstate s_4_2) (currstate s_5_2) (currstate s_6_2) (currstate s_7_2) (currstate s_8_2) (currstate s_9_0) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_0)) (not (currstate s_2_2)) (not (currstate s_3_0)) (not (currstate s_4_2)) (not (currstate s_5_2)) (not (currstate s_6_2)) (not (currstate s_7_2)) (not (currstate s_8_2)) (not (currstate s_9_0)) )
-)
-
-(:action goto-abstract_states-cs422
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_0) (currstate s_2_2) (currstate s_3_0) (currstate s_4_2) (currstate s_5_2) (currstate s_6_2) (currstate s_7_2) (currstate s_8_0) (currstate s_9_2) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_0)) (not (currstate s_2_2)) (not (currstate s_3_0)) (not (currstate s_4_2)) (not (currstate s_5_2)) (not (currstate s_6_2)) (not (currstate s_7_2)) (not (currstate s_8_0)) (not (currstate s_9_2)) )
-)
-
-(:action goto-abstract_states-cs423
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_0) (currstate s_2_2) (currstate s_3_0) (currstate s_4_2) (currstate s_5_2) (currstate s_6_2) (currstate s_7_2) (currstate s_8_0) (currstate s_9_0) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_0)) (not (currstate s_2_2)) (not (currstate s_3_0)) (not (currstate s_4_2)) (not (currstate s_5_2)) (not (currstate s_6_2)) (not (currstate s_7_2)) (not (currstate s_8_0)) (not (currstate s_9_0)) )
-)
-
-(:action goto-abstract_states-cs424
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_0) (currstate s_2_2) (currstate s_3_0) (currstate s_4_2) (currstate s_5_2) (currstate s_6_0) (currstate s_7_0) (currstate s_8_2) (currstate s_9_2) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_0)) (not (currstate s_2_2)) (not (currstate s_3_0)) (not (currstate s_4_2)) (not (currstate s_5_2)) (not (currstate s_6_0)) (not (currstate s_7_0)) (not (currstate s_8_2)) (not (currstate s_9_2)) )
-)
-
-(:action goto-abstract_states-cs425
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_0) (currstate s_2_2) (currstate s_3_0) (currstate s_4_2) (currstate s_5_2) (currstate s_6_0) (currstate s_7_0) (currstate s_8_2) (currstate s_9_0) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_0)) (not (currstate s_2_2)) (not (currstate s_3_0)) (not (currstate s_4_2)) (not (currstate s_5_2)) (not (currstate s_6_0)) (not (currstate s_7_0)) (not (currstate s_8_2)) (not (currstate s_9_0)) )
-)
-
-(:action goto-abstract_states-cs426
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_0) (currstate s_2_2) (currstate s_3_0) (currstate s_4_2) (currstate s_5_2) (currstate s_6_0) (currstate s_7_0) (currstate s_8_0) (currstate s_9_2) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_0)) (not (currstate s_2_2)) (not (currstate s_3_0)) (not (currstate s_4_2)) (not (currstate s_5_2)) (not (currstate s_6_0)) (not (currstate s_7_0)) (not (currstate s_8_0)) (not (currstate s_9_2)) )
-)
-
-(:action goto-abstract_states-cs427
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_0) (currstate s_2_2) (currstate s_3_0) (currstate s_4_2) (currstate s_5_2) (currstate s_6_0) (currstate s_7_0) (currstate s_8_0) (currstate s_9_0) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_0)) (not (currstate s_2_2)) (not (currstate s_3_0)) (not (currstate s_4_2)) (not (currstate s_5_2)) (not (currstate s_6_0)) (not (currstate s_7_0)) (not (currstate s_8_0)) (not (currstate s_9_0)) )
-)
-
-(:action goto-abstract_states-cs428
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_0) (currstate s_2_2) (currstate s_3_0) (currstate s_4_2) (currstate s_5_2) (currstate s_6_0) (currstate s_7_2) (currstate s_8_2) (currstate s_9_2) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_0)) (not (currstate s_2_2)) (not (currstate s_3_0)) (not (currstate s_4_2)) (not (currstate s_5_2)) (not (currstate s_6_0)) (not (currstate s_7_2)) (not (currstate s_8_2)) (not (currstate s_9_2)) )
-)
-
-(:action goto-abstract_states-cs429
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_0) (currstate s_2_2) (currstate s_3_0) (currstate s_4_2) (currstate s_5_2) (currstate s_6_0) (currstate s_7_2) (currstate s_8_2) (currstate s_9_0) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_0)) (not (currstate s_2_2)) (not (currstate s_3_0)) (not (currstate s_4_2)) (not (currstate s_5_2)) (not (currstate s_6_0)) (not (currstate s_7_2)) (not (currstate s_8_2)) (not (currstate s_9_0)) )
-)
-
-(:action goto-abstract_states-cs430
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_0) (currstate s_2_2) (currstate s_3_0) (currstate s_4_2) (currstate s_5_2) (currstate s_6_0) (currstate s_7_2) (currstate s_8_0) (currstate s_9_2) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_0)) (not (currstate s_2_2)) (not (currstate s_3_0)) (not (currstate s_4_2)) (not (currstate s_5_2)) (not (currstate s_6_0)) (not (currstate s_7_2)) (not (currstate s_8_0)) (not (currstate s_9_2)) )
-)
-
-(:action goto-abstract_states-cs431
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_0) (currstate s_2_2) (currstate s_3_0) (currstate s_4_2) (currstate s_5_2) (currstate s_6_0) (currstate s_7_2) (currstate s_8_0) (currstate s_9_0) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_0)) (not (currstate s_2_2)) (not (currstate s_3_0)) (not (currstate s_4_2)) (not (currstate s_5_2)) (not (currstate s_6_0)) (not (currstate s_7_2)) (not (currstate s_8_0)) (not (currstate s_9_0)) )
-)
-
-(:action goto-abstract_states-cs432
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_0) (currstate s_2_2) (currstate s_3_0) (currstate s_4_2) (currstate s_5_0) (currstate s_6_2) (currstate s_7_0) (currstate s_8_2) (currstate s_9_2) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_0)) (not (currstate s_2_2)) (not (currstate s_3_0)) (not (currstate s_4_2)) (not (currstate s_5_0)) (not (currstate s_6_2)) (not (currstate s_7_0)) (not (currstate s_8_2)) (not (currstate s_9_2)) )
-)
-
-(:action goto-abstract_states-cs433
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_0) (currstate s_2_2) (currstate s_3_0) (currstate s_4_2) (currstate s_5_0) (currstate s_6_2) (currstate s_7_0) (currstate s_8_2) (currstate s_9_0) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_0)) (not (currstate s_2_2)) (not (currstate s_3_0)) (not (currstate s_4_2)) (not (currstate s_5_0)) (not (currstate s_6_2)) (not (currstate s_7_0)) (not (currstate s_8_2)) (not (currstate s_9_0)) )
-)
-
-(:action goto-abstract_states-cs434
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_0) (currstate s_2_2) (currstate s_3_0) (currstate s_4_2) (currstate s_5_0) (currstate s_6_2) (currstate s_7_0) (currstate s_8_0) (currstate s_9_2) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_0)) (not (currstate s_2_2)) (not (currstate s_3_0)) (not (currstate s_4_2)) (not (currstate s_5_0)) (not (currstate s_6_2)) (not (currstate s_7_0)) (not (currstate s_8_0)) (not (currstate s_9_2)) )
-)
-
-(:action goto-abstract_states-cs435
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_0) (currstate s_2_2) (currstate s_3_0) (currstate s_4_2) (currstate s_5_0) (currstate s_6_2) (currstate s_7_0) (currstate s_8_0) (currstate s_9_0) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_0)) (not (currstate s_2_2)) (not (currstate s_3_0)) (not (currstate s_4_2)) (not (currstate s_5_0)) (not (currstate s_6_2)) (not (currstate s_7_0)) (not (currstate s_8_0)) (not (currstate s_9_0)) )
-)
-
-(:action goto-abstract_states-cs436
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_0) (currstate s_2_2) (currstate s_3_0) (currstate s_4_2) (currstate s_5_0) (currstate s_6_2) (currstate s_7_2) (currstate s_8_2) (currstate s_9_2) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_0)) (not (currstate s_2_2)) (not (currstate s_3_0)) (not (currstate s_4_2)) (not (currstate s_5_0)) (not (currstate s_6_2)) (not (currstate s_7_2)) (not (currstate s_8_2)) (not (currstate s_9_2)) )
-)
-
-(:action goto-abstract_states-cs437
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_0) (currstate s_2_2) (currstate s_3_0) (currstate s_4_2) (currstate s_5_0) (currstate s_6_2) (currstate s_7_2) (currstate s_8_2) (currstate s_9_0) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_0)) (not (currstate s_2_2)) (not (currstate s_3_0)) (not (currstate s_4_2)) (not (currstate s_5_0)) (not (currstate s_6_2)) (not (currstate s_7_2)) (not (currstate s_8_2)) (not (currstate s_9_0)) )
-)
-
-(:action goto-abstract_states-cs438
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_0) (currstate s_2_2) (currstate s_3_0) (currstate s_4_2) (currstate s_5_0) (currstate s_6_2) (currstate s_7_2) (currstate s_8_0) (currstate s_9_2) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_0)) (not (currstate s_2_2)) (not (currstate s_3_0)) (not (currstate s_4_2)) (not (currstate s_5_0)) (not (currstate s_6_2)) (not (currstate s_7_2)) (not (currstate s_8_0)) (not (currstate s_9_2)) )
-)
-
-(:action goto-abstract_states-cs439
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_0) (currstate s_2_2) (currstate s_3_0) (currstate s_4_2) (currstate s_5_0) (currstate s_6_2) (currstate s_7_2) (currstate s_8_0) (currstate s_9_0) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_0)) (not (currstate s_2_2)) (not (currstate s_3_0)) (not (currstate s_4_2)) (not (currstate s_5_0)) (not (currstate s_6_2)) (not (currstate s_7_2)) (not (currstate s_8_0)) (not (currstate s_9_0)) )
-)
-
-(:action goto-abstract_states-cs440
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_0) (currstate s_2_2) (currstate s_3_0) (currstate s_4_2) (currstate s_5_0) (currstate s_6_0) (currstate s_7_0) (currstate s_8_2) (currstate s_9_2) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_0)) (not (currstate s_2_2)) (not (currstate s_3_0)) (not (currstate s_4_2)) (not (currstate s_5_0)) (not (currstate s_6_0)) (not (currstate s_7_0)) (not (currstate s_8_2)) (not (currstate s_9_2)) )
-)
-
-(:action goto-abstract_states-cs441
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_0) (currstate s_2_2) (currstate s_3_0) (currstate s_4_2) (currstate s_5_0) (currstate s_6_0) (currstate s_7_0) (currstate s_8_2) (currstate s_9_0) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_0)) (not (currstate s_2_2)) (not (currstate s_3_0)) (not (currstate s_4_2)) (not (currstate s_5_0)) (not (currstate s_6_0)) (not (currstate s_7_0)) (not (currstate s_8_2)) (not (currstate s_9_0)) )
-)
-
-(:action goto-abstract_states-cs442
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_0) (currstate s_2_2) (currstate s_3_0) (currstate s_4_2) (currstate s_5_0) (currstate s_6_0) (currstate s_7_0) (currstate s_8_0) (currstate s_9_2) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_0)) (not (currstate s_2_2)) (not (currstate s_3_0)) (not (currstate s_4_2)) (not (currstate s_5_0)) (not (currstate s_6_0)) (not (currstate s_7_0)) (not (currstate s_8_0)) (not (currstate s_9_2)) )
-)
-
-(:action goto-abstract_states-cs443
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_0) (currstate s_2_2) (currstate s_3_0) (currstate s_4_2) (currstate s_5_0) (currstate s_6_0) (currstate s_7_0) (currstate s_8_0) (currstate s_9_0) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_0)) (not (currstate s_2_2)) (not (currstate s_3_0)) (not (currstate s_4_2)) (not (currstate s_5_0)) (not (currstate s_6_0)) (not (currstate s_7_0)) (not (currstate s_8_0)) (not (currstate s_9_0)) )
-)
-
-(:action goto-abstract_states-cs444
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_0) (currstate s_2_2) (currstate s_3_0) (currstate s_4_2) (currstate s_5_0) (currstate s_6_0) (currstate s_7_2) (currstate s_8_2) (currstate s_9_2) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_0)) (not (currstate s_2_2)) (not (currstate s_3_0)) (not (currstate s_4_2)) (not (currstate s_5_0)) (not (currstate s_6_0)) (not (currstate s_7_2)) (not (currstate s_8_2)) (not (currstate s_9_2)) )
-)
-
-(:action goto-abstract_states-cs445
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_0) (currstate s_2_2) (currstate s_3_0) (currstate s_4_2) (currstate s_5_0) (currstate s_6_0) (currstate s_7_2) (currstate s_8_2) (currstate s_9_0) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_0)) (not (currstate s_2_2)) (not (currstate s_3_0)) (not (currstate s_4_2)) (not (currstate s_5_0)) (not (currstate s_6_0)) (not (currstate s_7_2)) (not (currstate s_8_2)) (not (currstate s_9_0)) )
-)
-
-(:action goto-abstract_states-cs446
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_0) (currstate s_2_2) (currstate s_3_0) (currstate s_4_2) (currstate s_5_0) (currstate s_6_0) (currstate s_7_2) (currstate s_8_0) (currstate s_9_2) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_0)) (not (currstate s_2_2)) (not (currstate s_3_0)) (not (currstate s_4_2)) (not (currstate s_5_0)) (not (currstate s_6_0)) (not (currstate s_7_2)) (not (currstate s_8_0)) (not (currstate s_9_2)) )
-)
-
-(:action goto-abstract_states-cs447
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_0) (currstate s_2_2) (currstate s_3_0) (currstate s_4_2) (currstate s_5_0) (currstate s_6_0) (currstate s_7_2) (currstate s_8_0) (currstate s_9_0) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_0)) (not (currstate s_2_2)) (not (currstate s_3_0)) (not (currstate s_4_2)) (not (currstate s_5_0)) (not (currstate s_6_0)) (not (currstate s_7_2)) (not (currstate s_8_0)) (not (currstate s_9_0)) )
-)
-
-(:action goto-abstract_states-cs448
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_0) (currstate s_2_2) (currstate s_3_2) (currstate s_4_0) (currstate s_5_2) (currstate s_6_2) (currstate s_7_0) (currstate s_8_2) (currstate s_9_2) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_0)) (not (currstate s_2_2)) (not (currstate s_3_2)) (not (currstate s_4_0)) (not (currstate s_5_2)) (not (currstate s_6_2)) (not (currstate s_7_0)) (not (currstate s_8_2)) (not (currstate s_9_2)) )
-)
-
-(:action goto-abstract_states-cs449
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_0) (currstate s_2_2) (currstate s_3_2) (currstate s_4_0) (currstate s_5_2) (currstate s_6_2) (currstate s_7_0) (currstate s_8_2) (currstate s_9_0) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_0)) (not (currstate s_2_2)) (not (currstate s_3_2)) (not (currstate s_4_0)) (not (currstate s_5_2)) (not (currstate s_6_2)) (not (currstate s_7_0)) (not (currstate s_8_2)) (not (currstate s_9_0)) )
-)
-
-(:action goto-abstract_states-cs450
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_0) (currstate s_2_2) (currstate s_3_2) (currstate s_4_0) (currstate s_5_2) (currstate s_6_2) (currstate s_7_0) (currstate s_8_0) (currstate s_9_2) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_0)) (not (currstate s_2_2)) (not (currstate s_3_2)) (not (currstate s_4_0)) (not (currstate s_5_2)) (not (currstate s_6_2)) (not (currstate s_7_0)) (not (currstate s_8_0)) (not (currstate s_9_2)) )
-)
-
-(:action goto-abstract_states-cs451
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_0) (currstate s_2_2) (currstate s_3_2) (currstate s_4_0) (currstate s_5_2) (currstate s_6_2) (currstate s_7_0) (currstate s_8_0) (currstate s_9_0) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_0)) (not (currstate s_2_2)) (not (currstate s_3_2)) (not (currstate s_4_0)) (not (currstate s_5_2)) (not (currstate s_6_2)) (not (currstate s_7_0)) (not (currstate s_8_0)) (not (currstate s_9_0)) )
-)
-
-(:action goto-abstract_states-cs452
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_0) (currstate s_2_2) (currstate s_3_2) (currstate s_4_0) (currstate s_5_2) (currstate s_6_2) (currstate s_7_2) (currstate s_8_2) (currstate s_9_2) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_0)) (not (currstate s_2_2)) (not (currstate s_3_2)) (not (currstate s_4_0)) (not (currstate s_5_2)) (not (currstate s_6_2)) (not (currstate s_7_2)) (not (currstate s_8_2)) (not (currstate s_9_2)) )
-)
-
-(:action goto-abstract_states-cs453
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_0) (currstate s_2_2) (currstate s_3_2) (currstate s_4_0) (currstate s_5_2) (currstate s_6_2) (currstate s_7_2) (currstate s_8_2) (currstate s_9_0) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_0)) (not (currstate s_2_2)) (not (currstate s_3_2)) (not (currstate s_4_0)) (not (currstate s_5_2)) (not (currstate s_6_2)) (not (currstate s_7_2)) (not (currstate s_8_2)) (not (currstate s_9_0)) )
-)
-
-(:action goto-abstract_states-cs454
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_0) (currstate s_2_2) (currstate s_3_2) (currstate s_4_0) (currstate s_5_2) (currstate s_6_2) (currstate s_7_2) (currstate s_8_0) (currstate s_9_2) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_0)) (not (currstate s_2_2)) (not (currstate s_3_2)) (not (currstate s_4_0)) (not (currstate s_5_2)) (not (currstate s_6_2)) (not (currstate s_7_2)) (not (currstate s_8_0)) (not (currstate s_9_2)) )
-)
-
-(:action goto-abstract_states-cs455
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_0) (currstate s_2_2) (currstate s_3_2) (currstate s_4_0) (currstate s_5_2) (currstate s_6_2) (currstate s_7_2) (currstate s_8_0) (currstate s_9_0) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_0)) (not (currstate s_2_2)) (not (currstate s_3_2)) (not (currstate s_4_0)) (not (currstate s_5_2)) (not (currstate s_6_2)) (not (currstate s_7_2)) (not (currstate s_8_0)) (not (currstate s_9_0)) )
-)
-
-(:action goto-abstract_states-cs456
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_0) (currstate s_2_2) (currstate s_3_2) (currstate s_4_0) (currstate s_5_2) (currstate s_6_0) (currstate s_7_0) (currstate s_8_2) (currstate s_9_2) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_0)) (not (currstate s_2_2)) (not (currstate s_3_2)) (not (currstate s_4_0)) (not (currstate s_5_2)) (not (currstate s_6_0)) (not (currstate s_7_0)) (not (currstate s_8_2)) (not (currstate s_9_2)) )
-)
-
-(:action goto-abstract_states-cs457
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_0) (currstate s_2_2) (currstate s_3_2) (currstate s_4_0) (currstate s_5_2) (currstate s_6_0) (currstate s_7_0) (currstate s_8_2) (currstate s_9_0) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_0)) (not (currstate s_2_2)) (not (currstate s_3_2)) (not (currstate s_4_0)) (not (currstate s_5_2)) (not (currstate s_6_0)) (not (currstate s_7_0)) (not (currstate s_8_2)) (not (currstate s_9_0)) )
-)
-
-(:action goto-abstract_states-cs458
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_0) (currstate s_2_2) (currstate s_3_2) (currstate s_4_0) (currstate s_5_2) (currstate s_6_0) (currstate s_7_0) (currstate s_8_0) (currstate s_9_2) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_0)) (not (currstate s_2_2)) (not (currstate s_3_2)) (not (currstate s_4_0)) (not (currstate s_5_2)) (not (currstate s_6_0)) (not (currstate s_7_0)) (not (currstate s_8_0)) (not (currstate s_9_2)) )
-)
-
-(:action goto-abstract_states-cs459
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_0) (currstate s_2_2) (currstate s_3_2) (currstate s_4_0) (currstate s_5_2) (currstate s_6_0) (currstate s_7_0) (currstate s_8_0) (currstate s_9_0) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_0)) (not (currstate s_2_2)) (not (currstate s_3_2)) (not (currstate s_4_0)) (not (currstate s_5_2)) (not (currstate s_6_0)) (not (currstate s_7_0)) (not (currstate s_8_0)) (not (currstate s_9_0)) )
-)
-
-(:action goto-abstract_states-cs460
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_0) (currstate s_2_2) (currstate s_3_2) (currstate s_4_0) (currstate s_5_2) (currstate s_6_0) (currstate s_7_2) (currstate s_8_2) (currstate s_9_2) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_0)) (not (currstate s_2_2)) (not (currstate s_3_2)) (not (currstate s_4_0)) (not (currstate s_5_2)) (not (currstate s_6_0)) (not (currstate s_7_2)) (not (currstate s_8_2)) (not (currstate s_9_2)) )
-)
-
-(:action goto-abstract_states-cs461
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_0) (currstate s_2_2) (currstate s_3_2) (currstate s_4_0) (currstate s_5_2) (currstate s_6_0) (currstate s_7_2) (currstate s_8_2) (currstate s_9_0) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_0)) (not (currstate s_2_2)) (not (currstate s_3_2)) (not (currstate s_4_0)) (not (currstate s_5_2)) (not (currstate s_6_0)) (not (currstate s_7_2)) (not (currstate s_8_2)) (not (currstate s_9_0)) )
-)
-
-(:action goto-abstract_states-cs462
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_0) (currstate s_2_2) (currstate s_3_2) (currstate s_4_0) (currstate s_5_2) (currstate s_6_0) (currstate s_7_2) (currstate s_8_0) (currstate s_9_2) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_0)) (not (currstate s_2_2)) (not (currstate s_3_2)) (not (currstate s_4_0)) (not (currstate s_5_2)) (not (currstate s_6_0)) (not (currstate s_7_2)) (not (currstate s_8_0)) (not (currstate s_9_2)) )
-)
-
-(:action goto-abstract_states-cs463
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_0) (currstate s_2_2) (currstate s_3_2) (currstate s_4_0) (currstate s_5_2) (currstate s_6_0) (currstate s_7_2) (currstate s_8_0) (currstate s_9_0) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_0)) (not (currstate s_2_2)) (not (currstate s_3_2)) (not (currstate s_4_0)) (not (currstate s_5_2)) (not (currstate s_6_0)) (not (currstate s_7_2)) (not (currstate s_8_0)) (not (currstate s_9_0)) )
-)
-
-(:action goto-abstract_states-cs464
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_0) (currstate s_2_2) (currstate s_3_2) (currstate s_4_0) (currstate s_5_0) (currstate s_6_2) (currstate s_7_0) (currstate s_8_2) (currstate s_9_2) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_0)) (not (currstate s_2_2)) (not (currstate s_3_2)) (not (currstate s_4_0)) (not (currstate s_5_0)) (not (currstate s_6_2)) (not (currstate s_7_0)) (not (currstate s_8_2)) (not (currstate s_9_2)) )
-)
-
-(:action goto-abstract_states-cs465
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_0) (currstate s_2_2) (currstate s_3_2) (currstate s_4_0) (currstate s_5_0) (currstate s_6_2) (currstate s_7_0) (currstate s_8_2) (currstate s_9_0) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_0)) (not (currstate s_2_2)) (not (currstate s_3_2)) (not (currstate s_4_0)) (not (currstate s_5_0)) (not (currstate s_6_2)) (not (currstate s_7_0)) (not (currstate s_8_2)) (not (currstate s_9_0)) )
-)
-
-(:action goto-abstract_states-cs466
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_0) (currstate s_2_2) (currstate s_3_2) (currstate s_4_0) (currstate s_5_0) (currstate s_6_2) (currstate s_7_0) (currstate s_8_0) (currstate s_9_2) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_0)) (not (currstate s_2_2)) (not (currstate s_3_2)) (not (currstate s_4_0)) (not (currstate s_5_0)) (not (currstate s_6_2)) (not (currstate s_7_0)) (not (currstate s_8_0)) (not (currstate s_9_2)) )
-)
-
-(:action goto-abstract_states-cs467
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_0) (currstate s_2_2) (currstate s_3_2) (currstate s_4_0) (currstate s_5_0) (currstate s_6_2) (currstate s_7_0) (currstate s_8_0) (currstate s_9_0) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_0)) (not (currstate s_2_2)) (not (currstate s_3_2)) (not (currstate s_4_0)) (not (currstate s_5_0)) (not (currstate s_6_2)) (not (currstate s_7_0)) (not (currstate s_8_0)) (not (currstate s_9_0)) )
-)
-
-(:action goto-abstract_states-cs468
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_0) (currstate s_2_2) (currstate s_3_2) (currstate s_4_0) (currstate s_5_0) (currstate s_6_2) (currstate s_7_2) (currstate s_8_2) (currstate s_9_2) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_0)) (not (currstate s_2_2)) (not (currstate s_3_2)) (not (currstate s_4_0)) (not (currstate s_5_0)) (not (currstate s_6_2)) (not (currstate s_7_2)) (not (currstate s_8_2)) (not (currstate s_9_2)) )
-)
-
-(:action goto-abstract_states-cs469
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_0) (currstate s_2_2) (currstate s_3_2) (currstate s_4_0) (currstate s_5_0) (currstate s_6_2) (currstate s_7_2) (currstate s_8_2) (currstate s_9_0) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_0)) (not (currstate s_2_2)) (not (currstate s_3_2)) (not (currstate s_4_0)) (not (currstate s_5_0)) (not (currstate s_6_2)) (not (currstate s_7_2)) (not (currstate s_8_2)) (not (currstate s_9_0)) )
-)
-
-(:action goto-abstract_states-cs470
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_0) (currstate s_2_2) (currstate s_3_2) (currstate s_4_0) (currstate s_5_0) (currstate s_6_2) (currstate s_7_2) (currstate s_8_0) (currstate s_9_2) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_0)) (not (currstate s_2_2)) (not (currstate s_3_2)) (not (currstate s_4_0)) (not (currstate s_5_0)) (not (currstate s_6_2)) (not (currstate s_7_2)) (not (currstate s_8_0)) (not (currstate s_9_2)) )
-)
-
-(:action goto-abstract_states-cs471
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_0) (currstate s_2_2) (currstate s_3_2) (currstate s_4_0) (currstate s_5_0) (currstate s_6_2) (currstate s_7_2) (currstate s_8_0) (currstate s_9_0) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_0)) (not (currstate s_2_2)) (not (currstate s_3_2)) (not (currstate s_4_0)) (not (currstate s_5_0)) (not (currstate s_6_2)) (not (currstate s_7_2)) (not (currstate s_8_0)) (not (currstate s_9_0)) )
-)
-
-(:action goto-abstract_states-cs472
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_0) (currstate s_2_2) (currstate s_3_2) (currstate s_4_0) (currstate s_5_0) (currstate s_6_0) (currstate s_7_0) (currstate s_8_2) (currstate s_9_2) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_0)) (not (currstate s_2_2)) (not (currstate s_3_2)) (not (currstate s_4_0)) (not (currstate s_5_0)) (not (currstate s_6_0)) (not (currstate s_7_0)) (not (currstate s_8_2)) (not (currstate s_9_2)) )
-)
-
-(:action goto-abstract_states-cs473
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_0) (currstate s_2_2) (currstate s_3_2) (currstate s_4_0) (currstate s_5_0) (currstate s_6_0) (currstate s_7_0) (currstate s_8_2) (currstate s_9_0) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_0)) (not (currstate s_2_2)) (not (currstate s_3_2)) (not (currstate s_4_0)) (not (currstate s_5_0)) (not (currstate s_6_0)) (not (currstate s_7_0)) (not (currstate s_8_2)) (not (currstate s_9_0)) )
-)
-
-(:action goto-abstract_states-cs474
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_0) (currstate s_2_2) (currstate s_3_2) (currstate s_4_0) (currstate s_5_0) (currstate s_6_0) (currstate s_7_0) (currstate s_8_0) (currstate s_9_2) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_0)) (not (currstate s_2_2)) (not (currstate s_3_2)) (not (currstate s_4_0)) (not (currstate s_5_0)) (not (currstate s_6_0)) (not (currstate s_7_0)) (not (currstate s_8_0)) (not (currstate s_9_2)) )
-)
-
-(:action goto-abstract_states-cs475
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_0) (currstate s_2_2) (currstate s_3_2) (currstate s_4_0) (currstate s_5_0) (currstate s_6_0) (currstate s_7_0) (currstate s_8_0) (currstate s_9_0) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_0)) (not (currstate s_2_2)) (not (currstate s_3_2)) (not (currstate s_4_0)) (not (currstate s_5_0)) (not (currstate s_6_0)) (not (currstate s_7_0)) (not (currstate s_8_0)) (not (currstate s_9_0)) )
-)
-
-(:action goto-abstract_states-cs476
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_0) (currstate s_2_2) (currstate s_3_2) (currstate s_4_0) (currstate s_5_0) (currstate s_6_0) (currstate s_7_2) (currstate s_8_2) (currstate s_9_2) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_0)) (not (currstate s_2_2)) (not (currstate s_3_2)) (not (currstate s_4_0)) (not (currstate s_5_0)) (not (currstate s_6_0)) (not (currstate s_7_2)) (not (currstate s_8_2)) (not (currstate s_9_2)) )
-)
-
-(:action goto-abstract_states-cs477
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_0) (currstate s_2_2) (currstate s_3_2) (currstate s_4_0) (currstate s_5_0) (currstate s_6_0) (currstate s_7_2) (currstate s_8_2) (currstate s_9_0) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_0)) (not (currstate s_2_2)) (not (currstate s_3_2)) (not (currstate s_4_0)) (not (currstate s_5_0)) (not (currstate s_6_0)) (not (currstate s_7_2)) (not (currstate s_8_2)) (not (currstate s_9_0)) )
-)
-
-(:action goto-abstract_states-cs478
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_0) (currstate s_2_2) (currstate s_3_2) (currstate s_4_0) (currstate s_5_0) (currstate s_6_0) (currstate s_7_2) (currstate s_8_0) (currstate s_9_2) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_0)) (not (currstate s_2_2)) (not (currstate s_3_2)) (not (currstate s_4_0)) (not (currstate s_5_0)) (not (currstate s_6_0)) (not (currstate s_7_2)) (not (currstate s_8_0)) (not (currstate s_9_2)) )
-)
-
-(:action goto-abstract_states-cs479
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_0) (currstate s_2_2) (currstate s_3_2) (currstate s_4_0) (currstate s_5_0) (currstate s_6_0) (currstate s_7_2) (currstate s_8_0) (currstate s_9_0) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_0)) (not (currstate s_2_2)) (not (currstate s_3_2)) (not (currstate s_4_0)) (not (currstate s_5_0)) (not (currstate s_6_0)) (not (currstate s_7_2)) (not (currstate s_8_0)) (not (currstate s_9_0)) )
-)
-
-(:action goto-abstract_states-cs480
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_0) (currstate s_2_2) (currstate s_3_2) (currstate s_4_2) (currstate s_5_2) (currstate s_6_2) (currstate s_7_0) (currstate s_8_2) (currstate s_9_2) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_0)) (not (currstate s_2_2)) (not (currstate s_3_2)) (not (currstate s_4_2)) (not (currstate s_5_2)) (not (currstate s_6_2)) (not (currstate s_7_0)) (not (currstate s_8_2)) (not (currstate s_9_2)) )
-)
-
-(:action goto-abstract_states-cs481
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_0) (currstate s_2_2) (currstate s_3_2) (currstate s_4_2) (currstate s_5_2) (currstate s_6_2) (currstate s_7_0) (currstate s_8_2) (currstate s_9_0) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_0)) (not (currstate s_2_2)) (not (currstate s_3_2)) (not (currstate s_4_2)) (not (currstate s_5_2)) (not (currstate s_6_2)) (not (currstate s_7_0)) (not (currstate s_8_2)) (not (currstate s_9_0)) )
-)
-
-(:action goto-abstract_states-cs482
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_0) (currstate s_2_2) (currstate s_3_2) (currstate s_4_2) (currstate s_5_2) (currstate s_6_2) (currstate s_7_0) (currstate s_8_0) (currstate s_9_2) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_0)) (not (currstate s_2_2)) (not (currstate s_3_2)) (not (currstate s_4_2)) (not (currstate s_5_2)) (not (currstate s_6_2)) (not (currstate s_7_0)) (not (currstate s_8_0)) (not (currstate s_9_2)) )
-)
-
-(:action goto-abstract_states-cs483
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_0) (currstate s_2_2) (currstate s_3_2) (currstate s_4_2) (currstate s_5_2) (currstate s_6_2) (currstate s_7_0) (currstate s_8_0) (currstate s_9_0) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_0)) (not (currstate s_2_2)) (not (currstate s_3_2)) (not (currstate s_4_2)) (not (currstate s_5_2)) (not (currstate s_6_2)) (not (currstate s_7_0)) (not (currstate s_8_0)) (not (currstate s_9_0)) )
-)
-
-(:action goto-abstract_states-cs484
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_0) (currstate s_2_2) (currstate s_3_2) (currstate s_4_2) (currstate s_5_2) (currstate s_6_2) (currstate s_7_2) (currstate s_8_2) (currstate s_9_2) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_0)) (not (currstate s_2_2)) (not (currstate s_3_2)) (not (currstate s_4_2)) (not (currstate s_5_2)) (not (currstate s_6_2)) (not (currstate s_7_2)) (not (currstate s_8_2)) (not (currstate s_9_2)) )
-)
-
-(:action goto-abstract_states-cs485
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_0) (currstate s_2_2) (currstate s_3_2) (currstate s_4_2) (currstate s_5_2) (currstate s_6_2) (currstate s_7_2) (currstate s_8_2) (currstate s_9_0) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_0)) (not (currstate s_2_2)) (not (currstate s_3_2)) (not (currstate s_4_2)) (not (currstate s_5_2)) (not (currstate s_6_2)) (not (currstate s_7_2)) (not (currstate s_8_2)) (not (currstate s_9_0)) )
-)
-
-(:action goto-abstract_states-cs486
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_0) (currstate s_2_2) (currstate s_3_2) (currstate s_4_2) (currstate s_5_2) (currstate s_6_2) (currstate s_7_2) (currstate s_8_0) (currstate s_9_2) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_0)) (not (currstate s_2_2)) (not (currstate s_3_2)) (not (currstate s_4_2)) (not (currstate s_5_2)) (not (currstate s_6_2)) (not (currstate s_7_2)) (not (currstate s_8_0)) (not (currstate s_9_2)) )
-)
-
-(:action goto-abstract_states-cs487
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_0) (currstate s_2_2) (currstate s_3_2) (currstate s_4_2) (currstate s_5_2) (currstate s_6_2) (currstate s_7_2) (currstate s_8_0) (currstate s_9_0) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_0)) (not (currstate s_2_2)) (not (currstate s_3_2)) (not (currstate s_4_2)) (not (currstate s_5_2)) (not (currstate s_6_2)) (not (currstate s_7_2)) (not (currstate s_8_0)) (not (currstate s_9_0)) )
-)
-
-(:action goto-abstract_states-cs488
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_0) (currstate s_2_2) (currstate s_3_2) (currstate s_4_2) (currstate s_5_2) (currstate s_6_0) (currstate s_7_0) (currstate s_8_2) (currstate s_9_2) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_0)) (not (currstate s_2_2)) (not (currstate s_3_2)) (not (currstate s_4_2)) (not (currstate s_5_2)) (not (currstate s_6_0)) (not (currstate s_7_0)) (not (currstate s_8_2)) (not (currstate s_9_2)) )
-)
-
-(:action goto-abstract_states-cs489
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_0) (currstate s_2_2) (currstate s_3_2) (currstate s_4_2) (currstate s_5_2) (currstate s_6_0) (currstate s_7_0) (currstate s_8_2) (currstate s_9_0) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_0)) (not (currstate s_2_2)) (not (currstate s_3_2)) (not (currstate s_4_2)) (not (currstate s_5_2)) (not (currstate s_6_0)) (not (currstate s_7_0)) (not (currstate s_8_2)) (not (currstate s_9_0)) )
-)
-
-(:action goto-abstract_states-cs490
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_0) (currstate s_2_2) (currstate s_3_2) (currstate s_4_2) (currstate s_5_2) (currstate s_6_0) (currstate s_7_0) (currstate s_8_0) (currstate s_9_2) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_0)) (not (currstate s_2_2)) (not (currstate s_3_2)) (not (currstate s_4_2)) (not (currstate s_5_2)) (not (currstate s_6_0)) (not (currstate s_7_0)) (not (currstate s_8_0)) (not (currstate s_9_2)) )
-)
-
-(:action goto-abstract_states-cs491
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_0) (currstate s_2_2) (currstate s_3_2) (currstate s_4_2) (currstate s_5_2) (currstate s_6_0) (currstate s_7_0) (currstate s_8_0) (currstate s_9_0) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_0)) (not (currstate s_2_2)) (not (currstate s_3_2)) (not (currstate s_4_2)) (not (currstate s_5_2)) (not (currstate s_6_0)) (not (currstate s_7_0)) (not (currstate s_8_0)) (not (currstate s_9_0)) )
-)
-
-(:action goto-abstract_states-cs492
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_0) (currstate s_2_2) (currstate s_3_2) (currstate s_4_2) (currstate s_5_2) (currstate s_6_0) (currstate s_7_2) (currstate s_8_2) (currstate s_9_2) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_0)) (not (currstate s_2_2)) (not (currstate s_3_2)) (not (currstate s_4_2)) (not (currstate s_5_2)) (not (currstate s_6_0)) (not (currstate s_7_2)) (not (currstate s_8_2)) (not (currstate s_9_2)) )
-)
-
-(:action goto-abstract_states-cs493
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_0) (currstate s_2_2) (currstate s_3_2) (currstate s_4_2) (currstate s_5_2) (currstate s_6_0) (currstate s_7_2) (currstate s_8_2) (currstate s_9_0) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_0)) (not (currstate s_2_2)) (not (currstate s_3_2)) (not (currstate s_4_2)) (not (currstate s_5_2)) (not (currstate s_6_0)) (not (currstate s_7_2)) (not (currstate s_8_2)) (not (currstate s_9_0)) )
-)
-
-(:action goto-abstract_states-cs494
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_0) (currstate s_2_2) (currstate s_3_2) (currstate s_4_2) (currstate s_5_2) (currstate s_6_0) (currstate s_7_2) (currstate s_8_0) (currstate s_9_2) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_0)) (not (currstate s_2_2)) (not (currstate s_3_2)) (not (currstate s_4_2)) (not (currstate s_5_2)) (not (currstate s_6_0)) (not (currstate s_7_2)) (not (currstate s_8_0)) (not (currstate s_9_2)) )
-)
-
-(:action goto-abstract_states-cs495
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_0) (currstate s_2_2) (currstate s_3_2) (currstate s_4_2) (currstate s_5_2) (currstate s_6_0) (currstate s_7_2) (currstate s_8_0) (currstate s_9_0) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_0)) (not (currstate s_2_2)) (not (currstate s_3_2)) (not (currstate s_4_2)) (not (currstate s_5_2)) (not (currstate s_6_0)) (not (currstate s_7_2)) (not (currstate s_8_0)) (not (currstate s_9_0)) )
-)
-
-(:action goto-abstract_states-cs496
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_0) (currstate s_2_2) (currstate s_3_2) (currstate s_4_2) (currstate s_5_0) (currstate s_6_2) (currstate s_7_0) (currstate s_8_2) (currstate s_9_2) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_0)) (not (currstate s_2_2)) (not (currstate s_3_2)) (not (currstate s_4_2)) (not (currstate s_5_0)) (not (currstate s_6_2)) (not (currstate s_7_0)) (not (currstate s_8_2)) (not (currstate s_9_2)) )
-)
-
-(:action goto-abstract_states-cs497
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_0) (currstate s_2_2) (currstate s_3_2) (currstate s_4_2) (currstate s_5_0) (currstate s_6_2) (currstate s_7_0) (currstate s_8_2) (currstate s_9_0) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_0)) (not (currstate s_2_2)) (not (currstate s_3_2)) (not (currstate s_4_2)) (not (currstate s_5_0)) (not (currstate s_6_2)) (not (currstate s_7_0)) (not (currstate s_8_2)) (not (currstate s_9_0)) )
-)
-
-(:action goto-abstract_states-cs498
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_0) (currstate s_2_2) (currstate s_3_2) (currstate s_4_2) (currstate s_5_0) (currstate s_6_2) (currstate s_7_0) (currstate s_8_0) (currstate s_9_2) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_0)) (not (currstate s_2_2)) (not (currstate s_3_2)) (not (currstate s_4_2)) (not (currstate s_5_0)) (not (currstate s_6_2)) (not (currstate s_7_0)) (not (currstate s_8_0)) (not (currstate s_9_2)) )
-)
-
-(:action goto-abstract_states-cs499
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_0) (currstate s_2_2) (currstate s_3_2) (currstate s_4_2) (currstate s_5_0) (currstate s_6_2) (currstate s_7_0) (currstate s_8_0) (currstate s_9_0) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_0)) (not (currstate s_2_2)) (not (currstate s_3_2)) (not (currstate s_4_2)) (not (currstate s_5_0)) (not (currstate s_6_2)) (not (currstate s_7_0)) (not (currstate s_8_0)) (not (currstate s_9_0)) )
-)
-
-(:action goto-abstract_states-cs500
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_0) (currstate s_2_2) (currstate s_3_2) (currstate s_4_2) (currstate s_5_0) (currstate s_6_2) (currstate s_7_2) (currstate s_8_2) (currstate s_9_2) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_0)) (not (currstate s_2_2)) (not (currstate s_3_2)) (not (currstate s_4_2)) (not (currstate s_5_0)) (not (currstate s_6_2)) (not (currstate s_7_2)) (not (currstate s_8_2)) (not (currstate s_9_2)) )
-)
-
-(:action goto-abstract_states-cs501
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_0) (currstate s_2_2) (currstate s_3_2) (currstate s_4_2) (currstate s_5_0) (currstate s_6_2) (currstate s_7_2) (currstate s_8_2) (currstate s_9_0) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_0)) (not (currstate s_2_2)) (not (currstate s_3_2)) (not (currstate s_4_2)) (not (currstate s_5_0)) (not (currstate s_6_2)) (not (currstate s_7_2)) (not (currstate s_8_2)) (not (currstate s_9_0)) )
-)
-
-(:action goto-abstract_states-cs502
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_0) (currstate s_2_2) (currstate s_3_2) (currstate s_4_2) (currstate s_5_0) (currstate s_6_2) (currstate s_7_2) (currstate s_8_0) (currstate s_9_2) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_0)) (not (currstate s_2_2)) (not (currstate s_3_2)) (not (currstate s_4_2)) (not (currstate s_5_0)) (not (currstate s_6_2)) (not (currstate s_7_2)) (not (currstate s_8_0)) (not (currstate s_9_2)) )
-)
-
-(:action goto-abstract_states-cs503
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_0) (currstate s_2_2) (currstate s_3_2) (currstate s_4_2) (currstate s_5_0) (currstate s_6_2) (currstate s_7_2) (currstate s_8_0) (currstate s_9_0) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_0)) (not (currstate s_2_2)) (not (currstate s_3_2)) (not (currstate s_4_2)) (not (currstate s_5_0)) (not (currstate s_6_2)) (not (currstate s_7_2)) (not (currstate s_8_0)) (not (currstate s_9_0)) )
-)
-
-(:action goto-abstract_states-cs504
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_0) (currstate s_2_2) (currstate s_3_2) (currstate s_4_2) (currstate s_5_0) (currstate s_6_0) (currstate s_7_0) (currstate s_8_2) (currstate s_9_2) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_0)) (not (currstate s_2_2)) (not (currstate s_3_2)) (not (currstate s_4_2)) (not (currstate s_5_0)) (not (currstate s_6_0)) (not (currstate s_7_0)) (not (currstate s_8_2)) (not (currstate s_9_2)) )
-)
-
-(:action goto-abstract_states-cs505
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_0) (currstate s_2_2) (currstate s_3_2) (currstate s_4_2) (currstate s_5_0) (currstate s_6_0) (currstate s_7_0) (currstate s_8_2) (currstate s_9_0) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_0)) (not (currstate s_2_2)) (not (currstate s_3_2)) (not (currstate s_4_2)) (not (currstate s_5_0)) (not (currstate s_6_0)) (not (currstate s_7_0)) (not (currstate s_8_2)) (not (currstate s_9_0)) )
-)
-
-(:action goto-abstract_states-cs506
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_0) (currstate s_2_2) (currstate s_3_2) (currstate s_4_2) (currstate s_5_0) (currstate s_6_0) (currstate s_7_0) (currstate s_8_0) (currstate s_9_2) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_0)) (not (currstate s_2_2)) (not (currstate s_3_2)) (not (currstate s_4_2)) (not (currstate s_5_0)) (not (currstate s_6_0)) (not (currstate s_7_0)) (not (currstate s_8_0)) (not (currstate s_9_2)) )
-)
-
-(:action goto-abstract_states-cs507
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_0) (currstate s_2_2) (currstate s_3_2) (currstate s_4_2) (currstate s_5_0) (currstate s_6_0) (currstate s_7_0) (currstate s_8_0) (currstate s_9_0) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_0)) (not (currstate s_2_2)) (not (currstate s_3_2)) (not (currstate s_4_2)) (not (currstate s_5_0)) (not (currstate s_6_0)) (not (currstate s_7_0)) (not (currstate s_8_0)) (not (currstate s_9_0)) )
-)
-
-(:action goto-abstract_states-cs508
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_0) (currstate s_2_2) (currstate s_3_2) (currstate s_4_2) (currstate s_5_0) (currstate s_6_0) (currstate s_7_2) (currstate s_8_2) (currstate s_9_2) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_0)) (not (currstate s_2_2)) (not (currstate s_3_2)) (not (currstate s_4_2)) (not (currstate s_5_0)) (not (currstate s_6_0)) (not (currstate s_7_2)) (not (currstate s_8_2)) (not (currstate s_9_2)) )
-)
-
-(:action goto-abstract_states-cs509
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_0) (currstate s_2_2) (currstate s_3_2) (currstate s_4_2) (currstate s_5_0) (currstate s_6_0) (currstate s_7_2) (currstate s_8_2) (currstate s_9_0) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_0)) (not (currstate s_2_2)) (not (currstate s_3_2)) (not (currstate s_4_2)) (not (currstate s_5_0)) (not (currstate s_6_0)) (not (currstate s_7_2)) (not (currstate s_8_2)) (not (currstate s_9_0)) )
-)
-
-(:action goto-abstract_states-cs510
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_0) (currstate s_2_2) (currstate s_3_2) (currstate s_4_2) (currstate s_5_0) (currstate s_6_0) (currstate s_7_2) (currstate s_8_0) (currstate s_9_2) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_0)) (not (currstate s_2_2)) (not (currstate s_3_2)) (not (currstate s_4_2)) (not (currstate s_5_0)) (not (currstate s_6_0)) (not (currstate s_7_2)) (not (currstate s_8_0)) (not (currstate s_9_2)) )
-)
-
-(:action goto-abstract_states-cs511
-:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_0) (currstate s_2_2) (currstate s_3_2) (currstate s_4_2) (currstate s_5_0) (currstate s_6_0) (currstate s_7_2) (currstate s_8_0) (currstate s_9_0) )
-:effect (and (currstate s_1_abstract) (currstate s_2_abstract) (currstate s_3_abstract) (currstate s_4_abstract) (currstate s_5_abstract) (currstate s_6_abstract) (currstate s_7_abstract) (currstate s_8_abstract) (currstate s_9_abstract) (not (currstate s_1_0)) (not (currstate s_2_2)) (not (currstate s_3_2)) (not (currstate s_4_2)) (not (currstate s_5_0)) (not (currstate s_6_0)) (not (currstate s_7_2)) (not (currstate s_8_0)) (not (currstate s_9_0)) )
+:precondition (and (currstate t20) (currstate s_0_0) (currstate s_1_0) (currstate s_2_0) (currstate s_3_0) (currstate s_4_0) (currstate s_5_0) (currstate s_6_0) (currstate s_7_0) (currstate s_8_0) (currstate s_9_0) (currstate s_10_0) (currstate s_11_0) (currstate s_12_0) (currstate s_13_0) (currstate s_14_0) (currstate s_15_0) (currstate s_16_0) (currstate s_17_0) (currstate s_18_0) (currstate s_19_0) (currstate s_20_0) (currstate s_21_0) (currstate s_22_0) )
+:effect (and )
 )
 
 )
