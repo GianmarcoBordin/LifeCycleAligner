@@ -144,12 +144,12 @@ public class Utilities {
 	}
 
 
-	/*public static void findCombinationsOfTransitions(Object[] arr, String label, int len, int original_k_value, int startPosition, String[] result) {
+	public static void findCombinationsOfTransitions(Object[] arr, String label, int len, int original_k_value, int startPosition, String[] result) {
 		Optimizer.findCombinationsOfTransitions(arr, label, len, original_k_value);
 
-	}*/
+	}
 
-	public static void findCombinationsOfTransitions(Object[] arr, String label, int len, int original_k_value, int startPosition, String[] result) {
+	/*public static void findCombinationsOfTransitions(Object[] arr, String label, int len, int original_k_value, int startPosition, String[] result) {
 
 
 
@@ -204,15 +204,7 @@ public class Utilities {
 	        findCombinationsOfTransitions(arr, label, len-1, original_k_value, i+1, result);
 	    }
 	}
-	private static String generateKey(String[] result, int len, int startPosition) {
-		StringBuilder keyBuilder = new StringBuilder();
-		for (String s : result) {
-			keyBuilder.append(s).append(",");
-		}
-		keyBuilder.append(len).append(",").append(startPosition);
-		return keyBuilder.toString();
-	}
-	
+	*/
 	public static void findCombinationsOfAcceptingStates(Object[] arr, int len, int startPosition, String[] result) {
 	    
 		if (len == 0){
@@ -291,6 +283,7 @@ public class Utilities {
 			PDDL_domain_buffer.append("(total-cost)\n");			
 			PDDL_domain_buffer.append(")\n\n");		
 		}
+		//System.out.println(Container.getAlphabetOfTheConstraints_vector()); // TODO error here
 
 		for(int i = 0; i< Container.getCombinationOfRelevantTransitions_vector().size(); i++) {
 			
@@ -302,7 +295,7 @@ public class Utilities {
 			// alphabet of the trace or in the alphabet of the automata, no action will be generated for this transition.
 			//
 			if(trace.getTraceAlphabet_vector().contains(label_of_the_cot) || Container.getAlphabetOfTheConstraints_vector().contains(label_of_the_cot)) {
-				
+
 				//
 				// Generate an ADD action for any combination of transitions
 				//
@@ -457,6 +450,7 @@ public class Utilities {
 			StringBuffer preconditionsSB = new StringBuffer();
 						
 			String act = trace.getOriginalTraceContent_vector().elementAt(gk);
+
 			Collection<String> values =  Container.getRelevantTransitions_map().get(act);
 
 

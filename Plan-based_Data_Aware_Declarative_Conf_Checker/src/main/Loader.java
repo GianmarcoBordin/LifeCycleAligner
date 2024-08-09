@@ -8,10 +8,15 @@ import org.deckfour.xes.model.XTrace;
 import org.processmining.plugins.declare.visualizing.*;
 
 import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.StandardCopyOption;
 import java.util.Objects;
 import java.util.Vector;
 
 
+import static main.Container.dots;
 import static main.Lifecycle.createLifecycleDot;
 import static main.Utilities.removeAfterUnderscore;
 
@@ -29,7 +34,19 @@ public class Loader {
                         System.out.println("The Constraint file must not be null");
                         System.exit(-1);
                     }
+                    // Define the target file path where you want to write the content
+                    File targetFile = new File("/Users/applem2/Downloads/Work/tesi/Project/Aligner/Plan-based_Data_Aware_Declarative_Conf_Checker/resources/lifecycle/lifecycle.xml");
+
+                    try {
+                        // Copy the content of file1 to targetFile
+                        Files.copy(file.toPath(), targetFile.toPath(), StandardCopyOption.REPLACE_EXISTING);
+                        System.out.println("File content has been successfully written to " + targetFile.getPath());
+                    } catch (IOException e) {
+                        System.out.println("An error occurred while writing the file.");
+                        e.printStackTrace();
+                    }
                 }
+
                 loadXml(file);
                 break;
             case "dot":

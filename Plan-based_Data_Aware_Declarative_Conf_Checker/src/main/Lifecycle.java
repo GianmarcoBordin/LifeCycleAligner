@@ -115,12 +115,31 @@ public class Lifecycle {
             notWanted.add("activityo");
             notWanted.add("activityn");
             notWanted.add("activityk");
-            notWanted.add("p1");
+            //notWanted.add("p1");
+            //notWanted.add("p2");
             notWanted.add("p3");
-            notWanted.add("p12");
-            notWanted.add("p20");
-            notWanted.add("p15");
+            notWanted.add("p4");
+            notWanted.add("p5");
             notWanted.add("p6");
+            notWanted.add("p7");
+            notWanted.add("p8");
+            notWanted.add("p9");
+            notWanted.add("p10");
+            //notWanted.add("p11");
+            notWanted.add("p12");
+            notWanted.add("p13");
+            notWanted.add("p14");
+            notWanted.add("p15");
+            notWanted.add("p16");
+            notWanted.add("p17");
+            notWanted.add("p18");
+            notWanted.add("p19");
+            notWanted.add("p20");
+            notWanted.add("p21");
+            notWanted.add("p22");
+
+
+
 
 
 
@@ -147,20 +166,33 @@ public class Lifecycle {
 
                 // Create chain succession constraints for this activity
                 Element startToCompleteConstraint = createChainSuccessionConstraint(doc, generateConstraintId(doc), activity + "-start", activity + "-complete");
+
                 Node constraintDefinitions = doc.getElementsByTagName("constraintdefinitions").item(0);
                 constraintDefinitions.appendChild(startToCompleteConstraint);
+
                 Element assignToStartConstraint = createChainSuccessionConstraint(doc, generateConstraintId(doc), activity + "-assign", activity + "-start");
 
                 // Append constraints to the document
                 constraintDefinitions = doc.getElementsByTagName("constraintdefinitions").item(0);
                 constraintDefinitions.appendChild(assignToStartConstraint);
+
+                Element precedence1 = createPrecedenceConstraint(doc, generateConstraintId(doc), activity + "-complete", activity + "-start");
+
+                constraintDefinitions = doc.getElementsByTagName("constraintdefinitions").item(0);
+                constraintDefinitions.appendChild(precedence1);
+
+                Element precedence2 = createPrecedenceConstraint(doc, generateConstraintId(doc), activity + "-start", activity + "-assign");
+
+                constraintDefinitions = doc.getElementsByTagName("constraintdefinitions").item(0);
+                constraintDefinitions.appendChild(precedence2);
+
             }
 
             // Step 4: Write the updated document to file
             TransformerFactory transformerFactory = TransformerFactory.newInstance();
             Transformer transformer = transformerFactory.newTransformer();
             DOMSource source = new DOMSource(doc);
-            outputFile =new File(Container.WORKING_LIFECYCLE_DIR+ "declarative-models/DECLARE-models/lifecycle.xml");
+            outputFile =new File(Container.WORKING_LIFECYCLE_DIR+ "lifecycle/lifecycle.xml");
             StreamResult result = new StreamResult(outputFile);
             transformer.transform(source, result);
 
@@ -239,8 +271,7 @@ public class Lifecycle {
         // Increment the maxId by 1 to get the new unique ID
         return String.valueOf(maxId + 1);
     }
-
-    private static Element createChainSuccessionConstraint(Document doc, String id, String activityA, String activityB) {
+    private static Element createPrecedenceConstraint(Document doc, String id, String activityA, String activityB) {
         Element constraint = doc.createElement("constraint");
         constraint.setAttribute("id", id);
         constraint.setAttribute("mandatory", "true");
@@ -249,7 +280,7 @@ public class Lifecycle {
         constraint.appendChild(condition);
 
         Element name = doc.createElement("name");
-        name.appendChild(doc.createTextNode("responded existence"));
+        name.appendChild(doc.createTextNode("precedence"));
         constraint.appendChild(name);
 
         Element template = doc.createElement("template");
@@ -259,7 +290,7 @@ public class Lifecycle {
         template.appendChild(description);
 
         Element templateName = doc.createElement("name");
-        templateName.appendChild(doc.createTextNode("responded existence"));
+        templateName.appendChild(doc.createTextNode("precedence"));
         template.appendChild(templateName);
 
         Element text = doc.createElement("text");
@@ -321,20 +352,115 @@ public class Lifecycle {
 
         Element statemessages = doc.createElement("statemessages");
 
-        Element messageViolatedTemporary = doc.createElement("message");
-        messageViolatedTemporary.setAttribute("state", "VIOLATED_TEMPORARY");
-        messageViolatedTemporary.appendChild(doc.createTextNode("VIOLATED_TEMPORARY undefined"));
-        statemessages.appendChild(messageViolatedTemporary);
 
-        Element messageSatisfied = doc.createElement("message");
-        messageSatisfied.setAttribute("state", "SATISFIED");
-        messageSatisfied.appendChild(doc.createTextNode("SATISFIED undefined"));
-        statemessages.appendChild(messageSatisfied);
+        template.appendChild(statemessages);
 
-        Element messageViolated = doc.createElement("message");
-        messageViolated.setAttribute("state", "VIOLATED");
-        messageViolated.appendChild(doc.createTextNode("VIOLATED undefined"));
-        statemessages.appendChild(messageViolated);
+        Element constraintparameters = doc.createElement("constraintparameters");
+
+        Element constraintParameter1 = doc.createElement("parameter");
+        constraintParameter1.setAttribute("templateparameter", "1");
+        Element branches1 = doc.createElement("branches");
+        Element branch1 = doc.createElement("branch");
+        branch1.setAttribute("name", activityA);
+        branches1.appendChild(branch1);
+        constraintParameter1.appendChild(branches1);
+        constraintparameters.appendChild(constraintParameter1);
+
+        Element constraintParameter2 = doc.createElement("parameter");
+        constraintParameter2.setAttribute("templateparameter", "2");
+        Element branches2 = doc.createElement("branches");
+        Element branch2 = doc.createElement("branch");
+        branch2.setAttribute("name", activityB);
+        branches2.appendChild(branch2);
+        constraintParameter2.appendChild(branches2);
+        constraintparameters.appendChild(constraintParameter2);
+
+        constraint.appendChild(constraintparameters);
+
+        return constraint;
+    }
+
+    private static Element createChainSuccessionConstraint(Document doc, String id, String activityA, String activityB) {
+        Element constraint = doc.createElement("constraint");
+        constraint.setAttribute("id", id);
+        constraint.setAttribute("mandatory", "true");
+
+        Element condition = doc.createElement("condition");
+        constraint.appendChild(condition);
+
+        Element name = doc.createElement("name");
+        name.appendChild(doc.createTextNode("succession"));
+        constraint.appendChild(name);
+
+        Element template = doc.createElement("template");
+
+        Element description = doc.createElement("description");
+        description.appendChild(doc.createTextNode("A and B can never be executed next to each other where A is executed first and B second."));
+        template.appendChild(description);
+
+        Element templateName = doc.createElement("name");
+        templateName.appendChild(doc.createTextNode("succession"));
+        template.appendChild(templateName);
+
+        Element text = doc.createElement("text");
+        text.appendChild(doc.createTextNode("[] ( ( \"" + activityA + "\" -> X( !( \"" + activityB + "\" ) ) ) )"));
+        template.appendChild(text);
+
+        Element parameters = doc.createElement("parameters");
+
+        Element parameter1 = doc.createElement("parameter");
+        parameter1.setAttribute("branchable", "false");
+        parameter1.setAttribute("id", "1");
+        parameter1.setAttribute("name", activityA);
+        parameters.appendChild(parameter1);
+
+        Element graphical1 = doc.createElement("graphical");
+        Element style1 = doc.createElement("style");
+        style1.setAttribute("number", "1");
+        graphical1.appendChild(style1);
+        Element begin1 = doc.createElement("begin");
+        begin1.setAttribute("fill", "true");
+        begin1.setAttribute("style", "5");
+        graphical1.appendChild(begin1);
+        Element middle1 = doc.createElement("middle");
+        middle1.setAttribute("fill", "false");
+        middle1.setAttribute("style", "0");
+        graphical1.appendChild(middle1);
+        Element end1 = doc.createElement("end");
+        end1.setAttribute("fill", "false");
+        end1.setAttribute("style", "0");
+        graphical1.appendChild(end1);
+        parameter1.appendChild(graphical1);
+
+        Element parameter2 = doc.createElement("parameter");
+        parameter2.setAttribute("branchable", "false");
+        parameter2.setAttribute("id", "2");
+        parameter2.setAttribute("name", activityB);
+        parameters.appendChild(parameter2);
+
+        Element graphical2 = doc.createElement("graphical");
+        Element style2 = doc.createElement("style");
+        style2.setAttribute("number", "3");
+        graphical2.appendChild(style2);
+        Element begin2 = doc.createElement("begin");
+        begin2.setAttribute("fill", "true");
+        begin2.setAttribute("style", "10");
+        graphical2.appendChild(begin2);
+        Element middle2 = doc.createElement("middle");
+        middle2.setAttribute("fill", "false");
+        middle2.setAttribute("style", "0");
+        graphical2.appendChild(middle2);
+        Element end2 = doc.createElement("end");
+        end2.setAttribute("fill", "false");
+        end2.setAttribute("style", "0");
+        graphical2.appendChild(end2);
+        parameter2.appendChild(graphical2);
+
+        template.appendChild(parameters);
+        constraint.appendChild(template);
+
+        Element statemessages = doc.createElement("statemessages");
+
 
         template.appendChild(statemessages);
 

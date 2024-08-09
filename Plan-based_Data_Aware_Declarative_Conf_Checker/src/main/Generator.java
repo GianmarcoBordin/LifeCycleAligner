@@ -16,6 +16,8 @@ public class Generator {
         //
         // The tool works properly only if the set of Declare/LTL constraints is not empty. Otherwise, it throws an exception.
         //
+       System.out.println(Container.getConstraintsListModel());
+
         if(!Container.getConstraintsListModel().isEmpty()) {
             Container.setActivitiesCost_vector(new Vector<Vector<String>>());
 
@@ -246,7 +248,6 @@ public class Generator {
                     //
                     // Extract the activities involved in the constraint under consideration.
                     //
-System.out.println(temporal_constraint);
                     String[] constraint_splitted = temporal_constraint.split("\\(");
 
 
@@ -405,6 +406,7 @@ System.out.println(temporal_constraint);
                             while (transitions.hasNext()) {
                                 Transition t = transitions.next();
                                 if (!Container.getAlphabetOfTheConstraints_vector().contains(t.getPositiveLabel())) {
+                                    // TODO maybe insert here the map constraint/transition -> trace getCombinationOfRelevantTransitions_vector getRelevantTransitions_map
                                     Container.getAlphabetOfTheConstraints_vector().addElement(t.getPositiveLabel());
                                     //
                                     // Update the GUI to show the complete alphabet of activities of the constraints and of the log.
@@ -717,6 +719,7 @@ System.out.println(temporal_constraint);
 
 
                 ////////////////////////////////////////////////////////////////////
+                // TODO arrive here with less size
 
                 Set<String> set_of_keys = Container.getRelevantTransitions_map().keySet();
 
