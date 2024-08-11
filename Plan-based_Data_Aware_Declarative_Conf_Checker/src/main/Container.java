@@ -2,6 +2,7 @@ package main;
 
 import java.util.*;
 
+import com.google.common.primitives.Booleans;
 import org.processmining.ltl2automaton.plugins.automaton.Automaton;
 
 import com.google.common.collect.HashMultimap;
@@ -30,6 +31,16 @@ public class Container {
     private static boolean sinkStatesMenuItem = true; // false slow down
 	private  static boolean disjunctiveGoalMenuItem= false; //false -->slow down the tool in the find combination of transitions ,true --> not normalization with fast downward
 	private static boolean costCheckBox=true; // settled to false makes the planner find a solution
+
+	private static List<String> seenActivities = new ArrayList<>();
+
+	private static List<String> addedActivities = new ArrayList<>();
+
+	private static List<String> generalActivities2 = new ArrayList<>();
+	private static List<String> notWanted =new ArrayList<>(
+			//Arrays.asList("activityr", "activitym","activityl","activityp","activityo","activityn","activityk","p1","p2","p3","p4","p5","p6","p7","p8","p9","p10","p11","p12","p13","p14","p15","p16","p17","p18","p19","p20","p21","p22")
+	);
+
 	private static boolean FDoptimalCheckBox = true;
 	private static boolean SymBAoptimalCheckBox=false;
 	/////////////
@@ -334,6 +345,22 @@ public class Container {
 
 	public static Map<String, Boolean> getMemo() {
 		return Container.memo;
+	}
+
+	public static List<String> getSeenActivities(){
+		return Container.seenActivities;
+	}
+
+	public static List<String> getAddedActivities(){
+		return Container.addedActivities;
+	}
+
+	public static List<String> getNotWantedActivities(){
+		return Container.notWanted;
+	}
+
+	public static List<String> getGeneralActivities2Activities(){
+		return Container.generalActivities2;
 	}
 
 }

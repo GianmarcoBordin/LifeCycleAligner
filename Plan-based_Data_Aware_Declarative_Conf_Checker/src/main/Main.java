@@ -68,7 +68,7 @@ public class Main {
 
         System.out.println("----- CLEAN PHASE STARTED -----");
 
-        Utilities.cleanAll();
+        //Utilities.cleanAll();
 
         System.out.println("----- CLEAN PHASE COMPLETED -----");
 

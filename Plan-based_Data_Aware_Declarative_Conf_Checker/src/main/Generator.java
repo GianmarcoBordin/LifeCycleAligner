@@ -760,7 +760,7 @@ public class Generator {
                     // The method invoked removes automatically any combination that contains two transitions of the same automaton.
                     //
 
-
+System.out.println(Arrays.toString(values_array));
                     for (int kl = 1; kl <= automata_id_of_relevant_transitions_vector.size(); kl++) {
                         Utilities.findCombinationsOfTransitions(values_array, key, kl, kl, 0, new String[kl]);
                     }

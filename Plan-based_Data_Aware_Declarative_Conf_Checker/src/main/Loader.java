@@ -7,6 +7,7 @@ import org.deckfour.xes.model.XLog;
 import org.deckfour.xes.model.XTrace;
 import org.processmining.plugins.declare.visualizing.*;
 
+import javax.sound.midi.SysexMessage;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -228,6 +229,7 @@ public class Loader {
 
                 String constraint = cd.getName() + "(";
 
+
                 int index = 0;
 
 
@@ -273,10 +275,11 @@ public class Loader {
                             is_valid_constraint = false;
                         }
 
+
+
                         cd.getBranches(p).iterator().next();
 
                         constraint = constraint + activityName;
-
 
 
 
@@ -284,18 +287,18 @@ public class Loader {
                             constraint = constraint + ",";
                         index++;
                     }
+
                 }
 
                 constraint = constraint + ")";
 
+
+
                 if (!is_valid_constraint) {
-
-                    int dialogResult = 0;
-
                     if (Container.getHoldNotFoundConstraints()) {
 
 
-                        System.out.println("The constraint '" + constraint + "' refers to the activity '" + activities_not_in_the_repo_vector.elementAt(0) + "',\nwhich is not listed in the activities repository! Such a constraint can not be properly imported, unless the missing activity is not imported in the repository. ATTENTION!");
+                        //System.out.println("The constraint '" + constraint + "' refers to the activity '" + activities_not_in_the_repo_vector.elementAt(0) + "',\nwhich is not listed in the activities repository! Such a constraint can not be properly imported, unless the missing activity is not imported in the repository. ATTENTION!");
                         File lifecycleActivityDot= null;
 
                         for (int h = 0; h < activities_not_in_the_repo_vector.size(); h++) {
