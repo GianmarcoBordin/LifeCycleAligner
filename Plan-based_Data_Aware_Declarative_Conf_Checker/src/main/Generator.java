@@ -16,6 +16,7 @@ public class Generator {
         //
         // The tool works properly only if the set of Declare/LTL constraints is not empty. Otherwise, it throws an exception.
         //
+        System.out.println(Container.getConstraintsListModel());
 
         if(!Container.getConstraintsListModel().isEmpty()) {
             Container.setActivitiesCost_vector(new Vector<Vector<String>>());
@@ -712,6 +713,8 @@ public class Generator {
                     }
                     int k_value = automata_id_of_accepting_states_vector.size();
                     Object[] arr = Container.getAutomataAcceptingStates_vector().toArray();
+                    System.out.println(k_value);
+                    System.out.println(Arrays.toString(arr));
 
                     Utilities.findCombinationsOfAcceptingStates(arr, k_value, 0, new String[k_value]);
                 }
@@ -729,6 +732,8 @@ public class Generator {
                // System.out.println("TRANSITIONS: "+Container.getRelevantTransitions_map());
 
                 for (String key : set_of_keys) {
+
+                    System.out.println(key);
 
                     Collection<String> values = Container.getRelevantTransitions_map().get(key);
 
@@ -760,7 +765,7 @@ public class Generator {
                     // The method invoked removes automatically any combination that contains two transitions of the same automaton.
                     //
 
-System.out.println(Arrays.toString(values_array));
+                    System.out.println(Arrays.toString(values_array));
                     for (int kl = 1; kl <= automata_id_of_relevant_transitions_vector.size(); kl++) {
                         Utilities.findCombinationsOfTransitions(values_array, key, kl, kl, 0, new String[kl]);
                     }

@@ -7,19 +7,15 @@ import org.deckfour.xes.model.XLog;
 import org.deckfour.xes.model.XTrace;
 import org.processmining.plugins.declare.visualizing.*;
 
-import javax.sound.midi.SysexMessage;
 import java.io.File;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.StandardCopyOption;
-import java.util.Objects;
 import java.util.Vector;
 
 
-import static main.Container.dots;
 import static main.Lifecycle.createLifecycleDot;
-import static main.Utilities.removeAfterUnderscore;
+import static main.Utilities.cleanActivity;
 
 public class Loader {
 
@@ -309,7 +305,7 @@ public class Loader {
                             if (!Container.getAlphabetListModel().contains(specific_activity)) {
                                 Container.getAlphabetListModel().addElement(specific_activity);
                             }
-                            String generalActivity = removeAfterUnderscore(specific_activity);
+                            String generalActivity = cleanActivity(specific_activity);
                             for (String l: Container.lifecycles){
                                 if (!Container.getGeneralActivitiesRepository().contains(generalActivity+"_"+l)){
                                     Container.getGeneralActivitiesRepository().addElement(generalActivity+"_"+l);

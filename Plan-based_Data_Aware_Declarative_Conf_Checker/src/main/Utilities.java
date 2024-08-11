@@ -25,7 +25,37 @@ public class Utilities {
 	}
 
 
-	public static String removeAfterUnderscore(String input) {
+	public static String cleanActivity(String input) {
+		if (input.contains(" "))
+			input = input.replaceAll(" ", "");
+
+		if (input.contains("/"))
+			input = input.replaceAll("\\/", "");
+
+		if (input.contains("("))
+			input = input.replaceAll("\\(", "");
+
+		if (input.contains(")"))
+			input = input.replaceAll("\\)", "");
+
+		if (input.contains("<"))
+			input = input.replaceAll("\\<", "");
+
+		if (input.contains(">"))
+			input = input.replaceAll("\\>", "");
+
+		if (input.contains("."))
+			input = input.replaceAll("\\.", "");
+
+		if (input.contains(","))
+			input = input.replaceAll("\\,", "_");
+
+		if (input.contains("+"))
+			input = input.replaceAll("\\+", "_");
+
+		if (input.contains("-"))
+			input = input.replaceAll("\\-", "_");
+
 		int lastUnderscoreIndex = input.lastIndexOf('_');
 		if (lastUnderscoreIndex != -1) {
 			return input.substring(0, lastUnderscoreIndex);

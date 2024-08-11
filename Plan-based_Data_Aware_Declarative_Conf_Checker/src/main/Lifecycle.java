@@ -10,7 +10,7 @@ import java.util.*;
 
 import static main.Container.dots;
 import static main.Container.lifecycles;
-import static main.Utilities.removeAfterUnderscore;
+import static main.Utilities.cleanActivity;
 
 public class Lifecycle {
     public static File createLifecycleDot(String activity) {
@@ -114,6 +114,10 @@ public class Lifecycle {
                         Element activityElement = (Element) activityNode;
                         String name = activityElement.getAttribute("name");
                         Container.getAddedActivities().add(name);
+                        if (!Container.getSeenActivities().contains(cleanActivity(name)) && !Container.getNotWantedActivities().contains(cleanActivity(name))) {
+                            Container.getGeneralActivities2Activities().add(cleanActivity(name));
+                            Container.getSeenActivities().add(cleanActivity(name));
+                        }
                     }
                 }
             } else {
@@ -122,9 +126,9 @@ public class Lifecycle {
 
 
             for (String a : Container.getGeneralActivitiesRepository()) {
-                if (!Container.getSeenActivities().contains(removeAfterUnderscore(a)) && !Container.getNotWantedActivities().contains(removeAfterUnderscore(a))) {
-                    Container.getGeneralActivities2Activities().add(removeAfterUnderscore(a));
-                    Container.getSeenActivities().add(removeAfterUnderscore(a));
+                if (!Container.getSeenActivities().contains(cleanActivity(a)) && !Container.getNotWantedActivities().contains(cleanActivity(a))) {
+                    Container.getGeneralActivities2Activities().add(cleanActivity(a));
+                    Container.getSeenActivities().add(cleanActivity(a));
                 }
             }
 
@@ -143,26 +147,38 @@ public class Lifecycle {
             // MORE EFFICIENT --> chain succession (assign,start), chain succession (start,complete)
             // MORE GENERAL --> alternate succession (assign,start), alternate succession (start,complete), alternate succession (assign, complete)
 
-
+            System.out.println(Container.getGeneralActivities2Activities().size());
             for (String activity : Container.getGeneralActivities2Activities()) {
 
                 // creation of the activity
                 createActivity(doc, activityDefinitionsElement, activity);
 
-                // creation of the constraint
-                Element assignToStartConstraint = createConstraint(doc, generateConstraintId(doc,activity + "-start"), activity + "-assign", activity + "-start", "alternate succession");
+           /*     Element assignToStartConstraint = createConstraint(doc, generateConstraintId(doc,activity + "-start"), activity + "-assign", activity + "-start", "chain succession");
 
                 Node constraintDefinitions = doc.getElementsByTagName("constraintdefinitions").item(0);
                 constraintDefinitions.appendChild(assignToStartConstraint);
 
                 // creation of the constraint
-                Element startToCompleteConstraint = createConstraint(doc, generateConstraintId(doc,activity + "-complete"), activity + "-start", activity + "-complete", "alternate succession");
+                Element startToCompleteConstraint = createConstraint(doc, generateConstraintId(doc,activity + "-complete"), activity + "-start", activity + "-complete", "chain succession");
+
+                constraintDefinitions = doc.getElementsByTagName("constraintdefinitions").item(0);
+                constraintDefinitions.appendChild(startToCompleteConstraint);
+*/
+
+                // creation of the constraint
+                Element assignToStartConstraint = createConstraint(doc, generateUniqueId(doc,"constraint"), activity + "-assign", activity + "-start", "alternate succession");
+
+                Node constraintDefinitions = doc.getElementsByTagName("constraintdefinitions").item(0);
+                constraintDefinitions.appendChild(assignToStartConstraint);
+
+                // creation of the constraint
+                Element startToCompleteConstraint = createConstraint(doc, generateUniqueId(doc,"constraint"), activity + "-start", activity + "-complete", "alternate succession");
 
                 constraintDefinitions = doc.getElementsByTagName("constraintdefinitions").item(0);
                 constraintDefinitions.appendChild(startToCompleteConstraint);
 
                 // creation of the constraint
-                Element assignToCompleteConstraint = createConstraint(doc, generateConstraintId(doc,activity + "-assign"), activity + "-assign", activity + "-complete", "alternate succession");
+                Element assignToCompleteConstraint = createConstraint(doc, generateUniqueId(doc,"constraint"), activity + "-assign", activity + "-complete", "alternate succession");
 
                 constraintDefinitions = doc.getElementsByTagName("constraintdefinitions").item(0);
                 constraintDefinitions.appendChild(assignToCompleteConstraint);
@@ -194,7 +210,7 @@ public class Lifecycle {
 
 
                 Element activityElement = doc.createElement("activity");
-                activityElement.setAttribute("id", generateUniqueId(doc)); // Using the activity name as the ID
+                activityElement.setAttribute("id", generateUniqueId(doc,"activity")); // Using the activity name as the ID
                 activityElement.setAttribute("name", activityName);
 
                 Element authorizationElement = doc.createElement("authorization");
@@ -209,8 +225,8 @@ public class Lifecycle {
         }
     }
 
-    private static String generateUniqueId(Document doc) {
-        NodeList activityNodes = doc.getElementsByTagName("activity");
+    private static String generateUniqueId(Document doc,String tag) {
+        NodeList activityNodes = doc.getElementsByTagName(tag);
         int maxId = 0;
 
         for (int i = 0; i < activityNodes.getLength(); i++) {
