@@ -147,7 +147,6 @@ public class Lifecycle {
             // MORE EFFICIENT --> chain succession (assign,start), chain succession (start,complete)
             // MORE GENERAL --> alternate succession (assign,start), alternate succession (start,complete), alternate succession (assign, complete)
 
-            System.out.println(Container.getGeneralActivities2Activities().size());
             for (String activity : Container.getGeneralActivities2Activities()) {
 
                 // creation of the activity

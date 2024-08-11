@@ -38,7 +38,7 @@ public class Container {
 
 	private static List<String> generalActivities2 = new ArrayList<>();
 	private static List<String> notWanted =new ArrayList<>(
-			Arrays.asList("activity1","activity2","activity3","activity4","activity5","activity6","activity7","activity8","activity9","activity10","activity11","activity12","activity13","activity14","activity15","activity16","activity17","activity18","activity19","activity20","activity21","activity22","activityr", "activitym","activityl","activityp","activityo","activityk","p1","p3","p4","p5","p6","p7","p8","p9","p10","p11","p12","p13","p14","p15","p16","p17","p18","p19","p20","p21","p22")
+			Arrays.asList("activity7","activity8","activity9","activity10","activity11","activity12","activity13","activity14","activity15","activity16","activity17","activity18","activity19","activity20","activity21","activity22","activityr", "activitym","activityl","activityp","activityo","activityk","p1","p3","p4","p5","p6","p7","p8","p9","p10","p11","p12","p13","p14","p15","p16","p17","p18","p19","p20","p21","p22")
 	);
 
 	private static boolean FDoptimalCheckBox = true;
