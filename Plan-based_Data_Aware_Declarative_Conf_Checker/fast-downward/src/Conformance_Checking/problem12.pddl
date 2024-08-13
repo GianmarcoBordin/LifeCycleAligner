@@ -66,56 +66,6 @@ s_16_0 - state
 s_16_2 - state
 s_17_0 - state
 s_17_2 - state
-s_18_0 - state
-s_18_2 - state
-s_19_0 - state
-s_19_2 - state
-s_20_0 - state
-s_20_2 - state
-s_21_0 - state
-s_21_2 - state
-s_22_0 - state
-s_22_2 - state
-s_23_0 - state
-s_23_2 - state
-s_24_0 - state
-s_24_2 - state
-s_25_0 - state
-s_25_2 - state
-s_26_0 - state
-s_26_2 - state
-s_27_0 - state
-s_27_2 - state
-s_28_0 - state
-s_28_2 - state
-s_29_0 - state
-s_29_2 - state
-s_30_0 - state
-s_30_2 - state
-s_31_0 - state
-s_31_2 - state
-s_32_0 - state
-s_32_2 - state
-s_33_0 - state
-s_33_2 - state
-s_34_0 - state
-s_34_2 - state
-s_35_0 - state
-s_35_2 - state
-s_36_0 - state
-s_36_2 - state
-s_37_0 - state
-s_37_2 - state
-s_38_0 - state
-s_38_2 - state
-s_39_0 - state
-s_39_2 - state
-s_40_0 - state
-s_40_2 - state
-s_41_0 - state
-s_41_2 - state
-s_42_0 - state
-s_42_2 - state
 )
 (:init
 (currstate t0)
@@ -137,31 +87,6 @@ s_42_2 - state
 (currstate s_15_0)
 (currstate s_16_0)
 (currstate s_17_0)
-(currstate s_18_0)
-(currstate s_19_0)
-(currstate s_20_0)
-(currstate s_21_0)
-(currstate s_22_0)
-(currstate s_23_0)
-(currstate s_24_0)
-(currstate s_25_0)
-(currstate s_26_0)
-(currstate s_27_0)
-(currstate s_28_0)
-(currstate s_29_0)
-(currstate s_30_0)
-(currstate s_31_0)
-(currstate s_32_0)
-(currstate s_33_0)
-(currstate s_34_0)
-(currstate s_35_0)
-(currstate s_36_0)
-(currstate s_37_0)
-(currstate s_38_0)
-(currstate s_39_0)
-(currstate s_40_0)
-(currstate s_41_0)
-(currstate s_42_0)
 (= (total-cost) 0)
 )
 (:goal
@@ -185,31 +110,6 @@ s_42_2 - state
 (currstate s_15_0)
 (currstate s_16_0)
 (currstate s_17_0)
-(currstate s_18_0)
-(currstate s_19_0)
-(currstate s_20_0)
-(currstate s_21_0)
-(currstate s_22_0)
-(currstate s_23_0)
-(currstate s_24_0)
-(currstate s_25_0)
-(currstate s_26_0)
-(currstate s_27_0)
-(currstate s_28_0)
-(currstate s_29_0)
-(currstate s_30_0)
-(currstate s_31_0)
-(currstate s_32_0)
-(currstate s_33_0)
-(currstate s_34_0)
-(currstate s_35_0)
-(currstate s_36_0)
-(currstate s_37_0)
-(currstate s_38_0)
-(currstate s_39_0)
-(currstate s_40_0)
-(currstate s_41_0)
-(currstate s_42_0)
 ))
 (:metric minimize (total-cost))
 )

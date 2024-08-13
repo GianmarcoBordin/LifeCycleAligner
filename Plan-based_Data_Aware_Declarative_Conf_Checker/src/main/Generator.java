@@ -16,7 +16,7 @@ public class Generator {
         //
         // The tool works properly only if the set of Declare/LTL constraints is not empty. Otherwise, it throws an exception.
         //
-
+        System.out.println(Container.getConstraintsListModel().size());
         if(!Container.getConstraintsListModel().isEmpty()) {
             Container.setActivitiesCost_vector(new Vector<Vector<String>>());
 
@@ -405,7 +405,6 @@ public class Generator {
                             while (transitions.hasNext()) {
                                 Transition t = transitions.next();
                                 if (!Container.getAlphabetOfTheConstraints_vector().contains(t.getPositiveLabel())) {
-                                    // TODO maybe insert here the map constraint/transition -> trace getCombinationOfRelevantTransitions_vector getRelevantTransitions_map
                                     Container.getAlphabetOfTheConstraints_vector().addElement(t.getPositiveLabel());
                                     //
                                     // Update the GUI to show the complete alphabet of activities of the constraints and of the log.
@@ -712,8 +711,8 @@ public class Generator {
                     }
                     int k_value = automata_id_of_accepting_states_vector.size();
                     Object[] arr = Container.getAutomataAcceptingStates_vector().toArray();
-                    System.out.println(k_value);
-                    System.out.println(Arrays.toString(arr));
+                    System.out.println("ARR_LENGTH:"+arr.length
+                    );
 
                     Utilities.findCombinationsOfAcceptingStates(arr, k_value, 0, new String[k_value]);
                 }
@@ -728,12 +727,11 @@ public class Generator {
                 // For any key of the "transition_map" object, i.e., for any label, identify the relevant transitions associated
                 // to that label.
                 //
-               // System.out.println("TRANSITIONS: "+Container.getRelevantTransitions_map());
+                //System.out.println("TRANSITIONS: "+Container.getRelevantTransitions_map());
 
                 for (String key : set_of_keys) {
 
-                    System.out.println(key);
-
+                    System.out.println("TRANSITIONS: "+key);
                     Collection<String> values = Container.getRelevantTransitions_map().get(key);
 
                     Object[] values_array = values.toArray();
@@ -764,7 +762,6 @@ public class Generator {
                     // The method invoked removes automatically any combination that contains two transitions of the same automaton.
                     //
 
-                    System.out.println(Arrays.toString(values_array));
                     for (int kl = 1; kl <= automata_id_of_relevant_transitions_vector.size(); kl++) {
                         Utilities.findCombinationsOfTransitions(values_array, key, kl, kl, 0, new String[kl]);
                     }

@@ -121,19 +121,20 @@ public class Loader {
                     String finalName = activityName + "_"+lifecycleTransition;
 
                     loaded_trace_activities_vector.addElement(finalName);
-
                     if (!loaded_alphabet_vector.contains(finalName))
                         loaded_alphabet_vector.addElement(finalName);
 
-                    for (String l: Container.lifecycles){
-                        if (!Container.getGeneralActivitiesRepository().contains(activityName+"_"+l)){
-                            Container.getGeneralActivitiesRepository().addElement(activityName+"_"+l);
+                    if (!Container.getNotWantedActivities().contains(activityName)) {
+                        for (String l : Container.lifecycles) {
+                            if (!Container.getGeneralActivitiesRepository().contains(activityName + "_" + l)) {
+                                Container.getGeneralActivitiesRepository().addElement(activityName + "_" + l);
+                            }
+                            if (!Container.getActivitiesRepository_vector().contains(activityName + "_" + l)) {
+                                Container.getActivitiesRepository_vector().addElement(activityName + "_" + l);
+                            }
+                            if (!loaded_alphabet_vector.contains(activityName + "_" + l))
+                                loaded_alphabet_vector.addElement(activityName + "_" + l);
                         }
-                        if (!Container.getActivitiesRepository_vector().contains(activityName+"_"+l)){
-                            Container.getActivitiesRepository_vector().addElement(activityName+"_"+l);
-                        }
-                        if (!loaded_alphabet_vector.contains(activityName + "_" + l))
-                            loaded_alphabet_vector.addElement(activityName + "_" + l);
                     }
 
                 }
@@ -266,10 +267,13 @@ public class Loader {
                         if (activityName.contains("-"))
                             activityName = activityName.replaceAll("\\-", "_");
 
-                        if (!Container.getActivitiesRepository_vector().contains(activityName)) {
-                            activities_not_in_the_repo_vector.addElement(activityName);
-                            is_valid_constraint = false;
+                        if (!Container.getNotWantedActivities().contains(cleanActivity(activityName))){
+                            if (!Container.getActivitiesRepository_vector().contains(activityName)) {
+                                activities_not_in_the_repo_vector.addElement(activityName);
+                                is_valid_constraint = false;
+                            }
                         }
+
 
 
 
