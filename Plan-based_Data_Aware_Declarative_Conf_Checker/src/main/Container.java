@@ -24,7 +24,7 @@ public class Container {
 	///////
     private static boolean hold_not_found_constraints = true;
 	private static String  add_cost = "1";
-	private static String del_cost = "1";
+	private static String del_cost = "3";
 	private static boolean discard_duplicated_traces = true;
 	private static boolean combineXml = true;
 	private static boolean lifecycle = false; // the lifecycle is faster because the relevant transitions are calculated only for one automaton a time not the product automaton
@@ -38,7 +38,7 @@ public class Container {
 
 	private static List<String> generalActivities2 = new ArrayList<>();
 	private static List<String> notWanted =new ArrayList<>(
-			Arrays.asList("activity1","activity2","activity3","activity4","activity5","activity6","activity7","activity8","activity9","activity10","activity11","activity12","activity13","activity14","activity15","activity16","activity17","activity18","activity19","activity20","activity21","activity22","activity23","activity24","activity25","activityr","activityo","activityn", "activitym","activityl","activityp","activityo","activityk","p1","p2","p6","p7","p9","p10","p12","p13","p14","p15","p16","p17","p18","p19","p20","p21","p22")
+			Arrays.asList("activity1","activity2","activity3","activity4","activity5","activity6","activity7","activity8","activity9","activity10","activity11","activity12","activity13","activity14","activity15","activity16","activity17","activity18","activity19","activity20","activity21","activity22","activity23","activity24","activity25","activityr","activityo","activityn", "activitym","activityl","activityp","activityo","activityk","p1","p2","p3","p4","p5","p6","p7","p9","p10","p12","p13","p14","p15","p16","p17","p18","p19","p20","p21","p22")
 	);
 
 	private static boolean FDoptimalCheckBox = true;

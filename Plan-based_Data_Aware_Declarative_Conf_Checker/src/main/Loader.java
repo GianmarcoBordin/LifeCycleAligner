@@ -124,6 +124,8 @@ public class Loader {
                     if (!loaded_alphabet_vector.contains(finalName))
                         loaded_alphabet_vector.addElement(finalName);
 
+
+
                     if (!Container.getNotWantedActivities().contains(activityName)) {
                         for (String l : Container.lifecycles) {
                             if (!Container.getGeneralActivitiesRepository().contains(activityName + "_" + l)) {
@@ -267,11 +269,16 @@ public class Loader {
                         if (activityName.contains("-"))
                             activityName = activityName.replaceAll("\\-", "_");
 
-                        if (!Container.getNotWantedActivities().contains(cleanActivity(activityName))){
+                        /*if (!Container.getNotWantedActivities().contains(cleanActivity(activityName))){
                             if (!Container.getActivitiesRepository_vector().contains(activityName)) {
                                 activities_not_in_the_repo_vector.addElement(activityName);
                                 is_valid_constraint = false;
                             }
+                        }*/
+
+                        if (!Container.getActivitiesRepository_vector().contains(activityName)) {
+                            activities_not_in_the_repo_vector.addElement(activityName);
+                            is_valid_constraint = false;
                         }
 
 
