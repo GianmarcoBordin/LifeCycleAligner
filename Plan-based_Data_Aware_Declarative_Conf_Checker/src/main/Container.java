@@ -24,7 +24,7 @@ public class Container {
 	///////
     private static boolean hold_not_found_constraints = true;
 	private static String  add_cost = "1";
-	private static String del_cost = "3";
+	private static String del_cost = "1";
 	private static boolean discard_duplicated_traces = true;
 	private static boolean combineXml = true;
 	private static boolean lifecycle = false; // the lifecycle is faster because the relevant transitions are calculated only for one automaton a time not the product automaton

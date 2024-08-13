@@ -1,0 +1,20 @@
+#!/bin/bash
+
+# Ensure the /pddl directory exists
+mkdir -p /pddl
+
+# Iterate over all domain files
+for domain in /pddl/domain*.pddl; do
+    # Extract the base name (e.g., domain1)
+    base=$(basename "$domain" .pddl)
+
+    # Find the corresponding problem file
+    problem="/pddl/problem${base#domain}.pddl"
+
+    if [ -f "$problem" ]; then
+        echo "Running Fast Downward with $domain and $problem"
+        /workspace/downward/fast-downward.py "$domain" "$problem" --search "astar(blind())"
+    else
+        echo "No matching problem file for $domain"
+    fi
+done
