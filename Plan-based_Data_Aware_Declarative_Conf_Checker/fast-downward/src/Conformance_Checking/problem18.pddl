@@ -66,6 +66,20 @@ s_16_0 - state
 s_16_2 - state
 s_17_0 - state
 s_17_2 - state
+s_18_0 - state
+s_18_2 - state
+s_19_0 - state
+s_19_2 - state
+s_20_0 - state
+s_20_2 - state
+s_21_0 - state
+s_21_2 - state
+s_22_0 - state
+s_22_2 - state
+s_23_0 - state
+s_23_2 - state
+s_24_0 - state
+s_24_2 - state
 )
 (:init
 (currstate t0)
@@ -87,6 +101,13 @@ s_17_2 - state
 (currstate s_15_0)
 (currstate s_16_0)
 (currstate s_17_0)
+(currstate s_18_0)
+(currstate s_19_0)
+(currstate s_20_0)
+(currstate s_21_0)
+(currstate s_22_0)
+(currstate s_23_0)
+(currstate s_24_0)
 (= (total-cost) 0)
 )
 (:goal
@@ -110,6 +131,13 @@ s_17_2 - state
 (currstate s_15_0)
 (currstate s_16_0)
 (currstate s_17_0)
+(currstate s_18_0)
+(currstate s_19_0)
+(currstate s_20_0)
+(currstate s_21_0)
+(currstate s_22_0)
+(currstate s_23_0)
+(currstate s_24_0)
 ))
 (:metric minimize (total-cost))
 )

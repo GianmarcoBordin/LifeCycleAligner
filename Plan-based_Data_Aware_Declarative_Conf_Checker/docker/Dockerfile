@@ -21,14 +21,16 @@ RUN git clone https://gitlab.com/atorralba_planners/symba-2014.git && \
 VOLUME ["/pddl"]
 
 
-COPY /Users/applem2/Downloads/Work/tesi/Project/Aligner/Plan-based_Data_Aware_Declarative_Conf_Checker/fast-downward/src/Conformance_Checking/* /pddl
+COPY f/ /pddl/
+
+COPY out.txt /res/
 
 # Create a script to run Fast Downward for all domain/problem pairs
-COPY run_SYMBA_all.sh /usr/local/bin/run_SYMBA_all.sh
-RUN chmod +x /usr/local/bin/run_SYMBA_all.sh
+COPY run_SYMBA_all /usr/local/bin/run_SYMBA_all
+RUN chmod +x /usr/local/bin/run_SYMBA_all
 
 # Set the entry point to run the script
-ENTRYPOINT ["/usr/local/bin/run_SYMBA_all.sh"]
+ENTRYPOINT ["/usr/local/bin/run_SYMBA_all"]
 
 # Default command (optional), this will be the default if no arguments are provided
 CMD []

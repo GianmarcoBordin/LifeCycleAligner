@@ -233,8 +233,8 @@ public class Loader {
                 for (Parameter p : cd.getParameters()) {
 
                     if (cd.getBranches(p).iterator().hasNext()) {
-
                         String activityName = cd.getBranches(p).iterator().next().toString().toLowerCase();
+
 
 
                         if (activityName.contains(" "))

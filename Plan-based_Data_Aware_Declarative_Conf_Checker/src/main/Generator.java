@@ -16,7 +16,7 @@ public class Generator {
         //
         // The tool works properly only if the set of Declare/LTL constraints is not empty. Otherwise, it throws an exception.
         //
-        System.out.println(Container.getConstraintsListModel().size());
+        System.out.println("CONSTRAINTS: "+Container.getConstraintsListModel().size());
         if(!Container.getConstraintsListModel().isEmpty()) {
             Container.setActivitiesCost_vector(new Vector<Vector<String>>());
 
@@ -711,7 +711,7 @@ public class Generator {
                     }
                     int k_value = automata_id_of_accepting_states_vector.size();
                     Object[] arr = Container.getAutomataAcceptingStates_vector().toArray();
-                    System.out.println("ARR_LENGTH:"+arr.length
+                    System.out.println("STATE ARR LENGTH:"+arr.length
                     );
 
                     Utilities.findCombinationsOfAcceptingStates(arr, k_value, 0, new String[k_value]);
@@ -731,7 +731,7 @@ public class Generator {
 
                 for (String key : set_of_keys) {
 
-                    System.out.println("TRANSITIONS: "+key);
+                    System.out.println("TRANSITION: "+key);
                     Collection<String> values = Container.getRelevantTransitions_map().get(key);
 
                     Object[] values_array = values.toArray();
