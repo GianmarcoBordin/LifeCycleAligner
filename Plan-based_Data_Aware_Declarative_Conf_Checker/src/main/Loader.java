@@ -15,6 +15,7 @@ import java.util.Vector;
 
 
 import static main.Lifecycle.createLifecycleDot;
+import static main.Lifecycle.createLifecycleDot2;
 import static main.Utilities.cleanActivity;
 
 public class Loader {
@@ -126,13 +127,10 @@ public class Loader {
 
 
 
-                    if (!Container.getNotWantedActivities().contains(activityName)) {
+                    if ((Container.getLifecycle() || Container.getCombineXml()) &&!Container.getNotWantedActivities().contains(activityName)) {
                         for (String l : Container.lifecycles) {
                             if (!Container.getGeneralActivitiesRepository().contains(activityName + "_" + l)) {
                                 Container.getGeneralActivitiesRepository().addElement(activityName + "_" + l);
-                            }
-                            if (!Container.getActivitiesRepository_vector().contains(activityName + "_" + l)) {
-                                Container.getActivitiesRepository_vector().addElement(activityName + "_" + l);
                             }
                             if (!loaded_alphabet_vector.contains(activityName + "_" + l))
                                 loaded_alphabet_vector.addElement(activityName + "_" + l);
@@ -179,9 +177,9 @@ public class Loader {
             }
 
             File lifecycleActivityDot= null;
-            //Container.setActivitiesRepository_vector(loaded_alphabet_vector);
+            Container.setActivitiesRepository_vector(loaded_alphabet_vector);
             for (int kix = 0; kix < loaded_alphabet_vector.size(); kix++) {
-                if (Container.getLifecycle()) {
+                if (Container.getLifecycle() && !Container.getNotWantedActivities().contains(cleanActivity(loaded_alphabet_vector.elementAt(kix)))) {
                     lifecycleActivityDot = createLifecycleDot(loaded_alphabet_vector.elementAt(kix));
                     loadDot(lifecycleActivityDot);
                 }
@@ -310,28 +308,30 @@ public class Loader {
 
                         for (int h = 0; h < activities_not_in_the_repo_vector.size(); h++) {
                             String specific_activity = activities_not_in_the_repo_vector.elementAt(h);
+                            String generalActivity = cleanActivity(specific_activity);
                             if (!Container.getActivitiesRepository_vector().contains(specific_activity)) {
                                 Container.getActivitiesRepository_vector().addElement(specific_activity);
                             }
                             if (!Container.getAlphabetListModel().contains(specific_activity)) {
                                 Container.getAlphabetListModel().addElement(specific_activity);
                             }
-                            String generalActivity = cleanActivity(specific_activity);
-                            for (String l: Container.lifecycles){
-                                if (!Container.getGeneralActivitiesRepository().contains(generalActivity+"_"+l)){
-                                    Container.getGeneralActivitiesRepository().addElement(generalActivity+"_"+l);
-                                }
-                                if (!Container.getActivitiesRepository_vector().contains(generalActivity+"_"+l)){
-                                    Container.getActivitiesRepository_vector().addElement(generalActivity+"_"+l);
-                                }
-                                if (!Container.getAlphabetListModel().contains(generalActivity+"_"+l)) {
-                                    Container.getAlphabetListModel().addElement(generalActivity+"_"+l);
+                           /* if ((Container.getLifecycle() || Container.getCombineXml()) &&!Container.getNotWantedActivities().contains(generalActivity)) {
+                                for (String l : Container.lifecycles) {
+                                    if (!Container.getGeneralActivitiesRepository().contains(generalActivity + "_" + l)) {
+                                        Container.getGeneralActivitiesRepository().addElement(generalActivity + "_" + l);
+                                    }
+                                    if (!Container.getActivitiesRepository_vector().contains(generalActivity + "_" + l)) {
+                                        Container.getActivitiesRepository_vector().addElement(generalActivity + "_" + l);
+                                    }
+                                    if (!Container.getAlphabetListModel().contains(generalActivity + "_" + l)) {
+                                        Container.getAlphabetListModel().addElement(generalActivity + "_" + l);
+                                    }
                                 }
                             }
-                            if (Container.getLifecycle()) {
+                            if (Container.getLifecycle() &&!Container.getNotWantedActivities().contains(generalActivity)) {
                                 lifecycleActivityDot = createLifecycleDot(specific_activity);
                                 loadDot(lifecycleActivityDot);
-                            }
+                            }*/
                         }
                         Container.getConstraintsListModel().addElement(constraint);
                     }

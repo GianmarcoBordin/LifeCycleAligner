@@ -152,7 +152,7 @@ public class TransitionLabel {
 
 	private final boolean positive;
 
-	TransitionLabel() {
+	public TransitionLabel() {
 		literals = new HashSet<ILiteral>();
 		u_literals = Collections.unmodifiableSet(literals);
 		negativeLabels = null;
@@ -172,7 +172,7 @@ public class TransitionLabel {
 		negative = true;
 	}
 
-	TransitionLabel(final String proposition) {
+	public TransitionLabel(final String proposition) {
 		literals = new HashSet<ILiteral>();
 		u_literals = Collections.unmodifiableSet(literals);
 		negativeLabels = null;

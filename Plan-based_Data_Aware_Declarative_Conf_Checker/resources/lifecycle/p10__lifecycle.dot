@@ -1,0 +1,14 @@
+digraph {
+	fake0 [style=invisible]
+	0 [root=true] [shape=doublecircle]
+	1
+	2
+	3
+	fake0 -> 0 [style=bold]
+	2 -> 3 [label=p10_start]
+	2 -> 1 [label=!p10_start]
+	3 -> 0 [label=p10_complete]
+	3 -> 1 [label=!p10_complete]
+	2 -> 1 [label=!p10_assign]
+	0 -> 2 [label=p10_assign]
+}

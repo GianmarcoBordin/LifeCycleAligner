@@ -11,6 +11,7 @@ import java.util.*;
 import org.processmining.ltl2automaton.plugins.automaton.Automaton;
 import org.processmining.ltl2automaton.plugins.automaton.State;
 import org.processmining.ltl2automaton.plugins.automaton.Transition;
+import org.processmining.ltl2automaton.plugins.automaton.TransitionLabel;
 
 import static main.Container.*;
 
@@ -24,7 +25,44 @@ public class Utilities {
 		return (dotIndex == -1) ? "" : fileName.substring(dotIndex + 1);
 	}
 
+	public static String cleanActivitySpecific(String input) {
+		if (input.contains(" "))
+			input = input.replaceAll(" ", "");
 
+		if (input.contains("/"))
+			input = input.replaceAll("\\/", "");
+
+		if (input.contains("("))
+			input = input.replaceAll("\\(", "");
+
+		if (input.contains(")"))
+			input = input.replaceAll("\\)", "");
+
+		if (input.contains("<"))
+			input = input.replaceAll("\\<", "");
+
+		if (input.contains(">"))
+			input = input.replaceAll("\\>", "");
+
+		if (input.contains("."))
+			input = input.replaceAll("\\.", "");
+
+		if (input.contains(","))
+			input = input.replaceAll("\\,", "_");
+
+		if (input.contains("+"))
+			input = input.replaceAll("\\+", "_");
+
+		if (input.contains("-"))
+			input = input.replaceAll("\\-", "_");
+
+		int lastUnderscoreIndex = input.lastIndexOf('_');
+		if (lastUnderscoreIndex != -1) {
+			return input.substring(lastUnderscoreIndex+1);
+		} else {
+			return input;
+		}
+	}
 	public static String cleanActivity(String input) {
 		if (input.contains(" "))
 			input = input.replaceAll(" ", "");
@@ -107,16 +145,20 @@ public class Utilities {
 			        //Transaction
 			    else if (st.contains("[label")) {
 
+
 			        //Transaction
 			        String[] splited = st.split(" ");
 			        String source = splited[0].trim();
 			        String target = splited[2].trim();
 
-
 			        String label = splited[3].substring(7, splited[3].length() - 1);
 
+					Collection<String>  a =new ArrayList<>();
+					a.add(label);
 
-			        Transition t = new Transition(states.get(Integer.parseInt(source)), states.get(Integer.parseInt(target)), label);
+			        Transition t = new Transition(states.get(Integer.parseInt(source)), states.get(Integer.parseInt(target)), a);
+
+
 
 			        State source1 = states.get(Integer.parseInt(source));
 

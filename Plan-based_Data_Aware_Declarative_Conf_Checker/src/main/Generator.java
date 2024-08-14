@@ -16,7 +16,7 @@ public class Generator {
         //
         // The tool works properly only if the set of Declare/LTL constraints is not empty. Otherwise, it throws an exception.
         //
-        System.out.println("CONSTRAINTS: "+Container.getConstraintsListModel().size());
+       // System.out.println("CONSTRAINTS: "+Container.getConstraintsListModel().size());
         if(!Container.getConstraintsListModel().isEmpty()) {
             Container.setActivitiesCost_vector(new Vector<Vector<String>>());
 
@@ -470,7 +470,7 @@ public class Generator {
                     //
                     Iterator<Transition> it = automaton.transitions().iterator();
 
-
+//System.out.println("NEW AUTOMATON");
 
                     while (it.hasNext()) {
 
@@ -502,6 +502,7 @@ public class Generator {
                             // Simple case: the label is positive (e.g., A).
                             //
                             if (!transition.isNegative()) {
+                                System.out.println(transition);
                                 tr_id = tr_prefix + "_" + automaton_index + "_" + single_tr_index;
                                 tr_label = transition.getPositiveLabel();
 
@@ -519,7 +520,8 @@ public class Generator {
                                 transitions_map.put(tr_label, tr_id);
 
                                 single_tr_index++;
-                            } else {
+                            } else{
+                                System.out.println("HERERERERE"+transition);
 
                                 // If the label is negative (e.g., !A) there are several possible concrete positive labels (...B,C,D,E,...etc.),
                                 // i.e., several possible valid relevant transitions to be recorded. Starting from a negative label, the positive
@@ -558,7 +560,7 @@ public class Generator {
                             //
                             // Keep track of all the accepting states of the automaton under consideration and records it in a local vector.
                             //
-
+       // System.out.println(transition);
                             if (transition.getSource().isAccepting() && !automaton_accepting_states_vector.contains(tr_source_state)) {
                                 automaton_accepting_states_vector.addElement(tr_source_state);
                             }
@@ -621,6 +623,7 @@ public class Generator {
                     // SECOND CASE: The automaton has just one accepting state.
                     //
                     else {
+                       // System.out.println(automaton_accepting_states_vector);
                         Container.getAutomataAcceptingStates_vector().addElement(automaton_accepting_states_vector.elementAt(0));
                         Container.getPDDLAutomataAcceptingStates_sb().append("(currstate " + automaton_accepting_states_vector.elementAt(0) + ")\n");
                     }
@@ -650,21 +653,6 @@ public class Generator {
                     while (it2.hasNext()) {
                         // Transition t2 = (Transition) it2.next();
 
-	    	            			/*
-	    	            			 System.out.txt.print(t2.getSource());
-	    	            			 System.out.txt.print(" --> ");
-	    	            			 System.out.txt.print(t2.getPositiveLabel());
-	    	            			 System.out.txt.print(" ### ");
-	    	            			 System.out.txt.print(t2.getNegativeLabels());
-	    	            			 System.out.txt.print(" --> ");
-	    	            			 System.out.txt.print(t2.getTarget());
-	    	            			 System.out.txt.print(" ... INITIAL: ");
-	    	            			 System.out.txt.print(product_automaton.getInit().getId());
-	    	            			 System.out.txt.print(" ... FINALS: ");
-	    	            			 if(t2.getSource().isAccepting()) System.out.txt.print(t2.getSource() + " %% ");
-	    	            			 if(t2.getTarget().isAccepting()) System.out.txt.print(t2.getTarget());
-	    	            			 System.out.txt.println();
-	    	            			 */
                     }
                 }
 
@@ -711,8 +699,7 @@ public class Generator {
                     }
                     int k_value = automata_id_of_accepting_states_vector.size();
                     Object[] arr = Container.getAutomataAcceptingStates_vector().toArray();
-                    System.out.println("STATE ARR LENGTH:"+arr.length
-                    );
+           //         System.out.println("STATE ARR LENGTH:"+arr.length);
 
                     Utilities.findCombinationsOfAcceptingStates(arr, k_value, 0, new String[k_value]);
                 }
@@ -727,13 +714,13 @@ public class Generator {
                 // For any key of the "transition_map" object, i.e., for any label, identify the relevant transitions associated
                 // to that label.
                 //
-                //System.out.println("TRANSITIONS: "+Container.getRelevantTransitions_map());
+               // System.out.println("TRANSITIONS: "+Container.getRelevantTransitions_map().size());
 
                 for (String key : set_of_keys) {
+//System.out.println(Container.getRelevantTransitions_map().get(key).size());
 
-                    System.out.println("TRANSITION: "+key);
                     Collection<String> values = Container.getRelevantTransitions_map().get(key);
-
+         //          System.out.println("TRANSITION: "+key+ " LABELS: "+values);
                     Object[] values_array = values.toArray();
                     //
                     // Given a specific label (e.g., A), which groups several transitions of different automata
