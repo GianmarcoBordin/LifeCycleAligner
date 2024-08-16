@@ -528,6 +528,7 @@ public class Generator {
 
                                 Collection<String> coll = transition.getNegativeLabels();
                                 System.out.println("COLLECTION: "+coll);
+                                System.out.println(Container.getActivitiesRepository_vector());
 
                                 for (int ix = 0; ix < Container.getActivitiesRepository_vector().size(); ix++) {
 
