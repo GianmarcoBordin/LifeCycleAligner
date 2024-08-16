@@ -14,7 +14,7 @@ import static main.Utilities.cleanActivity;
 
 public class Lifecycle {
 
-    public static File createLifecycleDot2(String activity) {
+    public static File createLifecycleDot(String activity) {
 
         // fake-init -> fake0 init -> 0 sink -> 1 assigned -> 2 started -> 3 completed -> 4
 
@@ -79,7 +79,7 @@ public class Lifecycle {
                 //dot.append("\t").append(i).append(" -> 1 [label=").append(activity).append(event).append("]\n");
             } else {
                 dot.append("\t").append(i).append(" -> ").append(index.get(lifecycles[0])).append(" [label=").append(activity).append(event).append("]\n");
-                dot.append("\t").append(index.get(lifecycles[i])).append(" -> 1 [label=").append("!").append(activity).append(event).append("]\n");
+                dot.append("\t").append("0 -> 1 [label=").append("!").append(activity).append(event).append("]\n");
 
             }
         }
@@ -99,7 +99,7 @@ public class Lifecycle {
         return dotFile;
     }
 
-    public static File createLifecycleDot(String activity) {
+    public static File createLifecycleDot2(String activity) {
         // fake-init -> fake0 init -> 0 sink -> 1 assigned -> 2 started -> 3 completed -> 4
 
         // preprocessing because we want the lifecycle for th activity not for the lifecycle activity

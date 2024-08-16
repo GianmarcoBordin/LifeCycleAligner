@@ -153,11 +153,14 @@ public class Utilities {
 
 			        String label = splited[3].substring(7, splited[3].length() - 1);
 
-					Collection<String>  a =new ArrayList<>();
-					a.add(label);
+					if (label.startsWith("!")){
+						Collection<String>  a =new ArrayList<>();
+						a.add(label);
+						Transition t = new Transition(states.get(Integer.parseInt(source)), states.get(Integer.parseInt(target)), a);
 
-			        Transition t = new Transition(states.get(Integer.parseInt(source)), states.get(Integer.parseInt(target)), a);
-
+					}else {
+						Transition t = new Transition(states.get(Integer.parseInt(source)), states.get(Integer.parseInt(target)), label);
+					}
 
 
 			        State source1 = states.get(Integer.parseInt(source));

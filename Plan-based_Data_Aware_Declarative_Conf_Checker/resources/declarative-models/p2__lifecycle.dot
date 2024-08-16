@@ -9,6 +9,6 @@ digraph {
 	2 -> 1 [label=!p2_start]
 	3 -> 0 [label=p2_complete]
 	3 -> 1 [label=!p2_complete]
-	2 -> 1 [label=!p2_assign]
 	0 -> 2 [label=p2_assign]
+	0 -> 1 [label=!p2_assign]
 }

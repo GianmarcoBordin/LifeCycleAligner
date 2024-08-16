@@ -349,6 +349,7 @@ public class Loader {
         if (!Container.getConstraintsListModel().contains(model_learning_constraint)){
             Container.getConstraintsListModel().addElement(model_learning_constraint);
         }
+
     }
 
 
