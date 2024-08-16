@@ -23,10 +23,8 @@ t19 - state
 t20 - state
 s_0_0 - state
 s_0_2 - state
-s_0_3 - state
 s_1_0 - state
 s_1_2 - state
-s_1_3 - state
 )
 (:init
 (currstate t0)

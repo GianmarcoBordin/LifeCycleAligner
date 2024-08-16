@@ -1,9 +1,12 @@
 package main;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 import org.processmining.ltl2automaton.plugins.automaton.Automaton;
+import org.processmining.ltl2automaton.plugins.automaton.Transition;
+import org.processmining.ltl2automaton.plugins.automaton.TransitionLabel;
 import org.processmining.ltl2automaton.plugins.formula.DefaultParser;
 import org.processmining.ltl2automaton.plugins.formula.Formula;
 import org.processmining.ltl2automaton.plugins.formula.conjunction.ConjunctionFactory;
@@ -129,6 +132,11 @@ public class LTLFormula {
 		     .getFactory(treeFactory);
 		   GroupedTreeConjunction conjunction = conjunctionFactory.instance(formulaeParsed);
 		   Automaton aut = conjunction.getAutomaton().op.determinize();
+		Iterator<Transition> it = aut.transitions().iterator();
+		while (it.hasNext()){
+		Transition t =it.next();
+			//System.out.println("AUTOMA: SOURCE: "+t.getSource()+" DEST: "+t.getTarget()+" TRANSITION: "+t.getPositiveLabel()+" NEGATIVE:"+t.getNegativeLabels());
+		}
 
 				  return aut;
 		 }

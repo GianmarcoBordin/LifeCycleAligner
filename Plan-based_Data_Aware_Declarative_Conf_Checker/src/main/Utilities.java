@@ -155,7 +155,7 @@ public class Utilities {
 
 					if (label.startsWith("!")){
 						Collection<String>  a =new ArrayList<>();
-						a.add(label);
+						a.add(label.replace("!",""));
 						Transition t = new Transition(states.get(Integer.parseInt(source)), states.get(Integer.parseInt(target)), a);
 
 					}else {

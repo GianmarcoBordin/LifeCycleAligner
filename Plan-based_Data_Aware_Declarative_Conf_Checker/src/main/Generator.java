@@ -16,7 +16,7 @@ public class Generator {
         //
         // The tool works properly only if the set of Declare/LTL constraints is not empty. Otherwise, it throws an exception.
         //
-       System.out.println("CONSTRAINTS: "+Container.getConstraintsListModel());
+       //System.out.println("CONSTRAINTS: "+Container.getConstraintsListModel());
         if(!Container.getConstraintsListModel().isEmpty()) {
             Container.setActivitiesCost_vector(new Vector<Vector<String>>());
 
@@ -470,7 +470,7 @@ public class Generator {
                     //
                     Iterator<Transition> it = automaton.transitions().iterator();
 
-//System.out.println("NEW AUTOMATON");
+System.out.println("NEW AUTOMATON");
 
                     while (it.hasNext()) {
 
@@ -478,6 +478,14 @@ public class Generator {
 
                         int tr_source_state_id = transition.getSource().getId();
                         int tr_target_state_id = transition.getTarget().getId();
+                  /*      if (transition.getLabel().isPositive()){
+                            System.out.println("POSITIVE: "+tr_source_state_id+transition.getPositiveLabel()+tr_target_state_id+"ACCEPTING SOURCE:"+transition.getSource().isAccepting()+"ACCEPTING DEST: "+transition.getTarget().isAccepting());
+
+                        }
+                        else {
+                            System.out.println("NEGATIVE: "+tr_source_state_id+transition.getNegativeLabels()+tr_target_state_id);
+
+                        }*/
 
                         if (tr_source_state_id != tr_target_state_id) {
 
@@ -505,6 +513,11 @@ public class Generator {
                                 //System.out.println(transition);
                                 tr_id = tr_prefix + "_" + automaton_index + "_" + single_tr_index;
                                 tr_label = transition.getPositiveLabel();
+                                System.out.println("PSOURCE : "+transition.getSource());
+                                System.out.println("PDEST : "+transition.getTarget());
+
+                                System.out.println("POSITIVE TRANS: "+transition.getPositiveLabel());
+
 
                                 //
                                 // Create a new RelevantTransition object and records it in the global vector of relevant transitions.
@@ -527,15 +540,18 @@ public class Generator {
                                 // ones are inferred from the repository of activities involved in the log and in the Declare constraints.
 
                                 Collection<String> coll = transition.getNegativeLabels();
-                                System.out.println("COLLECTION: "+coll);
-                                System.out.println(Container.getActivitiesRepository_vector());
+                                //System.out.println("COLLECTION: "+coll);
+                                //System.out.println(Container.getActivitiesRepository_vector());
+                                System.out.println("NSOURCE : "+transition.getSource());
+                                System.out.println("NDEST : "+transition.getTarget());
+                                System.out.println("NEGATIVE TRANS: "+transition.getPositiveLabel());
 
                                 for (int ix = 0; ix < Container.getActivitiesRepository_vector().size(); ix++) {
 
                                     tr_id = tr_prefix + "_" + automaton_index + "_" + single_tr_index;
                                     String symbol = Container.getActivitiesRepository_vector().elementAt(ix);
                                     if (!coll.contains(symbol)) {
-                                        System.out.println("SYMBOL: "+symbol);
+                                        //System.out.println("SYMBOL: "+symbol);
                                         tr_label = symbol;
                                         RelevantTransition relevant_transition = new RelevantTransition(tr_id, tr_source_state, tr_target_state, tr_label, transition.getPositiveLabel());
                                         relevant_transitions_vector.addElement(relevant_transition);
@@ -724,7 +740,7 @@ public class Generator {
 //System.out.println(Container.getRelevantTransitions_map().get(key));
 
                     Collection<String> values = Container.getRelevantTransitions_map().get(key);
-                   System.out.println("TRANSITION: "+key+ " LABELS: "+values);
+                   //System.out.println("TRANSITION: "+key+ " LABELS: "+values);
                     Object[] values_array = values.toArray();
                     //
                     // Given a specific label (e.g., A), which groups several transitions of different automata

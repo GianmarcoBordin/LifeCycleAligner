@@ -63,7 +63,8 @@ public class Lifecycle {
         for (int i = 0; i < lifecycles.length - 1; i++) {
             for (String event : lifecycles) {
                 if (!event.equals(flowEvents.get(lifecycles[i]))) {
-                    //dot.append("\t").append(index.get(lifecycles[i])).append(" -> 1 [label=").append(activity).append(event).append("]\n");
+                    dot.append("\t").append(index.get(lifecycles[i])).append(" -> 1 [label=").append(activity).append(event).append("]\n");
+
                 } else {
                     dot.append("\t").append(index.get(lifecycles[i])).append(" -> ").append(index.get(event)).append(" [label=").append(activity).append(event).append("]\n");
                     dot.append("\t").append(index.get(lifecycles[i])).append(" -> 1 [label=").append("!").append(activity).append(event).append("]\n");
@@ -76,7 +77,7 @@ public class Lifecycle {
         int i = 0;
         for (String event : lifecycles) {
             if (!event.equals(flowEvents.get("init"))) {
-                //dot.append("\t").append(i).append(" -> 1 [label=").append(activity).append(event).append("]\n");
+                dot.append("\t").append(i).append(" -> 1 [label=").append(activity).append(event).append("]\n");
             } else {
                 dot.append("\t").append(i).append(" -> ").append(index.get(lifecycles[0])).append(" [label=").append(activity).append(event).append("]\n");
                 dot.append("\t").append("0 -> 1 [label=").append("!").append(activity).append(event).append("]\n");
@@ -235,7 +236,7 @@ public class Lifecycle {
 
             // MORE EFFICIENT --> chain succession (assign,start), chain succession (start,complete)
             // MORE GENERAL --> alternate succession (assign,start), alternate succession (start,complete), alternate succession (assign, complete)
-            System.out.println("LIFECYCLE ACTIVITIES: "+Container.getGeneralActivities2Activities());
+            //System.out.println("LIFECYCLE ACTIVITIES: "+Container.getGeneralActivities2Activities());
             for (String activity : Container.getGeneralActivities2Activities()) {
 
                  // creation of the activity

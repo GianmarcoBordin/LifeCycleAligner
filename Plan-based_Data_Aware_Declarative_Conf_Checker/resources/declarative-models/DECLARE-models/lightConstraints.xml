@@ -14,10 +14,10 @@
 		<constraintdefinitions>
 			<constraint id="1" mandatory="true">
 				<condition/>
-				<name>not chain succession</name>
+				<name>chain succession</name>
 				<template>
 					<description>A and B can never be executed next to each other where A is executed first and B second.</description>
-					<display>not chain succession</display>
+					<display>chain succession</display>
 					<name>not chain succession</name>
 					<text>[]( ( "A" -&gt; X( !( "B" ) ) ) )</text>
 					<parameters>

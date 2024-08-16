@@ -24,16 +24,24 @@ t20 - state
 s_0_0 - state
 s_0_2 - state
 s_0_3 - state
+s_1_0 - state
+s_1_2 - state
+s_2_0 - state
+s_2_2 - state
 )
 (:init
 (currstate t0)
 (currstate s_0_0)
+(currstate s_1_0)
+(currstate s_2_0)
 (= (total-cost) 0)
 )
 (:goal
 (and
 (currstate t20)
 (currstate s_0_0)
+(currstate s_1_0)
+(currstate s_2_0)
 ))
 (:metric minimize (total-cost))
 )
