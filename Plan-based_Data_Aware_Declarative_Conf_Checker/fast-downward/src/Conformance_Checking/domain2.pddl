@@ -10,34 +10,34 @@
 (total-cost)
 )
 
-(:action add-p5_assign-ct0
-:precondition (and (currstate s_0_0) (not (currstate s_1_2)) )
-:effect (and (not (currstate s_0_0)) (currstate s_0_2)  (increase (total-cost) 1))
-)
-
-(:action add-p5_start-ct1
-:precondition (and (currstate s_1_0) (not (currstate s_0_0)) (not (currstate s_0_2)) )
-:effect (and (not (currstate s_1_0)) (currstate s_1_2)  (increase (total-cost) 1))
-)
-
-(:action add-p5_start-ct2
-:precondition (and (currstate s_0_2) (not (currstate s_1_0)) (not (currstate s_1_2)) )
-:effect (and (not (currstate s_0_2)) (currstate s_0_0)  (increase (total-cost) 1))
-)
-
-(:action add-p5_start-ct3
-:precondition (and (currstate s_1_0) (currstate s_0_2) )
-:effect (and (not (currstate s_1_0)) (currstate s_1_2) (not (currstate s_0_2)) (currstate s_0_0)  (increase (total-cost) 1))
-)
-
-(:action add-p5_complete-ct4
+(:action add-p5_complete-ct0
 :precondition (and (currstate s_1_2) (not (currstate s_0_2)) )
 :effect (and (not (currstate s_1_2)) (currstate s_1_0)  (increase (total-cost) 1))
 )
 
-(:action sync-p5_complete-ct4
+(:action sync-p5_complete-ct0
 :precondition (and (currstate t18) (currstate s_1_2) (not (currstate s_0_2)) )
 :effect (and (not (currstate t18)) (currstate t19) (not (currstate s_1_2)) (currstate s_1_0) )
+)
+
+(:action add-p5_assign-ct1
+:precondition (and (currstate s_0_0) (not (currstate s_1_2)) )
+:effect (and (not (currstate s_0_0)) (currstate s_0_2)  (increase (total-cost) 1))
+)
+
+(:action add-p5_start-ct2
+:precondition (and (currstate s_1_0) (not (currstate s_0_0)) (not (currstate s_0_2)) )
+:effect (and (not (currstate s_1_0)) (currstate s_1_2)  (increase (total-cost) 1))
+)
+
+(:action add-p5_start-ct3
+:precondition (and (currstate s_0_2) (not (currstate s_1_2)) (not (currstate s_1_0)) )
+:effect (and (not (currstate s_0_2)) (currstate s_0_0)  (increase (total-cost) 1))
+)
+
+(:action add-p5_start-ct4
+:precondition (and (currstate s_1_0) (currstate s_0_2) )
+:effect (and (not (currstate s_1_0)) (currstate s_1_2) (not (currstate s_0_2)) (currstate s_0_0)  (increase (total-cost) 1))
 )
 
 (:action sync-p2_complete-t0t1
@@ -59,7 +59,7 @@
 )
 
 (:action sync-p1_complete-t2t3
-:precondition (and (currstate t2) (not (currstate s_1_2)) (not (currstate s_0_2)) )
+:precondition (and (currstate t2) (not (currstate s_0_2)) (not (currstate s_1_2)) )
 :effect (and (not (currstate t2)) (currstate t3)))
 
 (:action del-p1_complete-t2-t3
@@ -104,7 +104,7 @@
 )
 
 (:action sync-p12_complete-t7t8
-:precondition (and (currstate t7) (not (currstate s_1_2)) (not (currstate s_0_2)) )
+:precondition (and (currstate t7) (not (currstate s_0_2)) (not (currstate s_1_2)) )
 :effect (and (not (currstate t7)) (currstate t8)))
 
 (:action del-p12_complete-t7-t8
@@ -113,7 +113,7 @@
 )
 
 (:action sync-activityn_complete-t8t9
-:precondition (and (currstate t8) (not (currstate s_0_2)) (not (currstate s_1_2)) )
+:precondition (and (currstate t8) (not (currstate s_1_2)) (not (currstate s_0_2)) )
 :effect (and (not (currstate t8)) (currstate t9)))
 
 (:action del-activityn_complete-t8-t9
@@ -122,7 +122,7 @@
 )
 
 (:action sync-activityo_complete-t9t10
-:precondition (and (currstate t9) (not (currstate s_0_2)) (not (currstate s_1_2)) )
+:precondition (and (currstate t9) (not (currstate s_1_2)) (not (currstate s_0_2)) )
 :effect (and (not (currstate t9)) (currstate t10)))
 
 (:action del-activityo_complete-t9-t10
@@ -131,7 +131,7 @@
 )
 
 (:action sync-activityo_complete-t10t11
-:precondition (and (currstate t10) (not (currstate s_0_2)) (not (currstate s_1_2)) )
+:precondition (and (currstate t10) (not (currstate s_1_2)) (not (currstate s_0_2)) )
 :effect (and (not (currstate t10)) (currstate t11)))
 
 (:action del-activityo_complete-t10-t11
@@ -158,7 +158,7 @@
 )
 
 (:action sync-p1_complete-t13t14
-:precondition (and (currstate t13) (not (currstate s_1_2)) (not (currstate s_0_2)) )
+:precondition (and (currstate t13) (not (currstate s_0_2)) (not (currstate s_1_2)) )
 :effect (and (not (currstate t13)) (currstate t14)))
 
 (:action del-p1_complete-t13-t14
@@ -167,7 +167,7 @@
 )
 
 (:action sync-activityp_complete-t14t15
-:precondition (and (currstate t14) (not (currstate s_1_2)) (not (currstate s_0_2)) )
+:precondition (and (currstate t14) (not (currstate s_0_2)) (not (currstate s_1_2)) )
 :effect (and (not (currstate t14)) (currstate t15)))
 
 (:action del-activityp_complete-t14-t15
@@ -185,7 +185,7 @@
 )
 
 (:action sync-p8_complete-t16t17
-:precondition (and (currstate t16) (not (currstate s_1_2)) (not (currstate s_0_2)) )
+:precondition (and (currstate t16) (not (currstate s_0_2)) (not (currstate s_1_2)) )
 :effect (and (not (currstate t16)) (currstate t17)))
 
 (:action del-p8_complete-t16-t17
@@ -203,7 +203,7 @@
 )
 
 (:action sync-p5_complete-t18t19
-:precondition (and (currstate t18) (not (currstate s_0_2)) (not (currstate s_1_0)) (not (currstate s_1_2)) )
+:precondition (and (currstate t18) (not (currstate s_1_0)) (not (currstate s_0_2)) (not (currstate s_1_2)) )
 :effect (and (not (currstate t18)) (currstate t19)))
 
 (:action del-p5_complete-t18-t19

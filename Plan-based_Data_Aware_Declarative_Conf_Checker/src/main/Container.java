@@ -1,5 +1,6 @@
 package main;
 
+import java.io.File;
 import java.util.*;
 
 import com.google.common.primitives.Booleans;
@@ -14,6 +15,24 @@ public class Container {
 	// CONTAINER OPTIONS AND PRELIMINARY STRUCTURES START
 
 	public final static String[] lifecycles = {"assign","start","complete"} ;
+
+	public static HashMap<String, ArrayList<String>> lifecycles_map = new HashMap<>();
+	public static HashMap<String, Integer> s_index = new HashMap<>();
+	public static String  lifecycle_file = "/Users/applem2/Downloads/Work/tesi/Project/Aligner/Plan-based_Data_Aware_Declarative_Conf_Checker/resources/lifecycle.dot";
+	public static Map<String, Integer> index = new HashMap<>();
+
+	static {
+		s_index.put("assign",0);
+		s_index.put("start",2);
+		s_index.put("complete",3);
+		index.put("assign",2);
+		index.put("start", 3);
+		index.put("complete",0);
+		lifecycles_map.put("assign",new ArrayList<>(Arrays.asList("start")));
+		lifecycles_map.put("start", new ArrayList<>(Arrays.asList("complete")));
+		lifecycles_map.put("complete", new ArrayList<>(Arrays.asList("assign")));
+	}
+
 
 	public final static String WORKING_LIFECYCLE_DIR = "/Users/applem2/Downloads/Work/tesi/Project/Aligner/Plan-based_Data_Aware_Declarative_Conf_Checker/resources/";
 
@@ -33,6 +52,9 @@ public class Container {
 	private static boolean costCheckBox=true; // settled to false makes the planner find a solution
 
 	private static List<String> seenActivities = new ArrayList<>();
+
+	private static List<String> activities_no_lifecycle = new ArrayList<>();
+
 
 	private static List<String> addedActivities = new ArrayList<>();
 
@@ -73,7 +95,7 @@ public class Container {
 					"activityo",
 					"activityk",
 					"p1",
-					"p2",
+				//	"p2",
 					"p3",
 					"p4",
 					"p5",
@@ -418,5 +440,10 @@ public class Container {
 	public static List<String> getGeneralActivities2Activities(){
 		return Container.generalActivities2;
 	}
+
+	public static List<String> getActivitiesWithoutLifecycleTag(){
+		return Container.activities_no_lifecycle;
+	}
+
 
 }

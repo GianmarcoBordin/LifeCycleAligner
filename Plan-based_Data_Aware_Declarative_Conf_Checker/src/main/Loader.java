@@ -14,9 +14,9 @@ import java.nio.file.StandardCopyOption;
 import java.util.Vector;
 
 
-import static main.Lifecycle.createLifecycleDot;
-import static main.Lifecycle.createLifecycleDot2;
-import static main.Utilities.cleanActivity;
+import static main.Lifecycle.createLifecycleDotChainSuccession;
+import static main.Lifecycle.createLifecycleDotChainSuccessionParametric;
+import static main.Utilities.*;
 
 public class Loader {
 
@@ -121,6 +121,10 @@ public class Loader {
 
                     String finalName = activityName + "_"+lifecycleTransition;
 
+                    if (!Container.getActivitiesWithoutLifecycleTag().contains(activityName)) {
+                        Container.getActivitiesWithoutLifecycleTag().add(activityName);
+                    }
+
                     loaded_trace_activities_vector.addElement(finalName);
                     if (!loaded_alphabet_vector.contains(finalName))
                         loaded_alphabet_vector.addElement(finalName);
@@ -177,12 +181,15 @@ public class Loader {
             }
 
             File lifecycleActivityDot= null;
-            Container.setActivitiesRepository_vector(loaded_alphabet_vector);
-            for (int kix = 0; kix < loaded_alphabet_vector.size(); kix++) {
-                if (Container.getLifecycle() && !Container.getNotWantedActivities().contains(cleanActivity(loaded_alphabet_vector.elementAt(kix)))) {
-                    lifecycleActivityDot = createLifecycleDot(loaded_alphabet_vector.elementAt(kix));
+            for (String activity : Container.getActivitiesWithoutLifecycleTag()){
+                if (Container.getLifecycle() && !Container.getNotWantedActivities().contains(activity)) {
+                    //lifecycleActivityDot = createLifecycleDotChainSuccessionParametric(activity);
+                    lifecycleActivityDot = preprocessLifecycleDot(activity);
                     loadDot(lifecycleActivityDot);
                 }
+            }
+            Container.setActivitiesRepository_vector(loaded_alphabet_vector);
+            for (int kix = 0; kix < loaded_alphabet_vector.size(); kix++) {
                 Container.getAlphabetListModel().addElement(loaded_alphabet_vector.elementAt(kix));
             }
 
@@ -329,7 +336,7 @@ public class Loader {
                                 }
                             }
                             if (Container.getLifecycle() &&!Container.getNotWantedActivities().contains(generalActivity)) {
-                                lifecycleActivityDot = createLifecycleDot(specific_activity);
+                                lifecycleActivityDot = createLifecycleDotChainSuccession(specific_activity);
                                 loadDot(lifecycleActivityDot);
                             }*/
                         }

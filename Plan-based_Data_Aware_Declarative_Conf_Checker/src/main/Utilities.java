@@ -1,11 +1,6 @@
 package main;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
 import java.util.*;
 
 import org.processmining.ltl2automaton.plugins.automaton.Automaton;
@@ -25,40 +20,10 @@ public class Utilities {
 		return (dotIndex == -1) ? "" : fileName.substring(dotIndex + 1);
 	}
 
-	public static String cleanActivitySpecific(String input) {
-		if (input.contains(" "))
-			input = input.replaceAll(" ", "");
-
-		if (input.contains("/"))
-			input = input.replaceAll("\\/", "");
-
-		if (input.contains("("))
-			input = input.replaceAll("\\(", "");
-
-		if (input.contains(")"))
-			input = input.replaceAll("\\)", "");
-
-		if (input.contains("<"))
-			input = input.replaceAll("\\<", "");
-
-		if (input.contains(">"))
-			input = input.replaceAll("\\>", "");
-
-		if (input.contains("."))
-			input = input.replaceAll("\\.", "");
-
-		if (input.contains(","))
-			input = input.replaceAll("\\,", "_");
-
-		if (input.contains("+"))
-			input = input.replaceAll("\\+", "_");
-
-		if (input.contains("-"))
-			input = input.replaceAll("\\-", "_");
-
+	public static String removeAfterUnderscore(String input) {
 		int lastUnderscoreIndex = input.lastIndexOf('_');
 		if (lastUnderscoreIndex != -1) {
-			return input.substring(lastUnderscoreIndex+1);
+			return input.substring(0, lastUnderscoreIndex);
 		} else {
 			return input;
 		}
@@ -126,14 +91,74 @@ public class Utilities {
 		new File(WORKING_DIR+"run_SYMBA_all").setExecutable(true);
 		new File(WORKING_DIR+"checkNumberOfTraces").setExecutable(true);
 	}
+	public static File preprocessLifecycleDot(String activity) throws FileNotFoundException {
+		BufferedReader br = null;
+		BufferedWriter bw = null;
+		StringBuilder modifiedContent = new StringBuilder();
+		File newFile = null;
 
 
-	public static Automaton getAutomatonForModelLearning(String filename) throws FileNotFoundException {
+		try {
+			// Reading the original file
+			br = new BufferedReader(new FileReader(lifecycle_file));
+
+			String st;
+
+			while ((st = br.readLine()) != null) {
+				if (st.contains("fake") || st.contains("digraph") || st.contains("}")) {
+					// Add the line as it is to the modified content
+					modifiedContent.append(st).append("\n");
+				} else if (st.contains("[label")) {
+					// Find the position of the label
+					int labelIndex = st.indexOf("label=");
+					if (labelIndex != -1) {
+						// Find the position of the underscore after "label="
+						int underscoreIndex = st.indexOf("_", labelIndex);
+						if (underscoreIndex != -1) {
+							// Insert the activity series before the underscore
+							String modifiedLine = st.substring(0, underscoreIndex) + activity + st.substring(underscoreIndex);
+							modifiedContent.append(modifiedLine).append("\n");
+						} else {
+							// If there's no underscore, insert activity after "label=" without any additional quotes or spaces
+							int labelEndIndex = labelIndex + 6;  // "label=" is 6 characters long
+							String modifiedLine = st.substring(0, labelEndIndex) +  activity + "_" + st.substring(labelEndIndex);
+							modifiedContent.append(modifiedLine).append("\n");
+						}
+					}
+				} else {
+					// Add the line as it is if it doesn't contain a label
+					modifiedContent.append(st).append("\n");
+				}
+			}
+
+			// Writing the modified content to a new file
+			newFile = new File("/Users/applem2/Downloads/Work/tesi/Project/Aligner/Plan-based_Data_Aware_Declarative_Conf_Checker/resources/lifecycle/" + activity + "_lifecycle.dot");
+
+			bw = new BufferedWriter(new FileWriter(newFile));
+			bw.write(modifiedContent.toString());
+
+		} catch (NumberFormatException | IOException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (br != null) {
+					br.close();
+				}
+				if (bw != null) {
+					bw.close();
+				}
+			} catch (IOException ex) {
+				ex.printStackTrace();
+			}
+		}
+		return newFile; // Return the File object of the new file
+
+	}	public static Automaton getAutomatonForModelLearning(String filename) throws FileNotFoundException {
         File file = new File(filename);
         BufferedReader br = null;
-        
+
         br = new BufferedReader(new FileReader(file));
-        
+
         String st;
         HashMap<Integer, State> states = new HashMap<>();
         Automaton n = new Automaton();
@@ -219,14 +244,7 @@ public class Utilities {
 		return n;
 	}
 
-
 	public static void findCombinationsOfTransitions(Object[] arr, String label, int len, int original_k_value, int startPosition, String[] result) {
-		//Optimizer.findCombinationsOfTransitions3Iterative(arr, label, len, original_k_value);
-		findCombinationsOfTransitions3(arr, label, len, original_k_value, startPosition, result);
-
-	}
-
-	public static void findCombinationsOfTransitions3(Object[] arr, String label, int len, int original_k_value, int startPosition, String[] result) {
 
 		if (len == 0){
 
@@ -276,7 +294,7 @@ public class Utilities {
 	    }
 	    for (int i = startPosition; i <= arr.length-len; i++){
 	        result[result.length - len] = arr[i].toString();
-	        findCombinationsOfTransitions3(arr, label, len-1, original_k_value, i+1, result);
+	        findCombinationsOfTransitions(arr, label, len-1, original_k_value, i+1, result);
 	    }
 	}
 

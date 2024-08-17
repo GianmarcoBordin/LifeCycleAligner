@@ -513,11 +513,10 @@ public class Generator {
                                 //System.out.println(transition);
                                 tr_id = tr_prefix + "_" + automaton_index + "_" + single_tr_index;
                                 tr_label = transition.getPositiveLabel();
-                                //System.out.println("PSOURCE : "+transition.getSource());
-                                //System.out.println("PDEST : "+transition.getTarget());
-
-                                //System.out.println("POSITIVE TRANS: "+transition.getPositiveLabel());
-
+                               /* System.out.println("PSOURCE : "+transition.getSource());
+                                System.out.println("PDEST : "+transition.getTarget());
+                                System.out.println("POSITIVE TRANS: "+transition.getPositiveLabel());
+*/
 
                                 //
                                 // Create a new RelevantTransition object and records it in the global vector of relevant transitions.
@@ -542,9 +541,9 @@ public class Generator {
                                 Collection<String> coll = transition.getNegativeLabels();
                                 //System.out.println("COLLECTION: "+coll);
                                 //System.out.println(Container.getActivitiesRepository_vector());
-                                //System.out.println("NSOURCE : "+transition.getSource());
-                                //System.out.println("NDEST : "+transition.getTarget());
-                                //System.out.println("NEGATIVE TRANS: "+transition.getPositiveLabel());
+                           /*     System.out.println("NSOURCE : "+transition.getSource());
+                                System.out.println("NDEST : "+transition.getTarget());
+                                System.out.println("NEGATIVE TRANS: "+transition.getPositiveLabel());*/
 
                                 for (int ix = 0; ix < Container.getActivitiesRepository_vector().size(); ix++) {
 

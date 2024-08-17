@@ -1,0 +1,17 @@
+digraph {
+	fake0 [style=invisible]
+	0 [root=true] [shape=doublecircle]
+	1
+	2
+	3
+	fake0 -> 0 [style=bold]
+	0 -> 2 [label=act2assign]
+	2 -> 3 [label=act2start]
+	3 -> 0 [label=act2complete]
+	0 -> 1 [label=act2start]
+	0 -> 1 [label=act2complete]
+	2 -> 1 [label=act2assign]
+	2 -> 1 [label=act2complete]
+	3 -> 1 [label=act2assign]
+	3 -> 1 [label=act2start]
+}
