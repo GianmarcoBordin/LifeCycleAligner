@@ -1,8 +1,5 @@
 package main;
 
-import org.processmining.ltl2automaton.plugins.automaton.Automaton;
-import org.processmining.ltl2automaton.plugins.automaton.State;
-import org.processmining.ltl2automaton.plugins.automaton.Transition;
 import org.w3c.dom.*;
 import javax.xml.parsers.*;
 import javax.xml.transform.*;
@@ -13,11 +10,10 @@ import java.util.*;
 
 import static main.Container.*;
 import static main.Utilities.cleanActivity;
-import static main.Utilities.preprocessLifecycleDot;
 
 public class Lifecycle {
 
-    public static File createLifecycleDotChainSuccession(String activity) {
+    public static File createLifecycleDotChain(String activity) {
 
         // fake-init -> fake0 init -> 0 sink -> 1 assigned -> 2 started -> 3 completed -> 4
 
@@ -103,7 +99,7 @@ public class Lifecycle {
         return dotFile;
     }
 
-    public static File createLifecycleDotChainSuccessionParametric(String activity) {
+    public static File createLifecycleDotChainParametric(String activity) {
         // fake-init -> fake0 init -> 0 sink -> 1 assigned -> 2 started -> 3 completed -> 4
 
         // preprocessing because we want the lifecycle for th activity not for the lifecycle activity
@@ -170,7 +166,7 @@ public class Lifecycle {
         return dotFile;
     }
 
-    public static File createLifecycleDotAlternateSuccessionParametric(String activity) {
+    public static File createLifecycleDotAlternateChainParametric(String activity) {
         // fake-init -> fake0 init -> 0 sink -> 1 assigned -> 2 started -> 3 completed -> 4
 
         // preprocessing because we want the lifecycle for th activity not for the lifecycle activity
@@ -237,7 +233,7 @@ public class Lifecycle {
         return dotFile;
     }
 
-    public static File createLifecycleDotAlternateSuccession(String activity) {
+    public static File createLifecycleDotAlternateChain(String activity) {
         // fake-init -> fake0 init -> 0 sink -> 1 assigned -> 2 started -> 3 completed -> 4
 
         // preprocessing because we want the lifecycle for th activity not for the lifecycle activity

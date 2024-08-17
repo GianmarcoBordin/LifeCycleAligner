@@ -16,7 +16,7 @@ public class Generator {
         //
         // The tool works properly only if the set of Declare/LTL constraints is not empty. Otherwise, it throws an exception.
         //
-       //System.out.println("CONSTRAINTS: "+Container.getConstraintsListModel());
+         //System.out.println("CONSTRAINTS: "+Container.getConstraintsListModel());
         if(!Container.getConstraintsListModel().isEmpty()) {
             Container.setActivitiesCost_vector(new Vector<Vector<String>>());
 

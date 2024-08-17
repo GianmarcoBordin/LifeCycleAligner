@@ -14,8 +14,7 @@ import java.nio.file.StandardCopyOption;
 import java.util.Vector;
 
 
-import static main.Lifecycle.createLifecycleDotChainSuccession;
-import static main.Lifecycle.createLifecycleDotChainSuccessionParametric;
+import static main.Lifecycle.createLifecycleDotChain;
 import static main.Utilities.*;
 
 public class Loader {
@@ -181,15 +180,22 @@ public class Loader {
             }
 
             File lifecycleActivityDot= null;
-            for (String activity : Container.getActivitiesWithoutLifecycleTag()){
+           for (String activity : Container.getActivitiesWithoutLifecycleTag()) {
                 if (Container.getLifecycle() && !Container.getNotWantedActivities().contains(activity)) {
-                    //lifecycleActivityDot = createLifecycleDotChainSuccessionParametric(activity);
-                    lifecycleActivityDot = preprocessLifecycleDot(activity);
+                    //lifecycleActivityDot = createLifecycleDotChainParametric(activity);
+                    //lifecycleActivityDot = preprocessLifecycleDot(activity);
+                    lifecycleActivityDot = createLifecycleDotChain(activity+"_");
                     loadDot(lifecycleActivityDot);
                 }
             }
             Container.setActivitiesRepository_vector(loaded_alphabet_vector);
             for (int kix = 0; kix < loaded_alphabet_vector.size(); kix++) {
+                /*if (Container.getLifecycle() && !Container.getNotWantedActivities().contains(cleanActivity(loaded_alphabet_vector.elementAt(kix)))) {
+                    //lifecycleActivityDot = createLifecycleDotChainParametric(activity);
+                    //lifecycleActivityDot = preprocessLifecycleDot(activity);
+                    lifecycleActivityDot = createLifecycleDotChain(loaded_alphabet_vector.elementAt(kix));
+                    loadDot(lifecycleActivityDot);
+                }*/
                 Container.getAlphabetListModel().addElement(loaded_alphabet_vector.elementAt(kix));
             }
 
@@ -336,7 +342,7 @@ public class Loader {
                                 }
                             }
                             if (Container.getLifecycle() &&!Container.getNotWantedActivities().contains(generalActivity)) {
-                                lifecycleActivityDot = createLifecycleDotChainSuccession(specific_activity);
+                                lifecycleActivityDot = createLifecycleDotChain(specific_activity);
                                 loadDot(lifecycleActivityDot);
                             }*/
                         }

@@ -33,6 +33,9 @@ public class Container {
 		lifecycles_map.put("complete", new ArrayList<>(Arrays.asList("assign")));
 	}
 
+	// TODO scadenza domanda 20 settembre
+	// TODO vedere se costi = 1 con uno stato si può fare
+	// TODO 15 constraints declare
 
 	public final static String WORKING_LIFECYCLE_DIR = "/Users/applem2/Downloads/Work/tesi/Project/Aligner/Plan-based_Data_Aware_Declarative_Conf_Checker/resources/";
 
