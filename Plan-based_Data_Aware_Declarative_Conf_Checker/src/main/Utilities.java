@@ -13,8 +13,6 @@ import static main.Container.*;
 
 public class Utilities {
 
-
-
 	public static String getFileExtension(String fileName) {
 		int dotIndex = fileName.lastIndexOf('.');
 		return (dotIndex == -1) ? "" : fileName.substring(dotIndex + 1);
@@ -91,6 +89,11 @@ public class Utilities {
 		new File(WORKING_DIR+"run_SYMBA_all").setExecutable(true);
 		new File(WORKING_DIR+"checkNumberOfTraces").setExecutable(true);
 	}
+	/*
+	   The user can modify the dot template to allow the program ensure lifecycle enforcement for any type of lifecycle
+	   in a more flexible way, the following function then is responsible for inserting
+	   the activity name in the template ensuring the correction in the lifecycle sense
+	*/
 	public static File preprocessLifecycleDot(String activity) throws FileNotFoundException {
 		BufferedReader br = null;
 		BufferedWriter bw = null;
@@ -132,7 +135,7 @@ public class Utilities {
 			}
 
 			// Writing the modified content to a new file
-			newFile = new File("/Users/applem2/Downloads/Work/tesi/Project/Aligner/Plan-based_Data_Aware_Declarative_Conf_Checker/resources/lifecycle/" + activity + "_lifecycle.dot");
+			newFile = new File("/Users/applem2/Downloads/TESI/Project/Aligner/Plan-based_Data_Aware_Declarative_Conf_Checker/resources/lifecycle/" + activity + "_lifecycle.dot");
 
 			bw = new BufferedWriter(new FileWriter(newFile));
 			bw.write(modifiedContent.toString());
@@ -153,7 +156,8 @@ public class Utilities {
 		}
 		return newFile; // Return the File object of the new file
 
-	}	public static Automaton getAutomatonForModelLearning(String filename) throws FileNotFoundException {
+	}
+	public static Automaton getAutomatonForModelLearning(String filename) throws FileNotFoundException {
         File file = new File(filename);
         BufferedReader br = null;
 
@@ -374,7 +378,6 @@ public class Utilities {
 			PDDL_domain_buffer.append("(total-cost)\n");			
 			PDDL_domain_buffer.append(")\n\n");		
 		}
-		//System.out.println(Container.getAlphabetOfTheConstraints_vector()); // TODO error here
 
 		for(int i = 0; i< Container.getCombinationOfRelevantTransitions_vector().size(); i++) {
 			

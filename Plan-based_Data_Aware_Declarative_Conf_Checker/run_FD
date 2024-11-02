@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Change directory to the Fast Downward installation
-cd /Users/applem2/Downloads/Work/tesi/fast-downward-23.06/
+cd /Users/applem2/Downloads/TESI/fast-downward-23.06/
 
 # Log file to accumulate results
 logfile="results.log"
@@ -13,7 +13,7 @@ for trace in {1..1}; do
     problem="Conformance_Checking/problem${trace}.pddl"
 
     # Run the Fast Downward script and capture the output
-    output=$(./fast-downward.py $domain $problem --heuristic "hff=ff()" --heuristic "hcea=cea()" --search "astar(blind())" < /Users/applem2/Downloads/Work/tesi/fast-downward-23.06/output.txt)
+    output=$(./fast-downward.py $domain $problem --heuristic "hff=ff()" --heuristic "hcea=cea()" --search "astar(blind())" < /Users/applem2/Downloads/TESI/fast-downward-23.06/output.txt)
 
     # Extract the specific part of the output and append to log file
     echo "Results for trace #$trace:" >> $logfile

@@ -18,9 +18,10 @@ public class Container {
 
 	public static HashMap<String, ArrayList<String>> lifecycles_map = new HashMap<>();
 	public static HashMap<String, Integer> s_index = new HashMap<>();
-	public static String  lifecycle_file = "/Users/applem2/Downloads/Work/tesi/Project/Aligner/Plan-based_Data_Aware_Declarative_Conf_Checker/resources/lifecycle.dot";
+	public static String  lifecycle_file = "/Users/applem2/Downloads/TESI/Project/Aligner/Plan-based_Data_Aware_Declarative_Conf_Checker/resources/lifecycle.dot";
 	public static Map<String, Integer> index = new HashMap<>();
 
+	// auxiliary data structures init used for parametric lifecycle dot creations
 	static {
 		s_index.put("assign",0);
 		s_index.put("start",2);
@@ -33,26 +34,28 @@ public class Container {
 		lifecycles_map.put("complete", new ArrayList<>(Arrays.asList("assign")));
 	}
 
-	// TODO scadenza domanda 20 settembre
-	// TODO vedere se costi = 1 con uno stato si può fare
-	// TODO 15 constraints declare
-
-	public final static String WORKING_LIFECYCLE_DIR = "/Users/applem2/Downloads/Work/tesi/Project/Aligner/Plan-based_Data_Aware_Declarative_Conf_Checker/resources/";
-
-	public final static String WORKING_DIR = "/Users/applem2/Downloads/Work/tesi/Project/Aligner/Plan-based_Data_Aware_Declarative_Conf_Checker/";
-
+	public final static String WORKING_LIFECYCLE_DIR = "/Users/applem2/Downloads/TESI/Project/Aligner/Plan-based_Data_Aware_Declarative_Conf_Checker/resources/";
+	public final static String WORKING_DIR = "/Users/applem2/Downloads/TESI/Project/Aligner/Plan-based_Data_Aware_Declarative_Conf_Checker/";
 	public static Vector<String> dots = new Vector<String>() ;
 	public static String PDDL_encoding = "AAAI17"; //It can be equal to "AAAI17" or to "ICAPS16".
-	///////
-    private static boolean hold_not_found_constraints = true;
+    private static boolean hold_not_found_constraints = true; // whether to hold or not the constraints for activities not in the log
+	// definitions of the cost of add and del actions
 	private static String  add_cost = "1";
 	private static String del_cost = "3";
-	private static boolean discard_duplicated_traces = true;
-	private static boolean combineXml = false;
-	private static boolean lifecycle = true; // the lifecycle is faster because the relevant transitions are calculated only for one automaton a time not the product automaton
-    private static boolean sinkStatesMenuItem = true; // false slow down
+	private static boolean discard_duplicated_traces = true; // whether to discard duplicate traces in the log
+	/*
+		The program uses the following two flags to decide on the lifecycle enforcement mode:
+		1) with the combine xml flag set to true the program adds to the current xml constraint file provided
+		by the user, the necessary lifecycle constraints
+		2) with the lifecycle flag set to true the program create temporary files to store the lifecycle automata for each
+		activity to correct in the lifecycle sense
+		P.S. only one flag is necessary for the lifecycle enforcement
+	 */
+	private static boolean combineXml = true;
+	private static boolean lifecycle = false; // the lifecycle is faster because the relevant transitions are calculated only for one automaton a time not the product automaton
+    private static boolean sinkStatesMenuItem = true; // whether to hold or not sink states, false slow down
 	private  static boolean disjunctiveGoalMenuItem= false; //false -->slow down the tool in the find combination of transitions ,true --> not normalization with fast downward
-	private static boolean costCheckBox=true; // settled to false makes the planner find a solution
+	private static boolean costCheckBox=true;
 
 	private static List<String> seenActivities = new ArrayList<>();
 
@@ -62,6 +65,8 @@ public class Container {
 	private static List<String> addedActivities = new ArrayList<>();
 
 	private static List<String> generalActivities2 = new ArrayList<>();
+
+	// The user can set the activities for which it does not want lifecycle enforcement
 	private static List<String> notWanted =new ArrayList<>(
 			Arrays.asList(
 				    "activity1",
@@ -98,10 +103,10 @@ public class Container {
 					"activityo",
 					"activityk",
 					"p1",
-				//	"p2",
+					"p2",
 					"p3",
 					"p4",
-					"p5",
+					//"p5",
 					"p6",
 					"p7",
 					"p8",
@@ -122,13 +127,20 @@ public class Container {
 			)
 	);
 
+
+	/*
+	    The user can select which planner to execute after the problems creations:
+		1) Fast-Downward
+		2) Symba-2*
+	 */
+
 	private static boolean FDoptimalCheckBox = true;
 	private static boolean SymBAoptimalCheckBox=false;
-	/////////////
+
+	// Advanced options for problems creations
 	private static boolean productAutomatonMenuItem =false;
 	private static boolean lenght_of_traces_checkBox = false;
 	private static boolean 	trace_duplicated_checkBox=true;
-
 	private static int minimum_length_of_a_trace = 0;
 	private static int maximum_length_of_a_trace = 0;
 	private static int number_of_traces_ComboBox_FROM = 1;
@@ -137,6 +149,7 @@ public class Container {
 	private static int lenght_of_traces_ComboBox_TO=0;
 	private static boolean number_of_traces_checkBox = false;
 
+	// Auxiliary data structures
 	private static StringBuilder activitiesArea = new StringBuilder();
 	private static StringBuilder constraintsArea = new StringBuilder();
 
@@ -155,7 +168,6 @@ public class Container {
 	// CONTAINER STRUCTURES START
 	private static Vector<String> activities_repository_vector = new Vector<String>();
 	private static Vector<String> generalActivitiesRepository = new Vector<String>();
-
 	private static Vector<String> alphabet_of_the_traces_vector = new Vector<String>();
 	private static Vector<String> alphabet_of_the_constraints_vector = new Vector<String>();
 	private static Vector<Trace> all_traces_vector = new Vector<Trace>();

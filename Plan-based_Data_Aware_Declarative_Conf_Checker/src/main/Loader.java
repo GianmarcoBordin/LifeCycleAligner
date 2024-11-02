@@ -25,6 +25,11 @@ public class Loader {
                 loadXes(file);
                 break;
             case "xml":
+                /*
+                    If the following condition is satisfied the program
+                    insert into the original constraints file the lifecycle constraints
+                    effectively combining the two files
+                */
                 if (Container.getCombineXml()) {
                     file = Lifecycle.combine(file.toPath().toString());
                     if (file == null) {
@@ -32,7 +37,7 @@ public class Loader {
                         System.exit(-1);
                     }
                     // Define the target file path where you want to write the content
-                    File targetFile = new File("/Users/applem2/Downloads/Work/tesi/Project/Aligner/Plan-based_Data_Aware_Declarative_Conf_Checker/resources/lifecycle/lifecycle.xml");
+                    File targetFile = new File("/Users/applem2/Downloads/TESI/Project/Aligner/Plan-based_Data_Aware_Declarative_Conf_Checker/resources/lifecycle/lifecycle.xml");
 
                     try {
                         // Copy the content of file1 to targetFile
@@ -125,16 +130,23 @@ public class Loader {
                     }
 
                     loaded_trace_activities_vector.addElement(finalName);
+                    // lifecycle wise knowledge
                     if (!loaded_alphabet_vector.contains(finalName))
                         loaded_alphabet_vector.addElement(finalName);
 
 
-
-                    if ((Container.getLifecycle() || Container.getCombineXml()) &&!Container.getNotWantedActivities().contains(activityName)) {
+                /*
+                    If the following condition is satisfied that is, the user wants
+                    the lifecycle correction of the log and the current activity is in the activities
+                    that the user selected to be corrected in the lifecycle sense, some vectors are populated
+                */
+                    if ((Container.getLifecycle() || Container.getCombineXml()) && !Container.getNotWantedActivities().contains(activityName)) {
                         for (String l : Container.lifecycles) {
+                            // used in combine method
                             if (!Container.getGeneralActivitiesRepository().contains(activityName + "_" + l)) {
                                 Container.getGeneralActivitiesRepository().addElement(activityName + "_" + l);
                             }
+                            // lifecycle wise knowledge
                             if (!loaded_alphabet_vector.contains(activityName + "_" + l))
                                 loaded_alphabet_vector.addElement(activityName + "_" + l);
                         }
@@ -180,6 +192,8 @@ public class Loader {
             }
 
             File lifecycleActivityDot= null;
+            // dot structures created only for the general activity not for the lifecycle activity
+            // ex. only act_1 needs an act1_lifecycle_dot
            for (String activity : Container.getActivitiesWithoutLifecycleTag()) {
                 if (Container.getLifecycle() && !Container.getNotWantedActivities().contains(activity)) {
                     //lifecycleActivityDot = createLifecycleDotChainParametric(activity);
@@ -188,6 +202,7 @@ public class Loader {
                     loadDot(lifecycleActivityDot);
                 }
             }
+           // needed for the correct program execution the alphabet must contain all activities
             Container.setActivitiesRepository_vector(loaded_alphabet_vector);
             for (int kix = 0; kix < loaded_alphabet_vector.size(); kix++) {
                 /*if (Container.getLifecycle() && !Container.getNotWantedActivities().contains(cleanActivity(loaded_alphabet_vector.elementAt(kix)))) {
@@ -328,6 +343,7 @@ public class Loader {
                             if (!Container.getAlphabetListModel().contains(specific_activity)) {
                                 Container.getAlphabetListModel().addElement(specific_activity);
                             }
+                            // additionally uncomment this part to create lifecycle constarints also for activities not found in the log
                            /* if ((Container.getLifecycle() || Container.getCombineXml()) &&!Container.getNotWantedActivities().contains(generalActivity)) {
                                 for (String l : Container.lifecycles) {
                                     if (!Container.getGeneralActivitiesRepository().contains(generalActivity + "_" + l)) {

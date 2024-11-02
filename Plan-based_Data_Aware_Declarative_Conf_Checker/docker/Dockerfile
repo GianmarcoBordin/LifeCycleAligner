@@ -21,7 +21,7 @@ RUN git clone https://gitlab.com/atorralba_planners/symba-2014.git && \
 VOLUME ["/pddl"]
 
 
-COPY f/ /pddl/
+COPY /Users/applem2/Downloads/TESI/Project/Aligner/Plan-based_Data_Aware_Declarative_Conf_Checker/seq-opt-symba-2/Conformance_Checking/ /pddl/
 
 COPY out.txt /res/
 
@@ -31,13 +31,4 @@ RUN chmod +x /usr/local/bin/run_SYMBA_all
 
 # Set the entry point to run the script
 ENTRYPOINT ["/usr/local/bin/run_SYMBA_all"]
-
-# Default command (optional), this will be the default if no arguments are provided
-CMD []
-
-# Set the working directory
-#WORKDIR /symba-2014
-
-# Set the entry point for the container to run the plan program with specific arguments
-#ENTRYPOINT ["./plan", "/pddl/domain.pddl", "/pddl/problem.pddl", "/pddl/plan.sas"]
 

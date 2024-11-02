@@ -13,6 +13,13 @@ import static main.Utilities.cleanActivity;
 
 public class Lifecycle {
 
+    /*
+     The user can decide on two different predefined methods that ensure lifecycle enforcement:
+     1) Chain succession
+     2) Alternate Chain Succession
+     */
+
+    // DOT METHOD
     public static File createLifecycleDotChain(String activity) {
 
         // fake-init -> fake0 init -> 0 sink -> 1 assigned -> 2 started -> 3 completed -> 4
@@ -311,6 +318,8 @@ public class Lifecycle {
 
         return dotFile;
     }
+
+    // XML (COMBINE) METHOD
 
     public static File combine(String inputFile) {
         File outputFile = null;

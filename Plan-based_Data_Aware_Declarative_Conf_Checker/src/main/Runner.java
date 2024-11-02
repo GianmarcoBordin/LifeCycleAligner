@@ -31,7 +31,6 @@ public class Runner {
 
 
 
-    // TODO correct also symba script to run all problems alignment and script to visualize results
 
     public static void invokePlanner() throws InterruptedException {
 
@@ -40,9 +39,9 @@ public class Runner {
             String terminalCommand;
             // Determine the command to run
             if (Container.getFDOptimalCheckBox()) {
-                terminalCommand = "/Users/applem2/Downloads/Work/tesi/Project/Aligner/Plan-based_Data_Aware_Declarative_Conf_Checker/run_FD 1";
+                terminalCommand = "/Users/applem2/Downloads/TESI/Project/Aligner/Plan-based_Data_Aware_Declarative_Conf_Checker/run_FD 1";
             } else {
-                terminalCommand = "/Users/applem2/Downloads/Work/tesi/Project/Aligner/Plan-based_Data_Aware_Declarative_Conf_Checker/run_SYMBA 1";
+                terminalCommand = "/Users/applem2/Downloads/TESI/Project/Aligner/Plan-based_Data_Aware_Declarative_Conf_Checker/docker/Dockerfile";
             }
 
             // Properly escape the command for AppleScript
