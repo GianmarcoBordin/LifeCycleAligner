@@ -4,21 +4,25 @@
 cd /Users/applem2/Downloads/TESI/fast-downward-23.06/
 
 # Log file to accumulate results
-logfile="results.log"
+planner="fast-downward"
+trace_length="1-10"
+noise="10%"
+constraints="10"
+logfile="${planner}_${trace_length}_${noise}_${constraints}_$1_.txt"
 echo "Starting the log file at $(date)" > $logfile
 
 # Iterate over all traces (assuming trace numbers are from 1 to N, modify as needed)
-for trace in {1..1}; do
+for trace in {1..2}; do
     domain="Conformance_Checking/domain${trace}.pddl"
     problem="Conformance_Checking/problem${trace}.pddl"
 
     # Run the Fast Downward script and capture the output
-    output=$(./fast-downward.py $domain $problem --heuristic "hff=ff()" --heuristic "hcea=cea()" --search "astar(blind())" < /Users/applem2/Downloads/TESI/fast-downward-23.06/output.txt)
+    output=$(./fast-downward.py $domain $problem --search "astar(blind())" < /Users/applem2/Downloads/TESI/fast-downward-23.06/output.txt)
 
     # Extract the specific part of the output and append to log file
     echo "Results for trace #$trace:" >> $logfile
-    echo "$output" | grep -E 'Actual search time|sync-|del-|Plan length|Plan cost|Expanded|Reopened|Evaluated|Evaluations|Generated|Dead ends|Expanded until last jump|Reopened until last jump|Evaluated until last jump|Generated until last jump|Number of registered states|Int hash set load factor|Int hash set resizes|Search time|Total time|Solution found|Peak memory' >> $logfile
-    echo "Completed trace #$trace at $(date)" >> $logfile
+    echo "$output" | grep -E 'Plan length|Plan cost|Search time|Total time' | sed -E 's/\[.*\] //g' >> $logfile
+    echo "Completed trace #$trace" >> $logfile
 done
 
 

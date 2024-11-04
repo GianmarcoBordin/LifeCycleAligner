@@ -21,10 +21,6 @@ RUN git clone https://gitlab.com/atorralba_planners/symba-2014.git && \
 VOLUME ["/pddl"]
 
 
-COPY /Users/applem2/Downloads/TESI/Project/Aligner/Plan-based_Data_Aware_Declarative_Conf_Checker/seq-opt-symba-2/Conformance_Checking/ /pddl/
-
-COPY out.txt /res/
-
 # Create a script to run Fast Downward for all domain/problem pairs
 COPY run_SYMBA_all /usr/local/bin/run_SYMBA_all
 RUN chmod +x /usr/local/bin/run_SYMBA_all

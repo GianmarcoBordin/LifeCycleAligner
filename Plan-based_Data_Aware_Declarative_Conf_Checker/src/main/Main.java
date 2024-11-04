@@ -9,6 +9,10 @@ public class Main {
 
     public static void main(String[] args) throws Exception {
 
+        // computing program time
+        long startTime = System.currentTimeMillis();
+
+
         System.out.println("----- CLEAN PHASE STARTED -----");
 
         Utilities.cleanAll();
@@ -62,13 +66,15 @@ public class Main {
 
         System.out.println("----- RESULT PHASE STARTED -----");
 
-        //Runner.invokePlanner();
+        long endTime = System.currentTimeMillis();
+        long duration = endTime - startTime;
+        Runner.invokePlanner(duration);
 
         System.out.println("----- RESULT PHASE COMPLETED -----");
 
         System.out.println("----- CLEAN PHASE STARTED -----");
 
-        //Utilities.cleanAll();
+        Utilities.cleanAll();
 
         System.out.println("----- CLEAN PHASE COMPLETED -----");
 
