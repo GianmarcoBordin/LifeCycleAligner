@@ -3,21 +3,20 @@ package main;
 import java.io.*;
 
 
-
 public class Main {
-
 
     public static void main(String[] args) throws Exception {
 
-        // computing program time
-        long startTime = System.currentTimeMillis();
+        long startTime;
+        long endTime;
+        long duration;
 
+        // computing program time
+        startTime = System.currentTimeMillis();
 
         System.out.println("----- CLEAN PHASE STARTED -----");
 
         Utilities.cleanAll();
-
-        System.out.println("----- CLEAN PHASE COMPLETED -----");
 
         System.out.println("----- FILE IMPORTS PHASE STARTED -----");
 
@@ -44,40 +43,29 @@ public class Main {
             }
         }
 
-        System.out.println("----- FILE IMPORTS PHASE COMPLETED -----");
-
-        System.out.println("----- PREPROCESSING PHASE STARTED -----");
-
-        System.out.println("----- PREPROCESSING PHASE COMPLETED -----");
-
         System.out.println("----- GROUNDING PHASE STARTED -----");
 
-        if (!Generator.goToPlanner()){
+        if (!Generator.goToPlanner()) {
             System.exit(-1);
         }
-
-        System.out.println("----- GROUNDING PHASE COMPLETED -----");
 
         System.out.println("----- PDDL FILES GENERATION PHASE STARTED -----");
 
         Generator.generatePddlFiles();
 
-        System.out.println("----- PDDL FILES GENERATION PHASE COMPLETED -----");
-
         System.out.println("----- RESULT PHASE STARTED -----");
 
-        long endTime = System.currentTimeMillis();
-        long duration = endTime - startTime;
+        endTime = System.currentTimeMillis();
+        duration = endTime - startTime;
         Runner.invokePlanner(duration);
-
-        System.out.println("----- RESULT PHASE COMPLETED -----");
 
         System.out.println("----- CLEAN PHASE STARTED -----");
 
         Utilities.cleanAll();
-
-        System.out.println("----- CLEAN PHASE COMPLETED -----");
-
-
     }
 }
+
+
+
+
+

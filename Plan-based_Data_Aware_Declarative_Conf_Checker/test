@@ -1,0 +1,17 @@
+#!/bin/bash
+
+COMPILED_CLASSES_PATH="/Users/applem2/Downloads/TESI/Project/Aligner/out/production/Aligner"
+
+ARGS_LIST=(
+    "/Users/applem2/Downloads/TESI/Project/Aligner/Plan-based_Data_Aware_Declarative_Conf_Checker/resources/log-files/Synthetic-Logs/noisy_log.xes
+     /Users/applem2/Downloads/TESI/Project/Aligner/Plan-based_Data_Aware_Declarative_Conf_Checker/resources/declarative-models/DECLARE-models/10-CONSTRAINTS/decl.xml"
+    "/Users/applem2/Downloads/TESI/Project/Aligner/Plan-based_Data_Aware_Declarative_Conf_Checker/resources/log-files/Data-Aware/5-CONSTRAINTS/2_mod/length_20.xes_atomized_1.xes
+     /Users/applem2/Downloads/TESI/Project/Aligner/Plan-based_Data_Aware_Declarative_Conf_Checker/resources/declarative-models/DECLARE-models/10-CONSTRAINTS/decl.xml"
+)
+
+for ARGS in "${ARGS_LIST[@]}"; do
+    echo "Running with arguments: $ARGS"
+    java -cp "$COMPILED_CLASSES_PATH" main.Main $ARGS
+    echo "Completed run with arguments: $ARGS"
+    echo "--------------------------------"
+done
