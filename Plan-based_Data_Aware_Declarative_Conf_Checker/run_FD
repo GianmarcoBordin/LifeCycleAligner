@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Change directory to the Fast Downward installation
-cd /Users/applem2/Downloads/TESI/fast-downward-23.06/
+cd /Users/applem2/Downloads/TESI/fast-downward-23.06/ || exit
 
 # Log file to accumulate results
 planner="fast-downward"
@@ -9,20 +9,24 @@ trace_length="1-10"
 noise="10%"
 constraints="10"
 logfile="${planner}_${trace_length}_${noise}_${constraints}_$1_.txt"
-echo "Starting the log file at $(date)" > $logfile
+
+# Copy necessary files
+cp /Users/applem2/Downloads/TESI/Project/Aligner/Plan-based_Data_Aware_Declarative_Conf_Checker/fast-downward/src/Conformance_Checking/* "Conformance_Checking/"
+
+# Start the log file with the timestamp
+echo "Starting the log file at $(date)" > "$logfile"
 
 # Iterate over all traces (assuming trace numbers are from 1 to N, modify as needed)
 for trace in {1..2}; do
     domain="Conformance_Checking/domain${trace}.pddl"
     problem="Conformance_Checking/problem${trace}.pddl"
 
-    # Run the Fast Downward script and capture the output
-    output=$(./fast-downward.py $domain $problem --search "astar(blind())" < /Users/applem2/Downloads/TESI/fast-downward-23.06/output.txt)
+    # Run the Fast Downward script and capture the output (stdout and stderr)
+    output=$(./fast-downward.py "$domain" "$problem" --search "astar(blind())" 2>&1)
 
-    # Extract the specific part of the output and append to log file
-    echo "Results for trace #$trace:" >> $logfile
-    echo "$output" | grep -E 'Plan length|Plan cost|Search time|Total time' | sed -E 's/\[.*\] //g' >> $logfile
-    echo "Completed trace #$trace" >> $logfile
+    # Write the formatted results to the log file
+    echo "" >> "$logfile"
+    echo "Results for trace #$trace:" >> "$logfile"
+    echo "$output" | grep -E 'Plan length:|Plan cost:|Search time:|Total time:' | sed -E 's/\[.*\] //g' >> "$logfile"
+    echo "Completed trace #$trace" >> "$logfile"
 done
-
-
