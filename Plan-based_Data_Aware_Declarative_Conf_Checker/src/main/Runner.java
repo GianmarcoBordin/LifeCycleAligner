@@ -9,7 +9,7 @@ import java.util.Vector;
 
 public class Runner {
 
-    public static void invokePlanner(long duration)  {
+    public static void invokePlanner(long duration, String num_constraints, String noise_percentage, String avg_trace_length )  {
 
         try {
             String[] command;
@@ -17,8 +17,8 @@ public class Runner {
             // Determine the command to run
             if (Container.getFDOptimalCheckBox()) {
                 terminalCommand = String.format(
-                        "/Users/applem2/Downloads/TESI/Project/Aligner/Plan-based_Data_Aware_Declarative_Conf_Checker/run_FD %d",
-                        duration
+                        "/Users/applem2/Downloads/TESI/Project/Aligner/Plan-based_Data_Aware_Declarative_Conf_Checker/run_FD %s %s %s %d",
+                        avg_trace_length, noise_percentage, num_constraints, duration
                 );
             } else {
                 terminalCommand = "docker build -t ansep/symba2-64bit /Users/applem2/Downloads/TESI/Project/Aligner/Plan-based_Data_Aware_Declarative_Conf_Checker/docker && docker run --rm ansep/symba2-64bit";

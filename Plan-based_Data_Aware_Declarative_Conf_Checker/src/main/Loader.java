@@ -42,7 +42,6 @@ public class Loader {
                     try {
                         // Copy the content of file1 to targetFile
                         Files.copy(file.toPath(), targetFile.toPath(), StandardCopyOption.REPLACE_EXISTING);
-                        System.out.println("File content has been successfully written to " + targetFile.getPath());
                     } catch (IOException e) {
                         System.out.println("An error occurred while writing the file.");
                         e.printStackTrace();
