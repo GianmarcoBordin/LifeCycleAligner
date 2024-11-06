@@ -1,0 +1,4 @@
+Constraints : 20
+Trace Length : 20
+Lifecycle : 10
+Time --> 8 min

@@ -21,7 +21,9 @@ public class Runner {
                         avg_trace_length, noise_percentage, num_constraints, duration
                 );
             } else {
-                terminalCommand = "docker build -t ansep/symba2-64bit /Users/applem2/Downloads/TESI/Project/Aligner/Plan-based_Data_Aware_Declarative_Conf_Checker/docker && docker run --rm ansep/symba2-64bit";
+                terminalCommand = String.format("docker run --name symba_container_%s_%s_%s_%d -v /Users/applem2/Downloads/TESI/Project/Aligner/Plan-based_Data_Aware_Declarative_Conf_Checker/seq-opt-symba-2/shell:/shell -v /Users/applem2/Downloads/TESI/Project/Aligner/Plan-based_Data_Aware_Declarative_Conf_Checker/seq-opt-symba-2/Conformance_Checking:/pddl --entrypoint /shell/run_SYMBA ansep/symba2-64bit",
+                        avg_trace_length, noise_percentage, num_constraints, duration
+                );
             }
 
             // Properly escape the command for AppleScript

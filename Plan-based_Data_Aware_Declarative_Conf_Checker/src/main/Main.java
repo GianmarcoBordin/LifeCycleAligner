@@ -2,15 +2,11 @@ package main;
 
 import java.io.*;
 
-
-
 public class Main {
 
-    private static final boolean DEBUG = false;
+    private static final boolean DEBUG = true;
 
     public static void main(String[] args) throws Exception {
-
-
 
         long startTime;
         long endTime;
@@ -43,13 +39,14 @@ public class Main {
             if (file.exists() && file.isFile()) {
                 String fileName = file.getName();
                 String fileExtension = Utilities.getFileExtension(fileName);
-                debug("Processing file: " + filePath + "File Name: " + fileName + "File Extension: " + fileExtension);
-                if (fileExtension.equals("xes")) { // TODO correct file names to match
-                    avg_trace_length = fileName.split("_")[1];
-                    noise_percentage = fileName.split("_")[2];
-                }
-                else if (fileExtension.equals("xml") || fileExtension.equals("dot") ) {
-                    num_constraints = fileName.split("_")[1];
+                if(DEBUG) {
+                    debug("Processing file: " + filePath + "File Name: " + fileName + "File Extension: " + fileExtension);
+                    if (fileExtension.equals("xes")) { // TODO correct file names to match
+                        avg_trace_length = fileName.split("_")[1];
+                        noise_percentage = fileName.split("_")[2];
+                    } else if (fileExtension.equals("xml") || fileExtension.equals("dot")) {
+                        num_constraints = fileName.split("_")[1];
+                    }
                 }
 
                 Loader.loadFile(file, fileExtension);
@@ -77,6 +74,7 @@ public class Main {
         debug("----- CLEAN PHASE STARTED -----");
 
         Utilities.cleanAll();
+
     }
     private static void debug(String message) {
         if (DEBUG) {

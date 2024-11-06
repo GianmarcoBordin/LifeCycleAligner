@@ -86,7 +86,7 @@ public class Utilities {
 		new File(WORKING_DIR+"run_FD").setExecutable(true);
 		new File(WORKING_DIR+"run_FD_all").setExecutable(true);
 		new File(WORKING_DIR+"run_SYMBA").setExecutable(true);
-		new File(WORKING_DIR+"run_SYMBA_all").setExecutable(true);
+		new File(WORKING_DIR+"run_SYMBA").setExecutable(true);
 		new File(WORKING_DIR+"checkNumberOfTraces").setExecutable(true);
 	}
 	/*
