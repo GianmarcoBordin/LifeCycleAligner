@@ -22,7 +22,7 @@ public class Container {
     private static boolean hold_not_found_constraints = false; // whether to hold or not the constraints for activities not in the log
 	// definitions of the cost of add and del actions
 	private static String  add_cost = "1";
-	private static String del_cost = "1";
+	private static String del_cost = "3";
 	private static boolean discard_duplicated_traces = true; // whether to discard duplicate traces in the log
 	/*
 		The program uses the following two flags to decide on the lifecycle enforcement mode:
@@ -32,8 +32,8 @@ public class Container {
 		activity to correct in the lifecycle sense
 		P.S. only one flag is necessary for the lifecycle enforcement
 	 */
-	private static boolean combineXml = false;
-	private static boolean lifecycle = true; // the lifecycle is faster because the relevant transitions are calculated only for one automaton a time not the product automaton
+	private static boolean combineXml = true;
+	private static boolean lifecycle = false; // the lifecycle is faster because the relevant transitions are calculated only for one automaton a time not the product automaton
     private static boolean sinkStatesMenuItem = true; // whether to hold or not sink states, false slow down
 	private  static boolean disjunctiveGoalMenuItem= false; //false -->slow down the tool in the find combination of transitions ,true --> not normalization with fast downward
 	private static boolean costCheckBox=true;
@@ -92,9 +92,9 @@ public class Container {
 					"activityk",
 					"p1",
 					"p2",
-					"p3",
+					//"p3",
 					"p4",
-					//"p5",
+					"p5",
 					"p6",
 					"p7",
 					"p8",
@@ -122,8 +122,8 @@ public class Container {
 		2) Symba-2*
 	 */
 
-	private static boolean FDoptimalCheckBox = false;
-	private static boolean SymBAoptimalCheckBox=true;
+	private static boolean FDoptimalCheckBox = true;
+	private static boolean SymBAoptimalCheckBox=false;
 
 	// Advanced options for problems creations
 	private static boolean productAutomatonMenuItem =false;

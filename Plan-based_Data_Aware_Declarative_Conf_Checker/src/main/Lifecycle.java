@@ -166,7 +166,7 @@ public class Lifecycle {
             if (!event.equals(flowEvents.get("init"))) {
                 dot.append("\t").append(i).append(" -> 1 [label=").append(activity).append(event).append("]\n");
             } else {
-                dot.append("\t").append(index.get(lifecycles[i])).append(" -> ").append("1").append(" [label=").append("!"+activity).append(event).append("]\n");
+                dot.append("\t").append(i).append(" -> ").append(index.get(event)).append(" [label=").append(activity).append(event).append("]\n");
             }
         }
 

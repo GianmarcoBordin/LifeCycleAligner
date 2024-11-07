@@ -13,7 +13,7 @@ cp /Users/applem2/Downloads/TESI/Project/Aligner/Plan-based_Data_Aware_Declarati
 echo "Starting the log file at $(date)" > "$logfile"
 
 # Iterate over all traces (assuming trace numbers are from 1 to N, modify as needed)
-for trace in {1..2}; do
+for trace in {1..1}; do
     domain="Conformance_Checking/domain${trace}.pddl"
     problem="Conformance_Checking/problem${trace}.pddl"
 

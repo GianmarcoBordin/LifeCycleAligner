@@ -73,7 +73,7 @@ public class Main {
 
         debug("----- CLEAN PHASE STARTED -----");
 
-        Utilities.cleanAll();
+        //Utilities.cleanAll();
 
     }
     private static void debug(String message) {
