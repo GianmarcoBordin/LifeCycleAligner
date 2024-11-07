@@ -1,9 +1,7 @@
 package main;
 
-import java.io.File;
 import java.util.*;
 
-import com.google.common.primitives.Booleans;
 import org.processmining.ltl2automaton.plugins.automaton.Automaton;
 
 import com.google.common.collect.HashMultimap;
@@ -15,24 +13,7 @@ public class Container {
 	// CONTAINER OPTIONS AND PRELIMINARY STRUCTURES START
 
 	public final static String[] lifecycles = {"assign","start","complete"} ;
-
-	public static HashMap<String, ArrayList<String>> lifecycles_map = new HashMap<>();
-	public static HashMap<String, Integer> s_index = new HashMap<>();
 	public static String  lifecycle_file = "/Users/applem2/Downloads/TESI/Project/Aligner/Plan-based_Data_Aware_Declarative_Conf_Checker/resources/lifecycle.dot";
-	public static Map<String, Integer> index = new HashMap<>();
-
-	// auxiliary data structures init used for parametric lifecycle dot creations
-	static {
-		s_index.put("assign",0);
-		s_index.put("start",2);
-		s_index.put("complete",3);
-		index.put("assign",2);
-		index.put("start", 3);
-		index.put("complete",0);
-		lifecycles_map.put("assign",new ArrayList<>(Arrays.asList("start")));
-		lifecycles_map.put("start", new ArrayList<>(Arrays.asList("complete")));
-		lifecycles_map.put("complete", new ArrayList<>(Arrays.asList("assign")));
-	}
 
 	public final static String WORKING_LIFECYCLE_DIR = "/Users/applem2/Downloads/TESI/Project/Aligner/Plan-based_Data_Aware_Declarative_Conf_Checker/resources/";
 	public final static String WORKING_DIR = "/Users/applem2/Downloads/TESI/Project/Aligner/Plan-based_Data_Aware_Declarative_Conf_Checker/";
@@ -56,6 +37,13 @@ public class Container {
     private static boolean sinkStatesMenuItem = true; // whether to hold or not sink states, false slow down
 	private  static boolean disjunctiveGoalMenuItem= false; //false -->slow down the tool in the find combination of transitions ,true --> not normalization with fast downward
 	private static boolean costCheckBox=true;
+
+	// the user can modify the lifecycle template to create a custom lifecycle it needs the lifecycle flag to be true
+	private static boolean custom_lifecycle = false;
+
+	// the user can modify the lifecycle type alternate or normal chain
+
+	private static Boolean alternate_lifecycle = false;
 
 	private static List<String> seenActivities = new ArrayList<>();
 
@@ -190,8 +178,6 @@ public class Container {
 	private static Vector<String> automata_sink_non_accepting_states_vector = new Vector<String>();
 	private static Vector<String> automata_abstract_accepting_states_vector = new Vector<String>();
 	private static Vector<String> PDDL_activities_vector = new Vector<String>();
-	private static Map<String, Boolean> memo = new HashMap<>();
-
 
 	// CONTAINER STRUCTURES END
 
@@ -436,10 +422,6 @@ public class Container {
 		return Container.del_cost;
 	}
 
-	public static Map<String, Boolean> getMemo() {
-		return Container.memo;
-	}
-
 	public static List<String> getSeenActivities(){
 		return Container.seenActivities;
 	}
@@ -458,6 +440,14 @@ public class Container {
 
 	public static List<String> getActivitiesWithoutLifecycleTag(){
 		return Container.activities_no_lifecycle;
+	}
+
+	public static Boolean getCustomLifecycleTag(){
+		return Container.custom_lifecycle;
+	}
+
+	public static Boolean getAlternate_lifecycleTag(){
+		return Container.alternate_lifecycle;
 	}
 
 

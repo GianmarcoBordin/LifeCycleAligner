@@ -18,14 +18,6 @@ public class Utilities {
 		return (dotIndex == -1) ? "" : fileName.substring(dotIndex + 1);
 	}
 
-	public static String removeAfterUnderscore(String input) {
-		int lastUnderscoreIndex = input.lastIndexOf('_');
-		if (lastUnderscoreIndex != -1) {
-			return input.substring(0, lastUnderscoreIndex);
-		} else {
-			return input;
-		}
-	}
 	public static String cleanActivity(String input) {
 		if (input.contains(" "))
 			input = input.replaceAll(" ", "");
@@ -884,20 +876,6 @@ public class Utilities {
 	}
 
 
-	
-	//
-	// Method that returns TRUE if the string passed as input is in the UPPER CASE format.
-	//
-	public static Trace getTracebyId(String str){
-		Trace trace = null;
-		for(int k = 0; k< Container.getAllTraces_vector().size(); k++) {
-	   		 trace = Container.getAllTraces_vector().elementAt(k);
-	   		 if(trace.getTraceID().equalsIgnoreCase(str)) {
-	   			 return trace;
-	   		 }	   	
-		}
-		return trace;
-	}
 
 
 

@@ -14,6 +14,7 @@ import java.nio.file.StandardCopyOption;
 import java.util.Vector;
 
 
+import static main.Lifecycle.createLifecycleDotAlternateChain;
 import static main.Lifecycle.createLifecycleDotChain;
 import static main.Utilities.*;
 
@@ -191,25 +192,30 @@ public class Loader {
             }
 
             File lifecycleActivityDot= null;
+
             // dot structures created only for the general activity not for the lifecycle activity
             // ex. only act_1 needs an act1_lifecycle_dot
-           for (String activity : Container.getActivitiesWithoutLifecycleTag()) {
+            // activity-aware
+            for (String activity : Container.getActivitiesWithoutLifecycleTag()) {
                 if (Container.getLifecycle() && !Container.getNotWantedActivities().contains(activity)) {
-                    //lifecycleActivityDot = createLifecycleDotChainParametric(activity);
-                    //lifecycleActivityDot = preprocessLifecycleDot(activity);
-                    lifecycleActivityDot = createLifecycleDotChain(activity+"_");
+                    if(Container.getCustomLifecycleTag()){
+                        lifecycleActivityDot = preprocessLifecycleDot(activity);
+                    }
+                    else{
+                        if (!Container.getAlternate_lifecycleTag()){
+                            lifecycleActivityDot = createLifecycleDotChain(activity+"_");
+                        }
+                        else{
+                            lifecycleActivityDot = createLifecycleDotAlternateChain(activity+"_");
+                        }
+                    }
                     loadDot(lifecycleActivityDot);
                 }
             }
            // needed for the correct program execution the alphabet must contain all activities
+           // lifecycle-aware
             Container.setActivitiesRepository_vector(loaded_alphabet_vector);
             for (int kix = 0; kix < loaded_alphabet_vector.size(); kix++) {
-                /*if (Container.getLifecycle() && !Container.getNotWantedActivities().contains(cleanActivity(loaded_alphabet_vector.elementAt(kix)))) {
-                    //lifecycleActivityDot = createLifecycleDotChainParametric(activity);
-                    //lifecycleActivityDot = preprocessLifecycleDot(activity);
-                    lifecycleActivityDot = createLifecycleDotChain(loaded_alphabet_vector.elementAt(kix));
-                    loadDot(lifecycleActivityDot);
-                }*/
                 Container.getAlphabetListModel().addElement(loaded_alphabet_vector.elementAt(kix));
             }
 
@@ -294,18 +300,11 @@ public class Loader {
                         if (activityName.contains("-"))
                             activityName = activityName.replaceAll("\\-", "_");
 
-                        /*if (!Container.getNotWantedActivities().contains(cleanActivity(activityName))){
-                            if (!Container.getActivitiesRepository_vector().contains(activityName)) {
-                                activities_not_in_the_repo_vector.addElement(activityName);
-                                is_valid_constraint = false;
-                            }
-                        }*/
 
                         if (!Container.getActivitiesRepository_vector().contains(activityName)) {
                             activities_not_in_the_repo_vector.addElement(activityName);
                             is_valid_constraint = false;
                         }
-
 
 
 
@@ -327,39 +326,17 @@ public class Loader {
 
 
                 if (!is_valid_constraint) {
-                    if (Container.getHoldNotFoundConstraints()) {
+                    if (Container.getHoldNotFoundConstraints()) { // the lifecycle enforcement is not created for activities not found in the log
 
-
-                        //System.out.println("The constraint '" + constraint + "' refers to the activity '" + activities_not_in_the_repo_vector.elementAt(0) + "',\nwhich is not listed in the activities repository! Such a constraint can not be properly imported, unless the missing activity is not imported in the repository. ATTENTION!");
-                        File lifecycleActivityDot= null;
 
                         for (int h = 0; h < activities_not_in_the_repo_vector.size(); h++) {
                             String specific_activity = activities_not_in_the_repo_vector.elementAt(h);
-                            String generalActivity = cleanActivity(specific_activity);
                             if (!Container.getActivitiesRepository_vector().contains(specific_activity)) {
                                 Container.getActivitiesRepository_vector().addElement(specific_activity);
                             }
                             if (!Container.getAlphabetListModel().contains(specific_activity)) {
                                 Container.getAlphabetListModel().addElement(specific_activity);
                             }
-                            // additionally uncomment this part to create lifecycle constarints also for activities not found in the log
-                           /* if ((Container.getLifecycle() || Container.getCombineXml()) &&!Container.getNotWantedActivities().contains(generalActivity)) {
-                                for (String l : Container.lifecycles) {
-                                    if (!Container.getGeneralActivitiesRepository().contains(generalActivity + "_" + l)) {
-                                        Container.getGeneralActivitiesRepository().addElement(generalActivity + "_" + l);
-                                    }
-                                    if (!Container.getActivitiesRepository_vector().contains(generalActivity + "_" + l)) {
-                                        Container.getActivitiesRepository_vector().addElement(generalActivity + "_" + l);
-                                    }
-                                    if (!Container.getAlphabetListModel().contains(generalActivity + "_" + l)) {
-                                        Container.getAlphabetListModel().addElement(generalActivity + "_" + l);
-                                    }
-                                }
-                            }
-                            if (Container.getLifecycle() &&!Container.getNotWantedActivities().contains(generalActivity)) {
-                                lifecycleActivityDot = createLifecycleDotChain(specific_activity);
-                                loadDot(lifecycleActivityDot);
-                            }*/
                         }
                         Container.getConstraintsListModel().addElement(constraint);
                     }

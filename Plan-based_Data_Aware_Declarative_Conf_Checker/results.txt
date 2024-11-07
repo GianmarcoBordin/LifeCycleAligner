@@ -2,3 +2,6 @@ Constraints : 20
 Trace Length : 20
 Lifecycle : 10
 Time --> 8 min
+
+The grounding phase is taking more time when the lifecycle is normal chain lifecycle but lesser time in the solution finding
+the converse for the alternate lifecycle

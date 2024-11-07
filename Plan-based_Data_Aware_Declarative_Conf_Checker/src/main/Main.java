@@ -4,7 +4,7 @@ import java.io.*;
 
 public class Main {
 
-    private static final boolean DEBUG = true;
+    private static final boolean TEST = false;
 
     public static void main(String[] args) throws Exception {
 
@@ -39,15 +39,15 @@ public class Main {
             if (file.exists() && file.isFile()) {
                 String fileName = file.getName();
                 String fileExtension = Utilities.getFileExtension(fileName);
-                if(DEBUG) {
-                    debug("Processing file: " + filePath + "File Name: " + fileName + "File Extension: " + fileExtension);
-                    if (fileExtension.equals("xes")) { // TODO correct file names to match
-                        avg_trace_length = fileName.split("_")[1];
-                        noise_percentage = fileName.split("_")[2];
-                    } else if (fileExtension.equals("xml") || fileExtension.equals("dot")) {
-                        num_constraints = fileName.split("_")[1];
-                    }
+
+                debug("Processing file: " + filePath + "File Name: " + fileName + "File Extension: " + fileExtension);
+                if (fileExtension.equals("xes")) {
+                    avg_trace_length = fileName.split("_")[0];
+                    noise_percentage = fileName.split("_")[1];
+                } else if (fileExtension.equals("xml") || fileExtension.equals("dot")) {
+                    num_constraints = fileName.split("_")[0];
                 }
+
 
                 Loader.loadFile(file, fileExtension);
             } else {
@@ -77,7 +77,7 @@ public class Main {
 
     }
     private static void debug(String message) {
-        if (DEBUG) {
+        if (!TEST) {
             System.out.println(message);
         }
     }

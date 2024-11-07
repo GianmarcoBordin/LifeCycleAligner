@@ -106,140 +106,6 @@ public class Lifecycle {
         return dotFile;
     }
 
-    public static File createLifecycleDotChainParametric(String activity) {
-        // fake-init -> fake0 init -> 0 sink -> 1 assigned -> 2 started -> 3 completed -> 4
-
-        // preprocessing because we want the lifecycle for th activity not for the lifecycle activity
-        // if there is a lifecycle value that I have not taken into account may arise problems because is not correctly removed
-        for (String s : lifecycles) {
-            if (activity.contains(s))
-                activity = activity.replaceAll(s, "");
-            activity.replace("_","");
-        }
-
-
-        StringBuilder dot = new StringBuilder();
-
-
-        dot.append("digraph {\n");
-        // Static states
-        dot.append("\tfake0 [style=invisible]\n");
-        dot.append("\t0 [root=true] [shape=doublecircle]\n");
-        dot.append("\t1\n");
-
-        // Variable states
-        for (int i = 0; i < lifecycles.length - 1; i++) {
-            dot.append("\t").append(index.get(lifecycles[i])).append("\n");
-        }
-        // Static transitions
-        dot.append("\tfake0 -> 0 [style=bold]\n");
-        // Variable sink transitions
-
-        for (String event : lifecycles) {
-            for (String event2 : lifecycles) {
-                if (!lifecycles_map.get(event).contains(event2)) {
-                } else {
-                    dot.append("\t").append(s_index.get(event)).append(" -> ").append(index.get(event)).append(" [label=").append(activity).append(event).append("]\n");
-                    if (!(s_index.get(event)==0)){
-                        dot.append("\t").append(s_index.get(event)).append(" -> 1 [label=").append("!").append(activity).append(event).append("]\n");
-                    }
-                }
-            }
-        }
-
-
-            for (String event2 : lifecycles) {
-                if (!lifecycles[0].equals(event2)) {
-
-                    dot.append("\t").append(s_index.get(lifecycles[0])).append(" -> 1 [label=").append(activity).append(event2).append("]\n");
-
-                }
-            }
-
-
-
-        dot.append("}");
-
-        // Write DOT content to a file
-        String pathname = Container.WORKING_LIFECYCLE_DIR + "lifecycle/" + activity + "lifecycle.dot";
-        File dotFile = new File(pathname);
-        try (FileWriter writer = new FileWriter(dotFile)) {
-            writer.write(dot.toString());
-            dots.addElement(dotFile.toPath().toString());
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        return dotFile;
-    }
-
-    public static File createLifecycleDotAlternateChainParametric(String activity) {
-        // fake-init -> fake0 init -> 0 sink -> 1 assigned -> 2 started -> 3 completed -> 4
-
-        // preprocessing because we want the lifecycle for th activity not for the lifecycle activity
-        // if there is a lifecycle value that I have not taken into account may arise problems because is not correctly removed
-        for (String s : lifecycles) {
-            if (activity.contains(s))
-                activity = activity.replaceAll(s, "");
-            activity.replace("_","");
-        }
-
-
-        StringBuilder dot = new StringBuilder();
-
-
-        dot.append("digraph {\n");
-        // Static states
-        dot.append("\tfake0 [style=invisible]\n");
-        dot.append("\t0 [root=true] [shape=doublecircle]\n");
-        dot.append("\t1\n");
-
-        // Variable states
-        for (int i = 0; i < lifecycles.length - 1; i++) {
-            dot.append("\t").append(index.get(lifecycles[i])).append("\n");
-        }
-        // Static transitions
-        dot.append("\tfake0 -> 0 [style=bold]\n");
-        // Variable sink transitions
-
-        for (String event : lifecycles) {
-            for (String event2 : lifecycles) {
-                if (!lifecycles_map.get(event).contains(event2)) {
-                   // dot.append("\t").append(s_index.get(event)).append(" -> 1 [label=").append(activity).append(event2).append("]\n");
-
-                } else {
-                    dot.append("\t").append(s_index.get(event)).append(" -> ").append(index.get(event)).append(" [label=").append(activity).append(event).append("]\n");
-                }
-            }
-        }
-
-        for (int i=0; i< lifecycles.length;i++){
-            for (String event2 : lifecycles) {
-                if (!lifecycles[i].equals(event2)) {
-                    dot.append("\t").append(s_index.get(lifecycles[i])).append(" -> 1 [label=").append(activity).append(event2).append("]\n");
-
-                }
-            }
-        }
-
-
-
-
-        dot.append("}");
-
-        // Write DOT content to a file
-        String pathname = Container.WORKING_LIFECYCLE_DIR + "lifecycle/" + activity +"_"+ "lifecycle.dot";
-        File dotFile = new File(pathname);
-        try (FileWriter writer = new FileWriter(dotFile)) {
-            writer.write(dot.toString());
-            dots.addElement(dotFile.toPath().toString());
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        return dotFile;
-    }
-
     public static File createLifecycleDotAlternateChain(String activity) {
         // fake-init -> fake0 init -> 0 sink -> 1 assigned -> 2 started -> 3 completed -> 4
 
@@ -380,34 +246,38 @@ public class Lifecycle {
                  // creation of the activity
                 createActivity(doc, activityDefinitionsElement, activity);
 
-                /*Element assignToStartConstraint = createConstraint(doc, generateConstraintId(doc,activity + "-start"), activity + "-assign", activity + "-start", "chain succession");
+                if (!Container.getAlternate_lifecycleTag()){
+                    Element assignToStartConstraint = createConstraint(doc, generateUniqueId(doc,"constraint"), activity + "-assign", activity + "-start", "chain succession");
 
-                Node constraintDefinitions = doc.getElementsByTagName("constraintdefinitions").item(0);
-                constraintDefinitions.appendChild(assignToStartConstraint);
+                    Node constraintDefinitions = doc.getElementsByTagName("constraintdefinitions").item(0);
+                    constraintDefinitions.appendChild(assignToStartConstraint);
 
-                // creation of the constraint
-                Element startToCompleteConstraint = createConstraint(doc, generateConstraintId(doc,activity + "-complete"), activity + "-start", activity + "-complete", "chain succession");
+                    // creation of the constraint
+                    Element startToCompleteConstraint = createConstraint(doc, generateUniqueId(doc,"constraint"), activity + "-start", activity + "-complete", "chain succession");
 
-                constraintDefinitions = doc.getElementsByTagName("constraintdefinitions").item(0);
-                constraintDefinitions.appendChild(startToCompleteConstraint);*/
+                    constraintDefinitions = doc.getElementsByTagName("constraintdefinitions").item(0);
+                    constraintDefinitions.appendChild(startToCompleteConstraint);
+                }
+                else{
+                    // creation of the constraint
+                    Element assignToStartConstraint = createConstraint(doc, generateUniqueId(doc,"constraint"), activity + "-assign", activity + "-start", "alternate succession");
 
-                // creation of the constraint
-                Element assignToStartConstraint = createConstraint(doc, generateUniqueId(doc,"constraint"), activity + "-assign", activity + "-start", "alternate succession");
+                    Node constraintDefinitions = doc.getElementsByTagName("constraintdefinitions").item(0);
+                    constraintDefinitions.appendChild(assignToStartConstraint);
 
-                Node constraintDefinitions = doc.getElementsByTagName("constraintdefinitions").item(0);
-                constraintDefinitions.appendChild(assignToStartConstraint);
+                    // creation of the constraint
+                    Element startToCompleteConstraint = createConstraint(doc, generateUniqueId(doc,"constraint"), activity + "-start", activity + "-complete", "alternate succession");
 
-                // creation of the constraint
-                Element startToCompleteConstraint = createConstraint(doc, generateUniqueId(doc,"constraint"), activity + "-start", activity + "-complete", "alternate succession");
+                    constraintDefinitions = doc.getElementsByTagName("constraintdefinitions").item(0);
+                    constraintDefinitions.appendChild(startToCompleteConstraint);
 
-                constraintDefinitions = doc.getElementsByTagName("constraintdefinitions").item(0);
-                constraintDefinitions.appendChild(startToCompleteConstraint);
+                    // creation of the constraint
+                    Element assignToCompleteConstraint = createConstraint(doc, generateUniqueId(doc,"constraint"), activity + "-assign", activity + "-complete", "alternate succession");
 
-                // creation of the constraint
-                Element assignToCompleteConstraint = createConstraint(doc, generateUniqueId(doc,"constraint"), activity + "-assign", activity + "-complete", "alternate succession");
+                    constraintDefinitions = doc.getElementsByTagName("constraintdefinitions").item(0);
+                    constraintDefinitions.appendChild(assignToCompleteConstraint);
+                }
 
-                constraintDefinitions = doc.getElementsByTagName("constraintdefinitions").item(0);
-                constraintDefinitions.appendChild(assignToCompleteConstraint);
 
             }
 
