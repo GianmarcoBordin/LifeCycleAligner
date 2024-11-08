@@ -19,26 +19,38 @@ LIBRARY_PATHS=(
 # Join compiled class path with library paths
 CLASSPATH="$COMPILED_CLASSES_PATH:$(IFS=:; echo "${LIBRARY_PATHS[*]}")"
 
-# Argument list
-ARGS_LIST=(
-    "/Users/applem2/Downloads/TESI/Project/Aligner/Plan-based_Data_Aware_Declarative_Conf_Checker/resources/log-files/Synthetic-Logs/_noisy_log.xes
-     /Users/applem2/Downloads/TESI/Project/Aligner/Plan-based_Data_Aware_Declarative_Conf_Checker/resources/declarative-models/DECLARE-models/10-CONSTRAINTS/_1_decl.xml"
-    "/Users/applem2/Downloads/TESI/Project/Aligner/Plan-based_Data_Aware_Declarative_Conf_Checker/resources/log-files/Data-Aware/5-CONSTRAINTS/2_mod/length_20.xes_atomized_1.xes
-     /Users/applem2/Downloads/TESI/Project/Aligner/Plan-based_Data_Aware_Declarative_Conf_Checker/resources/declarative-models/DECLARE-models/10-CONSTRAINTS/_1_decl.xml"
+
+# List of log files
+LOG_FILES=(
+# noise 0 10 20 30
+    "/Users/applem2/Downloads/TESI/Project/Aligner/Plan-based_Data_Aware_Declarative_Conf_Checker/resources/log-files/Data-Aware/5-CONSTRAINTS/2_mod/length_20.xes_atomized_1.xes"
 )
 
-# Run the Java program with each set of arguments
-for ARGS in "${ARGS_LIST[@]}"; do
-    # Split ARGS into individual arguments for clarity
-    set -- $ARGS
-    ARG1="$1"
-    ARG2="$2"
+# List of constraint files
+CONSTRAINT_FILES=(
+# constraints 1 3 5 7
+"/Users/applem2/Downloads/TESI/Project/Aligner/Plan-based_Data_Aware_Declarative_Conf_Checker/resources/declarative-models/DECLARE-models/10-CONSTRAINTS/1_decl.xml"
 
-    ARG1_NAME=$(basename "$ARG1")
-    ARG2_NAME=$(basename "$ARG2")
+)
 
-    echo -e "##### RUNNING WITH:\n$ARG1_NAME\n$ARG2_NAME"
-    java -cp "$CLASSPATH" main.Main "$ARG1" "$ARG2"
-    echo "####################################"
-    echo ""
+PLANNERS=("fd" "symba")
+
+
+for PLANNER in "${PLANNERS[@]}"; do
+    for CONSTRAINT in "${CONSTRAINT_FILES[@]}"; do
+        for LOG in "${LOG_FILES[@]}"; do
+            # Extract filenames for logging purposes
+            LOG_NAME=$(basename "$LOG")
+            CONSTRAINT_NAME=$(basename "$CONSTRAINT")
+            PLANNER_NAME=$(basename "$PLANNER")
+
+            echo -e "##### RUNNING WITH:\n$PLANNER_NAME\n$LOG_NAME\n$CONSTRAINT_NAME"
+
+            # Run the Java program with the current combination of log file, constraint file, and planner
+            java -cp "$CLASSPATH" main.Main "$PLANNER" "$LOG" "$CONSTRAINT"
+
+            echo "####################################"
+            echo ""
+        done
+    done
 done

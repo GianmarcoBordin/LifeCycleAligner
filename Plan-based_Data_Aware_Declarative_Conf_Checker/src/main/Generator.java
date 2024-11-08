@@ -889,7 +889,7 @@ public class Generator {
             }
 
             if(Container.getFDOptimalCheckBox()) {
-                Utilities.emptyFolder(Container.WORKING_DIR+"fast-downward/src/Conformance_Checking");
+                Utilities.emptyFolder(Container.WORKING_DIR+"fast-downward/Conformance_Checking");
             }
 
             if(Container.getSymBAoptimalCheckBox()) {
@@ -943,8 +943,8 @@ public class Generator {
                             int trace_real_number = k + 1;
 
                             if(Container.getFDOptimalCheckBox()) {
-                                Utilities.createFile(Container.WORKING_DIR+"fast-downward/src/Conformance_Checking/domain" + trace_real_number + ".pddl", sb_domain);
-                                Utilities.createFile(Container.WORKING_DIR+"fast-downward/src/Conformance_Checking/problem" + trace_real_number + ".pddl", sb_problem);
+                                Utilities.createFile(Container.WORKING_DIR+"fast-downward/Conformance_Checking/domain" + trace_real_number + ".pddl", sb_domain);
+                                Utilities.createFile(Container.WORKING_DIR+"fast-downward/Conformance_Checking/problem" + trace_real_number + ".pddl", sb_problem);
                             }
 
                             if(Container.getSymBAoptimalCheckBox()) {
@@ -965,8 +965,8 @@ public class Generator {
                         int trace_real_number = k + 1;
 
                         if(Container.getFDOptimalCheckBox()) {
-                            Utilities.createFile(Container.WORKING_DIR+"fast-downward/src/Conformance_Checking/domain" + trace_real_number + ".pddl", sb_domain);
-                            Utilities.createFile(Container.WORKING_DIR+"fast-downward/src/Conformance_Checking/problem" + trace_real_number + ".pddl", sb_problem);
+                            Utilities.createFile(Container.WORKING_DIR+"fast-downward/Conformance_Checking/domain" + trace_real_number + ".pddl", sb_domain);
+                            Utilities.createFile(Container.WORKING_DIR+"fast-downward/Conformance_Checking/problem" + trace_real_number + ".pddl", sb_problem);
                         }
 
                         if(Container.getSymBAoptimalCheckBox()) {

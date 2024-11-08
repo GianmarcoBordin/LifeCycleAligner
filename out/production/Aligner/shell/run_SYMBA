@@ -1,16 +1,15 @@
 #!/bin/bash
 
-logfile="symba2_$1_$2_$3_$4.txt"
+logfile="/shell/symba2_$1_$2_$3_$4.txt"
 
 echo "Starting the log file at $(date)" > "$logfile"
 
-for trace in {1..2}; do
+for trace in {1..1}; do
     domain="/pddl/domain${trace}.pddl"
     problem="/pddl/problem${trace}.pddl"
 
     output=$(./plan $domain $problem /pddl/plan.sas 2>&1)
 
-    # Write the formatted results to the log file
     echo "" >> "$logfile"
     echo "Results for trace #$trace:" >> "$logfile"
     echo "$output" | grep -E 'Plan length:|Plan cost:|Search time:|Total time:' | sed -E 's/\[.*\] //g' >> "$logfile"

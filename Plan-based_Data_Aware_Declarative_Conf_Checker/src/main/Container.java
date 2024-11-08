@@ -22,7 +22,7 @@ public class Container {
     private static boolean hold_not_found_constraints = false; // whether to hold or not the constraints for activities not in the log
 	// definitions of the cost of add and del actions
 	private static String  add_cost = "1";
-	private static String del_cost = "3";
+	private static String del_cost = "1";
 	private static boolean discard_duplicated_traces = true; // whether to discard duplicate traces in the log
 	/*
 		The program uses the following two flags to decide on the lifecycle enforcement mode:
@@ -45,6 +45,10 @@ public class Container {
 
 	private static Boolean alternate_lifecycle = false;
 
+	// the user can modify the execution setup docker or local
+
+	private static Boolean local_planners = false;
+
 	private static List<String> seenActivities = new ArrayList<>();
 
 	private static List<String> activities_no_lifecycle = new ArrayList<>();
@@ -55,65 +59,7 @@ public class Container {
 	private static List<String> generalActivities2 = new ArrayList<>();
 
 	// The user can set the activities for which it does not want lifecycle enforcement
-	private static List<String> notWanted =new ArrayList<>(
-			Arrays.asList(
-				    "activity1",
-					"activity2",
-					"activity3",
-					"activity4",
-					"activity5",
-					"activity6",
-					"activity7",
-					"activity8",
-					"activity9",
-					"activity10",
-					"activity11",
-					"activity12",
-					"activity13",
-					"activity14",
-					"activity15",
-					"activity16",
-					"activity17",
-					"activity18",
-					"activity19",
-					"activity20",
-					"activity21",
-					"activity22",
-					"activity23",
-					"activity24",
-					"activity25",
-					"activityr",
-					"activityo",
-					"activityn",
-					"activitym",
-					"activityl",
-					"activityp",
-					"activityo",
-					"activityk",
-					"p1",
-					"p2",
-					//"p3",
-					"p4",
-					"p5",
-					"p6",
-					"p7",
-					"p8",
-					"p9",
-					"p10",
-					"p11",
-					"p12",
-					"p13",
-					"p14",
-					"p15",
-					"p16",
-					"p17",
-					"p18",
-					"p19",
-					"p20",
-					"p21",
-					"p22"
-			)
-	);
+	private static List<String> notWanted =new ArrayList<>();
 
 
 	/*
@@ -449,6 +395,21 @@ public class Container {
 	public static Boolean getAlternate_lifecycleTag(){
 		return Container.alternate_lifecycle;
 	}
+
+	public static Boolean getLocal_planners(){
+		return Container.local_planners;
+	}
+
+	public static void setFDoptimalCheckBox(){
+		Container.FDoptimalCheckBox = true;
+		Container.SymBAoptimalCheckBox = false;
+	}
+
+	public static void setSymBAoptimalCheckBox(){
+		Container.FDoptimalCheckBox = false;
+		Container.SymBAoptimalCheckBox = true;
+	}
+
 
 
 }

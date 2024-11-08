@@ -4,7 +4,7 @@ import java.io.*;
 
 public class Main {
 
-    private static final boolean TEST = false;
+    private static final boolean TEST = true;
 
     public static void main(String[] args) throws Exception {
 
@@ -28,12 +28,23 @@ public class Main {
         Utilities.setExecutables();
 
         // Get arguments
-        if (args.length == 0) {
-            debug("No arguments provided.");
+        if (args.length < 3) {
+            debug(" Usage RUNNING WITH: $PLANNER_NAME $LOG_FILE $CONSTRAINT_FILE, no arguments provided.");
             return;
         }
 
-        for (int i = 0; i < args.length; i++) {
+        if (args[0].equals("fd")){
+            Container.setFDoptimalCheckBox();
+        }
+        else if (args[0].equals("symba")){
+            Container.setSymBAoptimalCheckBox();
+        }
+        else{
+            debug(" Usage RUNNING WITH: $PLANNER_NAME $LOG_FILE $CONSTRAINT_FILE, the Program needs a planner to run");
+            return;
+        }
+
+        for (int i = 1; i < args.length; i++) {
             String filePath = args[i];
             File file = new File(filePath);
             if (file.exists() && file.isFile()) {
@@ -73,7 +84,7 @@ public class Main {
 
         debug("----- CLEAN PHASE STARTED -----");
 
-        //Utilities.cleanAll();
+        Utilities.cleanAll();
 
     }
     private static void debug(String message) {

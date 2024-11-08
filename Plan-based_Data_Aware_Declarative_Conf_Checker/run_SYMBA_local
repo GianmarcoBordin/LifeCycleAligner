@@ -1,6 +1,10 @@
 #!/bin/bash
 
-logfile="/shell/fast-downward_$1_$2_$3_$4_.txt"
+cd /Users/applem2/Downloads/TESI/seq_opt_symba_2/ || exit
+
+logfile="symba2_$1_$2_$3_$4_.txt"
+
+cp /Users/applem2/Downloads/TESI/Project/Aligner/Plan-based_Data_Aware_Declarative_Conf_Checker/seq-opt-symba-2/Conformance_Checking/* "Conformance_Checking/"
 
 echo "Starting the log file at $(date)" > "$logfile"
 
@@ -8,7 +12,7 @@ for trace in {1..1}; do
     domain="Conformance_Checking/domain${trace}.pddl"
     problem="Conformance_Checking/problem${trace}.pddl"
 
-    output=$(./fast-downward.py "$domain" "$problem" --search "astar(blind())" 2>&1)
+    output=$(./plan $domain $problem /pddl/plan.sas 2>&1)
 
     echo "" >> "$logfile"
     echo "Results for trace #$trace:" >> "$logfile"
