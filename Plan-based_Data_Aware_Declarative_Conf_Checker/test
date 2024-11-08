@@ -23,6 +23,8 @@ CLASSPATH="$COMPILED_CLASSES_PATH:$(IFS=:; echo "${LIBRARY_PATHS[*]}")"
 # List of log files
 LOG_FILES=(
 # noise 0 10 20 30
+# trace alphabet 5 10
+# trace length 10 20 30
     "/Users/applem2/Downloads/TESI/Project/Aligner/Plan-based_Data_Aware_Declarative_Conf_Checker/resources/log-files/Data-Aware/5-CONSTRAINTS/2_mod/length_20.xes_atomized_1.xes"
 )
 
@@ -39,12 +41,23 @@ PLANNERS=("fd" "symba")
 for PLANNER in "${PLANNERS[@]}"; do
     for CONSTRAINT in "${CONSTRAINT_FILES[@]}"; do
         for LOG in "${LOG_FILES[@]}"; do
-            # Extract filenames for logging purposes
-            LOG_NAME=$(basename "$LOG")
-            CONSTRAINT_NAME=$(basename "$CONSTRAINT")
+
+            # Extract logging information from file names
+            if [[ "$LOG_NAME" =~ noise-([0-9]+) ]]; then
+                NOISE="${BASH_REMATCH[1]}"
+            fi
+            if [[ "$LOG_NAME" =~ alphabet-([0-9]+) ]]; then
+                TRACE_ALPHABET="${BASH_REMATCH[1]}"
+            fi
+            if [[ "$LOG_NAME" =~ length-([0-9]+) ]]; then
+                TRACE_LENGTH="${BASH_REMATCH[1]}"
+            fi
+            if [[ "$CONSTRAINT_NAME" =~ length-([0-9]+) ]]; then
+                CONSTRAINTS_NUM="${BASH_REMATCH[1]}"
+            fi
             PLANNER_NAME=$(basename "$PLANNER")
 
-            echo -e "##### RUNNING WITH:\n$PLANNER_NAME\n$LOG_NAME\n$CONSTRAINT_NAME"
+            echo -e "##### RUNNING WITH:\n$PLANNER_NAME\n$NOISE\n$TRACE_ALPHABET\n$TRACE_LENGTH\n$CONSTRAINTS_NUM"
 
             # Run the Java program with the current combination of log file, constraint file, and planner
             java -cp "$CLASSPATH" main.Main "$PLANNER" "$LOG" "$CONSTRAINT"
