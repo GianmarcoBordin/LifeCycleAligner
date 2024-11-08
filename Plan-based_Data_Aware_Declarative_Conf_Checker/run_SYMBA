@@ -1,6 +1,6 @@
 #!/bin/bash
 
-logfile="/shell/symba2_$1_$2_$3_$4.txt"
+logfile="/shell/symba2_$1_$2_$3_$4_$5_.txt"
 
 echo "Starting the log file at $(date)" > "$logfile"
 

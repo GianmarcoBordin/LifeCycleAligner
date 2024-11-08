@@ -14,6 +14,8 @@ public class Main {
         String num_constraints = "";
         String noise_percentage = "";
         String avg_trace_length = "";
+        String lifecycle = "";
+
 
         // computing program time
         startTime = System.currentTimeMillis();
@@ -55,6 +57,8 @@ public class Main {
                 if (fileExtension.equals("xes")) {
                     avg_trace_length = fileName.split("_")[0];
                     noise_percentage = fileName.split("_")[1];
+                    lifecycle = fileName.split("_")[2];
+
                 } else if (fileExtension.equals("xml") || fileExtension.equals("dot")) {
                     num_constraints = fileName.split("_")[0];
                 }
@@ -80,7 +84,7 @@ public class Main {
 
         endTime = System.currentTimeMillis();
         duration = endTime - startTime;
-        Runner.invokePlanner(duration,num_constraints,noise_percentage,avg_trace_length);
+        Runner.invokePlanner(duration,num_constraints,noise_percentage,avg_trace_length,lifecycle);
 
         debug("----- CLEAN PHASE STARTED -----");
 

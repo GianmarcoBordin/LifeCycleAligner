@@ -57,7 +57,7 @@ for PLANNER in "${PLANNERS[@]}"; do
             fi
             PLANNER_NAME=$(basename "$PLANNER")
 
-            echo -e "##### RUNNING WITH:\n$PLANNER_NAME\n$NOISE\n$TRACE_ALPHABET\n$TRACE_LENGTH\n$CONSTRAINTS_NUM"
+            echo -e "##### RUNNING WITH:\n$PLANNER_NAME\n$TRACE_LENGTH\n$NOISE\n$TRACE_ALPHABET\n$CONSTRAINTS_NUM"
 
             # Run the Java program with the current combination of log file, constraint file, and planner
             java -cp "$CLASSPATH" main.Main "$PLANNER" "$LOG" "$CONSTRAINT"
