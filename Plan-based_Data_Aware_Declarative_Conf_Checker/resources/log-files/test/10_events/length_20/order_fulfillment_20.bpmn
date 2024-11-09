@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI"
+             xmlns:omgdc="http://www.omg.org/spec/DD/20100524/DC"
+             xmlns:omgdi="http://www.omg.org/spec/DD/20100524/DI"
+             xmlns:activiti="http://activiti.org/bpmn"
+             typeLanguage="http://www.w3.org/2001/XMLSchema"
+             expressionLanguage="http://www.w3.org/1999/XPath"
+             targetNamespace="http://www.example.org/orderProcess">
+
+  <process id="order_fulfillment_process" name="Customer Order Fulfillment" isExecutable="true">
+
+    <!-- Start Event -->
+    <startEvent id="start_event" name="Order Received" />
+    <sequenceFlow id="flow1" sourceRef="start_event" targetRef="task1" />
+
+    <!-- Task 1: Receive Order -->
+    <task id="task1" name="Processing Customer Order" />
+    <sequenceFlow id="flow2" sourceRef="task1" targetRef="gateway1" />
+
+    <!-- Exclusive Gateway 1: Validate Order (Decides if order can proceed) -->
+    <exclusiveGateway id="gateway1" name="Validate Order" />
+    <sequenceFlow id="flow3" sourceRef="gateway1" targetRef="task2" name="Order Valid" />
+    <sequenceFlow id="flow4" sourceRef="gateway1" targetRef="task3" name="Order Invalid" />
+
+    <!-- Task 2: Validate Order Details (If Order is Valid) -->
+    <task id="task2" name="Validate Order Details" />
+    <sequenceFlow id="flow5" sourceRef="task2" targetRef="gateway2" />
+
+    <!-- Exclusive Gateway 2: Inventory Check (Decides if stock is available) -->
+    <exclusiveGateway id="gateway2" name="Inventory Check" />
+    <sequenceFlow id="flow6" sourceRef="gateway2" targetRef="task4" name="In Stock" />
+    <sequenceFlow id="flow7" sourceRef="gateway2" targetRef="task5" name="Out of Stock" />
+
+    <!-- Task 3: Handle Invalid Order (Optional Path) -->
+    <task id="task3" name="Handle Invalid Order" />
+    <sequenceFlow id="flow8" sourceRef="task3" targetRef="task6" />
+
+    <!-- Task 4: Notify Customer of Stock Availability (If In Stock) -->
+    <task id="task4" name="Notify Customer of Stock Availability" />
+    <sequenceFlow id="flow9" sourceRef="task4" targetRef="gateway3" />
+
+    <!-- Exclusive Gateway 3: Payment Processing Decision (Decides Payment Path) -->
+    <exclusiveGateway id="gateway3" name="Payment Processing" />
+    <sequenceFlow id="flow10" sourceRef="gateway3" targetRef="task6" name="Payment Successful" />
+    <sequenceFlow id="flow11" sourceRef="gateway3" targetRef="task7" name="Payment Failed" />
+
+    <!-- Task 5: Notify Customer of Out of Stock (If Out of Stock) -->
+    <task id="task5" name="Notify Customer of Out of Stock" />
+    <sequenceFlow id="flow12" sourceRef="task5" targetRef="task6" />
+
+    <!-- Task 6: Process Payment (If Payment Successful) -->
+    <task id="task6" name="Process Payment" />
+    <sequenceFlow id="flow13" sourceRef="task6" targetRef="gateway4" />
+
+    <!-- Exclusive Gateway 4: Shipment Decision (Decides Shipping Path) -->
+    <exclusiveGateway id="gateway4" name="Shipping Decision" />
+    <sequenceFlow id="flow14" sourceRef="gateway4" targetRef="task8" name="Shipping Available" />
+    <sequenceFlow id="flow15" sourceRef="gateway4" targetRef="task9" name="Shipping Unavailable" />
+
+    <!-- Task 7: Process Payment (If Payment Failed) -->
+    <task id="task7" name="Process Failed Payment" />
+    <sequenceFlow id="flow16" sourceRef="task7" targetRef="task8" />
+
+    <!-- Task 8: Ship Order (If Shipping Available) -->
+    <task id="task8" name="Ship Order" />
+    <sequenceFlow id="flow17" sourceRef="task8" targetRef="gateway5" />
+
+    <!-- Exclusive Gateway 5: Delivery Confirmation (Decides Delivery Path) -->
+    <exclusiveGateway id="gateway5" name="Delivery Confirmation" />
+    <sequenceFlow id="flow18" sourceRef="gateway5" targetRef="task10" name="Delivery Successful" />
+    <sequenceFlow id="flow19" sourceRef="gateway5" targetRef="task9" name="Delivery Failed" />
+
+    <!-- Task 9: Handle Delivery Failure (If Shipping Unavailable or Delivery Failed) -->
+    <task id="task9" name="Handle Delivery Failure" />
+    <sequenceFlow id="flow20" sourceRef="task9" targetRef="task10" />
+
+    <!-- Task 10: Send Feedback Request (After Successful Delivery) -->
+    <task id="task10" name="Send Feedback Request" />
+    <sequenceFlow id="flow21" sourceRef="task10" targetRef="end_event" />
+
+    <!-- End Event -->
+    <endEvent id="end_event" name="Process Complete" />
+
+  </process>
+
+</definitions>

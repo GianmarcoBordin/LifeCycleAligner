@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI"
+             xmlns:omgdc="http://www.omg.org/spec/DD/20100524/DC"
+             xmlns:omgdi="http://www.omg.org/spec/DD/20100524/DI"
+             xmlns:activiti="http://activiti.org/bpmn"
+             typeLanguage="http://www.w3.org/2001/XMLSchema"
+             expressionLanguage="http://www.w3.org/1999/XPath"
+             targetNamespace="http://www.example.org/orderProcess">
+
+  <process id="order_fulfillment_process" name="Customer Order Fulfillment" isExecutable="true">
+
+    <!-- Start Event -->
+    <startEvent id="start_event" name="Order Received" />
+    <sequenceFlow id="flow1" sourceRef="start_event" targetRef="task1" />
+
+    <!-- Task 1: Receive Order -->
+    <task id="task1" name="Processing Customer Order" />
+    <sequenceFlow id="flow2" sourceRef="task1" targetRef="gateway1" />
+
+    <!-- Exclusive Gateway 1: Validate Order (Decides if order can proceed) -->
+    <exclusiveGateway id="gateway1" name="Validate Order" />
+    <sequenceFlow id="flow3" sourceRef="gateway1" targetRef="task2" name="Order Valid" />
+    <sequenceFlow id="flow4" sourceRef="gateway1" targetRef="task3" name="Order Invalid" />
+
+    <!-- Task 2: Validate Order Details (If Order is Valid) -->
+    <task id="task2" name="Validate Order Details" />
+    <sequenceFlow id="flow5" sourceRef="task2" targetRef="task4" />
+
+    <!-- Task 3: Handle Invalid Order (Optional Path) -->
+    <task id="task3" name="Handle Invalid Order" />
+    <sequenceFlow id="flow6" sourceRef="task3" targetRef="task4" />
+
+    <!-- Task 4: Notify Customer of Stock Availability -->
+    <task id="task4" name="Notify Customer of Stock Availability" />
+    <sequenceFlow id="flow7" sourceRef="task4" targetRef="task5" />
+
+    <!-- Task 5: Send Feedback Request (After Successful Process) -->
+    <task id="task5" name="Send Feedback Request" />
+    <sequenceFlow id="flow8" sourceRef="task5" targetRef="end_event" />
+
+    <!-- End Event -->
+    <endEvent id="end_event" name="Process Complete" />
+
+  </process>
+
+</definitions>
