@@ -1,4 +1,0 @@
-Starting the log file at Fri Nov  8 15:47:47 UTC 2024
-
-Results for trace #1:
-Completed trace #1
