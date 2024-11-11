@@ -63,23 +63,8 @@ public class Utilities {
 
 	}
 	public static void setExecutables() {
-		//Force the executable files of Fast-downward and LPG to be executable
-		new File(WORKING_DIR+"translate_script").setExecutable(true);
-		new File(WORKING_DIR+"preprocess_script").setExecutable(true);
-		new File(WORKING_DIR+"planner_subopt_script").setExecutable(true);
-		new File(WORKING_DIR+"planner_opt_script").setExecutable(true);
-		new File(WORKING_DIR+"lpg_script").setExecutable(true);
-		new File(WORKING_DIR+"fast-downward/src/translate/translate.py").setExecutable(true);
-		new File(WORKING_DIR+"fast-downward/src/preprocess/preprocess").setExecutable(true);
-		new File(WORKING_DIR+"fast-downward/src/search/downward").setExecutable(true);
-		new File(WORKING_DIR+"fast-downward/src/search/unitcost").setExecutable(true);
-		new File(WORKING_DIR+"fast-downward/src/search/downward-release").setExecutable(true);
-		new File(WORKING_DIR+"LPG/lpg").setExecutable(true);
-		new File(WORKING_DIR+"run_FD").setExecutable(true);
-		new File(WORKING_DIR+"run_FD_all").setExecutable(true);
-		new File(WORKING_DIR+"run_SYMBA").setExecutable(true);
-		new File(WORKING_DIR+"run_SYMBA").setExecutable(true);
-		new File(WORKING_DIR+"checkNumberOfTraces").setExecutable(true);
+		new File(WORKING_DIR+"run_FD_local").setExecutable(true);
+		new File(WORKING_DIR+"run_SYMBA_local").setExecutable(true);
 	}
 	/*
 	   The user can modify the dot template to allow the program ensure lifecycle enforcement for any type of lifecycle

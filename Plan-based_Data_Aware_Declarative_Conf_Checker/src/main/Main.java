@@ -4,7 +4,7 @@ import java.io.*;
 
 public class Main {
 
-    private static final boolean TEST = true;
+    private static final boolean TEST = false;
 
     public static void main(String[] args) throws Exception {
 
@@ -64,12 +64,13 @@ public class Main {
                 }
 
 
-                Loader.loadFile(file, fileExtension);
+                //Loader.loadFile(file, fileExtension);
             } else {
                 debug("File " + (i + 1) + ": " + filePath + " does not exist or is not a file.");
             }
         }
 
+/*
         debug("----- GROUNDING PHASE STARTED -----");
 
         if (!Generator.goToPlanner()) {
@@ -88,7 +89,7 @@ public class Main {
 
         debug("----- CLEAN PHASE STARTED -----");
 
-        Utilities.cleanAll();
+        Utilities.cleanAll();*/
 
     }
     private static void debug(String message) {

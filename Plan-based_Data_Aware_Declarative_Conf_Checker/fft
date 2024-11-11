@@ -1,5 +1,0 @@
-noise percentage = percentage of model constraints violated = (constraints violated / total constraints) * 100
-contrtollare formato corretto log
-controllare funzioni di modifica se sono corrette
-controllare se le constraints non si intrecciano tra loro
-controllare se le constraints sono consistenti tra loro
