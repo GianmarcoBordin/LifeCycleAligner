@@ -57,7 +57,7 @@ public class Main {
                 if (fileExtension.equals("xes")) {
                     avg_trace_length = fileName.split("_")[0];
                     noise_percentage = fileName.split("_")[1];
-                    lifecycle = fileName.split("_")[2];
+                    lifecycle = fileName.split("_")[2].replace(".xes","");
 
                 } else if (fileExtension.equals("xml") || fileExtension.equals("dot")) {
                     num_constraints = fileName.split("_")[0];

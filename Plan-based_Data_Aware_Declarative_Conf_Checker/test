@@ -43,21 +43,20 @@ for PLANNER in "${PLANNERS[@]}"; do
         for LOG in "${LOG_FILES[@]}"; do
 
             # Extract logging information from file names
-            if [[ "$LOG_NAME" =~ noise-([0-9]+) ]]; then
-                NOISE="${BASH_REMATCH[1]}"
-            fi
-            if [[ "$LOG_NAME" =~ alphabet-([0-9]+) ]]; then
-                TRACE_ALPHABET="${BASH_REMATCH[1]}"
-            fi
-            if [[ "$LOG_NAME" =~ length-([0-9]+) ]]; then
+            if [[ "$LOG_NAME" =~ ([0-9]+)_([0-9]+)%_([a-zA-Z]+)\.xes$ ]]; then
                 TRACE_LENGTH="${BASH_REMATCH[1]}"
+                NOISE="${BASH_REMATCH[2]}"
+                TRACE_ALPHABET="${BASH_REMATCH[3]}"
             fi
-            if [[ "$CONSTRAINT_NAME" =~ length-([0-9]+) ]]; then
+
+            # Extract constraint length from the format '1_constraints'
+            if [[ "$CONSTRAINT_NAME" =~ ([0-9]+)_constraints ]]; then
                 CONSTRAINTS_NUM="${BASH_REMATCH[1]}"
             fi
+
             PLANNER_NAME=$(basename "$PLANNER")
 
-            echo -e "##### RUNNING WITH:\n$PLANNER_NAME\n$TRACE_LENGTH\n$NOISE\n$TRACE_ALPHABET\n$CONSTRAINTS_NUM"
+            echo -e "##### RUNNING WITH:\n$PLANNER_NAME\n$TRACE_LENGTH\n$NOISE%\n$TRACE_ALPHABET\n$CONSTRAINTS_NUM"
 
             # Run the Java program with the current combination of log file, constraint file, and planner
             java -cp "$CLASSPATH" main.Main "$PLANNER" "$LOG" "$CONSTRAINT"
