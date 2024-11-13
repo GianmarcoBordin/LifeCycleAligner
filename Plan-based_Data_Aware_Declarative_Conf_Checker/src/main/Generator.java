@@ -894,7 +894,6 @@ public class Generator {
 
             if(Container.getSymBAoptimalCheckBox()) {
                 Utilities.emptyFolder(Container.WORKING_DIR+"/seq-opt-symba-2/Conformance_Checking");
-                Utilities.emptyFolder(Container.WORKING_DIR+"/seq-opt-symba-2/results");
             }
 
             if(Container.getCostCheckBox()) {

@@ -1,0 +1,12 @@
+activity a
+activity b
+activity c
+activity d
+activity e
+Existence[a] | |
+Absence[e] | |
+Precedence[d, a] | | |
+Response[b, a] | | |
+Not Chain Succession[b, d] | | |
+Not Chain Succession[c, a] | | |
+Precedence[c, b] | | |

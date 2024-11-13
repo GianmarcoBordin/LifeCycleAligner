@@ -1,6 +1,10 @@
 package main;
 
 import java.io.*;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.file.StandardCopyOption;
 import java.util.*;
 
 import org.processmining.ltl2automaton.plugins.automaton.Automaton;
@@ -60,6 +64,45 @@ public class Utilities {
 		Utilities.emptyFolder(Container.WORKING_LIFECYCLE_DIR+"lifecycle");
 		//Utilities.emptyFolder(WORKING_DIR+"seq-opt-symba-2/Conformance_Checking");
 		//Utilities.emptyFolder(Container.WORKING_DIR+"results");
+
+	}
+
+	public static int backup_dir(String planner, String trace_length, String noise_percentage, String alphabet, String constraints)  {
+		if(planner.isEmpty() || trace_length.isEmpty() || noise_percentage.isEmpty() || alphabet.isEmpty() || constraints.isEmpty()){
+			return -1;
+		}
+		String p = "" ;
+		if (planner.equals("fd")){
+			p = "fast-downward";
+		} else if (planner.equals("symba")) {
+			p = "seq-opt-symba-2";
+		}else {
+			return -1;
+		}
+		String[] dirsToCheck = {
+				Container.WORKING_DIR + p +"/Conformance_Checking",
+		};
+
+		for (String dirPath : dirsToCheck) {
+			File dir = new File(dirPath);
+			if (dir.exists() && dir.isDirectory()) {
+				try {
+					// Create a new unique name for the directory to avoid overwriting
+					String newDirName = dirPath + trace_length + noise_percentage + alphabet + constraints +"_backup_";
+					Path sourcePath = Paths.get(dirPath);
+					Path backupPath = Paths.get(newDirName);
+
+					// Rename the directory
+					Files.move(sourcePath, backupPath, StandardCopyOption.REPLACE_EXISTING);
+					System.out.println("Directory renamed to: " + newDirName);
+				} catch (Exception e) {
+					System.err.println("Failed to rename the directory: " + e.getMessage());
+					e.printStackTrace();
+					return -1;
+				}
+			}
+		}
+		return 0;
 
 	}
 	public static void setExecutables() {

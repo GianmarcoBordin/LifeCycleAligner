@@ -15,6 +15,7 @@ public class Main {
         String noise_percentage = "";
         String avg_trace_length = "";
         String lifecycle = "";
+        String planner="";
 
 
         // computing program time
@@ -34,6 +35,8 @@ public class Main {
             debug(" Usage RUNNING WITH: $PLANNER_NAME $LOG_FILE $CONSTRAINT_FILE, no arguments provided.");
             return;
         }
+
+        planner = args[0];
 
         if (args[0].equals("fd")){
             Container.setFDoptimalCheckBox();
@@ -64,7 +67,7 @@ public class Main {
                 }
 
 
-                //Loader.loadFile(file, fileExtension);
+                Loader.loadFile(file, fileExtension);
             } else {
                 debug("File " + (i + 1) + ": " + filePath + " does not exist or is not a file.");
             }
@@ -74,6 +77,7 @@ public class Main {
         debug("----- GROUNDING PHASE STARTED -----");
 
         if (!Generator.goToPlanner()) {
+            debug("Something during generation of pddl files went wrong");
             System.exit(-1);
         }
 
@@ -90,6 +94,11 @@ public class Main {
         debug("----- CLEAN PHASE STARTED -----");
 
         Utilities.cleanAll();*/
+
+        if (Utilities.backup_dir(planner,avg_trace_length,noise_percentage,lifecycle,num_constraints) == -1){
+            debug("Something during backup went wrong");
+            System.exit(-1);
+        }
 
     }
     private static void debug(String message) {
