@@ -15,7 +15,7 @@ public class Main {
         String noise_percentage = "";
         String avg_trace_length = "";
         String lifecycle = "";
-        String planner="";
+        String planner;
 
 
         // computing program time
@@ -73,7 +73,6 @@ public class Main {
             }
         }
 
-/*
         debug("----- GROUNDING PHASE STARTED -----");
 
         if (!Generator.goToPlanner()) {
@@ -93,13 +92,12 @@ public class Main {
 
         debug("----- CLEAN PHASE STARTED -----");
 
-        Utilities.cleanAll();*/
+        Utilities.cleanAll();
 
         if (Utilities.backup_dir(planner,avg_trace_length,noise_percentage,lifecycle,num_constraints) == -1){
             debug("Something during backup went wrong");
             System.exit(-1);
         }
-
     }
     private static void debug(String message) {
         if (!TEST) {

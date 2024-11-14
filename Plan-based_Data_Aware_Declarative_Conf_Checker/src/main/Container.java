@@ -2,6 +2,7 @@ package main;
 
 import java.util.*;
 
+import com.google.common.collect.Lists;
 import org.processmining.ltl2automaton.plugins.automaton.Automaton;
 
 import com.google.common.collect.HashMultimap;
@@ -32,8 +33,8 @@ public class Container {
 		activity to correct in the lifecycle sense
 		P.S. only one flag is necessary for the lifecycle enforcement
 	 */
-	private static boolean combineXml = true;
-	private static boolean lifecycle = false; // the lifecycle is faster because the relevant transitions are calculated only for one automaton a time not the product automaton
+	private static boolean combineXml = false;
+	private static boolean lifecycle = true; // the lifecycle is faster because the relevant transitions are calculated only for one automaton a time not the product automaton
     private static boolean sinkStatesMenuItem = true; // whether to hold or not sink states, false slow down
 	private  static boolean disjunctiveGoalMenuItem= false; //false -->slow down the tool in the find combination of transitions ,true --> not normalization with fast downward
 	private static boolean costCheckBox=true;
@@ -74,7 +75,7 @@ public class Container {
 	// Advanced options for problems creations
 	private static boolean productAutomatonMenuItem =false;
 	private static boolean lenght_of_traces_checkBox = false;
-	private static boolean 	trace_duplicated_checkBox=true;
+	private static boolean 	trace_duplicated_checkBox=false;
 	private static int minimum_length_of_a_trace = 0;
 	private static int maximum_length_of_a_trace = 0;
 	private static int number_of_traces_ComboBox_FROM = 1;

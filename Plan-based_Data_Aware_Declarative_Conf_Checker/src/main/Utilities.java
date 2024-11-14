@@ -62,49 +62,66 @@ public class Utilities {
 	}
 	public static void cleanAll(){
 		Utilities.emptyFolder(Container.WORKING_LIFECYCLE_DIR+"lifecycle");
-		//Utilities.emptyFolder(WORKING_DIR+"seq-opt-symba-2/Conformance_Checking");
-		//Utilities.emptyFolder(Container.WORKING_DIR+"results");
 
 	}
 
-	public static int backup_dir(String planner, String trace_length, String noise_percentage, String alphabet, String constraints)  {
-		if(planner.isEmpty() || trace_length.isEmpty() || noise_percentage.isEmpty() || alphabet.isEmpty() || constraints.isEmpty()){
+	public static int backup_dir(String planner, String trace_length, String noise_percentage, String alphabet, String constraints) {
+		if (planner.isEmpty() || trace_length.isEmpty() || noise_percentage.isEmpty() || alphabet.isEmpty() || constraints.isEmpty()) {
 			return -1;
 		}
-		String p = "" ;
-		if (planner.equals("fd")){
+
+		String p = "";
+		if (planner.equals("fd")) {
 			p = "fast-downward";
 		} else if (planner.equals("symba")) {
 			p = "seq-opt-symba-2";
-		}else {
+		} else {
 			return -1;
 		}
+
 		String[] dirsToCheck = {
-				Container.WORKING_DIR + p +"/Conformance_Checking",
+				Container.WORKING_DIR + p + "/Conformance_Checking",
 		};
 
+		System.out.println("planner: " + planner + " trace: " + trace_length + " noise: " + noise_percentage + " constraints: " + constraints + " alphabet: " + alphabet);
+		trace_length = "3";
 		for (String dirPath : dirsToCheck) {
 			File dir = new File(dirPath);
 			if (dir.exists() && dir.isDirectory()) {
 				try {
 					// Create a new unique name for the directory to avoid overwriting
-					String newDirName = dirPath + trace_length + noise_percentage + alphabet + constraints +"_backup_";
+					String newDirName = dirPath + "_" + trace_length + "_" + noise_percentage + "_" + alphabet + "_" + constraints + "_backup_";
 					Path sourcePath = Paths.get(dirPath);
 					Path backupPath = Paths.get(newDirName);
 
-					// Rename the directory
-					Files.move(sourcePath, backupPath, StandardCopyOption.REPLACE_EXISTING);
-					System.out.println("Directory renamed to: " + newDirName);
+					// Create the new backup directory
+					Files.createDirectories(backupPath);
+
+					// Copy contents from the original directory to the backup directory
+					Files.walk(sourcePath).forEach(source -> {
+						try {
+							Path target = backupPath.resolve(sourcePath.relativize(source));
+							if (Files.isDirectory(source)) {
+								Files.createDirectories(target);
+							} else {
+								Files.copy(source, target, StandardCopyOption.REPLACE_EXISTING);
+							}
+						} catch (IOException e) {
+							throw new RuntimeException("Error copying file: " + source + " to " + backupPath, e);
+						}
+					});
+
+					System.out.println("Directory copied to: " + newDirName);
 				} catch (Exception e) {
-					System.err.println("Failed to rename the directory: " + e.getMessage());
+					System.err.println("Failed to copy the directory: " + e.getMessage());
 					e.printStackTrace();
 					return -1;
 				}
 			}
 		}
 		return 0;
-
 	}
+
 	public static void setExecutables() {
 		new File(WORKING_DIR+"run_FD_local").setExecutable(true);
 		new File(WORKING_DIR+"run_SYMBA_local").setExecutable(true);

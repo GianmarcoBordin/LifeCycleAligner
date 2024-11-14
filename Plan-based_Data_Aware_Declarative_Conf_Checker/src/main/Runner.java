@@ -48,8 +48,6 @@ public class Runner {
             command = new String[]{
                     "osascript", "-e",
                     "tell application \"Terminal\" to do script \"" + terminalCommand.replace("\"", "\\\"") + "\"",
-                    //"-e delay 6",
-                    //"-e", "tell application \"Terminal\" to quit"
             };
 
             // Execute the command
