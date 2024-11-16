@@ -125,6 +125,9 @@ public class Utilities {
 	public static void setExecutables() {
 		new File(WORKING_DIR+"run_FD_local").setExecutable(true);
 		new File(WORKING_DIR+"run_SYMBA_local").setExecutable(true);
+		new File(WORKING_DIR+"run_FD").setExecutable(true);
+		new File(WORKING_DIR+"run_SYMBA").setExecutable(true);
+		new File(WORKING_DIR+"test").setExecutable(true);
 	}
 	/*
 	   The user can modify the dot template to allow the program ensure lifecycle enforcement for any type of lifecycle

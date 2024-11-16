@@ -1,0 +1,23 @@
+digraph Automaton {
+  rankdir = LR;
+  0 [shape=circle,label=""];
+  0 -> 0 [label="d-complete"]
+  0 -> 0 [label="f-complete\ng-complete\nh-complete"]
+  0 -> 0 [label="a-complete\nb-complete"]
+  0 -> 1 [label="e-complete"]
+  1 [shape=doublecircle,label=""];
+  1 -> 1 [label="d-complete\ne-complete\nf-complete\ng-complete\nh-complete"]
+  1 -> 1 [label="a-complete\nb-complete"]
+  2 [shape=circle,label=""];
+  2 -> 2 [label="d-complete\ne-complete\nf-complete\ng-complete\nh-complete"]
+  2 -> 1 [label="a-complete"]
+  2 -> 2 [label="b-complete"]
+  3 [shape=circle,label=""];
+  initial [shape=plaintext,label=""];
+  initial -> 3
+  3 -> 3 [label="d-complete"]
+  3 -> 3 [label="f-complete\ng-complete\nh-complete"]
+  3 -> 0 [label="a-complete"]
+  3 -> 2 [label="e-complete"]
+  3 -> 3 [label="b-complete"]
+}

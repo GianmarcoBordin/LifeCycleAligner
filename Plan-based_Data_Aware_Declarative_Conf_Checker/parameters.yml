@@ -1,25 +1,12 @@
 parameters:
-  general_activities:
-    - Order Received --> TO BE DELETED OR NOT CONSIDERED DUMMY ACTIVITY
-    - Processing Incoming Customer Order
-    - Validate Order Details
-    - Handle Invalid Order
-    - Notify Customer of Stock Availability
-    - Notify Customer of Out of Stock
-    - Process Payment
-    - Process Failed Payment
-    - Ship Order
-    - Handle Delivery Failure
-    - Send Feedback Request
-    - Process Complete  --> TO BE DELETED OR NOT CONSIDERED DUMMY ACTIVITY
   constraints_declare:
     - 1
     - 3
     - 5
     - 7
   lifecycle_trace_alphabet:
-    - 5
-    - 10
+    - 8
+    - 12
   traces_length:
     - 10
     - 20

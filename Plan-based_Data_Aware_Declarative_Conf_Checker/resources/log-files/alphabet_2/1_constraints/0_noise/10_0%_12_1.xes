@@ -1,0 +1,1095 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- This file has been generated with the OpenXES library. It conforms -->
+<!-- to the XML serialization of the XES standard for log storage and -->
+<!-- management. -->
+<!-- XES standard version: 1.0 -->
+<!-- OpenXES library version: 1.0RC7 -->
+<!-- OpenXES is available from http://www.openxes.org/ -->
+<log xes.version="1.0" xes.features="nested-attributes" openxes.version="1.0RC7">
+	<extension name="Time" prefix="time" uri="http://www.xes-standard.org/time.xesext"/>
+	<extension name="Lifecycle" prefix="lifecycle" uri="http://www.xes-standard.org/lifecycle.xesext"/>
+	<extension name="Concept" prefix="concept" uri="http://www.xes-standard.org/concept.xesext"/>
+	<classifier name="Event Name" keys="concept:name"/>
+	<string key="concept:name" value="Synthetic log for process: Discovered model"/>
+	<string key="lifecycle:model" value="standard"/>
+	<trace>
+		<string key="concept:name" value="Case No. 01 [positive]"/>
+		<string key="trace:type" value="positive"/>
+		<event>
+			<string key="concept:name" value="l"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2023-08-27T19:07:06.744+02:00"/>
+		</event>
+		<event>
+			<string key="concept:name" value="a"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2023-08-28T17:05:30.780+02:00"/>
+		</event>
+		<event>
+			<string key="concept:name" value="d"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2023-08-29T05:38:49.029+02:00"/>
+		</event>
+		<event>
+			<string key="concept:name" value="g"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2023-08-29T22:38:54.609+02:00"/>
+		</event>
+		<event>
+			<string key="concept:name" value="m"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2023-08-30T06:38:09.582+02:00"/>
+		</event>
+		<event>
+			<string key="concept:name" value="i"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2023-08-30T21:39:37.617+02:00"/>
+		</event>
+		<event>
+			<string key="concept:name" value="f"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2023-08-31T05:55:11.778+02:00"/>
+		</event>
+		<event>
+			<string key="concept:name" value="e"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2023-09-01T05:33:43.355+02:00"/>
+		</event>
+		<event>
+			<string key="concept:name" value="f"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2023-09-01T17:41:00.369+02:00"/>
+		</event>
+		<event>
+			<string key="concept:name" value="f"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2023-09-02T13:00:36.875+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<string key="concept:name" value="Case No. 02 [positive]"/>
+		<string key="trace:type" value="positive"/>
+		<event>
+			<string key="concept:name" value="l"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2023-09-02T21:11:58.999+02:00"/>
+		</event>
+		<event>
+			<string key="concept:name" value="g"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2023-09-03T11:35:20.579+02:00"/>
+		</event>
+		<event>
+			<string key="concept:name" value="g"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2023-09-04T05:30:01.506+02:00"/>
+		</event>
+		<event>
+			<string key="concept:name" value="f"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2023-09-04T19:24:48.613+02:00"/>
+		</event>
+		<event>
+			<string key="concept:name" value="m"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2023-09-05T00:15:45.996+02:00"/>
+		</event>
+		<event>
+			<string key="concept:name" value="h"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2023-09-05T13:45:33.793+02:00"/>
+		</event>
+		<event>
+			<string key="concept:name" value="f"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2023-09-05T17:28:50.883+02:00"/>
+		</event>
+		<event>
+			<string key="concept:name" value="f"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2023-09-05T19:50:34.509+02:00"/>
+		</event>
+		<event>
+			<string key="concept:name" value="l"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2023-09-06T13:47:11.376+02:00"/>
+		</event>
+		<event>
+			<string key="concept:name" value="a"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2023-09-06T21:23:24.605+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<string key="concept:name" value="Case No. 03 [positive]"/>
+		<string key="trace:type" value="positive"/>
+		<event>
+			<string key="concept:name" value="a"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2023-09-07T07:28:18.302+02:00"/>
+		</event>
+		<event>
+			<string key="concept:name" value="b"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2023-09-07T11:17:07.133+02:00"/>
+		</event>
+		<event>
+			<string key="concept:name" value="l"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2023-09-07T18:57:44.136+02:00"/>
+		</event>
+		<event>
+			<string key="concept:name" value="d"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2023-09-08T07:20:50.031+02:00"/>
+		</event>
+		<event>
+			<string key="concept:name" value="f"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2023-09-09T03:59:51.532+02:00"/>
+		</event>
+		<event>
+			<string key="concept:name" value="b"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2023-09-09T20:56:51.477+02:00"/>
+		</event>
+		<event>
+			<string key="concept:name" value="l"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2023-09-10T19:39:26.287+02:00"/>
+		</event>
+		<event>
+			<string key="concept:name" value="e"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2023-09-11T06:54:10.802+02:00"/>
+		</event>
+		<event>
+			<string key="concept:name" value="h"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2023-09-11T15:02:06.601+02:00"/>
+		</event>
+		<event>
+			<string key="concept:name" value="a"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2023-09-12T02:31:26.396+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<string key="concept:name" value="Case No. 04 [positive]"/>
+		<string key="trace:type" value="positive"/>
+		<event>
+			<string key="concept:name" value="i"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2023-09-12T13:52:46.845+02:00"/>
+		</event>
+		<event>
+			<string key="concept:name" value="e"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2023-09-13T01:42:15.962+02:00"/>
+		</event>
+		<event>
+			<string key="concept:name" value="m"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2023-09-13T14:37:36.955+02:00"/>
+		</event>
+		<event>
+			<string key="concept:name" value="i"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2023-09-14T13:04:33.866+02:00"/>
+		</event>
+		<event>
+			<string key="concept:name" value="a"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2023-09-15T07:06:17.452+02:00"/>
+		</event>
+		<event>
+			<string key="concept:name" value="c"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2023-09-15T15:46:38.291+02:00"/>
+		</event>
+		<event>
+			<string key="concept:name" value="g"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2023-09-15T15:50:03.535+02:00"/>
+		</event>
+		<event>
+			<string key="concept:name" value="m"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2023-09-16T05:39:24.168+02:00"/>
+		</event>
+		<event>
+			<string key="concept:name" value="e"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2023-09-16T12:54:53.923+02:00"/>
+		</event>
+		<event>
+			<string key="concept:name" value="c"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2023-09-17T08:43:50.221+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<string key="concept:name" value="Case No. 05 [positive]"/>
+		<string key="trace:type" value="positive"/>
+		<event>
+			<string key="concept:name" value="g"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2023-09-17T11:52:17.765+02:00"/>
+		</event>
+		<event>
+			<string key="concept:name" value="b"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2023-09-18T09:43:20.962+02:00"/>
+		</event>
+		<event>
+			<string key="concept:name" value="l"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2023-09-18T13:16:41.079+02:00"/>
+		</event>
+		<event>
+			<string key="concept:name" value="l"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2023-09-18T18:42:15.660+02:00"/>
+		</event>
+		<event>
+			<string key="concept:name" value="l"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2023-09-19T06:02:13.104+02:00"/>
+		</event>
+		<event>
+			<string key="concept:name" value="i"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2023-09-19T09:52:29.730+02:00"/>
+		</event>
+		<event>
+			<string key="concept:name" value="b"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2023-09-20T03:52:33.259+02:00"/>
+		</event>
+		<event>
+			<string key="concept:name" value="a"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2023-09-20T15:35:05.609+02:00"/>
+		</event>
+		<event>
+			<string key="concept:name" value="l"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2023-09-20T15:48:46.555+02:00"/>
+		</event>
+		<event>
+			<string key="concept:name" value="m"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2023-09-21T07:01:59.027+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<string key="concept:name" value="Case No. 06 [positive]"/>
+		<string key="trace:type" value="positive"/>
+		<event>
+			<string key="concept:name" value="n"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2023-09-21T07:55:37.940+02:00"/>
+		</event>
+		<event>
+			<string key="concept:name" value="e"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2023-09-22T03:17:59.298+02:00"/>
+		</event>
+		<event>
+			<string key="concept:name" value="e"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2023-09-22T12:39:28.491+02:00"/>
+		</event>
+		<event>
+			<string key="concept:name" value="d"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2023-09-22T23:41:40.639+02:00"/>
+		</event>
+		<event>
+			<string key="concept:name" value="h"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2023-09-23T02:01:26.610+02:00"/>
+		</event>
+		<event>
+			<string key="concept:name" value="f"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2023-09-23T23:48:54.806+02:00"/>
+		</event>
+		<event>
+			<string key="concept:name" value="c"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2023-09-24T23:05:10.059+02:00"/>
+		</event>
+		<event>
+			<string key="concept:name" value="e"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2023-09-25T05:18:14.043+02:00"/>
+		</event>
+		<event>
+			<string key="concept:name" value="e"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2023-09-26T04:38:02.602+02:00"/>
+		</event>
+		<event>
+			<string key="concept:name" value="a"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2023-09-26T18:44:42.426+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<string key="concept:name" value="Case No. 07 [positive]"/>
+		<string key="trace:type" value="positive"/>
+		<event>
+			<string key="concept:name" value="i"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2023-09-27T09:47:58.649+02:00"/>
+		</event>
+		<event>
+			<string key="concept:name" value="h"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2023-09-27T11:47:43.199+02:00"/>
+		</event>
+		<event>
+			<string key="concept:name" value="m"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2023-09-28T11:14:54.716+02:00"/>
+		</event>
+		<event>
+			<string key="concept:name" value="a"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2023-09-29T08:25:41.732+02:00"/>
+		</event>
+		<event>
+			<string key="concept:name" value="n"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2023-09-30T03:47:03.165+02:00"/>
+		</event>
+		<event>
+			<string key="concept:name" value="a"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2023-09-30T08:57:53.559+02:00"/>
+		</event>
+		<event>
+			<string key="concept:name" value="h"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2023-09-30T23:41:32.102+02:00"/>
+		</event>
+		<event>
+			<string key="concept:name" value="e"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2023-10-01T09:20:54.630+02:00"/>
+		</event>
+		<event>
+			<string key="concept:name" value="b"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2023-10-02T00:30:55.291+02:00"/>
+		</event>
+		<event>
+			<string key="concept:name" value="f"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2023-10-02T17:59:02.114+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<string key="concept:name" value="Case No. 08 [positive]"/>
+		<string key="trace:type" value="positive"/>
+		<event>
+			<string key="concept:name" value="n"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2023-10-03T12:57:07.983+02:00"/>
+		</event>
+		<event>
+			<string key="concept:name" value="e"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2023-10-03T14:19:57.799+02:00"/>
+		</event>
+		<event>
+			<string key="concept:name" value="i"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2023-10-04T10:14:54.858+02:00"/>
+		</event>
+		<event>
+			<string key="concept:name" value="c"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2023-10-04T22:44:46.472+02:00"/>
+		</event>
+		<event>
+			<string key="concept:name" value="n"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2023-10-05T12:29:06.759+02:00"/>
+		</event>
+		<event>
+			<string key="concept:name" value="h"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2023-10-05T18:01:32.446+02:00"/>
+		</event>
+		<event>
+			<string key="concept:name" value="b"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2023-10-06T00:54:53.343+02:00"/>
+		</event>
+		<event>
+			<string key="concept:name" value="b"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2023-10-06T13:07:46.300+02:00"/>
+		</event>
+		<event>
+			<string key="concept:name" value="n"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2023-10-06T18:14:55.102+02:00"/>
+		</event>
+		<event>
+			<string key="concept:name" value="a"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2023-10-07T16:28:53.881+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<string key="concept:name" value="Case No. 09 [positive]"/>
+		<string key="trace:type" value="positive"/>
+		<event>
+			<string key="concept:name" value="a"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2023-10-07T19:47:43.022+02:00"/>
+		</event>
+		<event>
+			<string key="concept:name" value="a"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2023-10-08T12:49:55.516+02:00"/>
+		</event>
+		<event>
+			<string key="concept:name" value="h"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2023-10-08T21:20:22.120+02:00"/>
+		</event>
+		<event>
+			<string key="concept:name" value="d"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2023-10-09T13:09:48.981+02:00"/>
+		</event>
+		<event>
+			<string key="concept:name" value="g"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2023-10-10T11:33:32.935+02:00"/>
+		</event>
+		<event>
+			<string key="concept:name" value="l"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2023-10-11T04:05:29.154+02:00"/>
+		</event>
+		<event>
+			<string key="concept:name" value="h"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2023-10-12T01:56:04.211+02:00"/>
+		</event>
+		<event>
+			<string key="concept:name" value="d"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2023-10-12T02:28:32.694+02:00"/>
+		</event>
+		<event>
+			<string key="concept:name" value="g"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2023-10-12T17:57:44.951+02:00"/>
+		</event>
+		<event>
+			<string key="concept:name" value="g"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2023-10-13T00:25:51.869+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<string key="concept:name" value="Case No. 10 [positive]"/>
+		<string key="trace:type" value="positive"/>
+		<event>
+			<string key="concept:name" value="m"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2023-10-13T11:03:08.836+02:00"/>
+		</event>
+		<event>
+			<string key="concept:name" value="l"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2023-10-14T02:38:52.663+02:00"/>
+		</event>
+		<event>
+			<string key="concept:name" value="d"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2023-10-14T18:42:29.985+02:00"/>
+		</event>
+		<event>
+			<string key="concept:name" value="m"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2023-10-15T11:21:14.872+02:00"/>
+		</event>
+		<event>
+			<string key="concept:name" value="c"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2023-10-16T07:43:25.950+02:00"/>
+		</event>
+		<event>
+			<string key="concept:name" value="i"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2023-10-16T12:54:53.893+02:00"/>
+		</event>
+		<event>
+			<string key="concept:name" value="l"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2023-10-17T08:39:57.378+02:00"/>
+		</event>
+		<event>
+			<string key="concept:name" value="f"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2023-10-18T08:18:30.246+02:00"/>
+		</event>
+		<event>
+			<string key="concept:name" value="l"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2023-10-18T20:43:56.656+02:00"/>
+		</event>
+		<event>
+			<string key="concept:name" value="a"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2023-10-19T09:29:06.365+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<string key="concept:name" value="Case No. 11 [positive]"/>
+		<string key="trace:type" value="positive"/>
+		<event>
+			<string key="concept:name" value="f"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2023-10-19T17:35:09.077+02:00"/>
+		</event>
+		<event>
+			<string key="concept:name" value="e"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2023-10-20T08:37:00.602+02:00"/>
+		</event>
+		<event>
+			<string key="concept:name" value="n"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2023-10-21T05:05:59.096+02:00"/>
+		</event>
+		<event>
+			<string key="concept:name" value="e"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2023-10-21T17:17:06.065+02:00"/>
+		</event>
+		<event>
+			<string key="concept:name" value="d"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2023-10-22T04:05:30.059+02:00"/>
+		</event>
+		<event>
+			<string key="concept:name" value="g"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2023-10-22T11:38:51.507+02:00"/>
+		</event>
+		<event>
+			<string key="concept:name" value="c"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2023-10-22T13:22:31.371+02:00"/>
+		</event>
+		<event>
+			<string key="concept:name" value="m"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2023-10-23T05:24:06.945+02:00"/>
+		</event>
+		<event>
+			<string key="concept:name" value="f"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2023-10-23T17:30:19.408+02:00"/>
+		</event>
+		<event>
+			<string key="concept:name" value="a"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2023-10-24T17:02:56.209+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<string key="concept:name" value="Case No. 12 [positive]"/>
+		<string key="trace:type" value="positive"/>
+		<event>
+			<string key="concept:name" value="l"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2023-10-24T17:16:52.161+02:00"/>
+		</event>
+		<event>
+			<string key="concept:name" value="m"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2023-10-25T15:21:40.402+02:00"/>
+		</event>
+		<event>
+			<string key="concept:name" value="e"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2023-10-26T14:45:33.551+02:00"/>
+		</event>
+		<event>
+			<string key="concept:name" value="h"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2023-10-26T23:18:43.044+02:00"/>
+		</event>
+		<event>
+			<string key="concept:name" value="i"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2023-10-27T02:55:48.338+02:00"/>
+		</event>
+		<event>
+			<string key="concept:name" value="g"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2023-10-27T21:35:34.728+02:00"/>
+		</event>
+		<event>
+			<string key="concept:name" value="g"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2023-10-28T21:13:10.518+02:00"/>
+		</event>
+		<event>
+			<string key="concept:name" value="m"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2023-10-29T17:50:01.737+01:00"/>
+		</event>
+		<event>
+			<string key="concept:name" value="b"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2023-10-30T09:12:16.633+01:00"/>
+		</event>
+		<event>
+			<string key="concept:name" value="a"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2023-10-31T06:18:51.850+01:00"/>
+		</event>
+	</trace>
+	<trace>
+		<string key="concept:name" value="Case No. 13 [positive]"/>
+		<string key="trace:type" value="positive"/>
+		<event>
+			<string key="concept:name" value="g"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2023-10-31T13:57:21.696+01:00"/>
+		</event>
+		<event>
+			<string key="concept:name" value="b"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2023-10-31T22:38:21.284+01:00"/>
+		</event>
+		<event>
+			<string key="concept:name" value="a"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2023-11-01T18:05:13.145+01:00"/>
+		</event>
+		<event>
+			<string key="concept:name" value="e"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2023-11-02T00:21:01.398+01:00"/>
+		</event>
+		<event>
+			<string key="concept:name" value="f"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2023-11-02T04:32:51.419+01:00"/>
+		</event>
+		<event>
+			<string key="concept:name" value="e"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2023-11-02T05:06:50.449+01:00"/>
+		</event>
+		<event>
+			<string key="concept:name" value="m"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2023-11-03T02:10:48.172+01:00"/>
+		</event>
+		<event>
+			<string key="concept:name" value="c"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2023-11-03T11:23:29.866+01:00"/>
+		</event>
+		<event>
+			<string key="concept:name" value="n"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2023-11-04T05:30:14.763+01:00"/>
+		</event>
+		<event>
+			<string key="concept:name" value="h"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2023-11-05T05:14:17.067+01:00"/>
+		</event>
+	</trace>
+	<trace>
+		<string key="concept:name" value="Case No. 14 [positive]"/>
+		<string key="trace:type" value="positive"/>
+		<event>
+			<string key="concept:name" value="d"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2023-11-05T15:57:07.604+01:00"/>
+		</event>
+		<event>
+			<string key="concept:name" value="e"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2023-11-06T05:00:28.489+01:00"/>
+		</event>
+		<event>
+			<string key="concept:name" value="n"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2023-11-06T15:00:00.181+01:00"/>
+		</event>
+		<event>
+			<string key="concept:name" value="c"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2023-11-07T12:11:19.667+01:00"/>
+		</event>
+		<event>
+			<string key="concept:name" value="d"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2023-11-07T21:29:23.821+01:00"/>
+		</event>
+		<event>
+			<string key="concept:name" value="n"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2023-11-08T04:05:37.443+01:00"/>
+		</event>
+		<event>
+			<string key="concept:name" value="e"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2023-11-09T03:34:35.116+01:00"/>
+		</event>
+		<event>
+			<string key="concept:name" value="i"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2023-11-09T06:32:43.341+01:00"/>
+		</event>
+		<event>
+			<string key="concept:name" value="f"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2023-11-09T12:33:55.095+01:00"/>
+		</event>
+		<event>
+			<string key="concept:name" value="a"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2023-11-09T14:22:18.697+01:00"/>
+		</event>
+	</trace>
+	<trace>
+		<string key="concept:name" value="Case No. 15 [positive]"/>
+		<string key="trace:type" value="positive"/>
+		<event>
+			<string key="concept:name" value="d"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2023-11-10T02:38:21.924+01:00"/>
+		</event>
+		<event>
+			<string key="concept:name" value="f"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2023-11-10T20:17:40.234+01:00"/>
+		</event>
+		<event>
+			<string key="concept:name" value="m"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2023-11-11T11:37:45.617+01:00"/>
+		</event>
+		<event>
+			<string key="concept:name" value="f"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2023-11-11T17:57:13.683+01:00"/>
+		</event>
+		<event>
+			<string key="concept:name" value="g"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2023-11-11T18:14:03.352+01:00"/>
+		</event>
+		<event>
+			<string key="concept:name" value="g"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2023-11-12T11:22:14.094+01:00"/>
+		</event>
+		<event>
+			<string key="concept:name" value="f"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2023-11-12T21:07:38.184+01:00"/>
+		</event>
+		<event>
+			<string key="concept:name" value="a"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2023-11-13T05:44:26.342+01:00"/>
+		</event>
+		<event>
+			<string key="concept:name" value="b"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2023-11-13T16:58:37.546+01:00"/>
+		</event>
+		<event>
+			<string key="concept:name" value="l"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2023-11-14T12:43:58.065+01:00"/>
+		</event>
+	</trace>
+	<trace>
+		<string key="concept:name" value="Case No. 16 [positive]"/>
+		<string key="trace:type" value="positive"/>
+		<event>
+			<string key="concept:name" value="e"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2023-11-15T05:47:55.637+01:00"/>
+		</event>
+		<event>
+			<string key="concept:name" value="f"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2023-11-16T04:15:27.073+01:00"/>
+		</event>
+		<event>
+			<string key="concept:name" value="f"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2023-11-16T23:15:15.032+01:00"/>
+		</event>
+		<event>
+			<string key="concept:name" value="m"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2023-11-17T09:57:29.798+01:00"/>
+		</event>
+		<event>
+			<string key="concept:name" value="m"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2023-11-17T10:54:26.442+01:00"/>
+		</event>
+		<event>
+			<string key="concept:name" value="b"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2023-11-18T03:07:50.621+01:00"/>
+		</event>
+		<event>
+			<string key="concept:name" value="b"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2023-11-18T12:58:15.128+01:00"/>
+		</event>
+		<event>
+			<string key="concept:name" value="c"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2023-11-19T01:39:35.547+01:00"/>
+		</event>
+		<event>
+			<string key="concept:name" value="e"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2023-11-19T06:22:04.026+01:00"/>
+		</event>
+		<event>
+			<string key="concept:name" value="a"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2023-11-19T17:33:57.909+01:00"/>
+		</event>
+	</trace>
+	<trace>
+		<string key="concept:name" value="Case No. 17 [positive]"/>
+		<string key="trace:type" value="positive"/>
+		<event>
+			<string key="concept:name" value="l"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2023-11-20T14:53:28.073+01:00"/>
+		</event>
+		<event>
+			<string key="concept:name" value="l"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2023-11-21T06:43:10.783+01:00"/>
+		</event>
+		<event>
+			<string key="concept:name" value="c"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2023-11-21T23:56:34.309+01:00"/>
+		</event>
+		<event>
+			<string key="concept:name" value="b"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2023-11-22T15:51:35.848+01:00"/>
+		</event>
+		<event>
+			<string key="concept:name" value="a"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2023-11-22T21:09:36.890+01:00"/>
+		</event>
+		<event>
+			<string key="concept:name" value="l"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2023-11-23T03:06:23.093+01:00"/>
+		</event>
+		<event>
+			<string key="concept:name" value="b"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2023-11-23T08:24:36.502+01:00"/>
+		</event>
+		<event>
+			<string key="concept:name" value="f"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2023-11-24T06:43:37.324+01:00"/>
+		</event>
+		<event>
+			<string key="concept:name" value="l"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2023-11-25T02:53:47.951+01:00"/>
+		</event>
+		<event>
+			<string key="concept:name" value="d"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2023-11-25T22:11:45.530+01:00"/>
+		</event>
+	</trace>
+	<trace>
+		<string key="concept:name" value="Case No. 18 [positive]"/>
+		<string key="trace:type" value="positive"/>
+		<event>
+			<string key="concept:name" value="b"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2023-11-26T04:28:05.317+01:00"/>
+		</event>
+		<event>
+			<string key="concept:name" value="b"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2023-11-26T06:33:07.325+01:00"/>
+		</event>
+		<event>
+			<string key="concept:name" value="l"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2023-11-27T01:18:21.065+01:00"/>
+		</event>
+		<event>
+			<string key="concept:name" value="f"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2023-11-27T22:41:09.525+01:00"/>
+		</event>
+		<event>
+			<string key="concept:name" value="g"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2023-11-28T16:36:14.218+01:00"/>
+		</event>
+		<event>
+			<string key="concept:name" value="h"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2023-11-28T17:30:50.712+01:00"/>
+		</event>
+		<event>
+			<string key="concept:name" value="g"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2023-11-29T11:44:02.557+01:00"/>
+		</event>
+		<event>
+			<string key="concept:name" value="a"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2023-11-30T09:19:57.579+01:00"/>
+		</event>
+		<event>
+			<string key="concept:name" value="l"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2023-11-30T17:01:51.478+01:00"/>
+		</event>
+		<event>
+			<string key="concept:name" value="b"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2023-12-01T02:12:28.883+01:00"/>
+		</event>
+	</trace>
+	<trace>
+		<string key="concept:name" value="Case No. 19 [positive]"/>
+		<string key="trace:type" value="positive"/>
+		<event>
+			<string key="concept:name" value="a"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2023-12-01T18:43:34.521+01:00"/>
+		</event>
+		<event>
+			<string key="concept:name" value="n"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2023-12-02T10:43:36.761+01:00"/>
+		</event>
+		<event>
+			<string key="concept:name" value="d"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2023-12-02T21:59:48.823+01:00"/>
+		</event>
+		<event>
+			<string key="concept:name" value="d"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2023-12-03T15:56:45.863+01:00"/>
+		</event>
+		<event>
+			<string key="concept:name" value="e"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2023-12-04T14:06:40.401+01:00"/>
+		</event>
+		<event>
+			<string key="concept:name" value="c"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2023-12-04T17:51:22.790+01:00"/>
+		</event>
+		<event>
+			<string key="concept:name" value="i"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2023-12-05T01:40:50.965+01:00"/>
+		</event>
+		<event>
+			<string key="concept:name" value="g"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2023-12-05T09:35:29.753+01:00"/>
+		</event>
+		<event>
+			<string key="concept:name" value="d"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2023-12-06T00:16:35.930+01:00"/>
+		</event>
+		<event>
+			<string key="concept:name" value="b"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2023-12-06T17:15:45.093+01:00"/>
+		</event>
+	</trace>
+	<trace>
+		<string key="concept:name" value="Case No. 20 [positive]"/>
+		<string key="trace:type" value="positive"/>
+		<event>
+			<string key="concept:name" value="m"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2023-12-07T05:37:00.699+01:00"/>
+		</event>
+		<event>
+			<string key="concept:name" value="n"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2023-12-07T07:15:47.134+01:00"/>
+		</event>
+		<event>
+			<string key="concept:name" value="n"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2023-12-07T09:40:56.878+01:00"/>
+		</event>
+		<event>
+			<string key="concept:name" value="i"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2023-12-07T18:34:36.260+01:00"/>
+		</event>
+		<event>
+			<string key="concept:name" value="h"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2023-12-08T07:26:31.657+01:00"/>
+		</event>
+		<event>
+			<string key="concept:name" value="i"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2023-12-08T18:12:52.750+01:00"/>
+		</event>
+		<event>
+			<string key="concept:name" value="e"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2023-12-09T07:33:57.005+01:00"/>
+		</event>
+		<event>
+			<string key="concept:name" value="i"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2023-12-09T20:10:18.183+01:00"/>
+		</event>
+		<event>
+			<string key="concept:name" value="g"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2023-12-10T17:12:40.093+01:00"/>
+		</event>
+		<event>
+			<string key="concept:name" value="a"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2023-12-11T06:24:21.078+01:00"/>
+		</event>
+	</trace>
+</log>

@@ -4,7 +4,7 @@ import java.io.*;
 
 public class Main {
 
-    private static final boolean TEST = false;
+    private static final boolean TEST = true;
 
     public static void main(String[] args) throws Exception {
 
@@ -60,7 +60,7 @@ public class Main {
                 if (fileExtension.equals("xes")) {
                     avg_trace_length = fileName.split("_")[0];
                     noise_percentage = fileName.split("_")[1];
-                    lifecycle = fileName.split("_")[2].replace(".xes","");
+                    lifecycle = fileName.split("_")[2];
 
                 } else if (fileExtension.equals("xml") || fileExtension.equals("dot")) {
                     num_constraints = fileName.split("_")[0];
