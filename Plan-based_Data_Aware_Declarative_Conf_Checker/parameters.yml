@@ -18,3 +18,7 @@ parameters:
     - 30
   executed_traces_per_execution:
     - 20
+time:
+  generating models: 45 min
+  generating logs rum: 15 min
+  generating noise logs: ND
