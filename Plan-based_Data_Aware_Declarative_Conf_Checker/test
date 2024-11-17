@@ -21,7 +21,7 @@ COMPILED_CLASSES_PATH="/Users/applem2/Downloads/TESI/Project/Aligner/out/product
 CLASSPATH="$COMPILED_CLASSES_PATH:$(IFS=:; echo "${LIBRARY_PATHS[*]}")"
 
 # Find log directories dynamically
-LOG_DIRS=($(find "$BASE_DIR" -type d -name "*_alphabet"))
+LOG_DIRS=($(find "$BASE_DIR" -type d -name "8_alphabet")) # here set 8 or 12 to halve the overall tests (default *)
 
 # Base constraint directory
 CONSTRAINTS_DIR="$BASE_DIR"

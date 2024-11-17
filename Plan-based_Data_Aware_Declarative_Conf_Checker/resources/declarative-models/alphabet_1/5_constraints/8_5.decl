@@ -6,8 +6,8 @@ activity e
 activity f
 activity g
 activity h
+Absence[c] | |
 Existence[a] | |
 Not Chain Succession[b, b] | | |
-Absence[c] | |
-Not Chain Succession[d, d] | | |
 Existence[e] | |
+Not Chain Succession[d, d] | | |
