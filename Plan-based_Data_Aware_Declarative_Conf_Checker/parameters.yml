@@ -22,8 +22,10 @@ time:
   generating models: 45 min
   generating logs rum: 15 min
   generating noise logs: 35 min
+  generating constraints file: 10 min
+  total time: 1:45 min
 generate order:
   - declare files (from smaller to larger, first one alphabet)
   - logs
   - noisy logs
-  - dot files
+  - dot files (from larger to smaller)

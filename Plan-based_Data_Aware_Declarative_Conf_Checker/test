@@ -1,9 +1,9 @@
 #!/bin/bash
 
 # Path to the base directory where the logs and constraints are stored
-BASE_DIR="/path/to/base/dir"
+BASE_DIR="/Users/applem2/Downloads/TESI/Project/Aligner/Plan-based_Data_Aware_Declarative_Conf_Checker/resources"
 
-# Paths to external libraries (from the Eclipse .classpath file)
+# Paths to external libraries (.classpath file)
 LIBRARY_PATHS=(
     "/Users/applem2/Downloads/TESI/Project/Aligner/Plan-based_Data_Aware_Declarative_Conf_Checker/lib/DeclareVisualizer.jar"
     "/Users/applem2/Downloads/TESI/Project/Aligner/Plan-based_Data_Aware_Declarative_Conf_Checker/lib/guava-16.0.1.jar"
@@ -20,57 +20,102 @@ LIBRARY_PATHS=(
 COMPILED_CLASSES_PATH="/Users/applem2/Downloads/TESI/Project/Aligner/out/production/Aligner"
 CLASSPATH="$COMPILED_CLASSES_PATH:$(IFS=:; echo "${LIBRARY_PATHS[*]}")"
 
-# Find log directories dynamically
-LOG_DIRS=($(find "$BASE_DIR" -type d -name "*_alphabet")) # here set 8 or 12 to halve the overall tests (default *)
+# Log and constraints base directories
+LOGS_DIR="$BASE_DIR/log-files"
+CONSTRAINTS_DIR="$BASE_DIR/declarative-models"
 
-# Base constraint directory
-CONSTRAINTS_DIR="$BASE_DIR"
-
-PLANNERS=("fd" "symba")
+PLANNERS=("fast-downward" "symba2")
+PLANNER_DIRS=(
+    "/Users/applem2/Downloads/TESI/Project/Aligner/Plan-based_Data_Aware_Declarative_Conf_Checker/fast-downward/shell"
+    "/Users/applem2/Downloads/TESI/Project/Aligner/Plan-based_Data_Aware_Declarative_Conf_Checker/seq-opt-symba-2/shell"
+)
 
 # Set the timeout threshold in seconds (e.g., 600 for 10 minutes)
 TIMEOUT_THRESHOLD=600
 
+# Total iterations calculation for progress tracking
+TOTAL_ITERATIONS=192
+
+CURRENT_ITERATION=0
+
+# Function to display a progress bar
+show_progress_bar() {
+    local progress=$1
+    local total=$2
+    local width=50
+
+    # Calculate the completed progress with rounding to the nearest integer
+    local completed=$(printf "%.0f" $(echo "scale=2; $progress * $width / $total" | bc))
+
+    # Declare remaining variable
+    local remaining=$((width - completed))
+
+    # If progress is equal to total, ensure completed reaches the width and remaining is 0
+    if [ "$completed" -ge "$width" ]; then
+        completed=$width
+        remaining=0
+    fi
+
+    # Print the progress bar with carriage return to overwrite the previous line
+    printf "\r["
+    for ((i = 0; i < completed; i++)); do
+        printf "#"
+    done
+    for ((i = 0; i < remaining; i++)); do
+        printf " "
+    done
+    printf "] %d/%d" "$progress" "$total"
+}
+
 # Loop over planners
-for PLANNER in "${PLANNERS[@]}"; do
-    # Loop over found log directories
-    for LOG_DIR in "${LOG_DIRS[@]}"; do
-        ALPHABET=$(basename "$LOG_DIR" | cut -d'_' -f1)
-        for CONSTRAINT_DIR in $(find "$LOG_DIR" -type d -name "*_constraints"); do
-            NUM_CONSTRAINTS=$(basename "$CONSTRAINT_DIR" | cut -d'_' -f1)
-            CONSTRAINT_FILE="${NUM_CONSTRAINTS}_constraints.dot"
-            CONSTRAINT_PATH="${CONSTRAINT_DIR}/${CONSTRAINT_FILE}"
+for INDEX in "${!PLANNERS[@]}"; do
+    PLANNER="${PLANNERS[$INDEX]}"
+    PLANNER_DIR="${PLANNER_DIRS[$INDEX]}"
 
-            if [[ -f "$CONSTRAINT_PATH" ]]; then
-                # Find log files matching the pattern
-                LOG_FILES=($(find "$CONSTRAINT_DIR" -type f -name "*${ALPHABET}_*_${NUM_CONSTRAINTS}*.xes"))
+    # Loop over log directories
+    for LOG_DIR in "$LOGS_DIR"/*_alphabet/*_constraints; do
+        ALPHABET=$(basename "$(dirname "$LOG_DIR")" | cut -d'_' -f1)
+        NUM_CONSTRAINTS=$(basename "$LOG_DIR" | cut -d'_' -f1)
 
-                for LOG in "${LOG_FILES[@]}"; do
-                    if [[ "$LOG" =~ ([0-9]+)_([0-9]+)_([0-9]+)_(.*)\.xes ]]; then
-                        TRACE_LENGTH="${BASH_REMATCH[1]}"
-                        NOISE="${BASH_REMATCH[2]}"
-                        TRACE_ALPHABET="${BASH_REMATCH[3]}"
-                        FILE_SUFFIX="${BASH_REMATCH[4]}"
+        # Find matching constraint file
+        CONSTRAINT_FILE="${ALPHABET}_${NUM_CONSTRAINTS}.dot"
+        CONSTRAINT_PATH="$CONSTRAINTS_DIR/${ALPHABET}_alphabet/${NUM_CONSTRAINTS}_constraints/$CONSTRAINT_FILE"
 
-                        echo -e "##### RUNNING WITH:\nPlanner: $PLANNER\nTrace Length: $TRACE_LENGTH\nNoise: $NOISE%\nTrace Alphabet: $TRACE_ALPHABET\nConstraints: $NUM_CONSTRAINTS"
+        if [[ -f "$CONSTRAINT_PATH" ]]; then
+            LOG_FILES=($(find "$LOG_DIR" -type f -name "*${ALPHABET}_${NUM_CONSTRAINTS}*.xes"))
 
-                        # Use time to measure and timeout to preemptively stop if it exceeds threshold
-                        ( time timeout $TIMEOUT_THRESHOLD java -cp "$CLASSPATH" main.Main "$PLANNER" "$LOG" "$CONSTRAINT_PATH" ) 2>&1 | grep -E "real|user|sys"
+            # Loop over log files that match the alphabet and constraints
+            for LOG in "${LOG_FILES[@]}"; do
+                CURRENT_ITERATION=$((CURRENT_ITERATION + 1))
+                show_progress_bar "$CURRENT_ITERATION" "$TOTAL_ITERATIONS"
 
-                        # Check if the last command exited due to timeout
+                # Extract debug information from the log file name
+                if [[ "$LOG" =~ ([0-9]+)_([0-9]+)%_([0-9]+)_(.*)\.xes ]]; then
+                    TRACE_LENGTH="${BASH_REMATCH[1]}"
+                    NOISE="${BASH_REMATCH[2]}"
+                    TRACE_ALPHABET="${BASH_REMATCH[3]}"
+
+                    if [[ "$TRACE_ALPHABET" == "$ALPHABET" ]]; then
+                        # Print the planner information after the progress bar
+                        echo -e "\n##### RUNNING WITH:\nPlanner: $PLANNER\nTrace Length: $TRACE_LENGTH\nNoise: $NOISE%\nTrace Alphabet: $TRACE_ALPHABET\nConstraints: $NUM_CONSTRAINTS"
+
+                        # Execute the planner with the log and constraint files
+                        ( time gtimeout $TIMEOUT_THRESHOLD java -cp "$CLASSPATH" main.Main "$PLANNER" "$LOG" "$CONSTRAINT_PATH" ) 2>&1 | grep -E "real"
+
                         if [[ $? -eq 124 ]]; then
                             echo "Execution exceeded $TIMEOUT_THRESHOLD seconds. Skipping to the next iteration."
+                            OUTPUT_FILE="${PLANNER_DIR}/${PLANNER}_${TRACE_LENGTH}_${NOISE}%_${TRACE_ALPHABET}_${NUM_CONSTRAINTS}_0.txt"
+                            touch "$OUTPUT_FILE"
                         fi
-
                         echo "####################################"
                         echo ""
-                    else
-                        echo "Skipping invalid log file: $LOG"
                     fi
-                done
-            else
-                echo "Skipping combination: No matching constraint file for $CONSTRAINT_PATH"
-            fi
-        done
+                else
+                    echo "Skipping invalid log file found in the directory: $LOG"
+                fi
+            done
+        else
+            echo "Skipping combination: No matching constraint file for $CONSTRAINT_PATH"
+        fi
     done
 done

@@ -1,0 +1,91 @@
+digraph Automaton {
+  rankdir = LR;
+  0 [shape=circle,label=""];
+  0 -> 9 [label="a-complete"]
+  0 -> 11 [label="e-complete"]
+  0 -> 5 [label="b-complete"]
+  0 -> 4 [label="n-complete"]
+  0 -> 0 [label="f-complete\ng-complete\nh-complete\ni-complete\nl-complete\nm-complete"]
+  0 -> 0 [label="c-complete"]
+  1 [shape=doublecircle,label=""];
+  1 -> 8 [label="a-complete"]
+  1 -> 9 [label="m-complete"]
+  1 -> 1 [label="e-complete"]
+  1 -> 10 [label="b-complete"]
+  1 -> 8 [label="g-complete\nh-complete\ni-complete\nl-complete"]
+  1 -> 8 [label="n-complete"]
+  1 -> 8 [label="c-complete"]
+  2 [shape=circle,label=""];
+  2 -> 9 [label="a-complete"]
+  2 -> 2 [label="e-complete"]
+  2 -> 3 [label="b-complete"]
+  2 -> 8 [label="n-complete"]
+  2 -> 9 [label="c-complete"]
+  2 -> 9 [label="g-complete\nh-complete\ni-complete\nl-complete\nm-complete"]
+  3 [shape=circle,label=""];
+  3 -> 9 [label="a-complete"]
+  3 -> 2 [label="e-complete"]
+  3 -> 3 [label="b-complete"]
+  3 -> 8 [label="n-complete"]
+  3 -> 9 [label="f-complete\ng-complete\nh-complete\ni-complete\nl-complete\nm-complete"]
+  4 [shape=circle,label=""];
+  initial [shape=plaintext,label=""];
+  initial -> 4
+  4 -> 8 [label="a-complete"]
+  4 -> 0 [label="m-complete"]
+  4 -> 7 [label="e-complete"]
+  4 -> 4 [label="f-complete\ng-complete\nh-complete\ni-complete\nl-complete"]
+  4 -> 6 [label="b-complete"]
+  4 -> 4 [label="n-complete"]
+  4 -> 4 [label="c-complete"]
+  5 [shape=circle,label=""];
+  5 -> 9 [label="a-complete"]
+  5 -> 11 [label="e-complete"]
+  5 -> 5 [label="b-complete"]
+  5 -> 4 [label="n-complete"]
+  5 -> 0 [label="f-complete\ng-complete\nh-complete\ni-complete\nl-complete\nm-complete"]
+  6 [shape=circle,label=""];
+  6 -> 8 [label="a-complete"]
+  6 -> 0 [label="m-complete"]
+  6 -> 7 [label="e-complete"]
+  6 -> 4 [label="f-complete\ng-complete\nh-complete\ni-complete\nl-complete"]
+  6 -> 6 [label="b-complete"]
+  6 -> 4 [label="n-complete"]
+  7 [shape=circle,label=""];
+  7 -> 8 [label="a-complete"]
+  7 -> 0 [label="m-complete"]
+  7 -> 7 [label="e-complete"]
+  7 -> 6 [label="b-complete"]
+  7 -> 4 [label="g-complete\nh-complete\ni-complete\nl-complete"]
+  7 -> 4 [label="n-complete"]
+  7 -> 4 [label="c-complete"]
+  8 [shape=doublecircle,label=""];
+  8 -> 8 [label="a-complete"]
+  8 -> 9 [label="m-complete"]
+  8 -> 1 [label="e-complete"]
+  8 -> 8 [label="f-complete\ng-complete\nh-complete\ni-complete\nl-complete"]
+  8 -> 10 [label="b-complete"]
+  8 -> 8 [label="n-complete"]
+  8 -> 8 [label="c-complete"]
+  9 [shape=circle,label=""];
+  9 -> 9 [label="a-complete"]
+  9 -> 2 [label="e-complete"]
+  9 -> 3 [label="b-complete"]
+  9 -> 8 [label="n-complete"]
+  9 -> 9 [label="f-complete\ng-complete\nh-complete\ni-complete\nl-complete\nm-complete"]
+  9 -> 9 [label="c-complete"]
+  10 [shape=doublecircle,label=""];
+  10 -> 8 [label="a-complete"]
+  10 -> 9 [label="m-complete"]
+  10 -> 1 [label="e-complete"]
+  10 -> 8 [label="f-complete\ng-complete\nh-complete\ni-complete\nl-complete"]
+  10 -> 10 [label="b-complete"]
+  10 -> 8 [label="n-complete"]
+  11 [shape=circle,label=""];
+  11 -> 9 [label="a-complete"]
+  11 -> 11 [label="e-complete"]
+  11 -> 5 [label="b-complete"]
+  11 -> 4 [label="n-complete"]
+  11 -> 0 [label="c-complete"]
+  11 -> 0 [label="g-complete\nh-complete\ni-complete\nl-complete\nm-complete"]
+}

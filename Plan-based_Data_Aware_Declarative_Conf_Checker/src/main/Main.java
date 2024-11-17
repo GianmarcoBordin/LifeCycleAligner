@@ -38,10 +38,10 @@ public class Main {
 
         planner = args[0];
 
-        if (args[0].equals("fd")){
+        if (args[0].equals("fast-downward")){
             Container.setFDoptimalCheckBox();
         }
-        else if (args[0].equals("symba")){
+        else if (args[0].equals("symba2")){
             Container.setSymBAoptimalCheckBox();
         }
         else{
