@@ -71,9 +71,9 @@ public class Utilities {
 		}
 
 		String p = "";
-		if (planner.equals("fd")) {
+		if (planner.equals("fast-downward")) {
 			p = "fast-downward";
-		} else if (planner.equals("symba")) {
+		} else if (planner.equals("symba2")) {
 			p = "seq-opt-symba-2";
 		} else {
 			return -1;
@@ -84,7 +84,6 @@ public class Utilities {
 		};
 
 		System.out.println("planner: " + planner + " trace: " + trace_length + " noise: " + noise_percentage + " constraints: " + constraints + " alphabet: " + alphabet);
-		trace_length = "3";
 		for (String dirPath : dirsToCheck) {
 			File dir = new File(dirPath);
 			if (dir.exists() && dir.isDirectory()) {
@@ -198,29 +197,29 @@ public class Utilities {
 
 	}
 	public static Automaton getAutomatonForModelLearning(String filename) throws FileNotFoundException {
-        File file = new File(filename);
-        BufferedReader br = null;
+		File file = new File(filename);
+		BufferedReader br = null;
 
-        br = new BufferedReader(new FileReader(file));
+		br = new BufferedReader(new FileReader(file));
 
-        String st;
-        HashMap<Integer, State> states = new HashMap<>();
-        Automaton n = new Automaton();
+		String st;
+		HashMap<Integer, State> states = new HashMap<>();
+		Automaton n = new Automaton();
 
-        try {
+		try {
 			while ((st = br.readLine()) != null) {
-			    if (st.contains("fake") || st.contains("digraph") || st.contains("}"))
-			        continue;
-			        //Transaction
-			    else if (st.contains("[label")) {
+				if (st.contains("fake") || st.contains("digraph") || st.contains("}"))
+					continue;
+					//Transaction
+				else if (st.contains("[label")) {
 
 
-			        //Transaction
-			        String[] splited = st.split(" ");
-			        String source = splited[0].trim();
-			        String target = splited[2].trim();
+					//Transaction
+					String[] splited = st.split(" ");
+					String source = splited[0].trim();
+					String target = splited[2].trim();
 
-			        String label = splited[3].substring(7, splited[3].length() - 1);
+					String label = splited[3].substring(7, splited[3].length() - 1);
 
 					if (label.startsWith("!")){
 						Collection<String>  a =new ArrayList<>();
@@ -232,62 +231,61 @@ public class Utilities {
 					}
 
 
-			        State source1 = states.get(Integer.parseInt(source));
+					State source1 = states.get(Integer.parseInt(source));
 
-			    }
-			    // States
-			    else {
-			        st = st.trim();
-			        String[] splited = st.split(" ");
+				}
+				// States
+				else {
+					st = st.trim();
+					String[] splited = st.split(" ");
 
-			        if (splited.length > 2) {
-			            String label = splited[0];
-			            State s = new State(Integer.parseInt(label));
-						s.setAccepting(true);
-						n.addState(s);
-			            n.setInitial(s);
-			            states.put(Integer.parseInt(label), s);
-			        } else if (splited.length == 2) {
+					if (splited.length > 2) {
 						String label = splited[0];
 						State s = new State(Integer.parseInt(label));
-			            n.addState(s);
-			            String text = splited[1].substring(1, splited[1].length() - 1);
-			            if (text.equals("shape=doublecircle")) {
-			                s.setAccepting(true);
-			            } else {
-			                n.setInitial(s);
-			            }
-			            states.put(Integer.parseInt(label), s);
-			        } else {
-			            String label = splited[0];
-			            State s = new State(Integer.parseInt(label));
-			            n.addState(s);
-			            states.put(Integer.parseInt(label), s);
-			        }
+						s.setAccepting(true);
+						n.addState(s);
+						n.setInitial(s);
+						states.put(Integer.parseInt(label), s);
+					} else if (splited.length == 2) {
+						String label = splited[0];
+						State s = new State(Integer.parseInt(label));
+						n.addState(s);
+						String text = splited[1].substring(1, splited[1].length() - 1);
+						if (text.equals("shape=doublecircle")) {
+							s.setAccepting(true);
+						} else {
+							n.setInitial(s);
+						}
+						states.put(Integer.parseInt(label), s);
+					} else {
+						String label = splited[0];
+						State s = new State(Integer.parseInt(label));
+						n.addState(s);
+						states.put(Integer.parseInt(label), s);
+					}
 
 
-			    }
+				}
 			}
 		} catch (NumberFormatException | IOException e) {
 			e.printStackTrace();
 		}
 
-        State s = n.getInit();
+		State s = n.getInit();
 
-        Iterator<State> it = n.iterator();
-        while (it.hasNext()) {
-            State ss = it.next();
-            Iterator<Transition> transitions = ss.getOutput().iterator();
-            while (transitions.hasNext()) {
-                Transition t = transitions.next();
-                //System.out.txt.println("Source " + t.getSource() + " Target " + t.getTarget() + " Label " + t.getLabel().getaLiteral());
-            }
-        }
+		Iterator<State> it = n.iterator();
+		while (it.hasNext()) {
+			State ss = it.next();
+			Iterator<Transition> transitions = ss.getOutput().iterator();
+			while (transitions.hasNext()) {
+				Transition t = transitions.next();
+				//System.out.txt.println("Source " + t.getSource() + " Target " + t.getTarget() + " Label " + t.getLabel().getaLiteral());
+			}
+		}
 
 
 		return n;
 	}
-
 	public static void findCombinationsOfTransitions(Object[] arr, String label, int len, int original_k_value, int startPosition, String[] result) {
 
 		if (len == 0){

@@ -16,7 +16,7 @@ public class Generator {
         //
         // The tool works properly only if the set of Declare/LTL constraints is not empty. Otherwise, it throws an exception.
         //
-         //System.out.println("CONSTRAINTS: "+Container.getConstraintsListModel());
+         System.out.println("CONSTRAINTS: "+Container.getConstraintsListModel().size());
         if(!Container.getConstraintsListModel().isEmpty()) {
             Container.setActivitiesCost_vector(new Vector<Vector<String>>());
 
@@ -478,7 +478,7 @@ public class Generator {
 
                         int tr_source_state_id = transition.getSource().getId();
                         int tr_target_state_id = transition.getTarget().getId();
-                  /*      if (transition.getLabel().isPositive()){
+/*                        if (transition.getLabel().isPositive()){
                             System.out.println("POSITIVE: "+tr_source_state_id+transition.getPositiveLabel()+tr_target_state_id+"ACCEPTING SOURCE:"+transition.getSource().isAccepting()+"ACCEPTING DEST: "+transition.getTarget().isAccepting());
 
                         }

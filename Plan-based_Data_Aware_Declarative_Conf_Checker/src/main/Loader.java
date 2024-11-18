@@ -215,6 +215,7 @@ public class Loader {
            // needed for the correct program execution the alphabet must contain all activities
            // lifecycle-aware
             Container.setActivitiesRepository_vector(loaded_alphabet_vector);
+            //System.out.println(loaded_alphabet_vector);
             for (int kix = 0; kix < loaded_alphabet_vector.size(); kix++) {
                 Container.getAlphabetListModel().addElement(loaded_alphabet_vector.elementAt(kix));
             }

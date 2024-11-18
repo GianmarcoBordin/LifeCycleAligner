@@ -20,11 +20,11 @@ public class Container {
 	public final static String WORKING_DIR = "/Users/applem2/Downloads/TESI/Project/Aligner/Plan-based_Data_Aware_Declarative_Conf_Checker/";
 	public static Vector<String> dots = new Vector<String>() ;
 	public static String PDDL_encoding = "AAAI17"; //It can be equal to "AAAI17" or to "ICAPS16".
-    private static boolean hold_not_found_constraints = false; // whether to hold or not the constraints for activities not in the log
+    private static boolean hold_not_found_constraints = true; // whether to hold or not the constraints for activities not in the log
 	// definitions of the cost of add and del actions
 	private static String  add_cost = "1";
 	private static String del_cost = "1";
-	private static boolean discard_duplicated_traces = true; // whether to discard duplicate traces in the log
+	private static boolean discard_duplicated_traces = false; // whether to discard duplicate traces in the log
 	/*
 		The program uses the following two flags to decide on the lifecycle enforcement mode:
 		1) with the combine xml flag set to true the program adds to the current xml constraint file provided
@@ -60,7 +60,7 @@ public class Container {
 	private static List<String> generalActivities2 = new ArrayList<>();
 
 	// The user can set the activities for which it does not want lifecycle enforcement
-	private static List<String> notWanted =new ArrayList<>();
+	public static List<String> notWanted =new ArrayList<>(Arrays.asList());
 
 
 	/*
@@ -380,6 +380,7 @@ public class Container {
 	public static List<String> getNotWantedActivities(){
 		return Container.notWanted;
 	}
+
 
 	public static List<String> getGeneralActivities2Activities(){
 		return Container.generalActivities2;

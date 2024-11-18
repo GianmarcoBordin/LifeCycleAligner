@@ -9,7 +9,7 @@ import java.util.Vector;
 
 public class Runner {
 
-    public static void invokePlanner(long duration, String num_constraints, String noise_percentage, String avg_trace_length, String lifecycle )  {
+    public static int invokePlanner(long duration, String num_constraints, String noise_percentage, String avg_trace_length, String lifecycle )  {
 
         try {
             String[] command;
@@ -65,11 +65,13 @@ public class Runner {
             int exitCode = pr.waitFor();
             if (exitCode != 0) {
                 System.err.println("Process exited with code: " + exitCode);
+                return -1;
             }
 
         } catch (Exception e) {
             e.printStackTrace();
         }
+        return 0;
     }
 
 }

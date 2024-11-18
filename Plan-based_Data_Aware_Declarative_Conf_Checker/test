@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Enable exit on error, including non-zero return codes and other exceptions
+#set -e
+
 # Path to the base directory where the logs and constraints are stored
 BASE_DIR="/Users/applem2/Downloads/TESI/Project/Aligner/Plan-based_Data_Aware_Declarative_Conf_Checker/resources"
 
@@ -67,6 +70,22 @@ show_progress_bar() {
     printf "] %d/%d" "$progress" "$total"
 }
 
+# Function to run the timer
+start_timer() {
+    local timeout=$1
+    local start_time=$(date +%s)
+    local elapsed=0
+
+    while [ $elapsed -lt $timeout ]; do
+        elapsed=$(($(date +%s) - $start_time))
+        echo -ne "\rTIME ELAPSED: $(($elapsed / 60))m $(($elapsed % 60))s"
+        sleep 1
+    done
+}
+
+echo "STARTING TESTS"
+echo ""
+
 # Loop over planners
 for INDEX in "${!PLANNERS[@]}"; do
     PLANNER="${PLANNERS[$INDEX]}"
@@ -78,7 +97,7 @@ for INDEX in "${!PLANNERS[@]}"; do
         NUM_CONSTRAINTS=$(basename "$LOG_DIR" | cut -d'_' -f1)
 
         # Find matching constraint file
-        CONSTRAINT_FILE="${ALPHABET}_${NUM_CONSTRAINTS}.dot"
+        CONSTRAINT_FILE="${ALPHABET}_${NUM_CONSTRAINTS}.xml"
         CONSTRAINT_PATH="$CONSTRAINTS_DIR/${ALPHABET}_alphabet/${NUM_CONSTRAINTS}_constraints/$CONSTRAINT_FILE"
 
         if [[ -f "$CONSTRAINT_PATH" ]]; then
@@ -95,27 +114,43 @@ for INDEX in "${!PLANNERS[@]}"; do
                     NOISE="${BASH_REMATCH[2]}"
                     TRACE_ALPHABET="${BASH_REMATCH[3]}"
 
-                    if [[ "$TRACE_ALPHABET" == "$ALPHABET" ]]; then
-                        # Print the planner information after the progress bar
-                        echo -e "\n##### RUNNING WITH:\nPlanner: $PLANNER\nTrace Length: $TRACE_LENGTH\nNoise: $NOISE%\nTrace Alphabet: $TRACE_ALPHABET\nConstraints: $NUM_CONSTRAINTS"
 
-                        # Execute the planner with the log and constraint files
-                        ( time gtimeout $TIMEOUT_THRESHOLD java -cp "$CLASSPATH" main.Main "$PLANNER" "$LOG" "$CONSTRAINT_PATH" ) 2>&1 | grep -E "real"
+                    # Start the timer in the background
+                    start_timer "$TIMEOUT_THRESHOLD" &
 
-                        if [[ $? -eq 124 ]]; then
-                            echo "Execution exceeded $TIMEOUT_THRESHOLD seconds. Skipping to the next iteration."
-                            OUTPUT_FILE="${PLANNER_DIR}/${PLANNER}_${TRACE_LENGTH}_${NOISE}%_${TRACE_ALPHABET}_${NUM_CONSTRAINTS}_0.txt"
-                            touch "$OUTPUT_FILE"
-                        fi
-                        echo "####################################"
-                        echo ""
+                    # Print the planner information after the progress bar
+                    echo -e "\n----- RUNNING WITH: -----\nPlanner: $PLANNER\nTrace Length: $TRACE_LENGTH\nNoise: $NOISE%\nTrace Alphabet: $TRACE_ALPHABET\nConstraints: $NUM_CONSTRAINTS \n-------------------------"
+
+                    # Execute the planner with the log and constraint files
+                    gtimeout $TIMEOUT_THRESHOLD java -cp "$CLASSPATH" main.Main "$PLANNER" "$LOG" "$CONSTRAINT_PATH"
+                    EXIT_CODE=$?
+
+                    # Kill the timer if Java execution is finished
+                    kill $!
+                    echo "EXIT_CODE: $EXIT_CODE"
+                    if [[ $EXIT_CODE -eq 124 ]]; then
+                        echo "Execution exceeded $TIMEOUT_THRESHOLD seconds. Skipping to the next iteration."
+                        OUTPUT_FILE="${PLANNER_DIR}/${PLANNER}_${TRACE_LENGTH}_${NOISE}%_${TRACE_ALPHABET}_${NUM_CONSTRAINTS}_0.txt"
+                        touch "$OUTPUT_FILE"
+                    elif [[ $EXIT_CODE -eq 255 ]]; then
+                        echo -e "\nError encountered with exit code -1. Stopping all tests."
+                        exit 1
+                    elif [[ $EXIT_CODE -ne 0 ]]; then
+                        echo -e "\nError encountered with exit code $EXIT_CODE. Stopping all tests."
+                        exit 1
                     fi
+                    echo ""
                 else
-                    echo "Skipping invalid log file found in the directory: $LOG"
+                    echo "Error invalid log file found in the directory: $LOG"
+                    exit 1
                 fi
             done
         else
-            echo "Skipping combination: No matching constraint file for $CONSTRAINT_PATH"
+            echo "Error combination: No matching constraint file for $CONSTRAINT_PATH"
+            exit 1
         fi
     done
 done
+
+echo "ALL TESTS COMPLETED"
+echo ""
