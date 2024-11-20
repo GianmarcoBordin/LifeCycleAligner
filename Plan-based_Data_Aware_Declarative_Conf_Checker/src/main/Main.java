@@ -6,7 +6,7 @@ import java.util.Arrays;
 
 public class Main {
 
-    private static final boolean DEBUG = true;
+    private static final boolean DEBUG = false;
 
     public static void main(String[] args) throws Exception {
 
@@ -63,13 +63,13 @@ public class Main {
                     avg_trace_length = fileName.split("_")[0];
                     noise_percentage = fileName.split("_")[1];
                     lifecycle = fileName.split("_")[2];
-                    if (lifecycle.equals("8")){
+/*                    if (lifecycle.equals("8")){
                         Container.notWanted = new ArrayList<>(Arrays.asList("a","b","d","e"));
 
                     } else if (lifecycle.equals("12")) {
                         Container.notWanted = new ArrayList<>(Arrays.asList("a","b","c","e"));
 
-                    }
+                    }*/
 
                 } else if (fileExtension.equals("xml") || fileExtension.equals("dot")) {
                     num_constraints = fileName.split("_")[1].replace(".xml","");
@@ -98,12 +98,24 @@ public class Main {
         endTime = System.currentTimeMillis();
         duration = endTime - startTime;
 
-        if (Runner.invokePlanner(duration,num_constraints,noise_percentage,avg_trace_length,lifecycle)== -1){
-            debug("Something during backup went wrong");
-            System.exit(-1);
+        if (Container.getFDOptimalCheckBox()){
+            if (Runner.invokePlannerFast(duration,num_constraints,noise_percentage,avg_trace_length,lifecycle)== -1){
+                debug("Something during backup went wrong");
+                System.exit(-1);
+            }
+        } else if (Container.getSymBAoptimalCheckBox()) {
+            if (Runner.invokePlannerSymba(duration,num_constraints,noise_percentage,avg_trace_length,lifecycle)== -1){
+                debug("Something during backup went wrong");
+                System.exit(-1);
+            }
+        }
+        else {
+            debug("Something went wrong during runner initialization");
         }
 
-        Thread.sleep(20000); // Sleep for 20,000 milliseconds (20 seconds)
+        if (Container.getFDOptimalCheckBox()){
+            Thread.sleep(20000);
+        }
 
         debug("----- CLEAN PHASE STARTED -----");
 

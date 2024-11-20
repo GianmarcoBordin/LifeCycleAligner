@@ -92,7 +92,7 @@ for INDEX in "${!PLANNERS[@]}"; do
     PLANNER_DIR="${PLANNER_DIRS[$INDEX]}"
 
     # Loop over log directories
-    for LOG_DIR in "$LOGS_DIR"/*_alphabet/*_constraints; do
+    for LOG_DIR in "$LOGS_DIR"/8_alphabet/*_constraints; do # *_alphabet original
         ALPHABET=$(basename "$(dirname "$LOG_DIR")" | cut -d'_' -f1)
         NUM_CONSTRAINTS=$(basename "$LOG_DIR" | cut -d'_' -f1)
 

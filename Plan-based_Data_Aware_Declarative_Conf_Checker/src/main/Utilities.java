@@ -110,7 +110,7 @@ public class Utilities {
 						}
 					});
 
-					System.out.println("Directory copied to: " + newDirName);
+					//System.out.println("Directory copied to: " + newDirName);
 				} catch (Exception e) {
 					System.err.println("Failed to copy the directory: " + e.getMessage());
 					e.printStackTrace();
