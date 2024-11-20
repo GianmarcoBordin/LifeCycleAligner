@@ -67,7 +67,7 @@ public class Main {
                         Container.notWanted = new ArrayList<>(Arrays.asList("a","b","d","e"));
 
                     } else if (lifecycle.equals("12")) {
-                        Container.notWanted = new ArrayList<>(Arrays.asList("a","b","c","e"));
+                        Container.notWanted = new ArrayList<>(Arrays.asList("a","c","e"));
 
                     }*/
 

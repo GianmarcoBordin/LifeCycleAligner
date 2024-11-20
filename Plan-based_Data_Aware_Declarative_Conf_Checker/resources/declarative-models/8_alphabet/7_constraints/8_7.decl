@@ -6,10 +6,11 @@ activity e
 activity f
 activity g
 activity h
+activity i
 Absence[c] | |
 Existence[a] | |
 Not Chain Succession[b, b] | | |
 Existence[e] | |
 Not Chain Succession[d, d] | | |
-Response[f, f] | | |
-Precedence[h, g] | | |
+Response[f, g] | | |
+Not Succession[h, i] | | |
