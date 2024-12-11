@@ -1,8 +1,0 @@
-digraph Automaton {
-  rankdir = LR;
-  0 [shape=doublecircle,label=""];
-  initial [shape=plaintext,label=""];
-  initial -> 0
-  0 -> 0 [label="a-complete\nb-complete\nc-complete"]
-  0 -> 0 [label="e-complete\nf-complete\ng-complete\nh-complete\ni-complete\nl-complete\nm-complete\nn-complete"]
-}

@@ -1,0 +1,15 @@
+digraph {
+	fake0 [style=invisible]
+	0 [root=true] [shape=doublecircle]
+	1
+	2
+	3
+	fake0 -> 0 [style=bold]
+	2 -> 3 [label=a_start]
+	2 -> 1 [label=!a_start]
+	3 -> 0 [label=a_complete]
+	3 -> 1 [label=!a_complete]
+	0 -> 2 [label=a_assign]
+	0 -> 1 [label=a_start]
+	0 -> 1 [label=a_complete]
+}

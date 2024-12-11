@@ -15,5 +15,5 @@ Existence[a] | |
 Not Chain Succession[b, c] | | |
 Response[m, n] | | |
 Not Chain Succession[e, f] | | |
-Precedence[h, g] | | |
-Precedence[l, i] | | |
+Not Succession[g, h] | | |
+Not Succession[i, l] | | |

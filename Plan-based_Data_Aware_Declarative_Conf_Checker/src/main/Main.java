@@ -63,13 +63,6 @@ public class Main {
                     avg_trace_length = fileName.split("_")[0];
                     noise_percentage = fileName.split("_")[1];
                     lifecycle = fileName.split("_")[2];
-/*                    if (lifecycle.equals("8")){
-                        Container.notWanted = new ArrayList<>(Arrays.asList("a","b","d","e"));
-
-                    } else if (lifecycle.equals("12")) {
-                        Container.notWanted = new ArrayList<>(Arrays.asList("a","c","e"));
-
-                    }*/
 
                 } else if (fileExtension.equals("xml") || fileExtension.equals("dot")) {
                     num_constraints = fileName.split("_")[1].replace(".xml","");
