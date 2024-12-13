@@ -5,8 +5,7 @@ parameters:
     - 5
     - 7
   lifecycle_trace_alphabet:
-    - 8
-    - 12
+    - 9
   traces_length:
     - 10
     - 20
@@ -18,14 +17,3 @@ parameters:
     - 30
   executed_traces_per_execution:
     - 20
-time:
-  generating models: 45 min
-  generating logs rum: 15 min
-  generating noise logs: 35 min
-  generating constraints file: 10 min
-  total time: 1:45 min
-generate order:
-  - declare files (from smaller to larger, first one alphabet)
-  - logs
-  - noisy logs
-  - dot files (from larger to smaller)

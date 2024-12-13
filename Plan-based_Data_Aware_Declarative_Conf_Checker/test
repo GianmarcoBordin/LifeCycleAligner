@@ -37,7 +37,7 @@ PLANNER_DIRS=(
 TIMEOUT_THRESHOLD=1800
 
 # Total iterations calculation for progress tracking
-TOTAL_ITERATIONS=48
+TOTAL_ITERATIONS=96
 
 CURRENT_ITERATION=0
 
@@ -92,7 +92,7 @@ for INDEX in "${!PLANNERS[@]}"; do
     PLANNER_DIR="${PLANNER_DIRS[$INDEX]}"
 
     # Loop over log directories
-    for LOG_DIR in "$LOGS_DIR"/12_alphabet/*_constraints; do # *_alphabet original
+    for LOG_DIR in "$LOGS_DIR"/*_alphabet/*_constraints; do
         ALPHABET=$(basename "$(dirname "$LOG_DIR")" | cut -d'_' -f1)
         NUM_CONSTRAINTS=$(basename "$LOG_DIR" | cut -d'_' -f1)
 
