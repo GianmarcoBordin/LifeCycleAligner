@@ -1,0 +1,20 @@
+digraph Automaton {
+  rankdir = LR;
+  0 [shape=circle,label=""];
+  0 -> 0 [label="Handle_Case_start"]
+  0 -> 3 [label="Inbound_Call_complete"]
+  0 -> 2 [label="Call_Outbound_complete"]
+  1 [shape=doublecircle,label=""];
+  1 -> 2 [label="Handle_Case_start"]
+  1 -> 1 [label="Inbound_Call_complete\nCall_Outbound_complete"]
+  2 [shape=circle,label=""];
+  2 -> 2 [label="Handle_Case_start"]
+  2 -> 1 [label="Inbound_Call_complete"]
+  2 -> 2 [label="Call_Outbound_complete"]
+  3 [shape=circle,label=""];
+  initial [shape=plaintext,label=""];
+  initial -> 3
+  3 -> 0 [label="Handle_Case_start"]
+  3 -> 3 [label="Inbound_Call_complete"]
+  3 -> 1 [label="Call_Outbound_complete"]
+}

@@ -1,0 +1,423 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--  XES version 1849.2016 (IEEE 1849-2016)  -->
+<!--  Created by Fluxicon Disco (fluxicon.com/disco)  -->
+<!--  (c) 2024 by Fluxicon BV, Torenallee 20, 5617 BC Eindhoven, The Netherlands  -->
+<log xes.version="1849.2016" xmlns:xes="http://www.xes-standard.org">
+	<extension name="Concept" prefix="concept" uri="http://www.xes-standard.org/concept.xesext"/>
+	<extension name="Lifecycle" prefix="lifecycle" uri="http://www.xes-standard.org/lifecycle.xesext"/>
+	<extension name="Time" prefix="time" uri="http://www.xes-standard.org/time.xesext"/>
+	<extension name="Organizational" prefix="org" uri="http://www.xes-standard.org/org.xesext"/>
+	<global scope="trace">
+		<string key="concept:name" value="name"/>
+		<string key="variant" value="string"/>
+		<int key="variant-index" value="0"/>
+		<string key="processId" value="string"/>
+	</global>
+	<global scope="event">
+		<string key="concept:name" value="name"/>
+		<string key="lifecycle:transition" value="transition"/>
+		<string key="org:resource" value="resource"/>
+		<date key="time:timestamp" value="2024-05-10T12:05:33.474+02:00"/>
+		<string key="Activity" value="string"/>
+		<string key="Resource" value="string"/>
+		<string key="elementId" value="string"/>
+	</global>
+	<classifier name="Activity" keys="Activity"/>
+	<classifier name="Resource" keys="Resource"/>
+	<string key="lifecycle:model" value="standard"/>
+	<string key="creator" value="Fluxicon Disco"/>
+	<string key="library" value="Fluxicon Octane"/>
+	<trace>
+		<string key="concept:name" value="30"/>
+		<string key="variant" value="Variant 1"/>
+		<int key="variant-index" value="1"/>
+		<string key="creator" value="Fluxicon Disco"/>
+		<string key="processId" value="sid-e138ad92-53db-4474-a117-cf3a5074182e"/>
+		<event>
+			<string key="concept:name" value="Credit application received"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<string key="org:resource" value=""/>
+			<date key="time:timestamp" value="2013-07-04T16:05:11.792+02:00"/>
+			<string key="Activity" value="Credit application received"/>
+			<string key="Resource" value=""/>
+			<string key="elementId" value="sid-477D1DF3-C5FC-460F-8AD1-03D4B7C26FB6"/>
+		</event>
+		<event>
+			<string key="concept:name" value="Check credit history"/>
+			<string key="lifecycle:transition" value="start"/>
+			<string key="org:resource" value="Clerk-000003"/>
+			<date key="time:timestamp" value="2013-07-04T16:46:33.493+02:00"/>
+			<string key="Activity" value="Check credit history"/>
+			<string key="Resource" value="Clerk-000003"/>
+			<string key="elementId" value="sid-4B24111F-B305-4608-9E12-744B47C44D0D"/>
+			<float key="resourceCost" value="4.7888472222222225"/>
+			<string key="resourceId" value="qbp_1711728e-f6f9-cfb2-552e-392c94b10102"/>
+		</event>
+		<event>
+			<string key="concept:name" value="Check income sources"/>
+			<string key="lifecycle:transition" value="start"/>
+			<string key="org:resource" value="Clerk-000001"/>
+			<date key="time:timestamp" value="2013-07-04T16:54:36.095+02:00"/>
+			<string key="Activity" value="Check income sources"/>
+			<string key="Resource" value="Clerk-000001"/>
+			<string key="elementId" value="sid-D048D99D-F549-43B8-8ACB-5AE153B12B0F"/>
+			<float key="resourceCost" value="7.330263888888889"/>
+			<string key="resourceId" value="qbp_1711728e-f6f9-cfb2-552e-392c94b10102"/>
+		</event>
+		<event>
+			<string key="concept:name" value="Check credit history"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<string key="org:resource" value="Clerk-000003"/>
+			<date key="time:timestamp" value="2013-07-04T16:58:03.087+02:00"/>
+			<string key="Activity" value="Check credit history"/>
+			<string key="Resource" value="Clerk-000003"/>
+			<string key="elementId" value="sid-4B24111F-B305-4608-9E12-744B47C44D0D"/>
+			<float key="resourceCost" value="4.7888472222222225"/>
+			<string key="resourceId" value="qbp_1711728e-f6f9-cfb2-552e-392c94b10102"/>
+		</event>
+		<event>
+			<string key="concept:name" value="Check income sources"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<string key="org:resource" value="Clerk-000001"/>
+			<date key="time:timestamp" value="2013-07-04T17:12:11.653+02:00"/>
+			<string key="Activity" value="Check income sources"/>
+			<string key="Resource" value="Clerk-000001"/>
+			<string key="elementId" value="sid-D048D99D-F549-43B8-8ACB-5AE153B12B0F"/>
+			<float key="resourceCost" value="7.330263888888889"/>
+			<string key="resourceId" value="qbp_1711728e-f6f9-cfb2-552e-392c94b10102"/>
+		</event>
+		<event>
+			<string key="concept:name" value="Assess application"/>
+			<string key="lifecycle:transition" value="start"/>
+			<string key="org:resource" value="Credit Officer-000002"/>
+			<date key="time:timestamp" value="2013-07-04T17:30:20.981+02:00"/>
+			<string key="Activity" value="Assess application"/>
+			<string key="Resource" value="Credit Officer-000002"/>
+			<string key="elementId" value="sid-02577CBF-ABA3-4EFD-9480-E1DFCF238B1C"/>
+			<float key="resourceCost" value="17.34036111111111"/>
+			<string key="resourceId" value="qbp_4a419afd-b012-3bd5-213f-75b43b0a6dc5"/>
+		</event>
+		<event>
+			<string key="concept:name" value="Assess application"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<string key="org:resource" value="Credit Officer-000002"/>
+			<date key="time:timestamp" value="2013-07-04T17:51:09.487+02:00"/>
+			<string key="Activity" value="Assess application"/>
+			<string key="Resource" value="Credit Officer-000002"/>
+			<string key="elementId" value="sid-02577CBF-ABA3-4EFD-9480-E1DFCF238B1C"/>
+			<float key="resourceCost" value="17.34036111111111"/>
+			<string key="resourceId" value="qbp_4a419afd-b012-3bd5-213f-75b43b0a6dc5"/>
+		</event>
+		<event>
+			<string key="concept:name" value="Make credit offer"/>
+			<string key="lifecycle:transition" value="start"/>
+			<string key="org:resource" value="Credit Officer-000001"/>
+			<date key="time:timestamp" value="2013-07-04T18:09:30.002+02:00"/>
+			<string key="Activity" value="Make credit offer"/>
+			<string key="Resource" value="Credit Officer-000001"/>
+			<string key="elementId" value="sid-503A048D-6344-446A-8D67-172B164CF8FA"/>
+			<float key="resourceCost" value="6.873097222222222"/>
+			<string key="resourceId" value="qbp_4a419afd-b012-3bd5-213f-75b43b0a6dc5"/>
+		</event>
+		<event>
+			<string key="concept:name" value="Make credit offer"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<string key="org:resource" value="Credit Officer-000001"/>
+			<date key="time:timestamp" value="2013-07-04T18:17:44.865+02:00"/>
+			<string key="Activity" value="Make credit offer"/>
+			<string key="Resource" value="Credit Officer-000001"/>
+			<string key="elementId" value="sid-503A048D-6344-446A-8D67-172B164CF8FA"/>
+			<float key="resourceCost" value="6.873097222222222"/>
+			<string key="resourceId" value="qbp_4a419afd-b012-3bd5-213f-75b43b0a6dc5"/>
+		</event>
+		<event>
+			<string key="concept:name" value="Credit application processed"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<string key="org:resource" value=""/>
+			<date key="time:timestamp" value="2013-07-04T18:17:44.865+02:00"/>
+			<string key="Activity" value="Credit application processed"/>
+			<string key="Resource" value=""/>
+			<string key="elementId" value="sid-08B606A8-2F7C-4DFD-BEA8-A0F4694AA576"/>
+		</event>
+	</trace>
+	<trace>
+		<string key="concept:name" value="40"/>
+		<string key="variant" value="Variant 3"/>
+		<int key="variant-index" value="3"/>
+		<string key="creator" value="Fluxicon Disco"/>
+		<string key="processId" value="sid-e138ad92-53db-4474-a117-cf3a5074182e"/>
+		<event>
+			<string key="concept:name" value="Credit application received"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<string key="org:resource" value=""/>
+			<date key="time:timestamp" value="2013-07-04T17:57:41.760+02:00"/>
+			<string key="Activity" value="Credit application received"/>
+			<string key="Resource" value=""/>
+			<string key="elementId" value="sid-477D1DF3-C5FC-460F-8AD1-03D4B7C26FB6"/>
+		</event>
+		<event>
+			<string key="concept:name" value="Check credit history"/>
+			<string key="lifecycle:transition" value="start"/>
+			<string key="org:resource" value="Clerk-000003"/>
+			<date key="time:timestamp" value="2013-07-04T18:36:42.447+02:00"/>
+			<string key="Activity" value="Check credit history"/>
+			<string key="Resource" value="Clerk-000003"/>
+			<string key="elementId" value="sid-4B24111F-B305-4608-9E12-744B47C44D0D"/>
+			<float key="resourceCost" value="3.053138888888889"/>
+			<string key="resourceId" value="qbp_1711728e-f6f9-cfb2-552e-392c94b10102"/>
+		</event>
+		<event>
+			<string key="concept:name" value="Check income sources"/>
+			<string key="lifecycle:transition" value="start"/>
+			<string key="org:resource" value="Clerk-000001"/>
+			<date key="time:timestamp" value="2013-07-04T18:39:11.871+02:00"/>
+			<string key="Activity" value="Check income sources"/>
+			<string key="Resource" value="Clerk-000001"/>
+			<string key="elementId" value="sid-D048D99D-F549-43B8-8ACB-5AE153B12B0F"/>
+			<float key="resourceCost" value="7.3160902777777785"/>
+			<string key="resourceId" value="qbp_1711728e-f6f9-cfb2-552e-392c94b10102"/>
+		</event>
+		<event>
+			<string key="concept:name" value="Check credit history"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<string key="org:resource" value="Clerk-000003"/>
+			<date key="time:timestamp" value="2013-07-04T18:44:02.099+02:00"/>
+			<string key="Activity" value="Check credit history"/>
+			<string key="Resource" value="Clerk-000003"/>
+			<string key="elementId" value="sid-4B24111F-B305-4608-9E12-744B47C44D0D"/>
+			<float key="resourceCost" value="3.053138888888889"/>
+			<string key="resourceId" value="qbp_1711728e-f6f9-cfb2-552e-392c94b10102"/>
+		</event>
+		<event>
+			<string key="concept:name" value="Check income sources"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<string key="org:resource" value="Clerk-000001"/>
+			<date key="time:timestamp" value="2013-07-04T18:56:45.388+02:00"/>
+			<string key="Activity" value="Check income sources"/>
+			<string key="Resource" value="Clerk-000001"/>
+			<string key="elementId" value="sid-D048D99D-F549-43B8-8ACB-5AE153B12B0F"/>
+			<float key="resourceCost" value="7.3160902777777785"/>
+			<string key="resourceId" value="qbp_1711728e-f6f9-cfb2-552e-392c94b10102"/>
+		</event>
+		<event>
+			<string key="concept:name" value="Assess application"/>
+			<string key="lifecycle:transition" value="start"/>
+			<string key="org:resource" value="Credit Officer-000003"/>
+			<date key="time:timestamp" value="2013-07-04T18:56:45.388+02:00"/>
+			<string key="Activity" value="Assess application"/>
+			<string key="Resource" value="Credit Officer-000003"/>
+			<string key="elementId" value="sid-02577CBF-ABA3-4EFD-9480-E1DFCF238B1C"/>
+			<float key="resourceCost" value="14.50077777777778"/>
+			<string key="resourceId" value="qbp_4a419afd-b012-3bd5-213f-75b43b0a6dc5"/>
+		</event>
+		<event>
+			<string key="concept:name" value="Assess application"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<string key="org:resource" value="Credit Officer-000003"/>
+			<date key="time:timestamp" value="2013-07-05T11:14:09.444+02:00"/>
+			<string key="Activity" value="Assess application"/>
+			<string key="Resource" value="Credit Officer-000003"/>
+			<string key="elementId" value="sid-02577CBF-ABA3-4EFD-9480-E1DFCF238B1C"/>
+			<float key="resourceCost" value="14.50077777777778"/>
+			<string key="resourceId" value="qbp_4a419afd-b012-3bd5-213f-75b43b0a6dc5"/>
+		</event>
+		<event>
+			<string key="concept:name" value="Notify rejection"/>
+			<string key="lifecycle:transition" value="start"/>
+			<string key="org:resource" value="Credit Officer-000001"/>
+			<date key="time:timestamp" value="2013-07-05T11:14:09.444+02:00"/>
+			<string key="Activity" value="Notify rejection"/>
+			<string key="Resource" value="Credit Officer-000001"/>
+			<string key="elementId" value="sid-622A1118-4766-43B2-A004-7DADE521982D"/>
+			<float key="resourceCost" value="9.52625"/>
+			<string key="resourceId" value="qbp_4a419afd-b012-3bd5-213f-75b43b0a6dc5"/>
+		</event>
+		<event>
+			<string key="concept:name" value="Notify rejection"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<string key="org:resource" value="Credit Officer-000001"/>
+			<date key="time:timestamp" value="2013-07-05T11:25:35.334+02:00"/>
+			<string key="Activity" value="Notify rejection"/>
+			<string key="Resource" value="Credit Officer-000001"/>
+			<string key="elementId" value="sid-622A1118-4766-43B2-A004-7DADE521982D"/>
+			<float key="resourceCost" value="9.52625"/>
+			<string key="resourceId" value="qbp_4a419afd-b012-3bd5-213f-75b43b0a6dc5"/>
+		</event>
+		<event>
+			<string key="concept:name" value="Receive customer feedback"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<string key="org:resource" value="System-000001"/>
+			<date key="time:timestamp" value="2013-07-05T11:25:35.334+02:00"/>
+			<string key="Activity" value="Receive customer feedback"/>
+			<string key="Resource" value="System-000001"/>
+			<string key="elementId" value="sid-3744BAA1-9382-4FAB-B7FE-B6A333F10D25"/>
+			<string key="resourceId" value="qbp_facbd3b9-3463-9a43-502d-10db26dd780d"/>
+		</event>
+		<event>
+			<string key="concept:name" value="Assess application"/>
+			<string key="lifecycle:transition" value="start"/>
+			<string key="org:resource" value="Credit Officer-000001"/>
+			<date key="time:timestamp" value="2013-07-05T11:25:35.334+02:00"/>
+			<string key="Activity" value="Assess application"/>
+			<string key="Resource" value="Credit Officer-000001"/>
+			<string key="elementId" value="sid-02577CBF-ABA3-4EFD-9480-E1DFCF238B1C"/>
+			<float key="resourceCost" value="10.124986111111113"/>
+			<string key="resourceId" value="qbp_4a419afd-b012-3bd5-213f-75b43b0a6dc5"/>
+		</event>
+		<event>
+			<string key="concept:name" value="Assess application"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<string key="org:resource" value="Credit Officer-000001"/>
+			<date key="time:timestamp" value="2013-07-05T11:37:44.333+02:00"/>
+			<string key="Activity" value="Assess application"/>
+			<string key="Resource" value="Credit Officer-000001"/>
+			<string key="elementId" value="sid-02577CBF-ABA3-4EFD-9480-E1DFCF238B1C"/>
+			<float key="resourceCost" value="10.124986111111113"/>
+			<string key="resourceId" value="qbp_4a419afd-b012-3bd5-213f-75b43b0a6dc5"/>
+		</event>
+		<event>
+			<string key="concept:name" value="Make credit offer"/>
+			<string key="lifecycle:transition" value="start"/>
+			<string key="org:resource" value="Credit Officer-000001"/>
+			<date key="time:timestamp" value="2013-07-05T11:37:44.333+02:00"/>
+			<string key="Activity" value="Make credit offer"/>
+			<string key="Resource" value="Credit Officer-000001"/>
+			<string key="elementId" value="sid-503A048D-6344-446A-8D67-172B164CF8FA"/>
+			<float key="resourceCost" value="7.636972222222222"/>
+			<string key="resourceId" value="qbp_4a419afd-b012-3bd5-213f-75b43b0a6dc5"/>
+		</event>
+		<event>
+			<string key="concept:name" value="Make credit offer"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<string key="org:resource" value="Credit Officer-000001"/>
+			<date key="time:timestamp" value="2013-07-05T11:46:54.195+02:00"/>
+			<string key="Activity" value="Make credit offer"/>
+			<string key="Resource" value="Credit Officer-000001"/>
+			<string key="elementId" value="sid-503A048D-6344-446A-8D67-172B164CF8FA"/>
+			<float key="resourceCost" value="7.636972222222222"/>
+			<string key="resourceId" value="qbp_4a419afd-b012-3bd5-213f-75b43b0a6dc5"/>
+		</event>
+		<event>
+			<string key="concept:name" value="Credit application processed"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<string key="org:resource" value=""/>
+			<date key="time:timestamp" value="2013-07-05T11:46:54.195+02:00"/>
+			<string key="Activity" value="Credit application processed"/>
+			<string key="Resource" value=""/>
+			<string key="elementId" value="sid-08B606A8-2F7C-4DFD-BEA8-A0F4694AA576"/>
+		</event>
+	</trace>
+	<trace>
+		<string key="concept:name" value="41"/>
+		<string key="variant" value="Variant 1"/>
+		<int key="variant-index" value="1"/>
+		<string key="creator" value="Fluxicon Disco"/>
+		<string key="processId" value="sid-e138ad92-53db-4474-a117-cf3a5074182e"/>
+		<event>
+			<string key="concept:name" value="Credit application received"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<string key="org:resource" value=""/>
+			<date key="time:timestamp" value="2013-07-04T18:19:34.331+02:00"/>
+			<string key="Activity" value="Credit application received"/>
+			<string key="Resource" value=""/>
+			<string key="elementId" value="sid-477D1DF3-C5FC-460F-8AD1-03D4B7C26FB6"/>
+		</event>
+		<event>
+			<string key="concept:name" value="Check credit history"/>
+			<string key="lifecycle:transition" value="start"/>
+			<string key="org:resource" value="Clerk-000003"/>
+			<date key="time:timestamp" value="2013-07-04T18:44:02.099+02:00"/>
+			<string key="Activity" value="Check credit history"/>
+			<string key="Resource" value="Clerk-000003"/>
+			<string key="elementId" value="sid-4B24111F-B305-4608-9E12-744B47C44D0D"/>
+			<float key="resourceCost" value="3.7318680555555557"/>
+			<string key="resourceId" value="qbp_1711728e-f6f9-cfb2-552e-392c94b10102"/>
+		</event>
+		<event>
+			<string key="concept:name" value="Check credit history"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<string key="org:resource" value="Clerk-000003"/>
+			<date key="time:timestamp" value="2013-07-04T18:52:59.488+02:00"/>
+			<string key="Activity" value="Check credit history"/>
+			<string key="Resource" value="Clerk-000003"/>
+			<string key="elementId" value="sid-4B24111F-B305-4608-9E12-744B47C44D0D"/>
+			<float key="resourceCost" value="3.7318680555555557"/>
+			<string key="resourceId" value="qbp_1711728e-f6f9-cfb2-552e-392c94b10102"/>
+		</event>
+		<event>
+			<string key="concept:name" value="Check income sources"/>
+			<string key="lifecycle:transition" value="start"/>
+			<string key="org:resource" value="Clerk-000003"/>
+			<date key="time:timestamp" value="2013-07-04T18:52:59.488+02:00"/>
+			<string key="Activity" value="Check income sources"/>
+			<string key="Resource" value="Clerk-000003"/>
+			<string key="elementId" value="sid-D048D99D-F549-43B8-8ACB-5AE153B12B0F"/>
+			<float key="resourceCost" value="9.043013888888888"/>
+			<string key="resourceId" value="qbp_1711728e-f6f9-cfb2-552e-392c94b10102"/>
+		</event>
+		<event>
+			<string key="concept:name" value="Check income sources"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<string key="org:resource" value="Clerk-000003"/>
+			<date key="time:timestamp" value="2013-07-05T11:14:41.682+02:00"/>
+			<string key="Activity" value="Check income sources"/>
+			<string key="Resource" value="Clerk-000003"/>
+			<string key="elementId" value="sid-D048D99D-F549-43B8-8ACB-5AE153B12B0F"/>
+			<float key="resourceCost" value="9.043013888888888"/>
+			<string key="resourceId" value="qbp_1711728e-f6f9-cfb2-552e-392c94b10102"/>
+		</event>
+		<event>
+			<string key="concept:name" value="Assess application"/>
+			<string key="lifecycle:transition" value="start"/>
+			<string key="org:resource" value="Credit Officer-000003"/>
+			<date key="time:timestamp" value="2013-07-05T11:14:41.682+02:00"/>
+			<string key="Activity" value="Assess application"/>
+			<string key="Resource" value="Credit Officer-000003"/>
+			<string key="elementId" value="sid-02577CBF-ABA3-4EFD-9480-E1DFCF238B1C"/>
+			<float key="resourceCost" value="5.098138888888888"/>
+			<string key="resourceId" value="qbp_4a419afd-b012-3bd5-213f-75b43b0a6dc5"/>
+		</event>
+		<event>
+			<string key="concept:name" value="Assess application"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<string key="org:resource" value="Credit Officer-000003"/>
+			<date key="time:timestamp" value="2013-07-05T11:20:48.748+02:00"/>
+			<string key="Activity" value="Assess application"/>
+			<string key="Resource" value="Credit Officer-000003"/>
+			<string key="elementId" value="sid-02577CBF-ABA3-4EFD-9480-E1DFCF238B1C"/>
+			<float key="resourceCost" value="5.098138888888888"/>
+			<string key="resourceId" value="qbp_4a419afd-b012-3bd5-213f-75b43b0a6dc5"/>
+		</event>
+		<event>
+			<string key="concept:name" value="Make credit offer"/>
+			<string key="lifecycle:transition" value="start"/>
+			<string key="org:resource" value="Credit Officer-000003"/>
+			<date key="time:timestamp" value="2013-07-05T11:20:48.748+02:00"/>
+			<string key="Activity" value="Make credit offer"/>
+			<string key="Resource" value="Credit Officer-000003"/>
+			<string key="elementId" value="sid-503A048D-6344-446A-8D67-172B164CF8FA"/>
+			<float key="resourceCost" value="5.591361111111111"/>
+			<string key="resourceId" value="qbp_4a419afd-b012-3bd5-213f-75b43b0a6dc5"/>
+		</event>
+		<event>
+			<string key="concept:name" value="Make credit offer"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<string key="org:resource" value="Credit Officer-000003"/>
+			<date key="time:timestamp" value="2013-07-05T11:27:31.326+02:00"/>
+			<string key="Activity" value="Make credit offer"/>
+			<string key="Resource" value="Credit Officer-000003"/>
+			<string key="elementId" value="sid-503A048D-6344-446A-8D67-172B164CF8FA"/>
+			<float key="resourceCost" value="5.591361111111111"/>
+			<string key="resourceId" value="qbp_4a419afd-b012-3bd5-213f-75b43b0a6dc5"/>
+		</event>
+		<event>
+			<string key="concept:name" value="Credit application processed"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<string key="org:resource" value=""/>
+			<date key="time:timestamp" value="2013-07-05T11:27:31.326+02:00"/>
+			<string key="Activity" value="Credit application processed"/>
+			<string key="Resource" value=""/>
+			<string key="elementId" value="sid-08B606A8-2F7C-4DFD-BEA8-A0F4694AA576"/>
+		</event>
+	</trace>
+</log>

@@ -1,0 +1,10 @@
+digraph Automaton {
+  rankdir = LR;
+  initial [shape=plaintext, label=""];
+  initial -> 0;
+
+  0 [shape=circle, label="Start"];
+  1 [shape=doublecircle, label="Accept"];
+
+  0 -> 1 [label="Call_Outbound_complete"];
+}
