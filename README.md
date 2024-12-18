@@ -147,7 +147,7 @@ To use the project, follow these steps:
 #### For the Python-based (Non-Grounded) Implementation:
 
 ```bash
-python pddl_translator.py --dot input_model.dot --xes event_log.xes --output output_folder/
+python LifeCycleAligner_NotGrounded.py --dot input_model.dot --xes event_log.xes --output output_folder/
 ```
 
 The tool will generate PDDL problem files in the specified output folder. Each problem file corresponds to a trace in the event log.
