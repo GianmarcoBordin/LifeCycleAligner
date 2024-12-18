@@ -104,6 +104,8 @@ cd LifeCycleAligner/_{version}
 ### Install required dependencies:
 
 #### For the Python-based (Non-Grounded) Implementation:
+We note that this repository includes all .ipynb script files so that no installation on the local machine is required.
+These instructions handle the prerequisites and required dependencies to run the .ipynb scripts as python files on your machine.
 ##### Prerequisites
 
 - Python 3.7+
