@@ -1,129 +1,247 @@
 # LifeCycleAligner
+![Project Logo](../Theory/Project/Aligner/images/logo.png "Project Logo")
 
-![My Logo](./logo.png)
+The LifeCycleAligner is a tool designed to ensure planner-based-activity-lifecycle-aware trace alignment by converting event logs and constraints models into PDDL files.
+It provides a seamless way to work with activity-lifecycle-constrained trace alignment using process mining standards like XES for event logs and XML & DOT for constraints models.
+This work is part of a master thesis, which can be found in the directory `/presentation`.
 
-## Overview
+-----------
+## Table of Contents
+- [Repository Structure](#repository-structure)
+- [Project Description](#project-description)
+- [Features](#features)
+- [Installation Instructions](#installation-instructions)
+- [Usage](#usage)
+- [Tests](#tests)
+- [Contributing](#contributing)
+- [License](#license)
+- [Contact](#contact)
+- [Acknowledgements](#acknowledgements)
 
-The PDDL (Planning Domain Definition Language) Translator <br />
-is a tool for generating lifecycle constrained trace alignment PDDL problems from event logs in XES format and Declare models in DOT format
-utilizing the PM4Py and PyDot libraries.<br />
-The translator produces pddl problems used in conjunction with the domain file contained in the pddl_files directory to make a planner-based trace alignment that takes into account also the lifecycle of each activity found in the log. <br />
-The repository contains also two ipynb files if you don't want to install anything. One using sink states and one without sink states.<br />
-Additionally contains also the custom domain file using no sink states and the domain file and a sample problem pddl file like in the original trace alignment formulation.
+-----------
+## Repository Structure
+The repository contains two different tool corresponding to two versions of the LifeCycleAligner :
+- The first not grounded implementation, is a preliminary, more explicit but less-efficient version of the tool written in Python.
+It accepts an event log, formatted in XES and constraints models expressed in DOT format.
+- The second grounded version, is a more efficient Java application that creates <domain.pddl, problem.pddl> couples. 
+The program, creates strictly linked instances that allows the planner to efficiently search in the state space. 
+It accepts an event log, formatted in XES and constraints models expressed in XML and/or DOT format.
+The repository also contains:
+- A python noiser script that has the aim of formatting our event logs and injecting them with the specified amount of noise.
+- A Python test script to parse the result of the Java tool and embed them in a csv file.
+- The related tests and results based on our experimental setup.
 
+-----------
+## Project Description
+
+The **LifeCycleAligner** repository provides tools for planning-based trace alignment with a focus on lifecycle activity analysis within event logs. It aligns event logs to predefined domain models using PDDL (Planning Domain Definition Language) files, enabling process execution analysis from a planning perspective.
+
+### Key Components
+
+- **Non-Grounded Python Implementation**:
+   - Generates non-grounded PDDL problem files compatible with a specified domain file.
+   - Facilitates planner-based trace alignment, considering the lifecycle of each activity in the log.
+   - **Input formats**:
+      - Event logs in XES format.
+      - Constraints models in DOT format.
+   - Outputs non-grounded PDDL problem files for planning and activity-lifecycle aware trace alignment.
+![Image Alt Text](../Theory/Project/Aligner/images/execution.png)
+
+- **Grounded Java Implementation**:
+   - Generates `<domain.pddl, problem.pddl>` couples, with the problem file tightly linked to the domain.
+   - Improves planner efficiency by reducing the number of nodes to evaluate in the state space.
+   - **Input formats**:
+      - Event logs in XES format.
+      - Constraints models in XML and DOT formats.
+   - Produces strictly linked instances for a more efficient planning search.
+   ![Image Alt Text](../Theory/Project/Aligner/images/Architecture_W.png)
+
+- **Additional Tools**:
+   - **Python Noiser Script**: Injects noise into event logs, allowing controlled manipulation and formatting with specified noise levels.
+    ![Image Alt Text](../Theory/Project/Aligner/images/noiser_output.png)
+   - **Python Test Script**: Parses Java tool output and processes the results into CSV files for easy analysis and reporting.
+     ![Image Alt Text](../Theory/Project/Aligner/images/test_script_output.png)
+   - **Test Cases and Experimental Results**: Predefined tests and results for evaluating the performance and accuracy of both versions.
+
+### Purpose and Use Cases
+
+The LifeCycleAligner repository enables users to:
+- Align event logs with planning-based trace alignment techniques.
+- Generate PDDL files for planning tasks and analyze activity lifecycles.
+- Evaluate planner performance and experiment with noise scenarios.
+
+### Summary
+
+This repository offers a comprehensive solution for lifecycle-based trace alignment using PDDL, supporting both grounded and non-grounded planning techniques. With Python and Java tools, along with scripts for noise injection and result processing, it provides a powerful suite for event log analysis and planning-based alignment tasks.
+
+-----------
 ## Features
 
-The PDDL Translator offers a range of functionalities, including:
+- Converts DOT and XES files into PDDL problem files for lifecycle-constrained trace alignment.
 
-- Pddl problems generation: Generate pddl problems used for trace-alignement task. <br />
-- Deterministic Noise Injection: Adds noise to the traces to mimic real-world data imperfections. <br />
-- This injection is subject to customizable parameter used for specifying the exact percentage of noise for each of the possible noise injection moves. <br />
-- The move is also subject to a amount that specify the noise injection move weight. <br />
-- Probabilistic Noise Injection: Injects noise in a probabilistic manner for more controlled simulations. <br />
-- This injection is subject to customizable parameter used for specifying the biases for each of the possible noise injection moves. <br />
-- The move is also subject to a amount that specify the noise injection move weight, sampled at random between 1 and a max amount. <br />
-- Debugging: Provides detailed debugging information for trace analysis. <br />
+- Supports integration with planning tools for automated trace alignment.
 
-### Structure of the repository: <br />
-1) pddl_translator.py is the python file containing the overall program <br />
-2) notebooks directory contains the google colab notebook of the program in two versions with or without sink states (for improved efficiency) <br />
-3) input_files directory contains example files for the log and declare files <br />
-4) pddl_files directory contains example problems (noisy or not) generated by the tool and the pddl domain files (with or without sink_states) used for trace alignment. <br />
-   It also has an additional directory containing the original trace alignment formulation of the domain file and an example problem file. <br />
+- Leverages powerful libraries (PM4Py, PyDot) for handling process mining and graph data.
 
-## Installation
+- Ensures compatibility with existing PDDL domain definitions.
 
-To install the necessary dependencies, run:
-- pip install pydot
-- pip install pm4py
+-----------
+## Installation Instructions
 
-## Customizable global variables <br />(the translator requires no input at launch phase, you can customize your choices using random variables)
 
-### You have to specify the paths to the declare file,the log file and the domain.pddl file
-- xes_file = "path_to_the_xes_log_file.xes" <br />
-- dot_files =["path_to_the_dot_declare_file_1.dot","path_to_the_dot_declare_file_2.dot",] <br />
-- domain_name = "your_domain_name" <br />
+### Clone the repository:
 
-### You have the possibility to customize the amount of problems to generate,debug,to noise
-- problem_limit = 4 <br />
-- problem_automata = 1  <br />
-- problem_automata_list = [1]  <br />
-- problem_automata_debug_list = [0]<br />
-- problem_automata_noise_list = [1]  <br />
+```bash
+git clone https://github.com/GianmarcoBordin/LifeCycleAligner.git
+```
 
-### You have the possibility to customize the activities and resources used in noise injection
-- activities = ["Handle Case", "Call Outbound", "Inbound Call", "Handle Email", "Inbound Email"] <br />
-- lifecycles = ["assign","start","complete"] <br />
-- lifecycle_states = ["init_state","assigned_state","started_state","completed_state","sink_state"] <br />
-- resources = ["Susi", "John", "Eric"] <br />
+### Navigate to the project version-specific directory:
 
-### You have the possibility to customize the max amount parameter when acting probabilistically
-- max_amount = 2 <br />
+```bash
+cd LifeCycleAligner/{version}
+```
 
-### You have the possibility to customize the trace tags
-- trace_id_tag = "concept:name" <br />
-- event_id_tag = "concept:name" <br />
-- activity_tag = "Activity" <br />
-- lifecycle_tag = "lifecycle:transition" <br />
-- org_tag = "org:resource" <br />
-- resource_tag = "Resource" <br />
-- timestamp_tag = "time:timestamp" <br />
+### Install required dependencies:
 
-### You have the possibility to customize the moves
-- move_1 = "swap" <br />
-- move_2 = "delete" <br />
-- move_3 = "add" <br />
-- move_4 = "modify" <br />
-- move_5 = "pass" <br />
+#### For the Python-based (Non-Grounded) Implementation:
+##### Prerequisites
 
-### You have the possibility to to set the list of weights for each move
-- move_1_w = 0.1 <br />
-- move_2_w = 0.1 <br />
-- move_3_w = 0.4 <br />
-- move_4_w = 0.2 <br />
-- move_5_w = 0.2 <br />
+- Python 3.7+
+- pip (Python package installer)
+- `pydot` (for DOT file processing)
+- `pm4py` (for event log handling)
 
-### You have the possibility to to set the list of amount for each move
-- amount_move_1 = amount_move_2 = amount_move_3 = amount_move_4 = 2 <br />
+##### To install the required dependencies, run:
 
+```bash
+pip install pydot pm4py
+```
+
+#### For the Java-based (Grounded) Implementation
+
+##### Prerequisites
+
+- **JDK 22** (Java version "22", released 2024-03-19)
+    - Install JDK 22 from the [official Java website](https://www.oracle.com/java/technologies/javase/jdk22-archive-downloads.html).
+
+- **Docker** (for containerized execution)
+    - Install Docker by following the instructions on [Docker's official website](https://www.docker.com/get-started).
+    - Ensure Docker version `24.0.5` is installed (you can check using `docker --version`).
+
+##### Regarding the required dependencies:
+
+- All required libraries are included within the project.
+- If you plan to use Docker for containerized planners execution, ensure Docker is installed, then follow the specific containerization instructions.
+
+-----------
 ## Usage
+To use the project, follow these steps:
 
-### You have the following option to set while the program is running:<br />
+### Prepare the input files:
 
-- debug_option = You want to add Debug <br />
+   - **DOT/XML file(s)**: Describing your model constraints.
+   - **XES file**: Describing your event log traces.
 
-- noise_option = You want to add Noise <br />
+### Run the selected tool version:
 
-- noise_type_option = You want to add Noise probabilistically or deterministically <br />
+#### For the Python-based (Non-Grounded) Implementation:
 
-## How to Run (Assumed you already have fast-downward installed on your machine)
+```bash
+python pddl_translator.py --dot input_model.dot --xes event_log.xes --output output_folder/
+```
 
-### Launch the script
+The tool will generate PDDL problem files in the specified output folder. Each problem file corresponds to a trace in the event log.
 
-The PDDL Translator provides several commands for different functionalities.<br />
-Below are detailed instructions for running various tasks:<br />
+##### Example output
 
-Input: No input
+The output folder `/problems` will contain files like:
 
-python3 main.py <br />
+- `trace_Alignment_Problem_{trace_case_id}.pddl`
 
-Output: <br />
+#### For the Java-based Grounded Implementation
 
-- noisy_log.xes: Contains the noised log. <br />
-- problem_name.pddl: Contains the problem generated flagged with Noisy if the noise is injected placed in the previously specified problems directory <br />
+For the grounded Java version, the project will generate both `domain.pddl` and `problem.pddl` files. 
+You can follow the instructions within the Java project for running the planner and generating the aligned traces.
 
-### Launch lifecycle costrained trace alignement planning search
+##### Example output
 
-./fast-downward.py scripts/{domain_name}.pddl scripts/{problem_name}_{problem_number}_Noisy.pddl --search "astar(blind())"
+The output folder `/Conformance_Checking` will contain files like:
 
-## Contributions
+- `domain{trace_case_id}.pddl`
+- `problem{trace_case_id}.pddl`
 
-Contributions are welcome. Please open issues or submit pull requests on the GitHub repository.
+-----------
+## Tests
 
+The project includes a set of tests to help you validate the functionality of the Java-based implementation.
+
+![Image Alt Text](../Theory/Project/Aligner/images/t10.png)
+
+You can find the related results in the corresponding `/results` folder.
+
+![Image Alt Text](../Theory/Project/Aligner/images/plotc7.png)
+
+
+### Python Test Scripts
+
+The Python test scripts are used to inject noise into the event logs and to parse the results.
+The test cases are designed to check the correctness of the generated PDDL files and the behavior of the alignment process.
+This segment includes to scripts:
+
+- `Noiser.py` used to inject different noise levels and additionally providing formatting.
+- `Tests.py` used to parse the results file from the Java-based application adn put them in a csv file.
+
+### Java Planner Integration
+
+The **Fast Downward** planner (version `23.06`) is used for the grounded Java implementation, and **SymBA** (version `symba2*`) is also supported. Make sure these planners are configured and set up as part of your environment if needed.
+
+-----------
+## Contributing
+    
+    We welcome contributions! To get started:
+    
+1. Fork the repository.
+2. Create a new branch:
+
+    ```bash
+        git checkout -b feature-name
+    ```
+3. Make your changes and commit them:
+
+    ```bash
+          git commit -am 'Add feature'
+    ```
+4. Push to the branch:
+
+    ```bash
+          git push origin feature-name
+    ```
+    git push origin feature-name
+
+5. Create a pull request describing your changes.
+
+6. For larger changes, please open an issue to discuss it first.
+
+-----------
 ## License
+    
+This project is licensed under the MIT License.
 
-This project is licensed under the MIT License. See the LICENSE file for details.
-
+-----------
 ## Contact
 
-For any questions or support, contact the project maintainer at email@example.com.
+For any questions or inquiries, feel free to reach out:
+- **GitHub**: [github.com/GianmarcoBordin](https://github.com/GianmarcoBordin)
+
+-----------
+## Acknowledgements
+- Graphviz and the DOT language
+
+
+- PM4Py and PyDot libraries for their invaluable support in handling process mining and graph data.
+
+
+- Special thanks to the authors of the article **On the Disruptive Effectiveness of Automated Planning for LTL\f-Based Trace Alignment**. You can access the article [here](https://hdl.handle.net/11573/965532).
+
+
+- Special thanks to the process mining and automated planning communities for their contributions and insights.
