@@ -5,15 +5,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="50a5cc32-8d06-47a3-bae2-a88b55014a6f" name="Changes" comment="commit to public repository">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LifeCycleAligner_Grounded/run_FD_local" beforeDir="false" afterPath="$PROJECT_DIR$/LifeCycleAligner_Grounded/run_FD_local" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LifeCycleAligner_Grounded/run_SYMBA_local" beforeDir="false" afterPath="$PROJECT_DIR$/LifeCycleAligner_Grounded/run_SYMBA_local" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LifeCycleAligner_Grounded/src/main/Container.java" beforeDir="false" afterPath="$PROJECT_DIR$/LifeCycleAligner_Grounded/src/main/Container.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LifeCycleAligner_Grounded/src/main/Loader.java" beforeDir="false" afterPath="$PROJECT_DIR$/LifeCycleAligner_Grounded/src/main/Loader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LifeCycleAligner_Grounded/src/main/Runner.java" beforeDir="false" afterPath="$PROJECT_DIR$/LifeCycleAligner_Grounded/src/main/Runner.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LifeCycleAligner_Grounded/src/main/Utilities.java" beforeDir="false" afterPath="$PROJECT_DIR$/LifeCycleAligner_Grounded/src/main/Utilities.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LifeCycleAligner_Grounded/test" beforeDir="false" afterPath="$PROJECT_DIR$/LifeCycleAligner_Grounded/test" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LifeCycleAligner_Grounded/results/results.csv" beforeDir="false" afterPath="$PROJECT_DIR$/LifeCycleAligner_Grounded/results/results.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LifeCycleAligner_NotGrounded/LifeCycleAligner_NotGrounded.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LifeCycleAligner_NotGrounded/LifeCycleAligner_NotGrounded.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LifeCycleAligner_NotGrounded/notebooks/LifeCycleAligner_NotGrounded.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LifeCycleAligner_NotGrounded/notebooks/LifeCycleAligner_NotGrounded_no_sink_states.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LifeCycleAligner_NotGrounded/pddl_files/domains/trace_alignement_domain_lifecycle_no_sink_states.pddl" beforeDir="false" afterPath="$PROJECT_DIR$/LifeCycleAligner_NotGrounded/pddl_files/domains/trace_alignement_domain_lifecycle.pddl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LifeCycleAligner_NotGrounded/pddl_files/original_formulation/trace_Alignment_Problem_original.pddl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LifeCycleAligner_NotGrounded/pddl_files/original_formulation/trace_alignement_domain_lifecyle.pddl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LifeCycleAligner_NotGrounded/pddl_files/problems/trace_Alignment_Problem_14.pddl" beforeDir="false" afterPath="$PROJECT_DIR$/LifeCycleAligner_NotGrounded/pddl_files/problems/trace_Alignment_Problem_14.pddl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LifeCycleAligner_NotGrounded/pddl_files/problems/trace_Alignment_Problem_15.pddl" beforeDir="false" afterPath="$PROJECT_DIR$/LifeCycleAligner_NotGrounded/pddl_files/problems/trace_Alignment_Problem_15.pddl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LifeCycleAligner_NotGrounded/pddl_files/problems/trace_Alignment_Problem_30.pddl" beforeDir="false" afterPath="$PROJECT_DIR$/LifeCycleAligner_NotGrounded/pddl_files/problems/trace_Alignment_Problem_30.pddl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LifeCycleAligner_NotGrounded/pddl_files/problems/trace_Alignment_Problem_40.pddl" beforeDir="false" afterPath="$PROJECT_DIR$/LifeCycleAligner_NotGrounded/pddl_files/problems/trace_Alignment_Problem_40.pddl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,20 +62,20 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "master",
-    "last_opened_file_path": "/Users/applem2/Downloads/TESI/Project/LifeCycleAligner",
-    "project.structure.last.edited": "Project",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "project.propVCSSupport.DirectoryMappings"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/applem2/Downloads/TESI/Project/LifeCycleAligner&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;project.propVCSSupport.DirectoryMappings&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/out" />
@@ -113,7 +117,7 @@
     <configuration name="Test" type="ShConfigurationType">
       <option name="SCRIPT_TEXT" value="" />
       <option name="INDEPENDENT_SCRIPT_PATH" value="true" />
-      <option name="SCRIPT_PATH" value="$PROJECT_DIR$/Plan-based_Data_Aware_Declarative_Conf_Checker/test" />
+      <option name="SCRIPT_PATH" value="$PROJECT_DIR$/LifeCycleAligner_Grounded/test" />
       <option name="SCRIPT_OPTIONS" value="" />
       <option name="INDEPENDENT_SCRIPT_WORKING_DIRECTORY" value="true" />
       <option name="SCRIPT_WORKING_DIRECTORY" value="$PROJECT_DIR$" />
@@ -154,14 +158,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1717400362542</updated>
-    </task>
-    <task id="LOCAL-00078" summary="fix">
-      <option name="closed" value="true" />
-      <created>1730560892692</created>
-      <option name="number" value="00078" />
-      <option name="presentableId" value="LOCAL-00078" />
-      <option name="project" value="LOCAL" />
-      <updated>1730560892692</updated>
     </task>
     <task id="LOCAL-00079" summary="fix">
       <option name="closed" value="true" />
@@ -547,7 +543,15 @@
       <option name="project" value="LOCAL" />
       <updated>1734528794468</updated>
     </task>
-    <option name="localTasksCounter" value="127" />
+    <task id="LOCAL-00127" summary="commit to public repository">
+      <option name="closed" value="true" />
+      <created>1734530180473</created>
+      <option name="number" value="00127" />
+      <option name="presentableId" value="LOCAL-00127" />
+      <option name="project" value="LOCAL" />
+      <updated>1734530180474</updated>
+    </task>
+    <option name="localTasksCounter" value="128" />
     <servers />
   </component>
   <component name="UnknownFeatures">

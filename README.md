@@ -98,7 +98,7 @@ git clone https://github.com/GianmarcoBordin/LifeCycleAligner.git
 ### Navigate to the project version-specific directory:
 
 ```bash
-cd LifeCycleAligner/{version}
+cd LifeCycleAligner/_{version}
 ```
 
 ### Install required dependencies:
