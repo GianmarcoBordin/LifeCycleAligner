@@ -4,7 +4,7 @@ cd /Users/applem2/Downloads/TESI/fast-downward-23.06/ || exit
 
 logfile="fast-downward_$1_$2_$3_$4_$5_.txt"
 
-cp /Users/applem2/Downloads/TESI/Project/Aligner/Plan-based_Data_Aware_Declarative_Conf_Checker/fast-downward/Conformance_Checking/* "Conformance_Checking/"
+cp /Users/applem2/Downloads/TESI/Project/LifeCycleAligner/LifeCycleAligner_Grounded/fast-downward/Conformance_Checking/* "Conformance_Checking/"
 
 echo "Starting the log file at $(date)" > "$logfile"
 

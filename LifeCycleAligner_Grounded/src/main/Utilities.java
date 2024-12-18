@@ -174,7 +174,7 @@ public class Utilities {
 			}
 
 			// Writing the modified content to a new file
-			newFile = new File("/Users/applem2/Downloads/TESI/Project/Aligner/Plan-based_Data_Aware_Declarative_Conf_Checker/resources/lifecycle/" + activity + "_lifecycle.dot");
+			newFile = new File("/Users/applem2/Downloads/TESI/Project/LifeCycleAligner/LifeCycleAligner_Grounded/resources/lifecycle/" + activity + "_lifecycle.dot");
 
 			bw = new BufferedWriter(new FileWriter(newFile));
 			bw.write(modifiedContent.toString());

@@ -38,7 +38,7 @@ public class Loader {
                         System.exit(-1);
                     }
                     // Define the target file path where you want to write the content
-                    File targetFile = new File("/Users/applem2/Downloads/TESI/Project/Aligner/Plan-based_Data_Aware_Declarative_Conf_Checker/resources/lifecycle/lifecycle.xml");
+                    File targetFile = new File("/Users/applem2/Downloads/TESI/Project/LifeCycleAligner/LifeCycleAligner_Grounded/resources/lifecycle/lifecycle.xml");
 
                     try {
                         // Copy the content of file1 to targetFile

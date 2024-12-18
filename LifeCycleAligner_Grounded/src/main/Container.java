@@ -14,10 +14,10 @@ public class Container {
 	// CONTAINER OPTIONS AND PRELIMINARY STRUCTURES START
 
 	public final static String[] lifecycles = {"assign","start","complete"} ;
-	public static String  lifecycle_file = "/Users/applem2/Downloads/TESI/Project/Aligner/Plan-based_Data_Aware_Declarative_Conf_Checker/resources/lifecycle.dot";
+	public static String  lifecycle_file = "/Users/applem2/Downloads/TESI/Project/LifeCycleAligner/LifeCycleAligner_Grounded/resources/lifecycle.dot";
 
-	public final static String WORKING_LIFECYCLE_DIR = "/Users/applem2/Downloads/TESI/Project/Aligner/Plan-based_Data_Aware_Declarative_Conf_Checker/resources/";
-	public final static String WORKING_DIR = "/Users/applem2/Downloads/TESI/Project/Aligner/Plan-based_Data_Aware_Declarative_Conf_Checker/";
+	public final static String WORKING_LIFECYCLE_DIR = "/Users/applem2/Downloads/TESI/Project/LifeCycleAligner/LifeCycleAligner_Grounded/resources/";
+	public final static String WORKING_DIR = "/Users/applem2/Downloads/TESI/Project/LifeCycleAligner/LifeCycleAligner_Grounded/";
 	public static Vector<String> dots = new Vector<String>() ;
 	public static String PDDL_encoding = "AAAI17"; //It can be equal to "AAAI17" or to "ICAPS16".
     private static boolean hold_not_found_constraints = true; // whether to hold or not the constraints for activities not in the log

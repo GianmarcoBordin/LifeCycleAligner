@@ -18,12 +18,12 @@ public class Runner {
             if (Container.getFDOptimalCheckBox()) {
                 if (Container.getLocal_planners()){
                     terminalCommand = String.format(
-                            "/Users/applem2/Downloads/TESI/Project/Aligner/Plan-based_Data_Aware_Declarative_Conf_Checker/run_FD_local %s %s %s %s %d && exit",
+                            "/Users/applem2/Downloads/TESI/Project/LifeCycleAligner/LifeCycleAligner_Grounded/run_FD_local %s %s %s %s %d && exit",
                             avg_trace_length, noise_percentage, lifecycle, num_constraints, duration
                     );
                 }
                 else {
-                    terminalCommand = String.format("docker run --rm --name fd_container_%s_%s_%s_%s_%d -v /Users/applem2/Downloads/TESI/Project/Aligner/Plan-based_Data_Aware_Declarative_Conf_Checker/fast-downward/shell:/shell -v /Users/applem2/Downloads/TESI/Project/Aligner/Plan-based_Data_Aware_Declarative_Conf_Checker/fast-downward/Conformance_Checking:/pddl --entrypoint /shell/run_FD aibasel/downward %s %s %s %s %d && docker container prune -f && exit",
+                    terminalCommand = String.format("docker run --rm --name fd_container_%s_%s_%s_%s_%d -v /Users/applem2/Downloads/TESI/Project/LifeCycleAligner/LifeCycleAligner_Grounded/fast-downward/shell:/shell -v /Users/applem2/Downloads/TESI/Project/LifeCycleAligner/LifeCycleAligner_Grounded/fast-downward/Conformance_Checking:/pddl --entrypoint /shell/run_FD aibasel/downward %s %s %s %s %d && docker container prune -f && exit",
                             avg_trace_length, noise_percentage.replace("%",""), lifecycle, num_constraints, duration,
                             avg_trace_length, noise_percentage, lifecycle, num_constraints, duration
 
@@ -32,12 +32,12 @@ public class Runner {
             } else {
                 if (Container.getLocal_planners()){
                     terminalCommand = String.format(
-                            "/Users/applem2/Downloads/TESI/Project/Aligner/Plan-based_Data_Aware_Declarative_Conf_Checker/run_SYMBA_local %s %s %s %s %d && exit",
+                            "/Users/applem2/Downloads/TESI/Project/LifeCycleAligner/LifeCycleAligner_Grounded/run_SYMBA_local %s %s %s %s %d && exit",
                             avg_trace_length, noise_percentage, lifecycle, num_constraints, duration
                     );
                 }
                 else{
-                    terminalCommand = String.format("docker run --rm --name symba_container_%s_%s_%s_%s_%d -v /Users/applem2/Downloads/TESI/Project/Aligner/Plan-based_Data_Aware_Declarative_Conf_Checker/seq-opt-symba-2/shell:/shell -v /Users/applem2/Downloads/TESI/Project/Aligner/Plan-based_Data_Aware_Declarative_Conf_Checker/seq-opt-symba-2/Conformance_Checking:/pddl --entrypoint /shell/run_SYMBA ansep/symba2-64bit %s %s %s %s %d && docker container prune -f && exit",
+                    terminalCommand = String.format("docker run --rm --name symba_container_%s_%s_%s_%s_%d -v /Users/applem2/Downloads/TESI/Project/LifeCycleAligner/LifeCycleAligner_Grounded/seq-opt-symba-2/shell:/shell -v /Users/applem2/Downloads/TESI/Project/LifeCycleAligner/LifeCycleAligner_Grounded/seq-opt-symba-2/Conformance_Checking:/pddl --entrypoint /shell/run_SYMBA ansep/symba2-64bit %s %s %s %s %d && docker container prune -f && exit",
                             avg_trace_length, noise_percentage.replace("%",""), lifecycle, num_constraints, duration,
                             avg_trace_length, noise_percentage, lifecycle, num_constraints, duration
 
@@ -81,14 +81,14 @@ public class Runner {
             if (Container.getFDOptimalCheckBox()) {
                 if (Container.getLocal_planners()) {
                     terminalCommand = String.format(
-                            "/Users/applem2/Downloads/TESI/Project/Aligner/Plan-based_Data_Aware_Declarative_Conf_Checker/run_FD_local %s %s %s %s %d",
+                            "/Users/applem2/Downloads/TESI/Project/LifeCycleAligner/LifeCycleAligner_Grounded/run_FD_local %s %s %s %s %d",
                             avg_trace_length, noise_percentage, lifecycle, num_constraints, duration
                     );
                 } else {
                     terminalCommand = String.format(
                             "docker run --rm --name fd_container_%s_%s_%s_%s_%d " +
-                                    "-v /Users/applem2/Downloads/TESI/Project/Aligner/Plan-based_Data_Aware_Declarative_Conf_Checker/fast-downward/shell:/shell " +
-                                    "-v /Users/applem2/Downloads/TESI/Project/Aligner/Plan-based_Data_Aware_Declarative_Conf_Checker/fast-downward/Conformance_Checking:/pddl " +
+                                    "-v /Users/applem2/Downloads/TESI/Project/LifeCycleAligner/LifeCycleAligner_Grounded/fast-downward/shell:/shell " +
+                                    "-v /Users/applem2/Downloads/TESI/Project/LifeCycleAligner/LifeCycleAligner_Grounded/fast-downward/Conformance_Checking:/pddl " +
                                     "--entrypoint /shell/run_FD aibasel/downward %s %s %s %s %d",
                             avg_trace_length, noise_percentage.replace("%", ""), lifecycle, num_constraints, duration,
                             avg_trace_length, noise_percentage, lifecycle, num_constraints, duration
@@ -97,14 +97,14 @@ public class Runner {
             } else {
                 if (Container.getLocal_planners()) {
                     terminalCommand = String.format(
-                            "/Users/applem2/Downloads/TESI/Project/Aligner/Plan-based_Data_Aware_Declarative_Conf_Checker/run_SYMBA_local %s %s %s %s %d",
+                            "/Users/applem2/Downloads/TESI/Project/LifeCycleAligner/LifeCycleAligner_Grounded/run_SYMBA_local %s %s %s %s %d",
                             avg_trace_length, noise_percentage, lifecycle, num_constraints, duration
                     );
                 } else {
                     terminalCommand = String.format(
                             "docker run --rm --name symba_container_%s_%s_%s_%s_%d " +
-                                    "-v /Users/applem2/Downloads/TESI/Project/Aligner/Plan-based_Data_Aware_Declarative_Conf_Checker/seq-opt-symba-2/shell:/shell " +
-                                    "-v /Users/applem2/Downloads/TESI/Project/Aligner/Plan-based_Data_Aware_Declarative_Conf_Checker/seq-opt-symba-2/Conformance_Checking:/pddl " +
+                                    "-v /Users/applem2/Downloads/TESI/Project/LifeCycleAligner/LifeCycleAligner_Grounded/seq-opt-symba-2/shell:/shell " +
+                                    "-v /Users/applem2/Downloads/TESI/Project/LifeCycleAligner/LifeCycleAligner_Grounded/seq-opt-symba-2/Conformance_Checking:/pddl " +
                                     "--entrypoint /shell/run_SYMBA ansep/symba2-64bit %s %s %s %s %d",
                             avg_trace_length, noise_percentage.replace("%", ""), lifecycle, num_constraints, duration,
                             avg_trace_length, noise_percentage, lifecycle, num_constraints, duration

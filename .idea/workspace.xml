@@ -4,7 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="50a5cc32-8d06-47a3-bae2-a88b55014a6f" name="Changes" comment="commit to public repository" />
+    <list default="true" id="50a5cc32-8d06-47a3-bae2-a88b55014a6f" name="Changes" comment="commit to public repository">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LifeCycleAligner_Grounded/run_FD_local" beforeDir="false" afterPath="$PROJECT_DIR$/LifeCycleAligner_Grounded/run_FD_local" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LifeCycleAligner_Grounded/run_SYMBA_local" beforeDir="false" afterPath="$PROJECT_DIR$/LifeCycleAligner_Grounded/run_SYMBA_local" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LifeCycleAligner_Grounded/src/main/Container.java" beforeDir="false" afterPath="$PROJECT_DIR$/LifeCycleAligner_Grounded/src/main/Container.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LifeCycleAligner_Grounded/src/main/Loader.java" beforeDir="false" afterPath="$PROJECT_DIR$/LifeCycleAligner_Grounded/src/main/Loader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LifeCycleAligner_Grounded/src/main/Runner.java" beforeDir="false" afterPath="$PROJECT_DIR$/LifeCycleAligner_Grounded/src/main/Runner.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LifeCycleAligner_Grounded/src/main/Utilities.java" beforeDir="false" afterPath="$PROJECT_DIR$/LifeCycleAligner_Grounded/src/main/Utilities.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LifeCycleAligner_Grounded/test" beforeDir="false" afterPath="$PROJECT_DIR$/LifeCycleAligner_Grounded/test" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -36,6 +46,9 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="ProjectErrors" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 2
 }</component>
@@ -52,8 +65,8 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "git-widget-placeholder": "master",
-    "last_opened_file_path": "/Users/applem2/Downloads/TESI/Theory/Project/LifeCycleAligner/out",
-    "project.structure.last.edited": "Modules",
+    "last_opened_file_path": "/Users/applem2/Downloads/TESI/Project/LifeCycleAligner",
+    "project.structure.last.edited": "Project",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
     "settings.editor.selected.configurable": "project.propVCSSupport.DirectoryMappings"
@@ -80,8 +93,10 @@
       <recent name="view" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Main">
+  <component name="RunManager" selected="Shell Script.Test">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="ALTERNATIVE_JRE_PATH" value="/Library/Java/JavaVirtualMachines/jdk-22.jdk/Contents/Home" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <option name="MAIN_CLASS_NAME" value="main.Main" />
       <module name="LifeCycleAligner" />
       <option name="PROGRAM_PARAMETERS" value="fast-downward $PROJECT_DIR$/Plan-based_Data_Aware_Declarative_Conf_Checker/resources/log-files/12_alphabet/7_constraints/30_noise/30_30%_12_7.xes $PROJECT_DIR$/Plan-based_Data_Aware_Declarative_Conf_Checker/resources/declarative-models/12_alphabet/7_constraints/12_7.xml" />
@@ -139,22 +154,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1717400362542</updated>
-    </task>
-    <task id="LOCAL-00076" summary="fix">
-      <option name="closed" value="true" />
-      <created>1723882278567</created>
-      <option name="number" value="00076" />
-      <option name="presentableId" value="LOCAL-00076" />
-      <option name="project" value="LOCAL" />
-      <updated>1723882278567</updated>
-    </task>
-    <task id="LOCAL-00077" summary="fix">
-      <option name="closed" value="true" />
-      <created>1723906235458</created>
-      <option name="number" value="00077" />
-      <option name="presentableId" value="LOCAL-00077" />
-      <option name="project" value="LOCAL" />
-      <updated>1723906235459</updated>
     </task>
     <task id="LOCAL-00078" summary="fix">
       <option name="closed" value="true" />
@@ -532,7 +531,23 @@
       <option name="project" value="LOCAL" />
       <updated>1734528040473</updated>
     </task>
-    <option name="localTasksCounter" value="125" />
+    <task id="LOCAL-00125" summary="commit to public repository">
+      <option name="closed" value="true" />
+      <created>1734528476146</created>
+      <option name="number" value="00125" />
+      <option name="presentableId" value="LOCAL-00125" />
+      <option name="project" value="LOCAL" />
+      <updated>1734528476146</updated>
+    </task>
+    <task id="LOCAL-00126" summary="commit to public repository">
+      <option name="closed" value="true" />
+      <created>1734528794468</created>
+      <option name="number" value="00126" />
+      <option name="presentableId" value="LOCAL-00126" />
+      <option name="project" value="LOCAL" />
+      <updated>1734528794468</updated>
+    </task>
+    <option name="localTasksCounter" value="127" />
     <servers />
   </component>
   <component name="UnknownFeatures">

@@ -4,7 +4,7 @@ cd /Users/applem2/Downloads/TESI/seq_opt_symba_2/ || exit
 
 logfile="symba2_$1_$2_$3_$4_$5_.txt"
 
-cp /Users/applem2/Downloads/TESI/Project/Aligner/Plan-based_Data_Aware_Declarative_Conf_Checker/seq-opt-symba-2/Conformance_Checking/* "Conformance_Checking/"
+cp /Users/applem2/Downloads/TESI/Project/LifeCycleAligner/LifeCycleAligner_Grounded/seq-opt-symba-2/Conformance_Checking/* "Conformance_Checking/"
 
 echo "Starting the log file at $(date)" > "$logfile"
 
