@@ -1,5 +1,5 @@
 # LifeCycleAligner
-![Project Logo](../Theory/Project/Aligner/images/logo.png "Project Logo")
+![Project Logo](./images/logo.png "Project Logo")
 
 The LifeCycleAligner is a tool designed to ensure planner-based-activity-lifecycle-aware trace alignment by converting event logs and constraints models into PDDL files.
 It provides a seamless way to work with activity-lifecycle-constrained trace alignment using process mining standards like XES for event logs and XML & DOT for constraints models.
@@ -45,7 +45,7 @@ The **LifeCycleAligner** repository provides tools for planning-based trace alig
       - Event logs in XES format.
       - Constraints models in DOT format.
    - Outputs non-grounded PDDL problem files for planning and activity-lifecycle aware trace alignment.
-![Image Alt Text](../Theory/Project/Aligner/images/execution.png)
+![Image Alt Text](./images/execution.png)
 
 - **Grounded Java Implementation**:
    - Generates `<domain.pddl, problem.pddl>` couples, with the problem file tightly linked to the domain.
@@ -54,13 +54,13 @@ The **LifeCycleAligner** repository provides tools for planning-based trace alig
       - Event logs in XES format.
       - Constraints models in XML and DOT formats.
    - Produces strictly linked instances for a more efficient planning search.
-   ![Image Alt Text](../Theory/Project/Aligner/images/Architecture_W.png)
+   ![Image Alt Text](./images/Architecture_W.png)
 
 - **Additional Tools**:
    - **Python Noiser Script**: Injects noise into event logs, allowing controlled manipulation and formatting with specified noise levels.
-    ![Image Alt Text](../Theory/Project/Aligner/images/noiser_output.png)
+    ![Image Alt Text](./images/noiser_output.png)
    - **Python Test Script**: Parses Java tool output and processes the results into CSV files for easy analysis and reporting.
-     ![Image Alt Text](../Theory/Project/Aligner/images/test_script_output.png)
+     ![Image Alt Text](./images/test_script_output.png)
    - **Test Cases and Experimental Results**: Predefined tests and results for evaluating the performance and accuracy of both versions.
 
 ### Purpose and Use Cases
@@ -175,11 +175,11 @@ The output folder `/Conformance_Checking` will contain files like:
 
 The project includes a set of tests to help you validate the functionality of the Java-based implementation.
 
-![Image Alt Text](../Theory/Project/Aligner/images/t10.png)
+![Image Alt Text](./images/t10.png)
 
 You can find the related results in the corresponding `/results` folder.
 
-![Image Alt Text](../Theory/Project/Aligner/images/plotc7.png)
+![Image Alt Text](./images/plotc7.png)
 
 
 ### Python Test Scripts

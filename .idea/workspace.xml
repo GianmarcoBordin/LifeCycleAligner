@@ -1,0 +1,577 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="50a5cc32-8d06-47a3-bae2-a88b55014a6f" name="Changes" comment="commit to public repository" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Dockerfile" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="ROOT_SYNC" value="DONT_SYNC" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="jar:///Library/Java/JavaVirtualMachines/jdk-22.jdk/Contents/Home/lib/src.zip!/java.base/java/lang/Integer.java" root0="SKIP_INSPECTION" />
+    <setting file="jar:///Library/Java/JavaVirtualMachines/jdk-22.jdk/Contents/Home/lib/src.zip!/java.base/java/lang/NumberFormatException.java" root0="SKIP_INSPECTION" />
+    <setting file="jar://$PROJECT_DIR$/Plan-based_Data_Aware_Declarative_Conf_Checker/lib/DeclareVisualizer.jar!/org/processmining/plugins/declare/visualizing/AssignmentElementFactory.java" root0="SKIP_INSPECTION" />
+    <setting file="jar://$PROJECT_DIR$/Plan-based_Data_Aware_Declarative_Conf_Checker/lib/DeclareVisualizer.jar!/org/processmining/plugins/declare/visualizing/TemplateElementFactory.java" root0="SKIP_INSPECTION" />
+    <setting file="jar://$PROJECT_DIR$/Plan-based_Data_Aware_Declarative_Conf_Checker/lib/DeclareVisualizer.jar!/org/processmining/plugins/declare/visualizing/XMLAssignmentBroker.java" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/Plan-based_Data_Aware_Declarative_Conf_Checker/src/main/Lifecycle.java" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/Plan-based_Data_Aware_Declarative_Conf_Checker/src/main/Main.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Plan-based_Data_Aware_Declarative_Conf_Checker/src/main/Runner.java" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/Plan-based_Data_Aware_Declarative_Conf_Checker/src/main/Utilities.java" root0="SKIP_INSPECTION" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 2
+}</component>
+  <component name="ProjectId" id="2hMODs3GWKyCtRyv6LR68VoqXJZ" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "master",
+    "last_opened_file_path": "/Users/applem2/Downloads/TESI/Theory/Project/LifeCycleAligner/out",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "project.propVCSSupport.DirectoryMappings"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/out" />
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/Plan-based_Data_Aware_Declarative_Conf_Checker/resources/declarative-models/test" />
+      <recent name="$PROJECT_DIR$/Plan-based_Data_Aware_Declarative_Conf_Checker/resources/log-files/test/5_events/length_30" />
+      <recent name="$PROJECT_DIR$/Plan-based_Data_Aware_Declarative_Conf_Checker/resources/log-files/test/5_events/length_20" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/pddlTranslator" />
+      <recent name="$PROJECT_DIR$/Plan-based_Data_Aware_Declarative_Conf_Checker" />
+      <recent name="$PROJECT_DIR$/Plan-based_Data_Aware_Declarative_Conf_Checker/resources/log-files/8_alphabet/1_constraints/20_noise" />
+      <recent name="$PROJECT_DIR$/Plan-based_Data_Aware_Declarative_Conf_Checker/resources/log-files/alphabet_2/7_constraints/30_noise" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="main" />
+      <recent name="control" />
+      <recent name="view" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Application.Main">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="main.Main" />
+      <module name="LifeCycleAligner" />
+      <option name="PROGRAM_PARAMETERS" value="fast-downward $PROJECT_DIR$/Plan-based_Data_Aware_Declarative_Conf_Checker/resources/log-files/12_alphabet/7_constraints/30_noise/30_30%_12_7.xes $PROJECT_DIR$/Plan-based_Data_Aware_Declarative_Conf_Checker/resources/declarative-models/12_alphabet/7_constraints/12_7.xml" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="run.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Test" type="ShConfigurationType">
+      <option name="SCRIPT_TEXT" value="" />
+      <option name="INDEPENDENT_SCRIPT_PATH" value="true" />
+      <option name="SCRIPT_PATH" value="$PROJECT_DIR$/Plan-based_Data_Aware_Declarative_Conf_Checker/test" />
+      <option name="SCRIPT_OPTIONS" value="" />
+      <option name="INDEPENDENT_SCRIPT_WORKING_DIRECTORY" value="true" />
+      <option name="SCRIPT_WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="INDEPENDENT_INTERPRETER_PATH" value="true" />
+      <option name="INTERPRETER_PATH" value="/bin/zsh" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="EXECUTE_IN_TERMINAL" value="true" />
+      <option name="EXECUTE_SCRIPT_FILE" value="true" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="docker-deploy" factoryName="dockerfile" temporary="true">
+      <deployment type="dockerfile">
+        <settings />
+      </deployment>
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Application.Main" />
+      <item itemvalue="Shell Script.Test" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Main" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="ShelveChangesManager">
+    <option name="groupingKeys">
+      <option value="module" />
+    </option>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="50a5cc32-8d06-47a3-bae2-a88b55014a6f" name="Changes" comment="" />
+      <created>1717400362542</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1717400362542</updated>
+    </task>
+    <task id="LOCAL-00076" summary="fix">
+      <option name="closed" value="true" />
+      <created>1723882278567</created>
+      <option name="number" value="00076" />
+      <option name="presentableId" value="LOCAL-00076" />
+      <option name="project" value="LOCAL" />
+      <updated>1723882278567</updated>
+    </task>
+    <task id="LOCAL-00077" summary="fix">
+      <option name="closed" value="true" />
+      <created>1723906235458</created>
+      <option name="number" value="00077" />
+      <option name="presentableId" value="LOCAL-00077" />
+      <option name="project" value="LOCAL" />
+      <updated>1723906235459</updated>
+    </task>
+    <task id="LOCAL-00078" summary="fix">
+      <option name="closed" value="true" />
+      <created>1730560892692</created>
+      <option name="number" value="00078" />
+      <option name="presentableId" value="LOCAL-00078" />
+      <option name="project" value="LOCAL" />
+      <updated>1730560892692</updated>
+    </task>
+    <task id="LOCAL-00079" summary="fix">
+      <option name="closed" value="true" />
+      <created>1730560903215</created>
+      <option name="number" value="00079" />
+      <option name="presentableId" value="LOCAL-00079" />
+      <option name="project" value="LOCAL" />
+      <updated>1730560903215</updated>
+    </task>
+    <task id="LOCAL-00080" summary="fix">
+      <option name="closed" value="true" />
+      <created>1730740700091</created>
+      <option name="number" value="00080" />
+      <option name="presentableId" value="LOCAL-00080" />
+      <option name="project" value="LOCAL" />
+      <updated>1730740700091</updated>
+    </task>
+    <task id="LOCAL-00081" summary="fix">
+      <option name="closed" value="true" />
+      <created>1730803316892</created>
+      <option name="number" value="00081" />
+      <option name="presentableId" value="LOCAL-00081" />
+      <option name="project" value="LOCAL" />
+      <updated>1730803316892</updated>
+    </task>
+    <task id="LOCAL-00082" summary="fix">
+      <option name="closed" value="true" />
+      <created>1730820713983</created>
+      <option name="number" value="00082" />
+      <option name="presentableId" value="LOCAL-00082" />
+      <option name="project" value="LOCAL" />
+      <updated>1730820713984</updated>
+    </task>
+    <task id="LOCAL-00083" summary="fix">
+      <option name="closed" value="true" />
+      <created>1730886888517</created>
+      <option name="number" value="00083" />
+      <option name="presentableId" value="LOCAL-00083" />
+      <option name="project" value="LOCAL" />
+      <updated>1730886888517</updated>
+    </task>
+    <task id="LOCAL-00084" summary="fix">
+      <option name="closed" value="true" />
+      <created>1730915784794</created>
+      <option name="number" value="00084" />
+      <option name="presentableId" value="LOCAL-00084" />
+      <option name="project" value="LOCAL" />
+      <updated>1730915784795</updated>
+    </task>
+    <task id="LOCAL-00085" summary="fix">
+      <option name="closed" value="true" />
+      <created>1730915798466</created>
+      <option name="number" value="00085" />
+      <option name="presentableId" value="LOCAL-00085" />
+      <option name="project" value="LOCAL" />
+      <updated>1730915798466</updated>
+    </task>
+    <task id="LOCAL-00086" summary="fix">
+      <option name="closed" value="true" />
+      <created>1730979009603</created>
+      <option name="number" value="00086" />
+      <option name="presentableId" value="LOCAL-00086" />
+      <option name="project" value="LOCAL" />
+      <updated>1730979009604</updated>
+    </task>
+    <task id="LOCAL-00087" summary="fix">
+      <option name="closed" value="true" />
+      <created>1730979021916</created>
+      <option name="number" value="00087" />
+      <option name="presentableId" value="LOCAL-00087" />
+      <option name="project" value="LOCAL" />
+      <updated>1730979021916</updated>
+    </task>
+    <task id="LOCAL-00088" summary="fix">
+      <option name="closed" value="true" />
+      <created>1730998571823</created>
+      <option name="number" value="00088" />
+      <option name="presentableId" value="LOCAL-00088" />
+      <option name="project" value="LOCAL" />
+      <updated>1730998571823</updated>
+    </task>
+    <task id="LOCAL-00089" summary="fix">
+      <option name="closed" value="true" />
+      <created>1730998579546</created>
+      <option name="number" value="00089" />
+      <option name="presentableId" value="LOCAL-00089" />
+      <option name="project" value="LOCAL" />
+      <updated>1730998579547</updated>
+    </task>
+    <task id="LOCAL-00090" summary="fix">
+      <option name="closed" value="true" />
+      <created>1731082830675</created>
+      <option name="number" value="00090" />
+      <option name="presentableId" value="LOCAL-00090" />
+      <option name="project" value="LOCAL" />
+      <updated>1731082830675</updated>
+    </task>
+    <task id="LOCAL-00091" summary="fix">
+      <option name="closed" value="true" />
+      <created>1731083378593</created>
+      <option name="number" value="00091" />
+      <option name="presentableId" value="LOCAL-00091" />
+      <option name="project" value="LOCAL" />
+      <updated>1731083378593</updated>
+    </task>
+    <task id="LOCAL-00092" summary="fix">
+      <option name="closed" value="true" />
+      <created>1731084115549</created>
+      <option name="number" value="00092" />
+      <option name="presentableId" value="LOCAL-00092" />
+      <option name="project" value="LOCAL" />
+      <updated>1731084115549</updated>
+    </task>
+    <task id="LOCAL-00093" summary="fix">
+      <option name="closed" value="true" />
+      <created>1731148131802</created>
+      <option name="number" value="00093" />
+      <option name="presentableId" value="LOCAL-00093" />
+      <option name="project" value="LOCAL" />
+      <updated>1731148131802</updated>
+    </task>
+    <task id="LOCAL-00094" summary="fix">
+      <option name="closed" value="true" />
+      <created>1731249176898</created>
+      <option name="number" value="00094" />
+      <option name="presentableId" value="LOCAL-00094" />
+      <option name="project" value="LOCAL" />
+      <updated>1731249176898</updated>
+    </task>
+    <task id="LOCAL-00095" summary="fix">
+      <option name="closed" value="true" />
+      <created>1731339820136</created>
+      <option name="number" value="00095" />
+      <option name="presentableId" value="LOCAL-00095" />
+      <option name="project" value="LOCAL" />
+      <updated>1731339820137</updated>
+    </task>
+    <task id="LOCAL-00096" summary="fix">
+      <option name="closed" value="true" />
+      <created>1731344700874</created>
+      <option name="number" value="00096" />
+      <option name="presentableId" value="LOCAL-00096" />
+      <option name="project" value="LOCAL" />
+      <updated>1731344700874</updated>
+    </task>
+    <task id="LOCAL-00097" summary="fix">
+      <option name="closed" value="true" />
+      <created>1731344711363</created>
+      <option name="number" value="00097" />
+      <option name="presentableId" value="LOCAL-00097" />
+      <option name="project" value="LOCAL" />
+      <updated>1731344711363</updated>
+    </task>
+    <task id="LOCAL-00098" summary="fix">
+      <option name="closed" value="true" />
+      <created>1731492037491</created>
+      <option name="number" value="00098" />
+      <option name="presentableId" value="LOCAL-00098" />
+      <option name="project" value="LOCAL" />
+      <updated>1731492037491</updated>
+    </task>
+    <task id="LOCAL-00099" summary="fix">
+      <option name="closed" value="true" />
+      <created>1731492047498</created>
+      <option name="number" value="00099" />
+      <option name="presentableId" value="LOCAL-00099" />
+      <option name="project" value="LOCAL" />
+      <updated>1731492047498</updated>
+    </task>
+    <task id="LOCAL-00100" summary="fix">
+      <option name="closed" value="true" />
+      <created>1731492058324</created>
+      <option name="number" value="00100" />
+      <option name="presentableId" value="LOCAL-00100" />
+      <option name="project" value="LOCAL" />
+      <updated>1731492058324</updated>
+    </task>
+    <task id="LOCAL-00101" summary="fix">
+      <option name="closed" value="true" />
+      <created>1731492064000</created>
+      <option name="number" value="00101" />
+      <option name="presentableId" value="LOCAL-00101" />
+      <option name="project" value="LOCAL" />
+      <updated>1731492064000</updated>
+    </task>
+    <task id="LOCAL-00102" summary="fix">
+      <option name="closed" value="true" />
+      <created>1731598592440</created>
+      <option name="number" value="00102" />
+      <option name="presentableId" value="LOCAL-00102" />
+      <option name="project" value="LOCAL" />
+      <updated>1731598592440</updated>
+    </task>
+    <task id="LOCAL-00103" summary="fix">
+      <option name="closed" value="true" />
+      <created>1731598601065</created>
+      <option name="number" value="00103" />
+      <option name="presentableId" value="LOCAL-00103" />
+      <option name="project" value="LOCAL" />
+      <updated>1731598601065</updated>
+    </task>
+    <task id="LOCAL-00104" summary="fix">
+      <option name="closed" value="true" />
+      <created>1731779613246</created>
+      <option name="number" value="00104" />
+      <option name="presentableId" value="LOCAL-00104" />
+      <option name="project" value="LOCAL" />
+      <updated>1731779613246</updated>
+    </task>
+    <task id="LOCAL-00105" summary="fix">
+      <option name="closed" value="true" />
+      <created>1731779746334</created>
+      <option name="number" value="00105" />
+      <option name="presentableId" value="LOCAL-00105" />
+      <option name="project" value="LOCAL" />
+      <updated>1731779746334</updated>
+    </task>
+    <task id="LOCAL-00106" summary="fix">
+      <option name="closed" value="true" />
+      <created>1731779852292</created>
+      <option name="number" value="00106" />
+      <option name="presentableId" value="LOCAL-00106" />
+      <option name="project" value="LOCAL" />
+      <updated>1731779852292</updated>
+    </task>
+    <task id="LOCAL-00107" summary="fix">
+      <option name="closed" value="true" />
+      <created>1731840781086</created>
+      <option name="number" value="00107" />
+      <option name="presentableId" value="LOCAL-00107" />
+      <option name="project" value="LOCAL" />
+      <updated>1731840781086</updated>
+    </task>
+    <task id="LOCAL-00108" summary="fix">
+      <option name="closed" value="true" />
+      <created>1731840986498</created>
+      <option name="number" value="00108" />
+      <option name="presentableId" value="LOCAL-00108" />
+      <option name="project" value="LOCAL" />
+      <updated>1731840986498</updated>
+    </task>
+    <task id="LOCAL-00109" summary="fix">
+      <option name="closed" value="true" />
+      <created>1731875526623</created>
+      <option name="number" value="00109" />
+      <option name="presentableId" value="LOCAL-00109" />
+      <option name="project" value="LOCAL" />
+      <updated>1731875526623</updated>
+    </task>
+    <task id="LOCAL-00110" summary="fix">
+      <option name="closed" value="true" />
+      <created>1731948816594</created>
+      <option name="number" value="00110" />
+      <option name="presentableId" value="LOCAL-00110" />
+      <option name="project" value="LOCAL" />
+      <updated>1731948816595</updated>
+    </task>
+    <task id="LOCAL-00111" summary="fix">
+      <option name="closed" value="true" />
+      <created>1732095859701</created>
+      <option name="number" value="00111" />
+      <option name="presentableId" value="LOCAL-00111" />
+      <option name="project" value="LOCAL" />
+      <updated>1732095859701</updated>
+    </task>
+    <task id="LOCAL-00112" summary="fix">
+      <option name="closed" value="true" />
+      <created>1732127487298</created>
+      <option name="number" value="00112" />
+      <option name="presentableId" value="LOCAL-00112" />
+      <option name="project" value="LOCAL" />
+      <updated>1732127487299</updated>
+    </task>
+    <task id="LOCAL-00113" summary="fix">
+      <option name="closed" value="true" />
+      <created>1732127529024</created>
+      <option name="number" value="00113" />
+      <option name="presentableId" value="LOCAL-00113" />
+      <option name="project" value="LOCAL" />
+      <updated>1732127529024</updated>
+    </task>
+    <task id="LOCAL-00114" summary="fix">
+      <option name="closed" value="true" />
+      <created>1732127538073</created>
+      <option name="number" value="00114" />
+      <option name="presentableId" value="LOCAL-00114" />
+      <option name="project" value="LOCAL" />
+      <updated>1732127538073</updated>
+    </task>
+    <task id="LOCAL-00115" summary="fix">
+      <option name="closed" value="true" />
+      <created>1733937412838</created>
+      <option name="number" value="00115" />
+      <option name="presentableId" value="LOCAL-00115" />
+      <option name="project" value="LOCAL" />
+      <updated>1733937412839</updated>
+    </task>
+    <task id="LOCAL-00116" summary="fix">
+      <option name="closed" value="true" />
+      <created>1734084690527</created>
+      <option name="number" value="00116" />
+      <option name="presentableId" value="LOCAL-00116" />
+      <option name="project" value="LOCAL" />
+      <updated>1734084690527</updated>
+    </task>
+    <task id="LOCAL-00117" summary="commit to public repository">
+      <option name="closed" value="true" />
+      <created>1734454642659</created>
+      <option name="number" value="00117" />
+      <option name="presentableId" value="LOCAL-00117" />
+      <option name="project" value="LOCAL" />
+      <updated>1734454642659</updated>
+    </task>
+    <task id="LOCAL-00118" summary="commit to public repository">
+      <option name="closed" value="true" />
+      <created>1734454797425</created>
+      <option name="number" value="00118" />
+      <option name="presentableId" value="LOCAL-00118" />
+      <option name="project" value="LOCAL" />
+      <updated>1734454797425</updated>
+    </task>
+    <task id="LOCAL-00119" summary="commit to public repository">
+      <option name="closed" value="true" />
+      <created>1734455059094</created>
+      <option name="number" value="00119" />
+      <option name="presentableId" value="LOCAL-00119" />
+      <option name="project" value="LOCAL" />
+      <updated>1734455059094</updated>
+    </task>
+    <task id="LOCAL-00120" summary="commit to public repository">
+      <option name="closed" value="true" />
+      <created>1734455119548</created>
+      <option name="number" value="00120" />
+      <option name="presentableId" value="LOCAL-00120" />
+      <option name="project" value="LOCAL" />
+      <updated>1734455119548</updated>
+    </task>
+    <task id="LOCAL-00121" summary="commit to public repository">
+      <option name="closed" value="true" />
+      <created>1734527561935</created>
+      <option name="number" value="00121" />
+      <option name="presentableId" value="LOCAL-00121" />
+      <option name="project" value="LOCAL" />
+      <updated>1734527561935</updated>
+    </task>
+    <task id="LOCAL-00122" summary="commit to public repository">
+      <option name="closed" value="true" />
+      <created>1734527714306</created>
+      <option name="number" value="00122" />
+      <option name="presentableId" value="LOCAL-00122" />
+      <option name="project" value="LOCAL" />
+      <updated>1734527714306</updated>
+    </task>
+    <task id="LOCAL-00123" summary="commit to public repository">
+      <option name="closed" value="true" />
+      <created>1734527955404</created>
+      <option name="number" value="00123" />
+      <option name="presentableId" value="LOCAL-00123" />
+      <option name="project" value="LOCAL" />
+      <updated>1734527955405</updated>
+    </task>
+    <task id="LOCAL-00124" summary="commit to public repository">
+      <option name="closed" value="true" />
+      <created>1734528040473</created>
+      <option name="number" value="00124" />
+      <option name="presentableId" value="LOCAL-00124" />
+      <option name="project" value="LOCAL" />
+      <updated>1734528040473</updated>
+    </task>
+    <option name="localTasksCounter" value="125" />
+    <servers />
+  </component>
+  <component name="UnknownFeatures">
+    <option featureType="com.intellij.fileTypeFactory" implementationName="*.dot" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="HEAD" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <ignored-roots>
+      <path value="$PROJECT_DIR$/pddlTranslator" />
+    </ignored-roots>
+    <MESSAGE value="Initial Commit" />
+    <MESSAGE value="fix" />
+    <MESSAGE value="commit to public repository" />
+    <option name="LAST_COMMIT_MESSAGE" value="commit to public repository" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
+  </component>
+</project>
