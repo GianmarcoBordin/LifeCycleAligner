@@ -6,7 +6,7 @@ import java.util.Arrays;
 
 public class Main {
 
-    private static final boolean DEBUG = false;
+    private static final boolean DEBUG = true;
 
     public static void main(String[] args) throws Exception {
 

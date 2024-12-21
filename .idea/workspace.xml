@@ -5,19 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="50a5cc32-8d06-47a3-bae2-a88b55014a6f" name="Changes" comment="commit to public repository">
-      <change beforePath="$PROJECT_DIR$/LifeCycleAligner_Grounded/results/results.csv" beforeDir="false" afterPath="$PROJECT_DIR$/LifeCycleAligner_Grounded/results/results.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LifeCycleAligner_NotGrounded/LifeCycleAligner_NotGrounded.ipynb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/LifeCycleAligner_NotGrounded/LifeCycleAligner_NotGrounded.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/LifeCycleAligner_NotGrounded/notebooks/LifeCycleAligner_NotGrounded.ipynb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/LifeCycleAligner_NotGrounded/notebooks/LifeCycleAligner_NotGrounded_no_sink_states.ipynb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/LifeCycleAligner_NotGrounded/pddl_files/domains/trace_alignement_domain_lifecycle_no_sink_states.pddl" beforeDir="false" afterPath="$PROJECT_DIR$/LifeCycleAligner_NotGrounded/pddl_files/domains/trace_alignement_domain_lifecycle.pddl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LifeCycleAligner_NotGrounded/pddl_files/original_formulation/trace_Alignment_Problem_original.pddl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/LifeCycleAligner_NotGrounded/pddl_files/original_formulation/trace_alignement_domain_lifecyle.pddl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/LifeCycleAligner_NotGrounded/pddl_files/problems/trace_Alignment_Problem_14.pddl" beforeDir="false" afterPath="$PROJECT_DIR$/LifeCycleAligner_NotGrounded/pddl_files/problems/trace_Alignment_Problem_14.pddl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LifeCycleAligner_NotGrounded/pddl_files/problems/trace_Alignment_Problem_15.pddl" beforeDir="false" afterPath="$PROJECT_DIR$/LifeCycleAligner_NotGrounded/pddl_files/problems/trace_Alignment_Problem_15.pddl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LifeCycleAligner_NotGrounded/pddl_files/problems/trace_Alignment_Problem_30.pddl" beforeDir="false" afterPath="$PROJECT_DIR$/LifeCycleAligner_NotGrounded/pddl_files/problems/trace_Alignment_Problem_30.pddl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LifeCycleAligner_NotGrounded/pddl_files/problems/trace_Alignment_Problem_40.pddl" beforeDir="false" afterPath="$PROJECT_DIR$/LifeCycleAligner_NotGrounded/pddl_files/problems/trace_Alignment_Problem_40.pddl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -69,8 +57,8 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/applem2/Downloads/TESI/Project/LifeCycleAligner&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/applem2/Downloads/TESI/Project/LifeCycleAligner/LifeCycleAligner_Grounded/seq-opt-symba-2&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;project.propVCSSupport.DirectoryMappings&quot;
@@ -78,18 +66,18 @@
 }</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/LifeCycleAligner_Grounded/seq-opt-symba-2" />
+      <recent name="$PROJECT_DIR$/LifeCycleAligner_Grounded/fast-downward" />
+      <recent name="$PROJECT_DIR$/tests" />
       <recent name="$PROJECT_DIR$/out" />
       <recent name="$PROJECT_DIR$" />
-      <recent name="$PROJECT_DIR$/Plan-based_Data_Aware_Declarative_Conf_Checker/resources/declarative-models/test" />
-      <recent name="$PROJECT_DIR$/Plan-based_Data_Aware_Declarative_Conf_Checker/resources/log-files/test/5_events/length_30" />
-      <recent name="$PROJECT_DIR$/Plan-based_Data_Aware_Declarative_Conf_Checker/resources/log-files/test/5_events/length_20" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/tests" />
       <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/pddlTranslator" />
       <recent name="$PROJECT_DIR$/Plan-based_Data_Aware_Declarative_Conf_Checker" />
       <recent name="$PROJECT_DIR$/Plan-based_Data_Aware_Declarative_Conf_Checker/resources/log-files/8_alphabet/1_constraints/20_noise" />
-      <recent name="$PROJECT_DIR$/Plan-based_Data_Aware_Declarative_Conf_Checker/resources/log-files/alphabet_2/7_constraints/30_noise" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="main" />
@@ -97,13 +85,13 @@
       <recent name="view" />
     </key>
   </component>
-  <component name="RunManager" selected="Shell Script.Test">
+  <component name="RunManager" selected="Application.Main">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="ALTERNATIVE_JRE_PATH" value="/Library/Java/JavaVirtualMachines/jdk-22.jdk/Contents/Home" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <option name="MAIN_CLASS_NAME" value="main.Main" />
       <module name="LifeCycleAligner" />
-      <option name="PROGRAM_PARAMETERS" value="fast-downward $PROJECT_DIR$/Plan-based_Data_Aware_Declarative_Conf_Checker/resources/log-files/12_alphabet/7_constraints/30_noise/30_30%_12_7.xes $PROJECT_DIR$/Plan-based_Data_Aware_Declarative_Conf_Checker/resources/declarative-models/12_alphabet/7_constraints/12_7.xml" />
+      <option name="PROGRAM_PARAMETERS" value="fast-downward $PROJECT_DIR$/LifeCycleAligner_Grounded/resources/log-files/12_alphabet/7_constraints/30_noise/30_30%_12_7.xes $PROJECT_DIR$/LifeCycleAligner_Grounded/resources/declarative-models/12_alphabet/7_constraints/12_7.xml" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="run.*" />
@@ -158,22 +146,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1717400362542</updated>
-    </task>
-    <task id="LOCAL-00079" summary="fix">
-      <option name="closed" value="true" />
-      <created>1730560903215</created>
-      <option name="number" value="00079" />
-      <option name="presentableId" value="LOCAL-00079" />
-      <option name="project" value="LOCAL" />
-      <updated>1730560903215</updated>
-    </task>
-    <task id="LOCAL-00080" summary="fix">
-      <option name="closed" value="true" />
-      <created>1730740700091</created>
-      <option name="number" value="00080" />
-      <option name="presentableId" value="LOCAL-00080" />
-      <option name="project" value="LOCAL" />
-      <updated>1730740700091</updated>
     </task>
     <task id="LOCAL-00081" summary="fix">
       <option name="closed" value="true" />
@@ -551,7 +523,23 @@
       <option name="project" value="LOCAL" />
       <updated>1734530180474</updated>
     </task>
-    <option name="localTasksCounter" value="128" />
+    <task id="LOCAL-00128" summary="commit to public repository">
+      <option name="closed" value="true" />
+      <created>1734533108778</created>
+      <option name="number" value="00128" />
+      <option name="presentableId" value="LOCAL-00128" />
+      <option name="project" value="LOCAL" />
+      <updated>1734533108778</updated>
+    </task>
+    <task id="LOCAL-00129" summary="commit to public repository">
+      <option name="closed" value="true" />
+      <created>1734533673379</created>
+      <option name="number" value="00129" />
+      <option name="presentableId" value="LOCAL-00129" />
+      <option name="project" value="LOCAL" />
+      <updated>1734533673379</updated>
+    </task>
+    <option name="localTasksCounter" value="130" />
     <servers />
   </component>
   <component name="UnknownFeatures">
