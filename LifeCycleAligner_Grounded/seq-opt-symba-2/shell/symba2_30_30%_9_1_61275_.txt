@@ -1,0 +1,69 @@
+
+Results for trace #2:
+Plan length: 54 step(s).
+Plan cost: 24
+Search time: 0.28s
+Total time: 0.54s
+Completed trace #2
+
+Results for trace #3:
+Plan length: 54 step(s).
+Plan cost: 24
+Search time: 0.28s
+Total time: 0.58s
+Completed trace #3
+
+Results for trace #4:
+Plan length: 54 step(s).
+Plan cost: 24
+Search time: 0.28s
+Total time: 0.58s
+Completed trace #4
+
+Results for trace #5:
+Completed trace #5
+
+Results for trace #6:
+Completed trace #6
+
+Results for trace #7:
+Completed trace #7
+
+Results for trace #8:
+Completed trace #8
+
+Results for trace #9:
+Completed trace #9
+
+Results for trace #10:
+Completed trace #10
+
+Results for trace #11:
+Completed trace #11
+
+Results for trace #12:
+Completed trace #12
+
+Results for trace #13:
+Completed trace #13
+
+Results for trace #14:
+Completed trace #14
+
+Results for trace #15:
+Completed trace #15
+
+Results for trace #16:
+Completed trace #16
+
+Results for trace #17:
+Completed trace #17
+
+Results for trace #18:
+Completed trace #18
+
+Results for trace #19:
+Completed trace #19
+
+Results for trace #20:
+Completed trace #20
