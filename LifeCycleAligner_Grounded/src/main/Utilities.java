@@ -10,7 +10,6 @@ import java.util.*;
 import org.processmining.ltl2automaton.plugins.automaton.Automaton;
 import org.processmining.ltl2automaton.plugins.automaton.State;
 import org.processmining.ltl2automaton.plugins.automaton.Transition;
-import org.processmining.ltl2automaton.plugins.automaton.TransitionLabel;
 
 import static main.Container.*;
 
@@ -80,7 +79,7 @@ public class Utilities {
 		}
 
 		String[] dirsToCheck = {
-				Container.WORKING_DIR + p + "/Conformance_Checking",
+				Container.WORKING_DIR + p + "/Conformance_Checking_d",
 		};
 
 		System.out.println("planner: " + planner + " trace: " + trace_length + " noise: " + noise_percentage + " constraints: " + constraints + " alphabet: " + alphabet);

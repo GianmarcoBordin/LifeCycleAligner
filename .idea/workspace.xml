@@ -5,7 +5,130 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="50a5cc32-8d06-47a3-bae2-a88b55014a6f" name="Changes" comment="commit to public repository">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LifeCycleAligner_Grounded/fast-downward/Conformance_Checking/domain1.pddl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LifeCycleAligner_Grounded/fast-downward/Conformance_Checking/domain10.pddl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LifeCycleAligner_Grounded/fast-downward/Conformance_Checking/domain11.pddl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LifeCycleAligner_Grounded/fast-downward/Conformance_Checking/domain12.pddl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LifeCycleAligner_Grounded/fast-downward/Conformance_Checking/domain13.pddl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LifeCycleAligner_Grounded/fast-downward/Conformance_Checking/domain14.pddl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LifeCycleAligner_Grounded/fast-downward/Conformance_Checking/domain15.pddl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LifeCycleAligner_Grounded/fast-downward/Conformance_Checking/domain16.pddl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LifeCycleAligner_Grounded/fast-downward/Conformance_Checking/domain17.pddl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LifeCycleAligner_Grounded/fast-downward/Conformance_Checking/domain18.pddl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LifeCycleAligner_Grounded/fast-downward/Conformance_Checking/domain19.pddl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LifeCycleAligner_Grounded/fast-downward/Conformance_Checking/domain2.pddl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LifeCycleAligner_Grounded/fast-downward/Conformance_Checking/domain20.pddl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LifeCycleAligner_Grounded/fast-downward/Conformance_Checking/domain3.pddl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LifeCycleAligner_Grounded/fast-downward/Conformance_Checking/domain4.pddl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LifeCycleAligner_Grounded/fast-downward/Conformance_Checking/domain5.pddl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LifeCycleAligner_Grounded/fast-downward/Conformance_Checking/domain6.pddl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LifeCycleAligner_Grounded/fast-downward/Conformance_Checking/domain7.pddl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LifeCycleAligner_Grounded/fast-downward/Conformance_Checking/domain8.pddl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LifeCycleAligner_Grounded/fast-downward/Conformance_Checking/domain9.pddl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LifeCycleAligner_Grounded/fast-downward/Conformance_Checking/problem1.pddl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LifeCycleAligner_Grounded/fast-downward/Conformance_Checking/problem10.pddl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LifeCycleAligner_Grounded/fast-downward/Conformance_Checking/problem11.pddl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LifeCycleAligner_Grounded/fast-downward/Conformance_Checking/problem12.pddl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LifeCycleAligner_Grounded/fast-downward/Conformance_Checking/problem13.pddl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LifeCycleAligner_Grounded/fast-downward/Conformance_Checking/problem14.pddl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LifeCycleAligner_Grounded/fast-downward/Conformance_Checking/problem15.pddl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LifeCycleAligner_Grounded/fast-downward/Conformance_Checking/problem16.pddl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LifeCycleAligner_Grounded/fast-downward/Conformance_Checking/problem17.pddl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LifeCycleAligner_Grounded/fast-downward/Conformance_Checking/problem18.pddl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LifeCycleAligner_Grounded/fast-downward/Conformance_Checking/problem19.pddl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LifeCycleAligner_Grounded/fast-downward/Conformance_Checking/problem2.pddl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LifeCycleAligner_Grounded/fast-downward/Conformance_Checking/problem20.pddl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LifeCycleAligner_Grounded/fast-downward/Conformance_Checking/problem3.pddl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LifeCycleAligner_Grounded/fast-downward/Conformance_Checking/problem4.pddl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LifeCycleAligner_Grounded/fast-downward/Conformance_Checking/problem5.pddl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LifeCycleAligner_Grounded/fast-downward/Conformance_Checking/problem6.pddl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LifeCycleAligner_Grounded/fast-downward/Conformance_Checking/problem7.pddl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LifeCycleAligner_Grounded/fast-downward/Conformance_Checking/problem8.pddl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LifeCycleAligner_Grounded/fast-downward/Conformance_Checking/problem9.pddl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LifeCycleAligner_Grounded/seq-opt-symba-2/Conformance_Checking/domain1.pddl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LifeCycleAligner_Grounded/seq-opt-symba-2/Conformance_Checking/domain10.pddl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LifeCycleAligner_Grounded/seq-opt-symba-2/Conformance_Checking/domain11.pddl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LifeCycleAligner_Grounded/seq-opt-symba-2/Conformance_Checking/domain12.pddl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LifeCycleAligner_Grounded/seq-opt-symba-2/Conformance_Checking/domain13.pddl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LifeCycleAligner_Grounded/seq-opt-symba-2/Conformance_Checking/domain14.pddl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LifeCycleAligner_Grounded/seq-opt-symba-2/Conformance_Checking/domain15.pddl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LifeCycleAligner_Grounded/seq-opt-symba-2/Conformance_Checking/domain16.pddl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LifeCycleAligner_Grounded/seq-opt-symba-2/Conformance_Checking/domain17.pddl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LifeCycleAligner_Grounded/seq-opt-symba-2/Conformance_Checking/domain18.pddl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LifeCycleAligner_Grounded/seq-opt-symba-2/Conformance_Checking/domain19.pddl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LifeCycleAligner_Grounded/seq-opt-symba-2/Conformance_Checking/domain2.pddl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LifeCycleAligner_Grounded/seq-opt-symba-2/Conformance_Checking/domain20.pddl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LifeCycleAligner_Grounded/seq-opt-symba-2/Conformance_Checking/domain3.pddl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LifeCycleAligner_Grounded/seq-opt-symba-2/Conformance_Checking/domain4.pddl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LifeCycleAligner_Grounded/seq-opt-symba-2/Conformance_Checking/domain5.pddl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LifeCycleAligner_Grounded/seq-opt-symba-2/Conformance_Checking/domain6.pddl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LifeCycleAligner_Grounded/seq-opt-symba-2/Conformance_Checking/domain7.pddl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LifeCycleAligner_Grounded/seq-opt-symba-2/Conformance_Checking/domain8.pddl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LifeCycleAligner_Grounded/seq-opt-symba-2/Conformance_Checking/domain9.pddl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LifeCycleAligner_Grounded/seq-opt-symba-2/Conformance_Checking/plan.sas" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LifeCycleAligner_Grounded/seq-opt-symba-2/Conformance_Checking/problem1.pddl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LifeCycleAligner_Grounded/seq-opt-symba-2/Conformance_Checking/problem10.pddl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LifeCycleAligner_Grounded/seq-opt-symba-2/Conformance_Checking/problem11.pddl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LifeCycleAligner_Grounded/seq-opt-symba-2/Conformance_Checking/problem12.pddl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LifeCycleAligner_Grounded/seq-opt-symba-2/Conformance_Checking/problem13.pddl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LifeCycleAligner_Grounded/seq-opt-symba-2/Conformance_Checking/problem14.pddl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LifeCycleAligner_Grounded/seq-opt-symba-2/Conformance_Checking/problem15.pddl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LifeCycleAligner_Grounded/seq-opt-symba-2/Conformance_Checking/problem16.pddl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LifeCycleAligner_Grounded/seq-opt-symba-2/Conformance_Checking/problem17.pddl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LifeCycleAligner_Grounded/seq-opt-symba-2/Conformance_Checking/problem18.pddl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LifeCycleAligner_Grounded/seq-opt-symba-2/Conformance_Checking/problem19.pddl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LifeCycleAligner_Grounded/seq-opt-symba-2/Conformance_Checking/problem2.pddl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LifeCycleAligner_Grounded/seq-opt-symba-2/Conformance_Checking/problem20.pddl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LifeCycleAligner_Grounded/seq-opt-symba-2/Conformance_Checking/problem3.pddl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LifeCycleAligner_Grounded/seq-opt-symba-2/Conformance_Checking/problem4.pddl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LifeCycleAligner_Grounded/seq-opt-symba-2/Conformance_Checking/problem5.pddl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LifeCycleAligner_Grounded/seq-opt-symba-2/Conformance_Checking/problem6.pddl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LifeCycleAligner_Grounded/seq-opt-symba-2/Conformance_Checking/problem7.pddl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LifeCycleAligner_Grounded/seq-opt-symba-2/Conformance_Checking/problem8.pddl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LifeCycleAligner_Grounded/seq-opt-symba-2/Conformance_Checking/problem9.pddl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LifeCycleAligner_Grounded/seq-opt-symba-2/Conformance_Checking_30_30%_9_1_backup_/domain1.pddl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LifeCycleAligner_Grounded/seq-opt-symba-2/Conformance_Checking_30_30%_9_1_backup_/domain10.pddl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LifeCycleAligner_Grounded/seq-opt-symba-2/Conformance_Checking_30_30%_9_1_backup_/domain11.pddl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LifeCycleAligner_Grounded/seq-opt-symba-2/Conformance_Checking_30_30%_9_1_backup_/domain12.pddl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LifeCycleAligner_Grounded/seq-opt-symba-2/Conformance_Checking_30_30%_9_1_backup_/domain13.pddl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LifeCycleAligner_Grounded/seq-opt-symba-2/Conformance_Checking_30_30%_9_1_backup_/domain14.pddl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LifeCycleAligner_Grounded/seq-opt-symba-2/Conformance_Checking_30_30%_9_1_backup_/domain15.pddl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LifeCycleAligner_Grounded/seq-opt-symba-2/Conformance_Checking_30_30%_9_1_backup_/domain16.pddl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LifeCycleAligner_Grounded/seq-opt-symba-2/Conformance_Checking_30_30%_9_1_backup_/domain17.pddl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LifeCycleAligner_Grounded/seq-opt-symba-2/Conformance_Checking_30_30%_9_1_backup_/domain18.pddl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LifeCycleAligner_Grounded/seq-opt-symba-2/Conformance_Checking_30_30%_9_1_backup_/domain19.pddl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LifeCycleAligner_Grounded/seq-opt-symba-2/Conformance_Checking_30_30%_9_1_backup_/domain2.pddl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LifeCycleAligner_Grounded/seq-opt-symba-2/Conformance_Checking_30_30%_9_1_backup_/domain20.pddl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LifeCycleAligner_Grounded/seq-opt-symba-2/Conformance_Checking_30_30%_9_1_backup_/domain3.pddl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LifeCycleAligner_Grounded/seq-opt-symba-2/Conformance_Checking_30_30%_9_1_backup_/domain4.pddl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LifeCycleAligner_Grounded/seq-opt-symba-2/Conformance_Checking_30_30%_9_1_backup_/domain5.pddl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LifeCycleAligner_Grounded/seq-opt-symba-2/Conformance_Checking_30_30%_9_1_backup_/domain6.pddl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LifeCycleAligner_Grounded/seq-opt-symba-2/Conformance_Checking_30_30%_9_1_backup_/domain7.pddl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LifeCycleAligner_Grounded/seq-opt-symba-2/Conformance_Checking_30_30%_9_1_backup_/domain8.pddl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LifeCycleAligner_Grounded/seq-opt-symba-2/Conformance_Checking_30_30%_9_1_backup_/domain9.pddl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LifeCycleAligner_Grounded/seq-opt-symba-2/Conformance_Checking_30_30%_9_1_backup_/plan.sas" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LifeCycleAligner_Grounded/seq-opt-symba-2/Conformance_Checking_30_30%_9_1_backup_/problem1.pddl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LifeCycleAligner_Grounded/seq-opt-symba-2/Conformance_Checking_30_30%_9_1_backup_/problem10.pddl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LifeCycleAligner_Grounded/seq-opt-symba-2/Conformance_Checking_30_30%_9_1_backup_/problem11.pddl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LifeCycleAligner_Grounded/seq-opt-symba-2/Conformance_Checking_30_30%_9_1_backup_/problem12.pddl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LifeCycleAligner_Grounded/seq-opt-symba-2/Conformance_Checking_30_30%_9_1_backup_/problem13.pddl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LifeCycleAligner_Grounded/seq-opt-symba-2/Conformance_Checking_30_30%_9_1_backup_/problem14.pddl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LifeCycleAligner_Grounded/seq-opt-symba-2/Conformance_Checking_30_30%_9_1_backup_/problem15.pddl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LifeCycleAligner_Grounded/seq-opt-symba-2/Conformance_Checking_30_30%_9_1_backup_/problem16.pddl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LifeCycleAligner_Grounded/seq-opt-symba-2/Conformance_Checking_30_30%_9_1_backup_/problem17.pddl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LifeCycleAligner_Grounded/seq-opt-symba-2/Conformance_Checking_30_30%_9_1_backup_/problem18.pddl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LifeCycleAligner_Grounded/seq-opt-symba-2/Conformance_Checking_30_30%_9_1_backup_/problem19.pddl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LifeCycleAligner_Grounded/seq-opt-symba-2/Conformance_Checking_30_30%_9_1_backup_/problem2.pddl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LifeCycleAligner_Grounded/seq-opt-symba-2/Conformance_Checking_30_30%_9_1_backup_/problem20.pddl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LifeCycleAligner_Grounded/seq-opt-symba-2/Conformance_Checking_30_30%_9_1_backup_/problem3.pddl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LifeCycleAligner_Grounded/seq-opt-symba-2/Conformance_Checking_30_30%_9_1_backup_/problem4.pddl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LifeCycleAligner_Grounded/seq-opt-symba-2/Conformance_Checking_30_30%_9_1_backup_/problem5.pddl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LifeCycleAligner_Grounded/seq-opt-symba-2/Conformance_Checking_30_30%_9_1_backup_/problem6.pddl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LifeCycleAligner_Grounded/seq-opt-symba-2/Conformance_Checking_30_30%_9_1_backup_/problem7.pddl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LifeCycleAligner_Grounded/seq-opt-symba-2/Conformance_Checking_30_30%_9_1_backup_/problem8.pddl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LifeCycleAligner_Grounded/seq-opt-symba-2/Conformance_Checking_30_30%_9_1_backup_/problem9.pddl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LifeCycleAligner_Grounded/src/main/Utilities.java" beforeDir="false" afterPath="$PROJECT_DIR$/LifeCycleAligner_Grounded/src/main/Utilities.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LifeCycleAligner_Grounded/test" beforeDir="false" afterPath="$PROJECT_DIR$/LifeCycleAligner_Grounded/test" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,7 +180,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "git-widget-placeholder": "master",
-    "last_opened_file_path": "/Users/applem2/Downloads/TESI/Project/LifeCycleAligner/images",
+    "last_opened_file_path": "/Users/applem2/Downloads/TESI/Project/LifeCycleAligner/LifeCycleAligner_Grounded/fast-downward",
     "project.structure.last.edited": "Artifacts",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
@@ -127,14 +250,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1717400362542</updated>
-    </task>
-    <task id="LOCAL-00085" summary="fix">
-      <option name="closed" value="true" />
-      <created>1730915798466</created>
-      <option name="number" value="00085" />
-      <option name="presentableId" value="LOCAL-00085" />
-      <option name="project" value="LOCAL" />
-      <updated>1730915798466</updated>
     </task>
     <task id="LOCAL-00086" summary="fix">
       <option name="closed" value="true" />
@@ -520,7 +635,15 @@
       <option name="project" value="LOCAL" />
       <updated>1734777934353</updated>
     </task>
-    <option name="localTasksCounter" value="134" />
+    <task id="LOCAL-00134" summary="commit to public repository">
+      <option name="closed" value="true" />
+      <created>1734778526804</created>
+      <option name="number" value="00134" />
+      <option name="presentableId" value="LOCAL-00134" />
+      <option name="project" value="LOCAL" />
+      <updated>1734778526804</updated>
+    </task>
+    <option name="localTasksCounter" value="135" />
     <servers />
   </component>
   <component name="UnknownFeatures">

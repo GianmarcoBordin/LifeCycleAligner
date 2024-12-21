@@ -27,7 +27,7 @@ CLASSPATH="$COMPILED_CLASSES_PATH:$(IFS=:; echo "${LIBRARY_PATHS[*]}")"
 LOGS_DIR="$BASE_DIR/log-files"
 CONSTRAINTS_DIR="$BASE_DIR/declarative-models"
 
-PLANNERS=("symba2")
+PLANNERS=("fast-downward" "symba2")
 PLANNER_DIRS=(
     "/Users/applem2/Downloads/TESI/Project/LifeCycleAligner/LifeCycleAligner_Grounded/fast-downward/shell"
     "/Users/applem2/Downloads/TESI/Project/LifeCycleAligner/LifeCycleAligner_Grounded/seq-opt-symba-2/shell"
